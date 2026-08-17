@@ -1,0 +1,27 @@
+{
+  "template": "git@github.com:i-dot-ai/i-dot-ai-cookiecutter.git",
+  "commit": "b801a51e946cad22a628fd10bb2905bb5ddd21fa",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "i.AI Design System",
+      "app_name": "i-ai-design-system",
+      "_copy_without_render": [
+        "*.html",
+        "*.js",
+        "*.css",
+        "*.ico",
+        "*.ttf"
+      ],
+      "frontend_framework": "astro",
+      "backend_framework": "None",
+      "database_backend": "None",
+      "_integration_test": "false",
+      "__perms_boundary_app_name": "i-ai-design-system",
+      "owner": "Jonny Vickers",
+      "email_address": "jonny.vickers@dsit.gov.uk",
+      "_template": "git@github.com:i-dot-ai/i-dot-ai-cookiecutter.git"
+    }
+  },
+  "directory": "templates/webapp-ecs"
+}
