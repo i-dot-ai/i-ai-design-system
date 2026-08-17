@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/govuk.scss';
 ---
 
 <!doctype html>
@@ -10,9 +11,14 @@ import '../styles/global.css';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>i.AI App</title>
 	</head>
-	<body>
+	<body class="govuk-template__body">
+		<script is:inline>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 		<main>
 			<slot />
 		</main>
+		<script>
+			import { initAll } from 'govuk-frontend';
+			initAll();
+		</script>
 	</body>
 </html>

@@ -52,7 +52,8 @@ poetry.lock
 frontend/node_modules/
 frontend/.astro/data-store.json
 frontend/.astro/settings.json
-frontend/.env
+frontend/.
+frontend/dist/
 
 
 
