@@ -12,7 +12,7 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
-  output: 'server',
+  output: 'static',
   integrations: [
     // Uncomment if using Sentry
     /*
