@@ -4,37 +4,6 @@
 
 ## Development
 
-#### Setup Application
-
-* Install the following packages:
-
-```bash
-brew install uv
-```
-
-Next, edit the variables in `.env` to have the values you need. Replace the following  in the `.env` file.
-
- - `account_id` with your AWS account ID. If you are unsure about the account ID, please reach out to your team members for assistance.
- - `auth_api_url` with an example value of `http://auth-url.local` for local environment. This URL will be obtained from SSM Parameter Store by the Terraform when creating the ECS Task Definition.
-
-We use [uv](https://github.com/astral-sh/uv) to manage our Python packages. uv uses the project root level `pyproject.toml` to store information about the project and packages.
-
-To set up the python environment for development:
-
-``` bash
-make install
-```
-
-When executing any python command, prefix with `uv run` to run it in the uv environment. e.g. `uv run python -m pytest`.
-
-To add new packages, edit `pyproject.toml` and run `uv lock` to update the lock file.
-
-To run the test locally use following command:
-
-``` bash
-make test
-```
-
 #### Running application locally
 
 
