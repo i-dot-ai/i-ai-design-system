@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import Button from "@components/button.astro";
 ---
 
 <Layout>
@@ -8,30 +9,10 @@ import Layout from "@layouts/Layout.astro";
     <h2 class="govuk-heading-l">Existing components - Lite versions</h2>
     <h3 class="govuk-heading-m">Buttons</h3>
     <div class="govuk-button-group">
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        Save and continue
-      </button>
-      <button
-        type="submit"
-        class="govuk-button govuk-button--secondary"
-        data-module="govuk-button"
-      >
-        Find address
-      </button>
-      <button
-        type="submit"
-        class="govuk-button govuk-button--secondary"
-        data-module="govuk-button"
-      >
-        Find address
-      </button>
-      <button
-        type="submit"
-        class="govuk-button govuk-button--secondary"
-        data-module="govuk-button"
-      >
-        Find address
-      </button>
+      <Button text="Primary" />
+      <Button text="Secondary" variant="secondary" />
+      <Button text="Warning" variant="warning" />
+      <Button text="Inverse" variant="inverse" />
     </div>
     <h3 class="govuk-heading-m">Select</h3>
     <div class="govuk-form-group govuk-form-group--inline">

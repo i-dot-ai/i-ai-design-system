@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+    text?: string;
+    variant?: "primary" | "secondary" | "warning" | "inverse";
+    link?: boolean;
+    href?: string;
+}
+
+const {
+    text = "Button text",
+    variant = "primary",
+    link = false,
+    href,
+    class: className,
+    ...rest
+} = Astro.props;
+
+const buttonClass = `govuk-button${variant === "primary" ? "" : ` govuk-button--${variant}`}${className ? ` ${className}` : ""}`;
+---
+
+<>
+    {
+        href ? (
+            <a class={buttonClass} href={href} {...rest} role="button">
+                {text}
+            </a>
+        ) : (
+            <button class={buttonClass} data-module="govuk-button" {...rest}>
+                {text}
+            </button>
+        )
+    }
+</>
