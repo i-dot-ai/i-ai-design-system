@@ -1,0 +1,18 @@
+---
+const { productName } = Astro.props;
+console.log(productName);
+---
+
+<div class="govuk-generic-header" style="background-color: #1d70b8">
+    <div class="govuk-generic-header__container govuk-width-container">
+        <div class="govuk-!-padding-bottom-2">
+            <img
+                src="/header-logo.svg"
+                alt="i.AI"
+                class="govuk-generic-header__logo"
+            /><a href="/" class="govuk-generic-header__homepage-link"
+                >{productName}</a
+            >
+        </div>
+    </div>
+</div>

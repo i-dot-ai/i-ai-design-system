@@ -1,6 +1,10 @@
 ---
-import '../styles/global.css';
-import '../styles/govuk.scss';
+import "../styles/global.css";
+import "../styles/govuk.scss";
+import "../styles/i-ai-design-system.css";
+
+import ServiceNavigation from "@components/service-navigation.astro";
+import Header from "@components/header.astro";
 ---
 
 <!doctype html>
@@ -9,15 +13,24 @@ import '../styles/govuk.scss';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>i.AI App</title>
+		<title>i.AI Design system</title>
 	</head>
 	<body class="govuk-template__body">
-		<script is:inline>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
-		<main>
+		<script is:inline>
+			document.body.className +=
+				" js-enabled" +
+				("noModule" in HTMLScriptElement.prototype
+					? " govuk-frontend-supported"
+					: "");
+		</script>
+		<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+		<Header productName="Design system" />
+		<ServiceNavigation />
+		<main class="govuk-main-wrapper" id="main-content" role="main">
 			<slot />
 		</main>
 		<script>
-			import { initAll } from 'govuk-frontend';
+			import { initAll } from "govuk-frontend";
 			initAll();
 		</script>
 	</body>

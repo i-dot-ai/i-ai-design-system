@@ -1,0 +1,63 @@
+---
+const pathName = Astro.url.pathname;
+---
+
+<div class="govuk-service-navigation" data-module="govuk-service-navigation">
+    <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+            <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+                <button
+                    type="button"
+                    class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
+                    aria-controls="navigation"
+                    hidden
+                    aria-hidden="true"
+                >
+                    Menu
+                </button>
+                <ul class="govuk-service-navigation__list" id="navigation">
+                    <li
+                        class={`govuk-service-navigation__item ${pathName === "/" ? "govuk-service-navigation__item--active" : ""}`}
+                    >
+                        <a
+                            class="govuk-service-navigation__link"
+                            href="/"
+                            aria-current={pathName === "/" ? "page" : "false"}
+                        >
+                            Components
+                        </a>
+                    </li>
+                    <li
+                        class={`govuk-service-navigation__item ${pathName === "/components" ? "govuk-service-navigation__item--active" : ""}`}
+                    >
+                        <a
+                            class="govuk-service-navigation__link"
+                            href="#"
+                            aria-current={pathName === "/components"
+                                ? "page"
+                                : "false"}
+                        >
+                            <strong
+                                class="govuk-service-navigation__active-fallback"
+                                >Coming soon</strong
+                            >
+                        </a>
+                    </li>
+                    <li
+                        class={`govuk-service-navigation__item ${pathName === "/components" ? "govuk-service-navigation__item--active" : ""}`}
+                    >
+                        <a
+                            class="govuk-service-navigation__link"
+                            href="#"
+                            aria-current={pathName === "/components"
+                                ? "page"
+                                : "false"}
+                        >
+                            Coming soon
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
