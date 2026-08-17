@@ -1,6 +1,6 @@
 [![build](https://github.com/i-dot-ai/i-ai-design-system/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/i-dot-ai/i-ai-design-system/actions/workflows/build.yml?query=branch%3Amain)
 
-# i-ai-design-system
+# i.AI Design System
 
 ## Development
 
