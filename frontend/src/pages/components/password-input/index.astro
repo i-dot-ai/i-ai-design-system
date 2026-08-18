@@ -1,0 +1,61 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import PasswordInput from "@components/password-input/password-input.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Password input</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default password input lets users enter a password and toggle its
+    visibility.
+  </p>
+  <FormGroup class="govuk-password-input" data-module="govuk-password-input">
+    <InputLabel for="password">Password</InputLabel>
+    <PasswordInput id="password" name="password" />
+  </FormGroup>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use this component whenever you need users to create or enter a password.
+  </p>
+  <p class="govuk-body">
+    Before using this component, you should also read the guidance on the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/passwords/"
+      >Ask users for passwords pattern</a
+    > and <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/create-accounts/"
+      >Creating user accounts pattern</a
+    >.
+  </p>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Do not use this component to ask for any information other than a password.
+  </p>
+  <p class="govuk-body">
+    Use a <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/text-input/"
+      >Text input component</a
+    > to ask for other security information, such as:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>multi-factor authentication codes</li>
+    <li>answers to security questions</li>
+    <li>other personally identifiable information</li>
+  </ul>
+  <p class="govuk-body">
+    Also see the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/confirm-a-phone-number/"
+      >Confirm a phone number pattern</a
+    >.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

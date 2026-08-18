@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"dl"> {
+    noBorder?: boolean;
+}
+
+const { noBorder = false, class: className, ...rest } = Astro.props;
+---
+
+<dl
+    class={`govuk-summary-list${noBorder ? " govuk-summary-list--no-border" : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</dl>

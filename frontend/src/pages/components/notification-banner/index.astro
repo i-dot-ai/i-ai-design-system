@@ -1,0 +1,108 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import NotificationBanner from "@components/notification-banner/notification-banner.astro";
+import NotificationBannerHeader from "@components/notification-banner/notification-banner-header.astro";
+import NotificationBannerTitle from "@components/notification-banner/notification-banner-title.astro";
+import NotificationBannerContent from "@components/notification-banner/notification-banner-content.astro";
+import NotificationBannerHeading from "@components/notification-banner/notification-banner-heading.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Notification banner</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default notification banner tells the user about something they need to
+    know about.
+  </p>
+  <NotificationBanner>
+    <NotificationBannerHeader>
+      <NotificationBannerTitle>Important</NotificationBannerTitle>
+    </NotificationBannerHeader>
+    <NotificationBannerContent>
+      <NotificationBannerHeading>
+        This publication was withdrawn on 7 March 2014.
+      </NotificationBannerHeading>
+    </NotificationBannerContent>
+  </NotificationBanner>
+  <h2 class="govuk-heading-m">Success</h2>
+  <p class="govuk-body">
+    Use the success variant to confirm that something the user has done has been
+    successful.
+  </p>
+  <NotificationBanner success>
+    <NotificationBannerHeader>
+      <NotificationBannerTitle>Success</NotificationBannerTitle>
+    </NotificationBannerHeader>
+    <NotificationBannerContent>
+      <NotificationBannerHeading>
+        Training outcome recorded and trainee withdrawn
+      </NotificationBannerHeading>
+    </NotificationBannerContent>
+  </NotificationBanner>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    A notification banner lets you tell the user about something that’s not
+    directly relevant to the thing they’re trying to do on that page of the
+    service. For example:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      telling the user about a problem that’s affecting the service as a whole
+      (for example, delays in processing applications because of an emergency)
+    </li>
+    <li>
+      telling the user about something that affects them in particular (for
+      example, an approaching deadline they need to meet)
+    </li>
+    <li>
+      telling the user about the outcome of something they've just done on a
+      previous page (for example, confirming that an email has been sent)
+    </li>
+  </ul>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Use notification banners sparingly. There’s <a
+      class="govuk-link"
+      href="https://www.nngroup.com/articles/banner-blindness-old-and-new-findings/"
+      >evidence that people often miss them</a
+    >, and using them too often is likely to make this problem worse.
+  </p>
+  <p class="govuk-body">
+    If the information is directly relevant to the thing the user is doing on
+    that page, put the information in the main page content instead. Use an <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/inset-text/"
+      >Inset text component</a
+    > or <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/warning-text/"
+      >Warning text component</a
+    > if it needs to stand out.
+  </p>
+  <p class="govuk-body">Do not:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      use a notification banner to tell the user about validation errors - use
+      an <a
+        class="govuk-link"
+        href="https://design-system.service.gov.uk/components/error-message/"
+        >Error message component</a
+      > and <a
+        class="govuk-link"
+        href="https://design-system.service.gov.uk/components/error-summary/"
+        >Error summary component</a
+      > instead
+    </li>
+    <li>
+      show a notification banner and an <a
+        class="govuk-link"
+        href="https://design-system.service.gov.uk/components/error-summary/"
+        >Error summary component</a
+      > on the same page - just show the error summary
+    </li>
+  </ul>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

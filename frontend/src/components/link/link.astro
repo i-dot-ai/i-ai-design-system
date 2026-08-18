@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+    variant?: "warning" | "inverse";
+    underline?: boolean;
+    visitedState?: boolean;
+}
+
+const {
+    variant,
+    underline = true,
+    visitedState = false,
+    class: className,
+    ...rest
+} = Astro.props;
+
+const variantClass = variant ? `govuk-link--${variant}` : "";
+const underlineClass = underline ? "" : "govuk-link--no-underline";
+const visitedStateClass = visitedState ? "" : "govuk-link--no-visited-state";
+---
+
+<a
+    class={`govuk-link${variantClass ? ` ${variantClass}` : ""} ${underlineClass ? ` ${underlineClass}` : ""} ${visitedStateClass ? ` ${visitedStateClass}` : ""} ${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</a>

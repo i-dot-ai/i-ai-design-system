@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"dt"> {}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<dt class={`govuk-summary-list__key${className ? ` ${className}` : ""}`} {...rest}>
+    <slot />
+</dt>

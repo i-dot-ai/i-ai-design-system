@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+    selected?: boolean;
+}
+
+const { selected = false, class: className, ...rest } = Astro.props;
+---
+
+<li
+    class={`govuk-tabs__list-item${selected ? " govuk-tabs__list-item--selected" : ""}`}
+>
+    <a class={`govuk-tabs__tab${className ? ` ${className}` : ""}`} {...rest}>
+        <slot />
+    </a>
+</li>

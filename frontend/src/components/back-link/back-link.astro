@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+    inverse?: boolean;
+}
+
+const { inverse = false, class: className, ...rest } = Astro.props;
+---
+
+<a
+    class={`govuk-back-link${inverse ? " govuk-back-link--inverse" : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</a>

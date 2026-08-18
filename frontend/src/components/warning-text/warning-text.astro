@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    iconFallbackText?: string;
+}
+
+const {
+    iconFallbackText = "Warning",
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<div class={`govuk-warning-text${className ? ` ${className}` : ""}`} {...rest}>
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">{iconFallbackText}</span>
+        <slot />
+    </strong>
+</div>

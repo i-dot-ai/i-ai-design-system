@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"input"> {
+    width?: 2 | 3 | 4 | 5 | 10 | 20 | 30;
+    error?: boolean;
+    extraLetterSpacing?: boolean;
+    subtle?: boolean;
+}
+
+const {
+    width,
+    error = false,
+    extraLetterSpacing = false,
+    subtle = false,
+    class: className,
+    ...rest
+} = Astro.props;
+
+const inputClass = [
+    "govuk-input",
+    width ? `govuk-input--width-${width}` : "",
+    error ? "govuk-input--error" : "",
+    extraLetterSpacing ? "govuk-input--extra-letter-spacing" : "",
+    subtle ? "govuk-input--subtle" : "",
+    className ?? "",
+]
+    .filter(Boolean)
+    .join(" ");
+---
+
+<input class={inputClass} type="text" {...rest} />

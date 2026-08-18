@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"legend"> {
+    size?: "small" | "medium" | "large" | "xl";
+}
+
+const { size, class: className, ...rest } = Astro.props;
+
+const sizeClass = size
+    ? {
+          small: "govuk-fieldset__legend--s",
+          medium: "govuk-fieldset__legend--m",
+          large: "govuk-fieldset__legend--l",
+          xl: "govuk-fieldset__legend--xl",
+      }[size]
+    : "";
+---
+
+<legend
+    class={`govuk-fieldset__legend${sizeClass ? ` ${sizeClass}` : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</legend>

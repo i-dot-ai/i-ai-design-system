@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {
+    href: string;
+}
+
+const { href, class: className, ...rest } = Astro.props;
+const pathName = Astro.url.pathname;
+---
+
+<li
+    class={`govuk-service-navigation__item ${pathName.includes(href) ? "govuk-service-navigation__item--active" : ""}${className ? ` ${className}` : ""}`}
+>
+    <a
+        class="govuk-service-navigation__link"
+        href={href}
+        aria-current={pathName === href ? "page" : "false"}
+        {...rest}
+    >
+        <slot />
+    </a>
+</li>

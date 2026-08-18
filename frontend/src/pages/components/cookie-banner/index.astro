@@ -1,0 +1,93 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import CookieBanner from "@components/cookie-banner/cookie-banner.astro";
+import CookieBannerMessage from "@components/cookie-banner/cookie-banner-message.astro";
+import CookieBannerHeading from "@components/cookie-banner/cookie-banner-heading.astro";
+import CookieBannerContent from "@components/cookie-banner/cookie-banner-content.astro";
+import CookieBannerActions from "@components/cookie-banner/cookie-banner-actions.astro";
+import Button from "@components/button/index.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Cookie banner</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default cookie banner asks users to accept or reject non-essential
+    cookies.
+  </p>
+  <CookieBanner>
+    <CookieBannerMessage>
+      <CookieBannerHeading>
+        Cookies on this government service
+      </CookieBannerHeading>
+      <CookieBannerContent>
+        <p class="govuk-body">
+          We use analytics cookies to help understand how users use our service.
+        </p>
+      </CookieBannerContent>
+      <CookieBannerActions>
+        <Button variant="primary">Accept analytics cookies</Button>
+        <Button variant="primary">Reject analytics cookies</Button>
+        <a class="govuk-link" href="/cookie-preferences"
+          >View cookie preferences</a
+        >
+      </CookieBannerActions>
+    </CookieBannerMessage>
+  </CookieBanner>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use this component if your service sets any cookies on a user’s device.
+  </p>
+  <p class="govuk-body">Remember, you must:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>tell users about the cookies your service sets on their device</li>
+    <li>
+      let users accept or reject any cookies that are not essential to providing
+      your service
+    </li>
+  </ul>
+  <p class="govuk-body">The term ‘non-essential cookies’ includes:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>HTML5 local storage</li>
+    <li>service workers</li>
+    <li>any other technologies that store files on the user’s device</li>
+  </ul>
+  <p class="govuk-body">
+    This cookie banner and the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/cookies-page/"
+      >Cookies page pattern</a
+    > are based on the approach to getting cookie consent used on the GOV.UK website.
+  </p>
+  <p class="govuk-body">
+    This component page shows several options for using a cookie banner, based
+    on the types of cookies you’re using in the service. We also tell you what
+    to cover in your cookie banner, with some text examples.
+  </p>
+  <h3 class="govuk-heading-s">Before you start</h3>
+  <p class="govuk-body">
+    <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/cookies-page/#auditing-and-categorising-your-cookies"
+      >Audit and categorise your cookies</a
+    > as shown in the cookies page pattern to help you choose the best option for
+    your service.
+  </p>
+  <p class="govuk-body">
+    You must not take the information on this page as legal advice. Your
+    organisation is responsible and accountable for what they do to comply with
+    data protection legislation, such as:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Privacy and Electronic Communications Regulations (PECR)</li>
+    <li>General Data Protection Regulation (GDPR)</li>
+  </ul>
+  <p class="govuk-body">
+    Check with your organisation's privacy expert to see how data protection
+    legislation affects your website and service.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"select"> {
+    subtle?: boolean;
+    error?: boolean;
+}
+
+const {
+    subtle = false,
+    error = false,
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<select
+    class={`govuk-select${subtle ? " govuk-select--subtle" : ""}${error ? " govuk-select--error" : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</select>

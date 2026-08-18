@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"nav"> {
+    block?: boolean;
+}
+
+const { block = false, class: className, ...rest } = Astro.props;
+---
+
+<nav
+    class={`govuk-pagination${block ? " govuk-pagination--block" : ""}${className ? ` ${className}` : ""}`}
+    aria-label="Pagination"
+    {...rest}
+>
+    <slot />
+</nav>

@@ -1,0 +1,45 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import BackLink from "@components/back-link/back-link.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Back link</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    Use the default back link to help users go back to the previous page.
+  </p>
+  <BackLink href="#">Back</BackLink>
+  <h2 class="govuk-heading-m">Inverse</h2>
+  <p class="govuk-body">
+    Use the inverse back link on dark backgrounds.
+  </p>
+  <div class="inverse-component-container">
+    <BackLink href="#" inverse>Back</BackLink>
+  </div>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Always include the Back link component on GOV.UK <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/question-pages/"
+      >Question pages in your service</a
+    >.
+  </p>
+  <p class="govuk-body">
+    You can include a back link on other pages within a multi-page transaction,
+    if it makes sense to do so.
+  </p>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Never use the back link component together with the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/breadcrumbs/"
+      >Breadcrumbs component</a
+    >. If necessary, you should do research with your users to learn which they
+    find more helpful in your service.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

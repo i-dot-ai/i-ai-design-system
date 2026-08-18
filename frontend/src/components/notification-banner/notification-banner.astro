@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    success?: boolean;
+    titleId?: string;
+}
+
+const {
+    success = false,
+    titleId = "govuk-notification-banner-title",
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<div
+    class={`govuk-notification-banner${success ? " govuk-notification-banner--success" : ""}${className ? ` ${className}` : ""}`}
+    role={success ? "alert" : "region"}
+    aria-labelledby={titleId}
+    data-module="govuk-notification-banner"
+    {...rest}
+>
+    <slot />
+</div>

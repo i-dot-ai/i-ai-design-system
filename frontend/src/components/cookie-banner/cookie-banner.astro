@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+    class={`govuk-cookie-banner${className ? ` ${className}` : ""}`}
+    data-nosnippet
+    role="region"
+    aria-label="Cookie banner"
+    {...rest}
+>
+    <slot />
+</div>

@@ -1,0 +1,150 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import FormGroup from "@components/form-group/form-group.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import Checkboxes from "@components/checkboxes/checkboxes.astro";
+import CheckboxItem from "@components/checkboxes/checkbox-item.astro";
+import CheckboxInput from "@components/checkboxes/checkbox-input.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Checkboxes</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default checkboxes group lets users select one or more options from a
+    list.
+  </p>
+  <FormGroup>
+    <Fieldset>
+      <FieldsetLegend>What is your nationality?</FieldsetLegend>
+      <Checkboxes>
+        <CheckboxItem>
+          <CheckboxInput id="nationality" name="nationality" value="british" />
+          <InputLabel for="nationality" class="govuk-checkboxes__label">
+            British
+          </InputLabel>
+        </CheckboxItem>
+        <CheckboxItem>
+          <CheckboxInput id="nationality-2" name="nationality" value="irish" />
+          <InputLabel for="nationality-2" class="govuk-checkboxes__label">
+            Irish
+          </InputLabel>
+        </CheckboxItem>
+        <CheckboxItem>
+          <CheckboxInput id="nationality-3" name="nationality" value="other" />
+          <InputLabel for="nationality-3" class="govuk-checkboxes__label">
+            Citizen of another country
+          </InputLabel>
+        </CheckboxItem>
+      </Checkboxes>
+    </Fieldset>
+  </FormGroup>
+
+  <h2 class="govuk-heading-m">Subtle</h2>
+  <p class="govuk-body">
+    Use subtle checkboxes to reduce the prominence of the checkboxes when they
+    are not the main focus of the page.
+  </p>
+  <FormGroup>
+    <Fieldset>
+      <FieldsetLegend>What is your nationality?</FieldsetLegend>
+      <Checkboxes subtle>
+        <CheckboxItem>
+          <CheckboxInput
+            id="nationality-subtle"
+            name="nationality-subtle"
+            value="british"
+          />
+          <InputLabel for="nationality-subtle" class="govuk-checkboxes__label">
+            British
+          </InputLabel>
+        </CheckboxItem>
+        <CheckboxItem>
+          <CheckboxInput
+            id="nationality-subtle-2"
+            name="nationality-subtle"
+            value="irish"
+          />
+          <InputLabel for="nationality-subtle-2" class="govuk-checkboxes__label">
+            Irish
+          </InputLabel>
+        </CheckboxItem>
+        <CheckboxItem>
+          <CheckboxInput
+            id="nationality-subtle-3"
+            name="nationality-subtle"
+            value="other"
+          />
+          <InputLabel for="nationality-subtle-3" class="govuk-checkboxes__label">
+            Citizen of another country
+          </InputLabel>
+        </CheckboxItem>
+      </Checkboxes>
+    </Fieldset>
+  </FormGroup>
+  <h2 class="govuk-heading-m">Small</h2>
+  <p class="govuk-body">
+    Use small checkboxes when the user is unlikely to want to change their
+    answer, or in a densely populated interface.
+  </p>
+  <FormGroup>
+    <Fieldset>
+      <FieldsetLegend>What is your nationality?</FieldsetLegend>
+      <Checkboxes small>
+        <CheckboxItem>
+          <CheckboxInput
+            id="nationality-small"
+            name="nationality-small"
+            value="british"
+          />
+          <InputLabel for="nationality-small" class="govuk-checkboxes__label">
+            British
+          </InputLabel>
+        </CheckboxItem>
+        <CheckboxItem>
+          <CheckboxInput
+            id="nationality-small-2"
+            name="nationality-small"
+            value="irish"
+          />
+          <InputLabel for="nationality-small-2" class="govuk-checkboxes__label">
+            Irish
+          </InputLabel>
+        </CheckboxItem>
+        <CheckboxItem>
+          <CheckboxInput
+            id="nationality-small-3"
+            name="nationality-small"
+            value="other"
+          />
+          <InputLabel for="nationality-small-3" class="govuk-checkboxes__label">
+            Citizen of another country
+          </InputLabel>
+        </CheckboxItem>
+      </Checkboxes>
+    </Fieldset>
+  </FormGroup>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use the checkboxes component when you need to help users:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>select multiple options from a list</li>
+    <li>toggle a single option on or off</li>
+  </ul>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Do not use the checkboxes component if users can only choose one option from
+    a selection. In this case, use the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/radios/"
+      >Radios component</a
+    >.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

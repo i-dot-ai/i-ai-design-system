@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"label"> {
+    size?: "small" | "medium" | "large" | "xl";
+}
+
+const { size, class: className, ...rest } = Astro.props;
+let sizeClass = "";
+
+switch (size) {
+    case "small":
+        sizeClass = "govuk-label--s";
+        break;
+    case "medium":
+        sizeClass = "govuk-label--m";
+        break;
+    case "large":
+        sizeClass = "govuk-label--l";
+        break;
+    case "xl":
+        sizeClass = "govuk-label--xl";
+        break;
+}
+---
+
+<label
+    class={`govuk-label${size ? ` ${sizeClass}` : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</label>
