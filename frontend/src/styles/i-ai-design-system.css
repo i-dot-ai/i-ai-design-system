@@ -40,6 +40,11 @@ html {
     color: #fff;
 }
 
+.govuk-tag {
+    border-radius: 5rem;
+    padding: 0.25rem 1rem !important;
+}
+
 .govuk-button--start {
     padding-left: 30px;
     padding-right: 30px;
@@ -72,17 +77,15 @@ html {
     color: #0b0c0c;
 }
 
-.govuk-button--tertiary {
-    background-color: var(--govuk-brand-colour);
-}
-
-.govuk-button--tertiary:hover {
-    background-color: #16548a;
-    color: #fff;
-}
-
+.govuk-button--inverse:focus:not(:active):not(:hover),
+.govuk-button--inverse:focus,
 .govuk-button--inverse {
     background-color: #fff;
+    color: var(--govuk-text-colour);
+}
+
+.govuk-button--inverse:hover {
+    background-color: #f4f8fb;
     color: var(--govuk-text-colour);
 }
 
