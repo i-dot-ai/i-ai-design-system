@@ -1,0 +1,71 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Service navigation</h1>
+  <p class="govuk-body-l">
+    Service navigation helps users understand that they’re using your service
+    and lets them navigate around your service
+  </p>
+
+  <h2 class="govuk-heading-l">Example</h2>
+  <div class="govuk-service-navigation" data-module="govuk-service-navigation">
+    <div class="govuk-width-container">
+      <div class="govuk-service-navigation__container">
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button
+            type="button"
+            class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
+            aria-controls="navigation"
+            hidden
+            aria-hidden="true"
+          >
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="navigation">
+            <li class="govuk-service-navigation__item">
+              <a class="govuk-service-navigation__link" href="#/1">
+                Navigation item 1
+              </a>
+            </li>
+
+            <li class="govuk-service-navigation__item">
+              <a class="govuk-service-navigation__link" href="#/2">
+                Navigation item 2
+              </a>
+            </li>
+
+            <li class="govuk-service-navigation__item">
+              <a class="govuk-service-navigation__link" href="#/3">
+                Navigation item 3
+              </a>
+            </li>
+
+            <li class="govuk-service-navigation__item">
+              <a class="govuk-service-navigation__link" href="#/4">
+                Navigation item 4
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use the Service navigation to help users understand that they’re using your
+    service.
+  </p>
+  <p class="govuk-body">
+    To decide when to use navigation links in your service, see the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/navigate-a-service/"
+      >Help users to navigate a service pattern</a
+    >.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

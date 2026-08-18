@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {
+    href: string;
+}
+
+const { href, class: className, ...rest } = Astro.props;
+---
+
+<li
+    class={`govuk-breadcrumbs__list-item ${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <a href={href} class="govuk-breadcrumbs__link"><slot /></a>
+</li>

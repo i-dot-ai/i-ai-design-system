@@ -1,0 +1,79 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Select from "@components/select/select.astro";
+import SelectOption from "@components/select/select-option.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Select</h1>
+  <p class="govuk-body">Help users select an item from a list</p>
+
+  <h2 class="govuk-heading-l">Variants</h2>
+  <h3 class="govuk-heading-m">Default</h3>
+  <p class="govuk-body">
+    A default select is used to indicate that the select is the main focus of
+    the page.
+  </p>
+  <FormGroup inline>
+    <InputLabel for="select-2">Label text goes here</InputLabel>
+    <Select id="select-2" name="select-2">
+      <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+      <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+      <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+    </Select>
+  </FormGroup>
+  <h3 class="govuk-heading-m">Subtle</h3>
+  <p class="govuk-body">
+    A subtle select is used to reduce the prominence of the select component.
+    Used for when the select is not the main focus of the page.
+  </p>
+  <FormGroup inline>
+    <InputLabel for="select-1">Label text goes here</InputLabel>
+    <Select id="select-1" name="select-1" subtle>
+      <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+      <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+      <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+    </Select>
+  </FormGroup>
+  <h3 class="govuk-heading-m">Error</h3>
+  <p class="govuk-body">
+    A error select is used to indicate that the select has an error.
+  </p>
+  <FormGroup inline>
+    <InputLabel for="select-3">Label text goes here</InputLabel>
+    <Select id="select-3" name="select-3" error>
+      <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+      <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+      <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+    </Select>
+  </FormGroup>
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    The select component should only be used as a last resort in public-facing
+    services because research shows that some users find selects very difficult
+    to use.
+  </p>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    The select component allows users to choose an option from a long list.
+    Before using the select component, try asking users questions which will
+    allow you to present them with fewer options.
+  </p>
+  <p class="govuk-body">
+    Asking questions means you’re less likely to need to use the select
+    component, and can consider using a different solution, such as a <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/radios/"
+      >Radios component</a
+    >.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+
+  <h2 class="govuk-heading-l" id="deviation-from-govuk-design-system">
+    Deviation from GOV.UK Design System
+  </h2>
+  <p class="govuk-body">Explanation here</p>
+</Layout>

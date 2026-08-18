@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {
+    text: string;
+    href: string;
+}
+const pathName = Astro.url.pathname;
+const { text, href, ...rest } = Astro.props;
+
+const isActive = pathName === href;
+---
+
+<li
+    class={`side-nav__item${isActive ? " side-nav__item--active" : ""}`}
+    {...rest}
+>
+    <a
+        class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-link--no-underline"
+        href={href}
+        aria-current={isActive ? "page" : undefined}>{text}</a
+    >
+</li>

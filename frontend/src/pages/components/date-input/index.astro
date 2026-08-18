@@ -1,0 +1,84 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Date input</h1>
+  <p class="govuk-body-l">
+    Use the date input component to help users enter a memorable date
+  </p>
+
+  <h2 class="govuk-heading-l">Example</h2>
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+      <legend class="govuk-fieldset__legend">
+        What is your date of birth?
+      </legend>
+      <div id="dob-hint" class="govuk-hint">For example, 31 3 1980</div>
+      <div class="govuk-date-input" id="dob">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="dob-day">
+              Day
+            </label>
+            <input
+              class="govuk-input govuk-date-input__input govuk-input--width-2"
+              id="dob-day"
+              name="day"
+              type="text"
+              inputmode="numeric"
+            />
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="dob-month">
+              Month
+            </label>
+            <input
+              class="govuk-input govuk-date-input__input govuk-input--width-2"
+              id="dob-month"
+              name="month"
+              type="text"
+              inputmode="numeric"
+            />
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="dob-year">
+              Year
+            </label>
+            <input
+              class="govuk-input govuk-date-input__input govuk-input--width-4"
+              id="dob-year"
+              name="year"
+              type="text"
+              inputmode="numeric"
+            />
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use the date input component when you’re asking users for a date they’ll
+    already know, or can look up without using a calendar.
+  </p>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Do not use the date input component if users are unlikely to know the exact
+    date of the event you’re asking about.
+  </p>
+  <p class="govuk-body">
+    Read more in the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/dates/"
+      >Ask users for dates pattern</a
+    >.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

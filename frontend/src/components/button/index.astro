@@ -1,0 +1,72 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+    variant?:
+        | "primary"
+        | "secondary"
+        | "warning"
+        | "inverse"
+        | "link"
+        | "warning-link";
+    href?: string;
+    underline?: boolean;
+}
+
+const {
+    variant = "primary",
+    href,
+    class: className,
+    underline = true,
+    ...rest
+} = Astro.props;
+
+let buttonClass = "";
+switch (variant) {
+    case "primary":
+        buttonClass = "govuk-button";
+        break;
+    case "secondary":
+        buttonClass = "govuk-button govuk-button--secondary";
+        break;
+    case "warning":
+        buttonClass = "govuk-button govuk-button--warning";
+        break;
+    case "inverse":
+        buttonClass = "govuk-button govuk-button--inverse";
+        break;
+    case "link":
+        buttonClass = "govuk-link";
+        if (!underline) {
+            buttonClass += " govuk-link--no-underline";
+        }
+        break;
+    case "warning-link":
+        buttonClass = "govuk-link govuk-link--warning";
+        if (!underline) {
+            buttonClass += " govuk-link--no-underline";
+        }
+        break;
+    default:
+        buttonClass = "govuk-button";
+        break;
+}
+
+if (className) {
+    buttonClass += ` ${className}`;
+}
+---
+
+<>
+    {
+        href ? (
+            <a class={buttonClass} href={href} {...rest} role="button">
+                <slot />
+            </a>
+        ) : (
+            <button class={buttonClass} data-module="govuk-button" {...rest}>
+                <slot />
+            </button>
+        )
+    }
+</>

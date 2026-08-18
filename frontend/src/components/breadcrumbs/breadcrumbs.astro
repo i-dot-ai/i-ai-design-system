@@ -1,0 +1,13 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<nav
+    aria-label="Breadcrumb"
+    class={`govuk-breadcrumbs ${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <ol class="govuk-breadcrumbs__list">
+        <slot />
+    </ol>
+</nav>

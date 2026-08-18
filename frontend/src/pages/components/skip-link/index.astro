@@ -1,0 +1,39 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Skip link</h1>
+  <p class="govuk-body-l">
+    Use the skip link component to help keyboard-only users skip to the main
+    content on a page
+  </p>
+
+  <h2 class="govuk-heading-l">Example</h2>
+  <a
+    href="#test-target-element"
+    class="govuk-skip-link"
+    data-module="govuk-skip-link">Skip to main content</a
+  >
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    All GOV.UK pages must include a skip link. Usually, you should place the
+    skip link immediately after the opening <code
+      ><body></body> tag. However, if you're using a <a
+        class="govuk-link"
+        href="https://design-system.service.gov.uk/components/cookie-banner/"
+        >Cookie banner component</a
+      >, place the skip link immediately after the cookie banner.</code
+    >
+    <p class="govuk-body">
+      Some automated accessibility testing tools may warn that the skip link
+      element is not inside a landmark. This warning does not apply to skip
+      links, so you can ignore it. Do not wrap the skip link in a <code
+        ><nav></nav> region, or move it inside the header.</code
+      >
+      <!-- GOVUK_GUIDANCE:END -->
+    </p>
+  </p>
+</Layout>

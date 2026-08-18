@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    inline?: boolean;
+}
+
+const { inline = false, class: className, ...rest } = Astro.props;
+---
+
+<div
+    class={`govuk-form-group${inline ? ` govuk-form-group--inline` : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</div>

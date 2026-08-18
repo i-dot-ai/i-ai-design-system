@@ -1,0 +1,83 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Checkboxes</h1>
+  <p class="govuk-body-l">
+    Let users select one or more options by using the checkboxes component
+  </p>
+
+  <h2 class="govuk-heading-l">Example</h2>
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend">
+        What is your nationality?
+      </legend>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input
+            class="govuk-checkboxes__input"
+            id="nationality"
+            name="nationality"
+            type="checkbox"
+            value="british"
+          />
+          <label class="govuk-label govuk-checkboxes__label" for="nationality">
+            British
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input
+            class="govuk-checkboxes__input"
+            id="nationality-2"
+            name="nationality"
+            type="checkbox"
+            value="irish"
+          />
+          <label
+            class="govuk-label govuk-checkboxes__label"
+            for="nationality-2"
+          >
+            Irish
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input
+            class="govuk-checkboxes__input"
+            id="nationality-3"
+            name="nationality"
+            type="checkbox"
+            value="other"
+          />
+          <label
+            class="govuk-label govuk-checkboxes__label"
+            for="nationality-3"
+          >
+            Citizen of another country
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use the checkboxes component when you need to help users:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>select multiple options from a list</li>
+    <li>toggle a single option on or off</li>
+  </ul>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Do not use the checkboxes component if users can only choose one option from
+    a selection. In this case, use the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/radios/"
+      >Radios component</a
+    >.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

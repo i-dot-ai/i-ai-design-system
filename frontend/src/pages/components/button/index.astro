@@ -1,0 +1,74 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import Button from "@components/button/index.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Button</h1>
+  <p class="govuk-body">
+    Buttons have been adapted from the GOV.UK Design System to fit the needs of
+    i.AI apps. Jump to
+    <a href="#deviation" class="govuk-link">the deviation section</a> to see what
+    has changed and why.
+  </p>
+  <h2 class="govuk-heading-l">Variants</h2>
+  <h3 class="govuk-heading-m">Default buttons</h3>
+  <p class="govuk-body">
+    Use the primary button when the action is the main action on the page.
+  </p>
+  <p class="govuk-body">
+    Use the secondary button when the action is a secondary action on the page.
+    Where you have multiple buttons on the page, the secondary button has been
+    designed to work to be duplicated multiple times
+  </p>
+  <div class="govuk-button-group">
+    <Button variant="primary" href="#">Primary Button</Button>
+    <Button variant="secondary" href="#">Secondary Button</Button>
+  </div>
+
+  <h3 class="govuk-heading-m">Inverse buttons</h3>
+  <p class="govuk-body">
+    Use the inverse button when the action is on a dark background.
+  </p>
+  <div
+    style="background-color: #000; padding: 10px; display: inline-block; margin-bottom: 20px;"
+  >
+    <Button variant="inverse" href="#">Inverse Button</Button>
+  </div>
+  <h3 class="govuk-heading-m">Link buttons</h3>
+  <p class="govuk-body">
+    Use the link button to have button functionality but look like a link in
+    order to manage the attention given to this item. Be careful to ensure that
+    it does not confuse users as to thinking it is a link that goes to another
+    section on a page.
+  </p>
+  <Button variant="link" href="#">Link Button</Button>
+  <br />
+  <Button variant="link" href="#" underline={false}
+    >Link Button with no underline</Button
+  >
+  <br />
+  <br />
+  <h3 class="govuk-heading-m">Warning buttons</h3>
+  <h4 class="govuk-heading-s">Warning link button</h4>
+  <p class="govuk-body">
+    Use the delete link button to show a destructive action that can be
+    confirmed or cancelled. This is the "quiet" version of the warning button
+    below and is designed not to attract attention away from the primary action
+    on the page but to show that it is a destructive action at a glance.
+  </p>
+  <Button variant="warning-link" href="#">Delete</Button>
+  <br />
+  <br />
+  <h4 class="govuk-heading-s">Warning button</h4>
+  <p class="govuk-body">
+    Use the warning button to confirm a destructive action. This is the "loud"
+    version of the delete link button above and is designed to attract the
+    attention as the main action.
+  </p>
+  <Button variant="warning" href="#">Delete</Button>
+  <h2 class="govuk-heading-l" id="deviation">
+    Deviation from GOV.UK Design System
+  </h2>
+  <h3 class="govuk-heading-l">Accessibility</h3>
+</Layout>

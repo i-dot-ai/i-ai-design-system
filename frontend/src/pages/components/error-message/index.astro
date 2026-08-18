@@ -1,0 +1,65 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Error message</h1>
+  <p class="govuk-body-l">
+    When there's a validation error, use an error message to explain what went
+    wrong and how to fix it
+  </p>
+
+  <h2 class="govuk-heading-l">Example</h2>
+  <p class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Error message about full name
+    goes here
+  </p>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Show an error message next to the field and in the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/error-summary/"
+      >Error summary component</a
+    > when there is a validation error.
+  </p>
+  <p class="govuk-body">Use standard messages for different components.</p>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Do not use error messages to tell a user that they are not eligible or do
+    not have permission to do something. Or to tell them about a lack of
+    capacity or other problem the user cannot fix - because the problem is with
+    the service rather than with the information the user has provided.
+  </p>
+  <p class="govuk-body">
+    Instead, take the user to a page that explains the problem (for example,
+    telling them why they’re not eligible) and provides useful information about
+    what to do next.
+  </p>
+  <p class="govuk-body">There are separate patterns for:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      <a
+        class="govuk-link"
+        href="https://design-system.service.gov.uk/patterns/problem-with-the-service-pages/"
+        >'There is a problem with the service' pages</a
+      >
+    </li>
+    <li>
+      <a
+        class="govuk-link"
+        href="https://design-system.service.gov.uk/patterns/page-not-found-pages/"
+        >'Page not found' pages</a
+      >
+    </li>
+    <li>
+      <a
+        class="govuk-link"
+        href="https://design-system.service.gov.uk/patterns/service-unavailable-pages/"
+        >'Service unavailable' pages</a
+      >
+    </li>
+  </ul>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

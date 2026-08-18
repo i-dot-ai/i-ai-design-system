@@ -1,0 +1,78 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Password input</h1>
+  <p class="govuk-body-l">Help users accessibly enter passwords</p>
+
+  <h2 class="govuk-heading-l">Example</h2>
+  <div
+    class="govuk-form-group govuk-password-input"
+    data-module="govuk-password-input"
+  >
+    <label class="govuk-label" for="password"> Password </label>
+    <div class="govuk-input__wrapper govuk-password-input__wrapper">
+      <input
+        class="govuk-input govuk-password-input__input govuk-js-password-input-input"
+        id="password"
+        name="password"
+        type="password"
+        spellcheck="false"
+        autocomplete="current-password"
+        autocapitalize="none"
+      />
+      <button
+        type="button"
+        class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle"
+        data-module="govuk-button"
+        aria-controls="password"
+        aria-label="Show password"
+        hidden
+      >
+        Show
+      </button>
+    </div>
+  </div>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use this component whenever you need users to create or enter a password.
+  </p>
+  <p class="govuk-body">
+    Before using this component, you should also read the guidance on the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/passwords/"
+      >Ask users for passwords pattern</a
+    > and <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/create-accounts/"
+      >Creating user accounts pattern</a
+    >.
+  </p>
+  <h2 class="govuk-heading-l">When not to use this component</h2>
+  <p class="govuk-body">
+    Do not use this component to ask for any information other than a password.
+  </p>
+  <p class="govuk-body">
+    Use a <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/components/text-input/"
+      >Text input component</a
+    > to ask for other security information, such as:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>multi-factor authentication codes</li>
+    <li>answers to security questions</li>
+    <li>other personally identifiable information</li>
+  </ul>
+  <p class="govuk-body">
+    Also see the <a
+      class="govuk-link"
+      href="https://design-system.service.gov.uk/patterns/confirm-a-phone-number/"
+      >Confirm a phone number pattern</a
+    >.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

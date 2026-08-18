@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"nav"> {
+    isWebVersion?: boolean;
+}
+
+const { isWebVersion = false, class: className, ...rest } = Astro.props;
+---
+
+<div
+    class={`govuk-service-navigation${isWebVersion ? "" : " govuk-service-navigation--side-nav"}${className ? ` ${className}` : ""}`}
+    data-module="govuk-service-navigation"
+    {...rest}
+>
+    <div class="govuk-width-container">
+        <div class="govuk-service-navigation__container">
+            <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+                <button
+                    type="button"
+                    class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
+                    aria-controls="navigation"
+                    hidden
+                    aria-hidden="true"
+                >
+                    Menu
+                </button>
+                <slot />
+            </nav>
+        </div>
+    </div>
+</div>

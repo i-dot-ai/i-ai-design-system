@@ -3,8 +3,9 @@ import "../styles/govuk.scss";
 import "../styles/global.css";
 import "../styles/i-ai-design-system.css";
 
-import ServiceNavigation from "@components/service-navigation.astro";
-import Header from "@components/header.astro";
+import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
+import Header from "@components/header/header.astro";
 const pathName = Astro.url.pathname;
 ---
 
@@ -25,37 +26,30 @@ const pathName = Astro.url.pathname;
 					: "");
 		</script>
 		<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
-		<Header productName="Design System" />
+		<Header>Design System</Header>
 		<ServiceNavigation
 			class={pathName === "/" ? "govuk-service-navigation--inverse" : ""}
-			isWebVersion={true}
-			items={[
-				{
-					text: "Get started",
-					href: "/get-started",
-				},
-				{
-					text: "Styles",
-					href: "/styles",
-				},
-				{
-					text: "Components",
-					href: "/components",
-				},
-				{
-					text: "Patterns",
-					href: "/patterns",
-				},
-				{
-					text: "Principles",
-					href: "/principles",
-				},
-				{
-					text: "Community",
-					href: "/community",
-				},
-			]}
-		/>
+			isWebVersion
+		>
+			<ServiceNavigationItem href="/get-started">
+				Get started
+			</ServiceNavigationItem>
+			<ServiceNavigationItem href="/styles">
+				Styles
+			</ServiceNavigationItem>
+			<ServiceNavigationItem href="/components">
+				Components
+			</ServiceNavigationItem>
+			<ServiceNavigationItem href="/patterns">
+				Patterns
+			</ServiceNavigationItem>
+			<ServiceNavigationItem href="/principles">
+				Principles
+			</ServiceNavigationItem>
+			<ServiceNavigationItem href="/community">
+				Community
+			</ServiceNavigationItem>
+		</ServiceNavigation>
 		<main id="main-content" role="main">
 			<slot />
 		</main>

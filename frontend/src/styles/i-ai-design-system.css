@@ -40,6 +40,10 @@ html {
     color: #fff;
 }
 
+.govuk-link--warning {
+    color: #ca3535 !important;
+}
+
 .govuk-tag {
     border-radius: 5rem;
     padding: 0.25rem 1rem !important;
@@ -293,4 +297,13 @@ html {
 
 .govuk-table__row:hover {
     background-color: #f2f2f2;
+}
+
+.side-nav__item {
+    padding-left: 10px;
+    border-left: 4px solid transparent;
+}
+
+.side-nav__item--active {
+    border-color: var(--govuk-brand-colour);
 }
