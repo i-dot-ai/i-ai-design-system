@@ -1,5 +1,9 @@
+html {
+    scrollbar-gutter: stable;
+}
+
 .govuk-generic-header {
-    background-color: #16548a;
+    background-color: var(--govuk-brand-colour, #16548a);
 }
 
 .govuk-generic-header__logo {
@@ -34,6 +38,11 @@
 .govuk-button:hover {
     background-color: #16548a;
     color: #fff;
+}
+
+.govuk-button--start {
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .govuk-button--secondary:focus:not(:active):not(:hover),

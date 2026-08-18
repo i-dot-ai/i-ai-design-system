@@ -1,0 +1,267 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/button.astro";
+import Select from "@components/select.astro";
+---
+
+<Layout>
+  <div class="govuk-main-wrapper govuk-width-container">
+    <h1 class="govuk-heading-xl">Component Library</h1>
+    <h2 class="govuk-heading-l">Existing components - Lite versions</h2>
+    <h3 class="govuk-heading-m">Buttons</h3>
+    <div class="govuk-button-group">
+      <Button>Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="warning">Warning</Button>
+      <Button variant="inverse">Inverse</Button>
+    </div>
+    <h3 class="govuk-heading-m">Select</h3>
+    <Select
+      label="Sort by"
+      options={[
+        {
+          text: "Recently published",
+          value: "published",
+        },
+        {
+          text: "Recently updated",
+          value: "updated",
+        },
+        {
+          text: "Most views",
+          value: "views",
+        },
+        {
+          text: "Most comments",
+          value: "comments",
+        },
+      ]}
+    />
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h3 class="govuk-fieldset__heading">Checkboxes</h3>
+        </legend>
+        <div
+          class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes--subtle"
+          data-module="govuk-checkboxes"
+        >
+          <div class="govuk-checkboxes__item">
+            <input
+              class="govuk-checkboxes__input"
+              id="waste"
+              name="waste"
+              type="checkbox"
+              value="carcasses"
+            />
+            <label class="govuk-label govuk-checkboxes__label" for="waste">
+              Waste from animal carcasses
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input
+              class="govuk-checkboxes__input"
+              id="waste-2"
+              name="waste"
+              type="checkbox"
+              value="mines"
+            />
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Waste from mines or quarries
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input
+              class="govuk-checkboxes__input"
+              id="waste-3"
+              name="waste"
+              type="checkbox"
+              value="farm"
+            />
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+              Farm or agricultural waste
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <h3 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="event-name">
+          Text input
+        </label>
+      </h3>
+      <input
+        class="govuk-input govuk-input--subtle"
+        id="event-name"
+        name="eventName"
+        type="text"
+      />
+    </div>
+
+    <div class="govuk-form-group">
+      <h3 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="more-detail">
+          Text Area
+        </label>
+      </h3>
+      <div id="more-detail-hint" class="govuk-hint">
+        Do not include personal or financial information, like your National
+        Insurance number or credit card details
+      </div>
+      <textarea
+        class="govuk-textarea govuk-textarea--subtle"
+        id="more-detail"
+        name="moreDetail"
+        rows="5"
+        aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+    <h2 class="govuk-heading-l">New components</h2>
+
+    <table class="govuk-table govuk-table--subtle">
+      <caption class="govuk-table__caption govuk-table__caption--m"
+        >Selectable list table</caption
+      >
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Select</th>
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Date</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div
+              class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes--subtle govuk-!-margin-left-1"
+              data-module="govuk-checkboxes"
+              style="position: relative;"
+            >
+              <input
+                class="govuk-checkboxes__input"
+                name="template"
+                type="checkbox"
+              />
+              <label
+                class="govuk-label govuk-checkboxes__label govuk-!-padding-0"
+              >
+                <span class="govuk-visually-hidden">Select</span>
+              </label>
+            </div>
+          </td>
+          <td class="govuk-table__cell temp-full-width">
+            <a href="#" class="govuk-link temp-full-width temp-inline-block"
+              >First 6 weeks</a
+            >
+          </td>
+          <td class="govuk-table__cell">10/08/2026</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div
+              class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes--subtle govuk-!-margin-left-1"
+              data-module="govuk-checkboxes"
+              style="position: relative;"
+            >
+              <input
+                class="govuk-checkboxes__input"
+                name="template"
+                type="checkbox"
+              />
+              <label
+                class="govuk-label govuk-checkboxes__label govuk-!-padding-0"
+              >
+                <span class="govuk-visually-hidden">Select</span>
+              </label>
+            </div>
+          </td>
+          <td class="govuk-table__cell temp-full-width">
+            <a href="#" class="govuk-link temp-full-width temp-inline-block"
+              >Another 6 weeks</a
+            >
+          </td>
+          <td class="govuk-table__cell">10/08/2026</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <div
+              class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes--subtle govuk-!-margin-left-1"
+              data-module="govuk-checkboxes"
+              style="position: relative;"
+            >
+              <input
+                class="govuk-checkboxes__input"
+                name="template"
+                type="checkbox"
+              />
+              <label
+                class="govuk-label govuk-checkboxes__label govuk-!-padding-0"
+              >
+                <span class="govuk-visually-hidden">Select</span>
+              </label>
+            </div>
+          </td>
+          <td class="govuk-table__cell temp-full-width">
+            <a href="#" class="govuk-link temp-full-width temp-inline-block"
+              >Next 33 weeks</a
+            >
+          </td>
+          <td class="govuk-table__cell">10/08/2026</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="govuk-heading-m">Radio button card version</h3>
+
+    <fieldset class="govuk-fieldset" aria-describedby="recordMeeting-hint">
+      <div
+        class="govuk-radios govuk-radios--inline govuk-radios--small govuk-radios--cards"
+        data-module="govuk-radios"
+      >
+        <div class="govuk-radios__item">
+          <input
+            class="govuk-radios__input"
+            id="in-person"
+            name="recordMeeting"
+            type="radio"
+            value="in-person"
+          />
+          <label class="govuk-label govuk-radios__label" for="in-person">
+            <h2 class="govuk-heading-m">In person</h2>
+            <p class="govuk-body">
+              Record audio from this device&apos;s microphone.
+            </p>
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input
+            class="govuk-radios__input"
+            id="virtual-meeting"
+            name="recordMeeting"
+            type="radio"
+            value="virtual-meeting"
+          />
+          <label class="govuk-label govuk-radios__label" for="virtual-meeting">
+            <h2 class="govuk-heading-m">Virtual meeting</h2>
+            <p class="govuk-body">Record your screen and device audio.</p>
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input
+            class="govuk-radios__input"
+            id="upload-file"
+            name="recordMeeting"
+            type="radio"
+            value="upload-file"
+          />
+          <label class="govuk-label govuk-radios__label" for="upload-file">
+            <h2 class="govuk-heading-m">Upload a file</h2>
+            <p class="govuk-body">Use a recording you already have.</p>
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</Layout>

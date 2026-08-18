@@ -1,10 +1,25 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"nav"> {
+    isWebVersion?: boolean;
+    items: {
+        text: string;
+        href: string;
+    }[];
+}
+
 const pathName = Astro.url.pathname;
-const { isWebVersion = false } = Astro.props;
+const {
+    isWebVersion = false,
+    items = [],
+    class: className,
+    ...rest
+} = Astro.props;
 ---
 
 <div
-    class={`govuk-service-navigation${isWebVersion ? "" : " govuk-service-navigation--side-nav"}`}
+    class={`govuk-service-navigation${isWebVersion ? "" : " govuk-service-navigation--side-nav"}${className ? ` ${className}` : ""}`}
     data-module="govuk-service-navigation"
 >
     <div class="govuk-width-container">
@@ -20,46 +35,25 @@ const { isWebVersion = false } = Astro.props;
                     Menu
                 </button>
                 <ul class="govuk-service-navigation__list" id="navigation">
-                    <li
-                        class={`govuk-service-navigation__item ${pathName === "/" ? "govuk-service-navigation__item--active" : ""}`}
-                    >
-                        <a
-                            class="govuk-service-navigation__link"
-                            href="/"
-                            aria-current={pathName === "/" ? "page" : "false"}
-                        >
-                            Components
-                        </a>
-                    </li>
-                    <li
-                        class={`govuk-service-navigation__item ${pathName === "/components" ? "govuk-service-navigation__item--active" : ""}`}
-                    >
-                        <a
-                            class="govuk-service-navigation__link"
-                            href="#"
-                            aria-current={pathName === "/components"
-                                ? "page"
-                                : "false"}
-                        >
-                            <strong
-                                class="govuk-service-navigation__active-fallback"
-                                >Coming soon</strong
+                    {
+                        items.map((item) => (
+                            <li
+                                class={`govuk-service-navigation__item ${pathName === item.href ? "govuk-service-navigation__item--active" : ""}`}
                             >
-                        </a>
-                    </li>
-                    <li
-                        class={`govuk-service-navigation__item ${pathName === "/components" ? "govuk-service-navigation__item--active" : ""}`}
-                    >
-                        <a
-                            class="govuk-service-navigation__link"
-                            href="#"
-                            aria-current={pathName === "/components"
-                                ? "page"
-                                : "false"}
-                        >
-                            Coming soon
-                        </a>
-                    </li>
+                                <a
+                                    class="govuk-service-navigation__link"
+                                    href={item.href}
+                                    aria-current={
+                                        pathName === item.href
+                                            ? "page"
+                                            : "false"
+                                    }
+                                >
+                                    {item.text}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav>
         </div>

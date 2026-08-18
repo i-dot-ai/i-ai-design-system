@@ -1,10 +1,11 @@
 ---
-import "../styles/global.css";
 import "../styles/govuk.scss";
+import "../styles/global.css";
 import "../styles/i-ai-design-system.css";
 
 import ServiceNavigation from "@components/service-navigation.astro";
 import Header from "@components/header.astro";
+const pathName = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -13,7 +14,7 @@ import Header from "@components/header.astro";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>i.AI Design system</title>
+		<title>i.AI Design System</title>
 	</head>
 	<body class="govuk-template__body">
 		<script is:inline>
@@ -24,9 +25,34 @@ import Header from "@components/header.astro";
 					: "");
 		</script>
 		<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
-		<Header productName="Design system" />
-		<ServiceNavigation isWebVersion={true} />
-		<main class="govuk-main-wrapper" id="main-content" role="main">
+		<Header productName="Design System" />
+		<ServiceNavigation
+			class={pathName === "/" ? "govuk-service-navigation--inverse" : ""}
+			isWebVersion={true}
+			items={[
+				{
+					text: "Get started",
+					href: "/get-started",
+				},
+				{
+					text: "Styles",
+					href: "/styles",
+				},
+				{
+					text: "Components",
+					href: "/components",
+				},
+				{
+					text: "Patterns",
+					href: "/patterns",
+				},
+				{
+					text: "Reasoning",
+					href: "/reasoning",
+				},
+			]}
+		/>
+		<main id="main-content" role="main">
 			<slot />
 		</main>
 		<script>

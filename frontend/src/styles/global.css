@@ -2,11 +2,13 @@
   font-family: Inter;
   src: url(fonts/static/Inter-Regular.ttf);
 }
+
 @font-face {
   font-family: Inter;
   font-weight: 500;
   src: url(fonts/static/Inter-Medium.ttf);
 }
+
 @font-face {
   font-family: Inter;
   font-weight: 700;
@@ -17,6 +19,11 @@
 
 @custom-variant aria-current (&[aria-current="page"]);
 
-@view-transition {
-  navigation: auto;
+.app-masthead {
+  background-color: var(--govuk-brand-colour, #16548a);
+}
+
+.app-masthead__body,
+.app-masthead__title {
+  color: #fff;
 }

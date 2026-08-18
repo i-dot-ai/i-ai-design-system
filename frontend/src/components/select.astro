@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"select"> {
+    label: string;
+    options: {
+        text: string;
+        value: string;
+    }[];
+    subtle?: boolean;
+    inline?: boolean;
+    labelClass?: string;
+}
+
+const {
+    label,
+    options = [],
+    subtle = true,
+    inline = true,
+    labelClass = "govuk-label",
+    id,
+    name,
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<div
+    class={`govuk-form-group${inline ? ` govuk-form-group--inline` : ""}${className ? ` ${className}` : ""}`}
+>
+    <label class={labelClass} for={id}> Sort by </label>
+    <select
+        class={`govuk-select ${subtle ? "govuk-select--subtle" : ""}`}
+        id={id}
+        name={name}
+        {...rest}
+    >
+        {
+            options.map((option) => (
+                <option value={option.value}>{option.text}</option>
+            ))
+        }
+    </select>
+</div>
