@@ -1,17 +1,40 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Fieldset</h1>
-  <p class="govuk-body-l">
-    Use the fieldset component to group related form inputs
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend"> What is your address? </legend>
-  </fieldset>
+  <h2 class="govuk-heading-m">Extra large legend</h2>
+  <p class="govuk-body">
+    Use an extra large legend when the fieldset is the main focus of the page.
+  </p>
+  <Fieldset>
+    <FieldsetLegend size="xl">What is your address?</FieldsetLegend>
+  </Fieldset>
+  <h2 class="govuk-heading-m">Large legend</h2>
+  <p class="govuk-body">
+    Use a large legend for a fieldset that is an important part of the page.
+  </p>
+  <Fieldset>
+    <FieldsetLegend size="large">What is your address?</FieldsetLegend>
+  </Fieldset>
+  <h2 class="govuk-heading-m">Medium legend</h2>
+  <p class="govuk-body">
+    Use a medium legend for a fieldset within a section of the page.
+  </p>
+  <Fieldset>
+    <FieldsetLegend size="medium">What is your address?</FieldsetLegend>
+  </Fieldset>
+  <h2 class="govuk-heading-m">Small legend</h2>
+  <p class="govuk-body">
+    Use a small legend for a fieldset that is not the main focus of the page.
+  </p>
+  <Fieldset>
+    <FieldsetLegend size="small">What is your address?</FieldsetLegend>
+  </Fieldset>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

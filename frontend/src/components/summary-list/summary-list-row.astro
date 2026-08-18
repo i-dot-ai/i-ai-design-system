@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    noActions?: boolean;
+}
+
+const { noActions = false, class: className, ...rest } = Astro.props;
+---
+
+<div
+    class={`govuk-summary-list__row${noActions ? " govuk-summary-list__row--no-actions" : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</div>

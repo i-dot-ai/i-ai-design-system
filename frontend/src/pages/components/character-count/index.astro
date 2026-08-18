@@ -1,35 +1,35 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import CharacterCount from "@components/character-count/character-count.astro";
+import CharacterCountMessage from "@components/character-count/character-count-message.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Character count</h1>
-  <p class="govuk-body-l">
-    Tell users how many characters or words they can enter into a textarea
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div
-    class="govuk-form-group govuk-character-count"
+  <h2 class="govuk-heading-m">With maximum characters</h2>
+  <p class="govuk-body">
+    Use a maximum characters count to tell users how many characters they can
+    enter.
+  </p>
+  <FormGroup
+    class="govuk-character-count"
     data-module="govuk-character-count"
-    data-maxlength="10"
+    data-maxlength={10}
   >
-    <label class="govuk-label" for="more-detail">
-      Can you provide more detail?
-    </label>
-    <textarea
-      class="govuk-textarea govuk-js-character-count"
+    <InputLabel for="more-detail">Can you provide more detail?</InputLabel>
+    <CharacterCount
       id="more-detail"
       name="more-detail"
       rows="5"
-      aria-describedby="more-detail-info"></textarea>
-    <div
-      id="more-detail-info"
-      class="govuk-hint govuk-character-count__message"
-    >
+      aria-describedby="more-detail-info"
+    />
+    <CharacterCountMessage id="more-detail-info">
       You can enter up to 10 characters
-    </div>
-  </div>
+    </CharacterCountMessage>
+  </FormGroup>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

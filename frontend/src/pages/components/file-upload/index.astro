@@ -1,21 +1,21 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import FileUpload from "@components/file-upload/file-upload.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">File upload</h1>
-  <p class="govuk-body-l">Help users select and upload a file</p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="file-upload-1"> Upload a file </label>
-    <input
-      class="govuk-file-upload"
-      id="file-upload-1"
-      name="file-upload-1"
-      type="file"
-    />
-  </div>
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default file upload lets users select and upload a single file.
+  </p>
+  <FormGroup>
+    <InputLabel for="file-upload-1">Upload a file</InputLabel>
+    <FileUpload id="file-upload-1" name="file-upload-1" />
+  </FormGroup>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

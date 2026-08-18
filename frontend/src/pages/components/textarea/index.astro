@@ -1,24 +1,38 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Textarea from "@components/textarea/textarea.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Textarea</h1>
-  <p class="govuk-body-l">
-    Help users provide detailed information using the textarea component
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="more-detail">
-      Can you provide more detail?
-    </label>
-    <textarea
-      class="govuk-textarea"
-      id="more-detail"
-      name="more-detail"
-      rows="5"></textarea>
-  </div>
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default textarea lets users enter multiple lines of text.
+  </p>
+  <FormGroup>
+    <InputLabel for="textarea-default">Can you provide more detail?</InputLabel>
+    <Textarea id="textarea-default" name="textarea-default" rows="5" />
+  </FormGroup>
+  <h2 class="govuk-heading-m">Subtle</h2>
+  <p class="govuk-body">
+    Use a subtle textarea to reduce its prominence when it is not the main focus
+    of the page.
+  </p>
+  <FormGroup>
+    <InputLabel for="textarea-subtle">Can you provide more detail?</InputLabel>
+    <Textarea id="textarea-subtle" name="textarea-subtle" rows="5" subtle />
+  </FormGroup>
+  <h2 class="govuk-heading-m">Error</h2>
+  <p class="govuk-body">
+    An error textarea is used to indicate that the textarea has an error.
+  </p>
+  <FormGroup class="govuk-form-group--error">
+    <InputLabel for="textarea-error">Can you provide more detail?</InputLabel>
+    <Textarea id="textarea-error" name="textarea-error" rows="5" error />
+  </FormGroup>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

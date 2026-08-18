@@ -1,0 +1,26 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"span"> {
+    color?:
+        | "grey"
+        | "green"
+        | "turquoise"
+        | "blue"
+        | "light-blue"
+        | "purple"
+        | "pink"
+        | "red"
+        | "orange"
+        | "yellow";
+}
+
+const { color, class: className, ...rest } = Astro.props;
+---
+
+<strong
+    class={`govuk-tag${color ? ` govuk-tag--${color}` : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</strong>

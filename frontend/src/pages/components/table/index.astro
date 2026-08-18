@@ -1,34 +1,81 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Table from "@components/table/table.astro";
+import TableCaption from "@components/table/table-caption.astro";
+import TableHead from "@components/table/table-head.astro";
+import TableBody from "@components/table/table-body.astro";
+import TableRow from "@components/table/table-row.astro";
+import TableHeader from "@components/table/table-header.astro";
+import TableCell from "@components/table/table-cell.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Table</h1>
-  <p class="govuk-body-l">
-    Use the table component to make information easier to compare and scan for
-    users
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <table class="govuk-table">
-    <tbody class="govuk-table__body">
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">January</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric">£85</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
-      </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">February</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric">£75</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric">£55</td>
-      </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">March</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric">£165</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric">£125</td>
-      </tr>
-    </tbody>
-  </table>
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default table lets users compare information in rows and columns.
+  </p>
+  <Table>
+    <TableCaption size="medium">Monthly energy costs</TableCaption>
+    <TableHead>
+      <TableRow>
+        <TableHeader>Month</TableHeader>
+        <TableHeader numeric>Gas</TableHeader>
+        <TableHeader numeric>Electricity</TableHeader>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      <TableRow>
+        <TableCell>January</TableCell>
+        <TableCell numeric>£85</TableCell>
+        <TableCell numeric>£95</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>February</TableCell>
+        <TableCell numeric>£75</TableCell>
+        <TableCell numeric>£55</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>March</TableCell>
+        <TableCell numeric>£165</TableCell>
+        <TableCell numeric>£125</TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+
+  <h2 class="govuk-heading-m">Subtle</h2>
+  <p class="govuk-body">
+    Use a subtle table to reduce its prominence when it is not the main focus of
+    the page.
+  </p>
+  <Table subtle>
+    <TableCaption size="medium">Monthly energy costs</TableCaption>
+    <TableHead>
+      <TableRow>
+        <TableHeader>Month</TableHeader>
+        <TableHeader numeric>Gas</TableHeader>
+        <TableHeader numeric>Electricity</TableHeader>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      <TableRow>
+        <TableCell>January</TableCell>
+        <TableCell numeric>£85</TableCell>
+        <TableCell numeric>£95</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>February</TableCell>
+        <TableCell numeric>£75</TableCell>
+        <TableCell numeric>£55</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>March</TableCell>
+        <TableCell numeric>£165</TableCell>
+        <TableCell numeric>£125</TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

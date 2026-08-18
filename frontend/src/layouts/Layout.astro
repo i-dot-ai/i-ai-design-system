@@ -27,10 +27,7 @@ const pathName = Astro.url.pathname;
 		</script>
 		<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 		<Header>Design System</Header>
-		<ServiceNavigation
-			class={pathName === "/" ? "govuk-service-navigation--inverse" : ""}
-			isWebVersion
-		>
+		<ServiceNavigation isWebVersion inverse={pathName === "/"}>
 			<ServiceNavigationItem href="/get-started">
 				Get started
 			</ServiceNavigationItem>

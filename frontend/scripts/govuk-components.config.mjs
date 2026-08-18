@@ -37,6 +37,13 @@ export const EXCLUDED_COMPONENTS = [
 export const GUIDANCE_RAW_BASE =
   "https://raw.githubusercontent.com/alphagov/govuk-design-system/main/src/components";
 
+// Some components have a different slug in the design-system website (guidance)
+// than their directory name in the govuk-frontend package. Map package name ->
+// guidance slug here so the sync scripts fetch the correct guidance page.
+export const GUIDANCE_SLUG_OVERRIDES = {
+  input: "text-input", // package dir "input" is the "Text input" component on GDS
+};
+
 // Turn a govuk-frontend component directory name into a human title fallback.
 // e.g. "character-count" -> "Character count"
 export function toTitleCase(name) {

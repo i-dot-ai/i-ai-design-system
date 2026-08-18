@@ -1,56 +1,68 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Service navigation</h1>
-  <p class="govuk-body-l">
-    Service navigation helps users understand that they’re using your service
-    and lets them navigate around your service
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    Use the default service navigation to help users navigate around your
+    service.
   </p>
+  <ServiceNavigation isWebVersion>
+    <ServiceNavigationItem href="#/1">
+      Navigation item 1
+    </ServiceNavigationItem>
+    <ServiceNavigationItem href="#/2">
+      Navigation item 2
+    </ServiceNavigationItem>
+    <ServiceNavigationItem href="#/3">
+      Navigation item 3
+    </ServiceNavigationItem>
+  </ServiceNavigation>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div class="govuk-service-navigation" data-module="govuk-service-navigation">
-    <div class="govuk-width-container">
-      <div class="govuk-service-navigation__container">
-        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
-          <button
-            type="button"
-            class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
-            aria-controls="navigation"
-            hidden
-            aria-hidden="true"
-          >
-            Menu
-          </button>
+  <h2 class="govuk-heading-m">Inverse</h2>
+  <p class="govuk-body">
+    Use the inverse service navigation on dark backgrounds.
+  </p>
+  <div class="inverse-component-container">
+    <ServiceNavigation isWebVersion inverse>
+      <ServiceNavigationItem href="#/1">
+        Navigation item 1
+      </ServiceNavigationItem>
+      <ServiceNavigationItem href="#/2">
+        Navigation item 2
+      </ServiceNavigationItem>
+      <ServiceNavigationItem href="#/3">
+        Navigation item 3
+      </ServiceNavigationItem>
+    </ServiceNavigation>
+  </div>
 
-          <ul class="govuk-service-navigation__list" id="navigation">
-            <li class="govuk-service-navigation__item">
-              <a class="govuk-service-navigation__link" href="#/1">
-                Navigation item 1
-              </a>
-            </li>
-
-            <li class="govuk-service-navigation__item">
-              <a class="govuk-service-navigation__link" href="#/2">
-                Navigation item 2
-              </a>
-            </li>
-
-            <li class="govuk-service-navigation__item">
-              <a class="govuk-service-navigation__link" href="#/3">
-                Navigation item 3
-              </a>
-            </li>
-
-            <li class="govuk-service-navigation__item">
-              <a class="govuk-service-navigation__link" href="#/4">
-                Navigation item 4
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+  <h2 class="govuk-heading-m">Side navigation</h2>
+  <p class="govuk-body">
+    Use the side navigation variant to display navigation vertically alongside
+    page content.
+  </p>
+  <div style="display: flex;">
+    <ServiceNavigation>
+      <ServiceNavigationItem href="#/1">Navigation item 1</ServiceNavigationItem
+      >
+      <ServiceNavigationItem href="#/2">Navigation item 2</ServiceNavigationItem
+      >
+      <ServiceNavigationItem href="#/3">Navigation item 3</ServiceNavigationItem
+      >
+      <ServiceNavigationItem href="#/4">Navigation item 4</ServiceNavigationItem
+      >
+    </ServiceNavigation>
+    <div
+      style="flex: 1; border: 1px solid var(--govuk-border-colour);"
+      class="govuk-!-padding-6"
+    >
+      Page content
     </div>
   </div>
 

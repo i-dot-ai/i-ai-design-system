@@ -4,7 +4,7 @@
 // the prose from the "When to use this component" and "When not to use this
 // component" sections, so we extract those headings and clean the content.
 
-import { GUIDANCE_RAW_BASE } from "./govuk-components.config.mjs";
+import { GUIDANCE_RAW_BASE, GUIDANCE_SLUG_OVERRIDES } from "./govuk-components.config.mjs";
 
 // Markers written into each generated page. The update script replaces
 // everything BETWEEN these two markers, leaving the rest of the page (title,
@@ -15,7 +15,8 @@ export const GUIDANCE_END = "<!-- GOVUK_GUIDANCE:END -->";
 // Fetch the raw index.md for a component from the design-system repo.
 // Returns null if the component has no guidance page (404).
 export async function fetchGuidanceMarkdown(componentName) {
-  const url = `${GUIDANCE_RAW_BASE}/${componentName}/index.md`;
+  const slug = GUIDANCE_SLUG_OVERRIDES[componentName] ?? componentName;
+  const url = `${GUIDANCE_RAW_BASE}/${slug}/index.md`;
   const res = await fetch(url);
   if (res.status === 404) return null;
   if (!res.ok) {

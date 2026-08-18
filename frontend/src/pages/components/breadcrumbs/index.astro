@@ -6,18 +6,25 @@ import BreadcrumbItem from "@components/breadcrumbs/breadcrumbItem.astro";
 
 <Layout>
   <h1 class="govuk-heading-xl">Breadcrumbs</h1>
-  <p class="govuk-body-l">
-    Help users orientate themselves and navigate pages within a hierarchical
-    structure
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
+  <h2 class="govuk-heading-m">Example</h2>
   <Breadcrumbs>
     <BreadcrumbItem href="#">Home</BreadcrumbItem>
     <BreadcrumbItem href="#">Section</BreadcrumbItem>
     <BreadcrumbItem href="#">Sub-section</BreadcrumbItem>
     <BreadcrumbItem href="#">Sub Sub-section</BreadcrumbItem>
   </Breadcrumbs>
+
+  <h2 class="govuk-heading-m">Inverse</h2>
+  <p class="govuk-body">Use the inverse breadcrumbs on dark backgrounds.</p>
+  <div class="inverse-component-container">
+    <Breadcrumbs inverse>
+      <BreadcrumbItem href="#">Home</BreadcrumbItem>
+      <BreadcrumbItem href="#">Section</BreadcrumbItem>
+      <BreadcrumbItem href="#">Sub-section</BreadcrumbItem>
+      <BreadcrumbItem href="#">Sub Sub-section</BreadcrumbItem>
+    </Breadcrumbs>
+  </div>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

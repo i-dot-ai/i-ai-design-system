@@ -1,35 +1,45 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import NotificationBanner from "@components/notification-banner/notification-banner.astro";
+import NotificationBannerHeader from "@components/notification-banner/notification-banner-header.astro";
+import NotificationBannerTitle from "@components/notification-banner/notification-banner-title.astro";
+import NotificationBannerContent from "@components/notification-banner/notification-banner-content.astro";
+import NotificationBannerHeading from "@components/notification-banner/notification-banner-heading.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Notification banner</h1>
-  <p class="govuk-body-l">
-    Use a notification banner to tell the user about something they need to know
-    about, but that’s not directly related to the page content
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div
-    class="govuk-notification-banner"
-    role="region"
-    aria-labelledby="govuk-notification-banner-title"
-    data-module="govuk-notification-banner"
-  >
-    <div class="govuk-notification-banner__header">
-      <h2
-        class="govuk-notification-banner__title"
-        id="govuk-notification-banner-title"
-      >
-        Important
-      </h2>
-    </div>
-    <div class="govuk-notification-banner__content">
-      <p class="govuk-notification-banner__heading">
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default notification banner tells the user about something they need to
+    know about.
+  </p>
+  <NotificationBanner>
+    <NotificationBannerHeader>
+      <NotificationBannerTitle>Important</NotificationBannerTitle>
+    </NotificationBannerHeader>
+    <NotificationBannerContent>
+      <NotificationBannerHeading>
         This publication was withdrawn on 7 March 2014.
-      </p>
-    </div>
-  </div>
+      </NotificationBannerHeading>
+    </NotificationBannerContent>
+  </NotificationBanner>
+  <h2 class="govuk-heading-m">Success</h2>
+  <p class="govuk-body">
+    Use the success variant to confirm that something the user has done has been
+    successful.
+  </p>
+  <NotificationBanner success>
+    <NotificationBannerHeader>
+      <NotificationBannerTitle>Success</NotificationBannerTitle>
+    </NotificationBannerHeader>
+    <NotificationBannerContent>
+      <NotificationBannerHeading>
+        Training outcome recorded and trainee withdrawn
+      </NotificationBannerHeading>
+    </NotificationBannerContent>
+  </NotificationBanner>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

@@ -1,0 +1,7 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<tbody class={`govuk-table__body${className ? ` ${className}` : ""}`} {...rest}>
+    <slot />
+</tbody>

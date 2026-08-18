@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"input"> {
+    width?: 2 | 3 | 4;
+}
+
+const { width = 2, class: className, ...rest } = Astro.props;
+---
+
+<input
+    class={`govuk-input govuk-date-input__input govuk-input--width-${width}${className ? ` ${className}` : ""}`}
+    type="text"
+    inputmode="numeric"
+    {...rest}
+/>

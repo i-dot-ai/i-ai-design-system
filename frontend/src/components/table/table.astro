@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"table"> {
+    smallTextUntilTablet?: boolean;
+    subtle?: boolean;
+}
+
+const {
+    smallTextUntilTablet = false,
+    subtle = false,
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<table
+    class={`govuk-table${smallTextUntilTablet ? " govuk-table--small-text-until-tablet" : ""}${subtle ? " govuk-table--subtle" : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</table>

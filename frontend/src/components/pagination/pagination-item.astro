@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+    current?: boolean;
+    ellipsis?: boolean;
+}
+
+const { current = false, ellipsis = false, class: className, ...rest } = Astro.props;
+---
+
+{
+    ellipsis ? (
+        <li class="govuk-pagination__item govuk-pagination__item--ellipsis">
+            <slot>&ctdot;</slot>
+        </li>
+    ) : (
+        <li
+            class={`govuk-pagination__item${current ? " govuk-pagination__item--current" : ""}`}
+        >
+            <a
+                class={`govuk-link govuk-pagination__link${className ? ` ${className}` : ""}`}
+                aria-current={current ? "page" : undefined}
+                {...rest}
+            >
+                <slot />
+            </a>
+        </li>
+    )
+}

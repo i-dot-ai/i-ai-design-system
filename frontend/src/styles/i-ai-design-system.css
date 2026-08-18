@@ -223,6 +223,7 @@ html {
 
 @media screen and (min-width: 768px) {
     .govuk-service-navigation--side-nav {
+        border-bottom: none;
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
@@ -241,6 +242,7 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        border: none;
         flex: 1;
     }
 

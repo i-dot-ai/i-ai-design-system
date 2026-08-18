@@ -1,124 +1,38 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsTitle from "@components/tabs/tabs-title.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Tabs</h1>
-  <p class="govuk-body-l">
-    Tabs can be a helpful way of letting users quickly switch between related
-    information
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div class="govuk-tabs" data-module="govuk-tabs">
-    <h2 class="govuk-tabs__title">Contents</h2>
-    <ul class="govuk-tabs__list">
-      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-        <a class="govuk-tabs__tab" href="#past-day"> Past day </a>
-      </li>
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#past-week"> Past week </a>
-      </li>
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#past-month"> Past month </a>
-      </li>
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#past-year"> Past year </a>
-      </li>
-    </ul>
-    <div class="govuk-tabs__panel" id="past-day">
-      <h2 class="govuk-heading-l">Past day</h2>
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="col">Case manager</th>
-            <th class="govuk-table__header" scope="col">Cases opened</th>
-            <th class="govuk-table__header" scope="col">Cases closed</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">David Francis</td>
-            <td class="govuk-table__cell">3</td>
-            <td class="govuk-table__cell">0</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Paul Farmer</td>
-            <td class="govuk-table__cell">1</td>
-            <td class="govuk-table__cell">0</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Rita Patel</td>
-            <td class="govuk-table__cell">2</td>
-            <td class="govuk-table__cell">0</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
-      <h2 class="govuk-heading-l">Past week</h2>
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="col">Case manager</th>
-            <th class="govuk-table__header" scope="col">Cases opened</th>
-            <th class="govuk-table__header" scope="col">Cases closed</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">David Francis</td>
-            <td class="govuk-table__cell">24</td>
-            <td class="govuk-table__cell">18</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Paul Farmer</td>
-            <td class="govuk-table__cell">16</td>
-            <td class="govuk-table__cell">20</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Rita Patel</td>
-            <td class="govuk-table__cell">24</td>
-            <td class="govuk-table__cell">27</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
-      <h2 class="govuk-heading-l">Past month</h2>
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="col">Case manager</th>
-            <th class="govuk-table__header" scope="col">Cases opened</th>
-            <th class="govuk-table__header" scope="col">Cases closed</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">David Francis</td>
-            <td class="govuk-table__cell">98</td>
-            <td class="govuk-table__cell">95</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Paul Farmer</td>
-            <td class="govuk-table__cell">122</td>
-            <td class="govuk-table__cell">131</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Rita Patel</td>
-            <td class="govuk-table__cell">126</td>
-            <td class="govuk-table__cell">142</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default set of tabs lets users quickly switch between related information.
+  </p>
+  <Tabs>
+    <TabsTitle>Contents</TabsTitle>
+    <TabsList>
+      <Tab href="#tab-1" selected>Past day</Tab>
+      <Tab href="#tab-2">Past week</Tab>
+    </TabsList>
+    <TabPanel id="tab-1">
+      <h2 class="govuk-heading-m">Past day</h2>
       <p class="govuk-body">
-        There is no data for this year yet, check back later
+        There were 3 cases opened and 0 cases closed in the past day.
       </p>
-    </div>
-  </div>
+    </TabPanel>
+    <TabPanel id="tab-2" hidden>
+      <h2 class="govuk-heading-m">Past week</h2>
+      <p class="govuk-body">
+        There were 24 cases opened and 18 cases closed in the past week.
+      </p>
+    </TabPanel>
+  </Tabs>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

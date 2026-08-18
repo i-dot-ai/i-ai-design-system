@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+    class={`govuk-task-list__name-and-hint${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</div>

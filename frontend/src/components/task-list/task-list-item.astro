@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {
+    withLink?: boolean;
+}
+
+const { withLink = false, class: className, ...rest } = Astro.props;
+---
+
+<li
+    class={`govuk-task-list__item${withLink ? " govuk-task-list__item--with-link" : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    <slot />
+</li>

@@ -1,16 +1,20 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Hint from "@components/hint/hint.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Hint</h1>
-  <p class="govuk-body-l"></p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div class="govuk-hint">
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    Use the default hint to give users helpful information alongside a form
+    field.
+  </p>
+  <Hint>
     It&#39;s on your National Insurance card, benefit letter, payslip or P60.
     For example, &#39;QQ 12 34 56 C&#39;.
-  </div>
+  </Hint>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <p class="govuk-body">

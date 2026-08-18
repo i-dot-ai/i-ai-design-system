@@ -1,16 +1,23 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import BackLink from "@components/back-link/back-link.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Back link</h1>
-  <p class="govuk-body-l">
-    Use the back link component to help users go back to the previous page in a
-    multi-page transaction
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <a href="#" class="govuk-back-link">Back</a>
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    Use the default back link to help users go back to the previous page.
+  </p>
+  <BackLink href="#">Back</BackLink>
+  <h2 class="govuk-heading-m">Inverse</h2>
+  <p class="govuk-body">
+    Use the inverse back link on dark backgrounds.
+  </p>
+  <div class="inverse-component-container">
+    <BackLink href="#" inverse>Back</BackLink>
+  </div>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

@@ -3,13 +3,19 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"nav"> {
     isWebVersion?: boolean;
+    inverse?: boolean;
 }
 
-const { isWebVersion = false, class: className, ...rest } = Astro.props;
+const {
+    isWebVersion = false,
+    inverse = false,
+    class: className,
+    ...rest
+} = Astro.props;
 ---
 
 <div
-    class={`govuk-service-navigation${isWebVersion ? "" : " govuk-service-navigation--side-nav"}${className ? ` ${className}` : ""}`}
+    class={`govuk-service-navigation${isWebVersion ? "" : " govuk-service-navigation--side-nav"}${inverse ? " govuk-service-navigation--inverse" : ""}${className ? ` ${className}` : ""}`}
     data-module="govuk-service-navigation"
     {...rest}
 >
@@ -25,7 +31,9 @@ const { isWebVersion = false, class: className, ...rest } = Astro.props;
                 >
                     Menu
                 </button>
-                <slot />
+                <ul class="govuk-service-navigation__list" id="navigation">
+                    <slot />
+                </ul>
             </nav>
         </div>
     </div>

@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    small?: boolean;
+    subtle?: boolean;
+}
+
+const { small = false, subtle = false, class: className, ...rest } = Astro.props;
+---
+
+<div
+    class={`govuk-checkboxes${small ? " govuk-checkboxes--small" : ""}${subtle ? " govuk-checkboxes--subtle" : ""}${className ? ` ${className}` : ""}`}
+    data-module="govuk-checkboxes"
+    {...rest}
+>
+    <slot />
+</div>

@@ -1,20 +1,17 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import SkipLink from "@components/skip-link/skip-link.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Skip link</h1>
-  <p class="govuk-body-l">
-    Use the skip link component to help keyboard-only users skip to the main
-    content on a page
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <a
-    href="#test-target-element"
-    class="govuk-skip-link"
-    data-module="govuk-skip-link">Skip to main content</a
-  >
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    Use the default skip link to let keyboard-only users skip to the main
+    content on a page.
+  </p>
+  <SkipLink href="#content">Skip to main content</SkipLink>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

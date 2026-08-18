@@ -1,60 +1,51 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import TaskList from "@components/task-list/task-list.astro";
+import TaskListItem from "@components/task-list/task-list-item.astro";
+import TaskListNameAndHint from "@components/task-list/task-list-name-and-hint.astro";
+import TaskListLink from "@components/task-list/task-list-link.astro";
+import TaskListStatus from "@components/task-list/task-list-status.astro";
+import Tag from "@components/tag/tag.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Task list</h1>
-  <p class="govuk-body-l">
-    The task list component displays all the tasks a user needs to do, and
-    allows users to easily identify which ones are done and which they still
-    need to do.
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <ul class="govuk-task-list">
-    <li class="govuk-task-list__item govuk-task-list__item--with-link">
-      <div class="govuk-task-list__name-and-hint">
-        <a
-          class="govuk-link govuk-task-list__link"
-          href="#"
-          aria-describedby="task-list-1-status"
-        >
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default task list shows all the tasks a user needs to do and their
+    status.
+  </p>
+  <TaskList>
+    <TaskListItem withLink>
+      <TaskListNameAndHint>
+        <TaskListLink href="#" aria-describedby="status-1">
           Company Directors
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="task-list-1-status">
-        Completed
-      </div>
-    </li>
-    <li class="govuk-task-list__item govuk-task-list__item--with-link">
-      <div class="govuk-task-list__name-and-hint">
-        <a
-          class="govuk-link govuk-task-list__link"
-          href="#"
-          aria-describedby="task-list-2-status"
-        >
+        </TaskListLink>
+      </TaskListNameAndHint>
+      <TaskListStatus id="status-1">Completed</TaskListStatus>
+    </TaskListItem>
+    <TaskListItem withLink>
+      <TaskListNameAndHint>
+        <TaskListLink href="#" aria-describedby="status-2">
           Registered company details
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="task-list-2-status">
-        <strong class="govuk-tag govuk-tag--blue"> Incomplete </strong>
-      </div>
-    </li>
-    <li class="govuk-task-list__item govuk-task-list__item--with-link">
-      <div class="govuk-task-list__name-and-hint">
-        <a
-          class="govuk-link govuk-task-list__link"
-          href="#"
-          aria-describedby="task-list-3-status"
-        >
+        </TaskListLink>
+      </TaskListNameAndHint>
+      <TaskListStatus id="status-2">
+        <Tag color="blue">Incomplete</Tag>
+      </TaskListStatus>
+    </TaskListItem>
+    <TaskListItem withLink>
+      <TaskListNameAndHint>
+        <TaskListLink href="#" aria-describedby="status-3">
           Business plan
-        </a>
-      </div>
-      <div class="govuk-task-list__status" id="task-list-3-status">
-        <strong class="govuk-tag govuk-tag--blue"> Incomplete </strong>
-      </div>
-    </li>
-  </ul>
+        </TaskListLink>
+      </TaskListNameAndHint>
+      <TaskListStatus id="status-3">
+        <Tag color="blue">Incomplete</Tag>
+      </TaskListStatus>
+    </TaskListItem>
+  </TaskList>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

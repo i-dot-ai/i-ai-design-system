@@ -1,66 +1,54 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Hint from "@components/hint/hint.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import DateInput from "@components/date-input/date-input.astro";
+import DateInputItem from "@components/date-input/date-input-item.astro";
+import DateInputField from "@components/date-input/date-input-field.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Date input</h1>
-  <p class="govuk-body-l">
-    Use the date input component to help users enter a memorable date
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
-      <legend class="govuk-fieldset__legend">
-        What is your date of birth?
-      </legend>
-      <div id="dob-hint" class="govuk-hint">For example, 31 3 1980</div>
-      <div class="govuk-date-input" id="dob">
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-date-input__label" for="dob-day">
-              Day
-            </label>
-            <input
-              class="govuk-input govuk-date-input__input govuk-input--width-2"
-              id="dob-day"
-              name="day"
-              type="text"
-              inputmode="numeric"
-            />
-          </div>
-        </div>
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-date-input__label" for="dob-month">
-              Month
-            </label>
-            <input
-              class="govuk-input govuk-date-input__input govuk-input--width-2"
-              id="dob-month"
-              name="month"
-              type="text"
-              inputmode="numeric"
-            />
-          </div>
-        </div>
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-date-input__label" for="dob-year">
-              Year
-            </label>
-            <input
-              class="govuk-input govuk-date-input__input govuk-input--width-4"
-              id="dob-year"
-              name="year"
-              type="text"
-              inputmode="numeric"
-            />
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default date input lets users enter a day, month and year.
+  </p>
+  <FormGroup>
+    <Fieldset role="group" aria-describedby="dob-hint">
+      <FieldsetLegend>What is your date of birth?</FieldsetLegend>
+      <Hint id="dob-hint">For example, 31 3 1980</Hint>
+      <DateInput id="dob">
+        <DateInputItem>
+          <FormGroup>
+            <InputLabel for="dob-day" class="govuk-date-input__label"
+              >Day</InputLabel
+            >
+            <DateInputField id="dob-day" name="day" width={2} />
+          </FormGroup>
+        </DateInputItem>
+        <DateInputItem>
+          <FormGroup>
+            <InputLabel for="dob-month" class="govuk-date-input__label"
+              >Month</InputLabel
+            >
+            <DateInputField id="dob-month" name="month" width={2} />
+          </FormGroup>
+        </DateInputItem>
+        <DateInputItem>
+          <FormGroup>
+            <InputLabel for="dob-year" class="govuk-date-input__label"
+              >Year</InputLabel
+            >
+            <DateInputField id="dob-year" name="year" width={4} />
+          </FormGroup>
+        </DateInputItem>
+      </DateInput>
+    </Fieldset>
+  </FormGroup>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

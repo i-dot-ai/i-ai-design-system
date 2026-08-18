@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"span"> {}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<span class={`govuk-phase-banner__text${className ? ` ${className}` : ""}`} {...rest}>
+    <slot />
+</span>

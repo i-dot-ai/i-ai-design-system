@@ -1,16 +1,31 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Tag from "@components/tag/tag.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Tag</h1>
-  <p class="govuk-body-l">
-    The Tag component indicates the status of something, such as an item on a
-    task list or a phase banner
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <strong class="govuk-tag"> Alpha </strong>
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    The default tag has no colour modifier and is used to indicate a status.
+  </p>
+  <Tag>Completed</Tag>
+  <h2 class="govuk-heading-m">Grey</h2>
+  <p class="govuk-body">Use the grey tag to indicate a status.</p>
+  <Tag color="grey">Inactive</Tag>
+  <h2 class="govuk-heading-m">Green</h2>
+  <p class="govuk-body">Use the green tag to indicate a status.</p>
+  <Tag color="green">New</Tag>
+  <h2 class="govuk-heading-m">Blue</h2>
+  <p class="govuk-body">Use the blue tag to indicate a status.</p>
+  <Tag color="blue">Pending</Tag>
+  <h2 class="govuk-heading-m">Red</h2>
+  <p class="govuk-body">Use the red tag to indicate a status.</p>
+  <Tag color="red">Rejected</Tag>
+  <h2 class="govuk-heading-m">Yellow</h2>
+  <p class="govuk-body">Use the yellow tag to indicate a status.</p>
+  <Tag color="yellow">Delayed</Tag>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

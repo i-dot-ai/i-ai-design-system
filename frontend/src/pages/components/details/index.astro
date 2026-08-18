@@ -1,25 +1,26 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Details</h1>
-  <p class="govuk-body-l">
-    Make a page easier to scan by letting users reveal more detailed information
-    only if they need it
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <details class="govuk-details">
-    <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text"> Help with nationality </span>
-    </summary>
-    <div class="govuk-details__text">
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    The default details component reveals more detailed information when the
+    summary is activated.
+  </p>
+  <Details>
+    <DetailsSummary>Help with nationality</DetailsSummary>
+    <DetailsText>
       We need to know your nationality so we can work out which elections you’re
       entitled to vote in. If you can’t provide your nationality, you’ll have to
       send copies of identity documents through the post.
-    </div>
-  </details>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

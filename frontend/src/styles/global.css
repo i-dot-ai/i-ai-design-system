@@ -27,3 +27,9 @@
 .app-masthead__title {
   color: #fff;
 }
+
+.inverse-component-container {
+  background-color: var(--govuk-brand-colour, #16548a);
+  padding: 20px;
+  margin-bottom: 20px;
+}

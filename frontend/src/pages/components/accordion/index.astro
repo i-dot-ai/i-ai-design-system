@@ -1,63 +1,45 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Accordion from "@components/accordion/accordion.astro";
+import AccordionSection from "@components/accordion/accordion-section.astro";
+import AccordionSectionHeader from "@components/accordion/accordion-section-header.astro";
+import AccordionSectionHeading from "@components/accordion/accordion-section-heading.astro";
+import AccordionSectionContent from "@components/accordion/accordion-section-content.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Accordion</h1>
-  <p class="govuk-body-l">
-    The accordion component lets users show and hide sections of related content
-    on a page
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <div
-    class="govuk-accordion"
-    data-module="govuk-accordion"
-    id="default-example"
-  >
-    <div class="govuk-accordion__section">
-      <div class="govuk-accordion__section-header">
-        <h2 class="govuk-accordion__section-heading">
-          <span
-            class="govuk-accordion__section-button"
-            id="default-example-heading-1"
-          >
-            Section A
-          </span>
-        </h2>
-      </div>
-      <div
-        id="default-example-content-1"
-        class="govuk-accordion__section-content"
-      >
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default accordion lets users show and hide sections of related content on
+    a page.
+  </p>
+  <Accordion>
+    <AccordionSection>
+      <AccordionSectionHeader>
+        <AccordionSectionHeading>Section A</AccordionSectionHeading>
+      </AccordionSectionHeader>
+      <AccordionSectionContent>
         <p class="govuk-body">
           We need to know your nationality so we can work out which elections
           you’re entitled to vote in. If you cannot provide your nationality,
           you’ll have to send copies of identity documents through the post.
         </p>
-      </div>
-    </div>
-    <div class="govuk-accordion__section">
-      <div class="govuk-accordion__section-header">
-        <h2 class="govuk-accordion__section-heading">
-          <span
-            class="govuk-accordion__section-button"
-            id="default-example-heading-2"
-          >
-            Section B
-          </span>
-        </h2>
-      </div>
-      <div
-        id="default-example-content-2"
-        class="govuk-accordion__section-content"
-      >
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Example item 2</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+      </AccordionSectionContent>
+    </AccordionSection>
+    <AccordionSection>
+      <AccordionSectionHeader>
+        <AccordionSectionHeading>Section B</AccordionSectionHeading>
+      </AccordionSectionHeader>
+      <AccordionSectionContent>
+        <p class="govuk-body">
+          You can find your National Insurance number on your payslip, P60, or
+          on letters about tax, pensions and benefits.
+        </p>
+      </AccordionSectionContent>
+    </AccordionSection>
+  </Accordion>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

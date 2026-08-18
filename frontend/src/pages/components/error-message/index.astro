@@ -1,19 +1,16 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import ErrorMessage from "@components/error-message/error-message.astro";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Error message</h1>
-  <p class="govuk-body-l">
-    When there's a validation error, use an error message to explain what went
-    wrong and how to fix it
-  </p>
 
-  <h2 class="govuk-heading-l">Example</h2>
-  <p class="govuk-error-message">
-    <span class="govuk-visually-hidden">Error:</span> Error message about full name
-    goes here
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    The default error message uses a visually hidden prefix of "Error:".
   </p>
+  <ErrorMessage>Error message about full name goes here</ErrorMessage>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>
