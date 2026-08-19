@@ -310,21 +310,13 @@ html {
     border-color: var(--govuk-brand-colour);
 }
 
-/* Toggle
-   Structure adapted from Kitty Giraudel, "An Accessible Toggle" (2021).
-   Colours are the GOV.UK theme values, set directly.
-
-   Size variants override only --toggle-diameter and --toggle-offset; the
-   track dimensions, icon size and icon positions are all derived from those
-   two via calc(), so the whole switch scales in proportion. Values are in em
-   so they also track the label font size. */
+/* Toggle styles */
 
 .iai-toggle {
     --toggle-diameter: 1.6em;
     --toggle-offset: 0.25em;
     --toggle-icon-size: calc(var(--toggle-diameter) * 0.5);
 
-    display: inline-flex;
     align-items: center;
     gap: 0.5em;
     position: relative;
@@ -341,11 +333,122 @@ html {
     --toggle-offset: 0.3em;
 }
 
-/* The real checkbox is only visually hidden once JS has enhanced the
-   component (body.js-enabled). Without JS the checkbox renders normally and
-   the display span stays hidden, so the control degrades to a plain
-   labelled checkbox. */
-.js-enabled .iai-toggle__input {
+/* Progressive enhancement.
+
+   The toggle is authored as a GOV.UK checkbox item. The label and the
+   control (.iai-toggle) can be authored in either order:
+
+     <div class="govuk-checkboxes__item iai-toggle__item">
+       <label class="govuk-checkboxes__label" for="…">…</label>
+       <div class="iai-toggle">
+         <input class="iai-toggle__input">
+         <span class="iai-toggle__display">…</span>
+       </div>
+     </div>
+
+   To keep the visible control on whichever side .iai-toggle is authored, we
+   never rely on GOV.UK's label ::before/::after (they are pinned to the
+   item's left edge). Instead:
+
+   - GOV.UK's label box + tick are always suppressed.
+   - With NO JS the .iai-toggle wrapper draws a GOV.UK-style checkbox box
+     (::before) + tick (::after) in normal flow, so it sits exactly where the
+     control is authored. The input is a child of .iai-toggle, so :checked /
+     :focus styling works with a plain descendant selector — no sibling
+     combinator or item-level :has() needed. The decorative toggle track is
+     hidden.
+   - With JS (body.js-enabled) the wrapper hides its checkbox box, shows the
+     toggle track, and overlays the invisible input on the track so clicks
+     and focus still hit the real checkbox. */
+
+/* Always suppress GOV.UK's own label box + tick; the control is drawn on
+   .iai-toggle instead so it follows the authored side. */
+.iai-toggle__item .govuk-checkboxes__label::before,
+.iai-toggle__item .govuk-checkboxes__label::after {
+    content: none;
+}
+
+/* Keep the GOV.UK label styling, but drop the reservations it makes for its
+   own (now suppressed) checkbox: the left padding for the box and the
+   max-width that leaves room for the 44px input column. With .iai-toggle
+   supplying the visible control as a separate flex child, those would push
+   the label text onto a second line. */
+.iai-toggle__item .govuk-checkboxes__label {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* The item wraps its children by default (GOV.UK uses flex-wrap so hints sit
+   on their own line). We have no hint, so keep the label and control on one
+   line. */
+.iai-toggle__item {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+}
+
+/* No-JS: hide the decorative track and draw a GOV.UK-style checkbox on the
+   .iai-toggle wrapper (which flows on the authored side). */
+.iai-toggle {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.iai-toggle__display {
+    display: none;
+}
+
+/* Empty check box (mirrors GOV.UK: 40px, 2px current-colour border). */
+.iai-toggle::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid currentcolor;
+    background: transparent;
+}
+
+/* Check mark (mirrors GOV.UK: rotated └ shape), hidden until checked. */
+.iai-toggle::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 11px;
+    left: 8px;
+    width: 23px;
+    height: 12px;
+    transform: rotate(-45deg);
+    border: solid;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+}
+
+/* Reveal the check mark when the real input (a child) is checked. */
+.iai-toggle:has(.iai-toggle__input:checked)::after {
+    opacity: 1;
+}
+
+/* GOV.UK-style focus ring on the box when the input is focused. */
+.iai-toggle:has(.iai-toggle__input:focus)::before {
+    border-width: 4px;
+    outline: 3px solid transparent;
+    outline-offset: 1px;
+    box-shadow: 0 0 0 3px #ffdd00;
+}
+
+/* The real checkbox: an invisible 40px overlay filling the wrapper so the
+   whole box is clickable and it stays focusable/tabbable. */
+.iai-toggle .iai-toggle__input {
     position: absolute;
     inset: 0;
     z-index: 3;
@@ -356,8 +459,24 @@ html {
     cursor: pointer;
 }
 
-.iai-toggle__display {
+/* JS enhanced: turn the wrapper back into the toggle track, hide the
+   checkbox box + tick, and show the decorative display. */
+.js-enabled .iai-toggle {
+    display: inline-flex;
+    width: auto;
+    height: auto;
+}
+
+.js-enabled .iai-toggle::before,
+.js-enabled .iai-toggle::after {
+    content: none;
+}
+
+.js-enabled .iai-toggle__display {
     display: inline-block;
+}
+
+.iai-toggle__display {
     width: calc(var(--toggle-diameter) * 2 + var(--toggle-offset) * 2);
     height: calc(var(--toggle-diameter) + var(--toggle-offset) * 2);
     box-sizing: content-box;
@@ -367,6 +486,9 @@ html {
     color: #fff;
     transition: 150ms;
     cursor: pointer;
+    /* Purely decorative: let clicks/taps fall through to the real input
+       (which is overlaid at z-index 3) so the whole track is clickable. */
+    pointer-events: none;
 }
 
 .iai-toggle__display::before {
