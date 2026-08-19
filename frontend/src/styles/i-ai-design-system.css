@@ -362,7 +362,6 @@ html {
     height: calc(var(--toggle-diameter) + var(--toggle-offset) * 2);
     box-sizing: content-box;
     position: relative;
-    border: 2px solid #0b0c0c;
     border-radius: 100vw;
     background-color: #505a5f;
     color: #fff;
