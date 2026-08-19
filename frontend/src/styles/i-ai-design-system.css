@@ -309,3 +309,133 @@ html {
 .side-nav__item--active {
     border-color: var(--govuk-brand-colour);
 }
+
+/* Toggle
+   Structure adapted from Kitty Giraudel, "An Accessible Toggle" (2021).
+   Colours are the GOV.UK theme values, set directly.
+
+   Size variants override only --toggle-diameter and --toggle-offset; the
+   track dimensions, icon size and icon positions are all derived from those
+   two via calc(), so the whole switch scales in proportion. Values are in em
+   so they also track the label font size. */
+
+.iai-toggle {
+    --toggle-diameter: 1.6em;
+    --toggle-offset: 0.25em;
+    --toggle-icon-size: calc(var(--toggle-diameter) * 0.5);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    position: relative;
+    cursor: pointer;
+}
+
+.iai-toggle--small {
+    --toggle-diameter: 1.1em;
+    --toggle-offset: 0.2em;
+}
+
+.iai-toggle--large {
+    --toggle-diameter: 2.1em;
+    --toggle-offset: 0.3em;
+}
+
+/* The real checkbox is only visually hidden once JS has enhanced the
+   component (body.js-enabled). Without JS the checkbox renders normally and
+   the display span stays hidden, so the control degrades to a plain
+   labelled checkbox. */
+.js-enabled .iai-toggle__input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+}
+
+.iai-toggle__display {
+    display: inline-block;
+    width: calc(var(--toggle-diameter) * 2 + var(--toggle-offset) * 2);
+    height: calc(var(--toggle-diameter) + var(--toggle-offset) * 2);
+    box-sizing: content-box;
+    position: relative;
+    border: 2px solid #0b0c0c;
+    border-radius: 100vw;
+    background-color: #505a5f;
+    color: #fff;
+    transition: 150ms;
+    cursor: pointer;
+}
+
+.iai-toggle__display::before {
+    content: "";
+    width: var(--toggle-diameter);
+    height: var(--toggle-diameter);
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: var(--toggle-offset);
+    transform: translate(0, -50%);
+    background-color: #fff;
+    transition: inherit;
+}
+
+/* Checked */
+.iai-toggle__input:checked~.iai-toggle__display {
+    background-color: #00703c;
+}
+
+.iai-toggle__input:checked~.iai-toggle__display::before {
+    transform: translate(100%, -50%);
+}
+
+/* Focus */
+.iai-toggle__input:focus-visible~.iai-toggle__display {
+    outline: 3px solid transparent;
+    outline-offset: 0;
+    box-shadow:
+        0 0 0 4px #ffdd00;
+}
+
+/* Disabled */
+.iai-toggle__input:disabled~.iai-toggle__display {
+    background-color: #b1b4b6;
+    border-color: #6f7276;
+    cursor: not-allowed;
+}
+
+/* Icons sit at the two handle rest positions. Each centre is
+   offset + diameter/2 and offset + diameter*1.5 — the same expressions the
+   handle uses, so coverage holds at every size. */
+.iai-toggle__icon {
+    position: absolute;
+    top: 50%;
+    width: var(--toggle-icon-size);
+    height: var(--toggle-icon-size);
+    transform: translate(-50%, -50%);
+    color: inherit;
+    fill: currentcolor;
+}
+
+.iai-toggle__icon--checkmark {
+    left: calc(var(--toggle-offset) + var(--toggle-diameter) * 0.5);
+}
+
+.iai-toggle__icon--cross {
+    left: calc(var(--toggle-offset) + var(--toggle-diameter) * 1.5);
+    width: calc(var(--toggle-icon-size) * 0.85);
+    height: calc(var(--toggle-icon-size) * 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .iai-toggle__display,
+    .iai-toggle__display::before {
+        transition-duration: 0ms;
+    }
+}
