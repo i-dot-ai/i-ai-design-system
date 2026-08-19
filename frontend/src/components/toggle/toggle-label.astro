@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import CheckboxLabel from "@components/checkboxes/checkbox-label.astro";
+interface Props extends HTMLAttributes<"label"> {}
+
+const { ...rest } = Astro.props;
+---
+
+<CheckboxLabel {...rest}>
+    <slot />
+</CheckboxLabel>

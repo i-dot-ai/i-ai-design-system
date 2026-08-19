@@ -14,7 +14,7 @@ const sizeClass = size ? `iai-toggle--${size}` : "";
 <div
     class={`iai-toggle${sizeClass ? ` ${sizeClass}` : ""}${className ? ` ${className}` : ""}`}
 >
-    <CheckboxInput class="iai-toggle__input" {...rest} />
+    <CheckboxInput class="iai-toggle__input" {...rest} role="switch" />
     <span class="iai-toggle__display" hidden>
         <svg
             aria-hidden="true"

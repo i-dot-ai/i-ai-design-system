@@ -6,6 +6,7 @@ import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
 import Checkboxes from "@components/checkboxes/checkboxes.astro";
 import CheckboxItem from "@components/checkboxes/checkbox-item.astro";
 import CheckboxInput from "@components/checkboxes/checkbox-input.astro";
+import CheckboxLabel from "@components/checkboxes/checkbox-label.astro";
 import InputLabel from "@components/input-label/input-label.astro";
 ---
 
@@ -23,21 +24,17 @@ import InputLabel from "@components/input-label/input-label.astro";
       <Checkboxes>
         <CheckboxItem>
           <CheckboxInput id="nationality" name="nationality" value="british" />
-          <InputLabel for="nationality" class="govuk-checkboxes__label">
-            British
-          </InputLabel>
+          <CheckboxLabel for="nationality"> British </CheckboxLabel>
         </CheckboxItem>
         <CheckboxItem>
           <CheckboxInput id="nationality-2" name="nationality" value="irish" />
-          <InputLabel for="nationality-2" class="govuk-checkboxes__label">
-            Irish
-          </InputLabel>
+          <CheckboxLabel for="nationality-2"> Irish </CheckboxLabel>
         </CheckboxItem>
         <CheckboxItem>
           <CheckboxInput id="nationality-3" name="nationality" value="other" />
-          <InputLabel for="nationality-3" class="govuk-checkboxes__label">
+          <CheckboxLabel for="nationality-3">
             Citizen of another country
-          </InputLabel>
+          </CheckboxLabel>
         </CheckboxItem>
       </Checkboxes>
     </Fieldset>
@@ -68,7 +65,10 @@ import InputLabel from "@components/input-label/input-label.astro";
             name="nationality-subtle"
             value="irish"
           />
-          <InputLabel for="nationality-subtle-2" class="govuk-checkboxes__label">
+          <InputLabel
+            for="nationality-subtle-2"
+            class="govuk-checkboxes__label"
+          >
             Irish
           </InputLabel>
         </CheckboxItem>
@@ -78,7 +78,10 @@ import InputLabel from "@components/input-label/input-label.astro";
             name="nationality-subtle"
             value="other"
           />
-          <InputLabel for="nationality-subtle-3" class="govuk-checkboxes__label">
+          <InputLabel
+            for="nationality-subtle-3"
+            class="govuk-checkboxes__label"
+          >
             Citizen of another country
           </InputLabel>
         </CheckboxItem>
