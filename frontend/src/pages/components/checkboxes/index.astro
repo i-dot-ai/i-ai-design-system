@@ -7,7 +7,14 @@ import Checkboxes from "@components/checkboxes/checkboxes.astro";
 import CheckboxItem from "@components/checkboxes/checkbox-item.astro";
 import CheckboxInput from "@components/checkboxes/checkbox-input.astro";
 import CheckboxLabel from "@components/checkboxes/checkbox-label.astro";
-import InputLabel from "@components/input-label/input-label.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -18,118 +25,387 @@ import InputLabel from "@components/input-label/input-label.astro";
     A default checkboxes group lets users select one or more options from a
     list.
   </p>
-  <FormGroup>
-    <Fieldset>
-      <FieldsetLegend>What is your nationality?</FieldsetLegend>
-      <Checkboxes>
-        <CheckboxItem>
-          <CheckboxInput id="nationality" name="nationality" value="british" />
-          <CheckboxLabel for="nationality"> British </CheckboxLabel>
-        </CheckboxItem>
-        <CheckboxItem>
-          <CheckboxInput id="nationality-2" name="nationality" value="irish" />
-          <CheckboxLabel for="nationality-2"> Irish </CheckboxLabel>
-        </CheckboxItem>
-        <CheckboxItem>
-          <CheckboxInput id="nationality-3" name="nationality" value="other" />
-          <CheckboxLabel for="nationality-3">
-            Citizen of another country
-          </CheckboxLabel>
-        </CheckboxItem>
-      </Checkboxes>
-    </Fieldset>
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <Fieldset>
+        <FieldsetLegend>What is your nationality?</FieldsetLegend>
+        <Checkboxes>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality"
+              name="nationality"
+              value="british"
+            />
+            <CheckboxLabel for="nationality"> British </CheckboxLabel>
+          </CheckboxItem>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-2"
+              name="nationality"
+              value="irish"
+            />
+            <CheckboxLabel for="nationality-2"> Irish </CheckboxLabel>
+          </CheckboxItem>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-3"
+              name="nationality"
+              value="other"
+            />
+            <CheckboxLabel for="nationality-3">
+              Citizen of another country
+            </CheckboxLabel>
+          </CheckboxItem>
+        </Checkboxes>
+      </Fieldset>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import Checkboxes from "@components/checkboxes/checkboxes.astro";
+import CheckboxItem from "@components/checkboxes/checkbox-item.astro";
+import CheckboxInput from "@components/checkboxes/checkbox-input.astro";
+import CheckboxLabel from "@components/checkboxes/checkbox-label.astro";
+---
 
+<FormGroup>
+  <Fieldset>
+    <FieldsetLegend>What is your nationality?</FieldsetLegend>
+    <Checkboxes>
+      <CheckboxItem>
+        <CheckboxInput id="nationality" name="nationality" value="british" />
+        <CheckboxLabel for="nationality"> British </CheckboxLabel>
+      </CheckboxItem>
+      <CheckboxItem>
+        <CheckboxInput id="nationality-2" name="nationality" value="irish" />
+        <CheckboxLabel for="nationality-2"> Irish </CheckboxLabel>
+      </CheckboxItem>
+      <CheckboxItem>
+        <CheckboxInput id="nationality-3" name="nationality" value="other" />
+        <CheckboxLabel for="nationality-3">
+          Citizen of another country
+        </CheckboxLabel>
+      </CheckboxItem>
+    </Checkboxes>
+  </Fieldset>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">What is your nationality?</legend>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality" name="nationality" value="british">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+          British
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-2" name="nationality" value="irish">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+          Irish
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-3" name="nationality" value="other">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
+          Citizen of another country
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Subtle</h2>
   <p class="govuk-body">
     Use subtle checkboxes to reduce the prominence of the checkboxes when they
     are not the main focus of the page.
   </p>
-  <FormGroup>
-    <Fieldset>
-      <FieldsetLegend>What is your nationality?</FieldsetLegend>
-      <Checkboxes subtle>
-        <CheckboxItem>
-          <CheckboxInput
-            id="nationality-subtle"
-            name="nationality-subtle"
-            value="british"
+  <div class="component-container">
+    <FormGroup>
+      <Fieldset>
+        <FieldsetLegend>What is your nationality?</FieldsetLegend>
+        <Checkboxes subtle>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-subtle"
+              name="nationality-subtle"
+              value="british"
+            />
+            <CheckboxLabel for="nationality-subtle"> British </CheckboxLabel>
+          </CheckboxItem>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-subtle-2"
+              name="nationality-subtle"
+              value="irish"
+            />
+            <CheckboxLabel for="nationality-subtle-2"> Irish </CheckboxLabel>
+          </CheckboxItem>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-subtle-3"
+              name="nationality-subtle"
+              value="other"
+            />
+            <CheckboxLabel for="nationality-subtle-3">
+              Citizen of another country
+            </CheckboxLabel>
+          </CheckboxItem>
+        </Checkboxes>
+      </Fieldset>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#subtle-astro" selected>Astro</Tab>
+          <Tab href="#subtle-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="subtle-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import Checkboxes from "@components/checkboxes/checkboxes.astro";
+import CheckboxItem from "@components/checkboxes/checkbox-item.astro";
+import CheckboxInput from "@components/checkboxes/checkbox-input.astro";
+import CheckboxLabel from "@components/input-label/input-label.astro";
+---
+
+<FormGroup>
+  <Fieldset>
+    <FieldsetLegend>What is your nationality?</FieldsetLegend>
+    <Checkboxes subtle>
+      <CheckboxItem>
+        <CheckboxInput
+          id="nationality-subtle"
+          name="nationality-subtle"
+          value="british"
+        />>
+          British
+        </CheckboxLabel>
+      </CheckboxItem>
+      <CheckboxItem>
+        <CheckboxInput
+          id="nationality-subtle-2"
+          name="nationality-subtle"
+          value="irish"
+        />>
+          Irish
+        </CheckboxLabel>
+      </CheckboxItem>
+      <CheckboxItem>
+        <CheckboxInput
+          id="nationality-subtle-3"
+          name="nationality-subtle"
+          value="other"
+        />>
+          Citizen of another country
+        </CheckboxLabel>
+      </CheckboxItem>
+    </Checkboxes>
+  </Fieldset>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
           />
-          <InputLabel for="nationality-subtle" class="govuk-checkboxes__label">
-            British
-          </InputLabel>
-        </CheckboxItem>
-        <CheckboxItem>
-          <CheckboxInput
-            id="nationality-subtle-2"
-            name="nationality-subtle"
-            value="irish"
+        </TabPanel>
+        <TabPanel id="subtle-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">What is your nationality?</legend>
+    <div class="govuk-checkboxes govuk-checkboxes--subtle" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-subtle" name="nationality-subtle" value="british">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-subtle">
+          British
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-subtle-2" name="nationality-subtle" value="irish">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-subtle-2">
+          Irish
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-subtle-3" name="nationality-subtle" value="other">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-subtle-3">
+          Citizen of another country
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>`}
+            lang="html"
+            theme="github-light"
           />
-          <InputLabel
-            for="nationality-subtle-2"
-            class="govuk-checkboxes__label"
-          >
-            Irish
-          </InputLabel>
-        </CheckboxItem>
-        <CheckboxItem>
-          <CheckboxInput
-            id="nationality-subtle-3"
-            name="nationality-subtle"
-            value="other"
-          />
-          <InputLabel
-            for="nationality-subtle-3"
-            class="govuk-checkboxes__label"
-          >
-            Citizen of another country
-          </InputLabel>
-        </CheckboxItem>
-      </Checkboxes>
-    </Fieldset>
-  </FormGroup>
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Small</h2>
   <p class="govuk-body">
     Use small checkboxes when the user is unlikely to want to change their
     answer, or in a densely populated interface.
   </p>
-  <FormGroup>
-    <Fieldset>
-      <FieldsetLegend>What is your nationality?</FieldsetLegend>
-      <Checkboxes small>
-        <CheckboxItem>
-          <CheckboxInput
-            id="nationality-small"
-            name="nationality-small"
-            value="british"
+  <div class="component-container">
+    <FormGroup>
+      <Fieldset>
+        <FieldsetLegend>What is your nationality?</FieldsetLegend>
+        <Checkboxes small>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-small"
+              name="nationality-small"
+              value="british"
+            />
+            <CheckboxLabel for="nationality-small"> British </CheckboxLabel>
+          </CheckboxItem>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-small-2"
+              name="nationality-small"
+              value="irish"
+            />
+            <CheckboxLabel for="nationality-small-2"> Irish </CheckboxLabel>
+          </CheckboxItem>
+          <CheckboxItem>
+            <CheckboxInput
+              id="nationality-small-3"
+              name="nationality-small"
+              value="other"
+            />
+            <CheckboxLabel for="nationality-small-3">
+              Citizen of another country
+            </CheckboxLabel>
+          </CheckboxItem>
+        </Checkboxes>
+      </Fieldset>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#small-astro" selected>Astro</Tab>
+          <Tab href="#small-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="small-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import Checkboxes from "@components/checkboxes/checkboxes.astro";
+import CheckboxItem from "@components/checkboxes/checkbox-item.astro";
+import CheckboxInput from "@components/checkboxes/checkbox-input.astro";
+import CheckboxLabel from "@components/input-label/input-label.astro";
+---
+
+<FormGroup>
+  <Fieldset>
+    <FieldsetLegend>What is your nationality?</FieldsetLegend>
+    <Checkboxes small>
+      <CheckboxItem>
+        <CheckboxInput
+          id="nationality-small"
+          name="nationality-small"
+          value="british"
+        />>
+          British
+        </CheckboxLabel>
+      </CheckboxItem>
+      <CheckboxItem>
+        <CheckboxInput
+          id="nationality-small-2"
+          name="nationality-small"
+          value="irish"
+        />>
+          Irish
+        </CheckboxLabel>
+      </CheckboxItem>
+      <CheckboxItem>
+        <CheckboxInput
+          id="nationality-small-3"
+          name="nationality-small"
+          value="other"
+        />>
+          Citizen of another country
+        </CheckboxLabel>
+      </CheckboxItem>
+    </Checkboxes>
+  </Fieldset>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
           />
-          <InputLabel for="nationality-small" class="govuk-checkboxes__label">
-            British
-          </InputLabel>
-        </CheckboxItem>
-        <CheckboxItem>
-          <CheckboxInput
-            id="nationality-small-2"
-            name="nationality-small"
-            value="irish"
+        </TabPanel>
+        <TabPanel id="small-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">What is your nationality?</legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-small" name="nationality-small" value="british">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-small">
+          British
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-small-2" name="nationality-small" value="irish">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-small-2">
+          Irish
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" type="checkbox" id="nationality-small-3" name="nationality-small" value="other">
+        <label class="govuk-label govuk-checkboxes__label" for="nationality-small-3">
+          Citizen of another country
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>`}
+            lang="html"
+            theme="github-light"
           />
-          <InputLabel for="nationality-small-2" class="govuk-checkboxes__label">
-            Irish
-          </InputLabel>
-        </CheckboxItem>
-        <CheckboxItem>
-          <CheckboxInput
-            id="nationality-small-3"
-            name="nationality-small"
-            value="other"
-          />
-          <InputLabel for="nationality-small-3" class="govuk-checkboxes__label">
-            Citizen of another country
-          </InputLabel>
-        </CheckboxItem>
-      </Checkboxes>
-    </Fieldset>
-  </FormGroup>
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

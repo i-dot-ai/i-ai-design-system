@@ -1,6 +1,14 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
 import ErrorMessage from "@components/error-message/error-message.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -10,7 +18,42 @@ import ErrorMessage from "@components/error-message/error-message.astro";
   <p class="govuk-body">
     The default error message uses a visually hidden prefix of "Error:".
   </p>
-  <ErrorMessage>Error message about full name goes here</ErrorMessage>
+  <div class="component-container">
+    <ErrorMessage>Error message about full name goes here</ErrorMessage>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import ErrorMessage from "@components/error-message/error-message.astro";
+---
+
+<ErrorMessage>Error message about full name goes here</ErrorMessage>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<p class="govuk-error-message">
+  <span class="govuk-visually-hidden">Error:</span>
+  Error message about full name goes here
+</p>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

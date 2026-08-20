@@ -50,31 +50,29 @@ import { Code } from "astro:components";
                 </TabsList>
                 <TabPanel id="default-astro">
                     <Code
-                        code={`
-    ---
-    import Header from "@components/header/header.astro";
+                        code={`---
+import Header from "@components/header/header.astro";
+---
 
-    ---
-    
-    <Header>
-        <svg
-            slot="logo"
-            width="28"
-            class="govuk-generic-header__logo"
-            height="30"
-            viewBox="0 0 28 30"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
-            <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
-            <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
-            <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
-            <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
-            <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
-        </svg>
-        Product name
-    </Header>`}
+<Header>
+    <svg
+        slot="logo"
+        width="28"
+        class="govuk-generic-header__logo"
+        height="30"
+        viewBox="0 0 28 30"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+        <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+        <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+        <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+        <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+        <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+    </svg>
+    Product name
+</Header>`}
                         lang="astro"
                         theme="github-light"
                     />
@@ -173,41 +171,39 @@ import { Code } from "astro:components";
         <DetailsText>
             <Tabs>
                 <TabsList>
-                    <Tab href="#default-astro" selected>Astro</Tab>
-                    <Tab href="#default-html">HTML</Tab>
+                    <Tab href="#background-colour-astro" selected>Astro</Tab>
+                    <Tab href="#background-colour-html">HTML</Tab>
                 </TabsList>
-                <TabPanel id="default-astro">
+                <TabPanel id="background-colour-astro">
                     <Code
-                        code={`
-    ---
-    import Header from "@components/header/header.astro";
+                        code={`---
+import Header from "@components/header/header.astro";
+---
 
-    ---
-    
-    <Header backgroundColour="<your-background-colour>"
-        <svg
-            slot="logo"
-            width="28"
-            class="govuk-generic-header__logo"
-            height="30"
-            viewBox="0 0 28 30"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
-            <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
-            <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
-            <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
-            <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
-            <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
-        </svg>
-        Product name
-    </Header>`}
+<Header backgroundColour="<your-background-colour>">
+    <svg
+        slot="logo"
+        width="28"
+        class="govuk-generic-header__logo"
+        height="30"
+        viewBox="0 0 28 30"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+        <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+        <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+        <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+        <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+        <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+    </svg>
+    Product name
+</Header>`}
                         lang="astro"
                         theme="github-light"
                     />
                 </TabPanel>
-                <TabPanel id="default-html" hidden>
+                <TabPanel id="background-colour-html" hidden>
                     <Code
                         code={`<div class="govuk-generic-header" style="background-color: <your-background-colour>;">
     <div class="govuk-generic-header__container govuk-width-container">

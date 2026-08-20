@@ -5,6 +5,14 @@ import PaginationList from "@components/pagination/pagination-list.astro";
 import PaginationItem from "@components/pagination/pagination-item.astro";
 import PaginationPrev from "@components/pagination/pagination-prev.astro";
 import PaginationNext from "@components/pagination/pagination-next.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -14,17 +22,93 @@ import PaginationNext from "@components/pagination/pagination-next.astro";
   <p class="govuk-body">
     A default pagination helps users navigate collections of numbered pages.
   </p>
-  <Pagination>
-    <PaginationPrev href="/previous" />
-    <PaginationList>
-      <PaginationItem href="/page/1" aria-label="Page 1">1</PaginationItem>
-      <PaginationItem href="/page/2" aria-label="Page 2" current>
-        2
-      </PaginationItem>
-      <PaginationItem href="/page/3" aria-label="Page 3">3</PaginationItem>
-    </PaginationList>
-    <PaginationNext href="/next" />
-  </Pagination>
+  <div class="component-container">
+    <Pagination>
+      <PaginationPrev href="/previous" />
+      <PaginationList>
+        <PaginationItem href="/page/1" aria-label="Page 1">1</PaginationItem>
+        <PaginationItem href="/page/2" aria-label="Page 2" current>
+          2
+        </PaginationItem>
+        <PaginationItem href="/page/3" aria-label="Page 3">3</PaginationItem>
+      </PaginationList>
+      <PaginationNext href="/next" />
+    </Pagination>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import Pagination from "@components/pagination/pagination.astro";
+import PaginationList from "@components/pagination/pagination-list.astro";
+import PaginationItem from "@components/pagination/pagination-item.astro";
+import PaginationPrev from "@components/pagination/pagination-prev.astro";
+import PaginationNext from "@components/pagination/pagination-next.astro";
+---
+
+<Pagination>
+  <PaginationPrev href="/previous" />
+  <PaginationList>
+    <PaginationItem href="/page/1" aria-label="Page 1">1</PaginationItem>
+    <PaginationItem href="/page/2" aria-label="Page 2" current>
+      2
+    </PaginationItem>
+    <PaginationItem href="/page/3" aria-label="Page 3">3</PaginationItem>
+  </PaginationList>
+  <PaginationNext href="/next" />
+</Pagination>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<nav class="govuk-pagination" aria-label="Pagination">
+  <div class="govuk-pagination__prev">
+    <a class="govuk-link govuk-pagination__link" rel="prev" href="/previous">
+      <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path></svg>
+      <span class="govuk-pagination__link-title">
+        Previous
+        <span class="govuk-visually-hidden"> page</span>
+      </span>
+    </a>
+  </div>
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="/page/1" aria-label="Page 1">1</a>
+    </li>
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" aria-current="page" href="/page/2" aria-label="Page 2">2</a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="/page/3" aria-label="Page 3">3</a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" rel="next" href="/next">
+      <span class="govuk-pagination__link-title">
+        Next
+        <span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path></svg>
+    </a>
+  </div>
+</nav>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

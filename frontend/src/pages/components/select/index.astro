@@ -4,6 +4,14 @@ import FormGroup from "@components/form-group/form-group.astro";
 import InputLabel from "@components/input-label/input-label.astro";
 import Select from "@components/select/select.astro";
 import SelectOption from "@components/select/select-option.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -14,39 +22,186 @@ import SelectOption from "@components/select/select-option.astro";
     A default select is used to indicate that the select is the main focus of
     the page.
   </p>
-  <FormGroup inline>
-    <InputLabel for="select-2">Label text goes here</InputLabel>
-    <Select id="select-2" name="select-2">
-      <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
-      <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
-      <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
-    </Select>
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup inline>
+      <InputLabel for="select-2">Label text goes here</InputLabel>
+      <Select id="select-2" name="select-2">
+        <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+        <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+        <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+      </Select>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Select from "@components/select/select.astro";
+import SelectOption from "@components/select/select-option.astro";
+---
+
+<FormGroup inline>
+  <InputLabel for="select-2">Label text goes here</InputLabel>
+  <Select id="select-2" name="select-2">
+    <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+    <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+    <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+  </Select>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group govuk-form-group--inline">
+  <label class="govuk-label" for="select-2">Label text goes here</label>
+  <select class="govuk-select" id="select-2" name="select-2">
+    <option value="1">GOV.UK frontend option 1</option>
+    <option value="2" selected>GOV.UK frontend option 2</option>
+    <option value="3" disabled>GOV.UK frontend option 3</option>
+  </select>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Subtle</h2>
   <p class="govuk-body">
     A subtle select is used to reduce the prominence of the select component.
     Used for when the select is not the main focus of the page.
   </p>
-  <FormGroup inline>
-    <InputLabel for="select-1">Label text goes here</InputLabel>
-    <Select id="select-1" name="select-1" subtle>
-      <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
-      <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
-      <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
-    </Select>
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup inline>
+      <InputLabel for="select-1">Label text goes here</InputLabel>
+      <Select id="select-1" name="select-1" subtle>
+        <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+        <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+        <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+      </Select>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#subtle-astro" selected>Astro</Tab>
+          <Tab href="#subtle-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="subtle-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Select from "@components/select/select.astro";
+import SelectOption from "@components/select/select-option.astro";
+---
+
+<FormGroup inline>
+  <InputLabel for="select-1">Label text goes here</InputLabel>
+  <Select id="select-1" name="select-1" subtle>
+    <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+    <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+    <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+  </Select>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="subtle-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group govuk-form-group--inline">
+  <label class="govuk-label" for="select-1">Label text goes here</label>
+  <select class="govuk-select govuk-select--subtle" id="select-1" name="select-1">
+    <option value="1">GOV.UK frontend option 1</option>
+    <option value="2" selected>GOV.UK frontend option 2</option>
+    <option value="3" disabled>GOV.UK frontend option 3</option>
+  </select>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Error</h2>
   <p class="govuk-body">
     A error select is used to indicate that the select has an error.
   </p>
-  <FormGroup inline>
-    <InputLabel for="select-3">Label text goes here</InputLabel>
-    <Select id="select-3" name="select-3" error>
-      <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
-      <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
-      <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
-    </Select>
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup inline>
+      <InputLabel for="select-3">Label text goes here</InputLabel>
+      <Select id="select-3" name="select-3" error>
+        <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+        <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+        <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+      </Select>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#error-astro" selected>Astro</Tab>
+          <Tab href="#error-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="error-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Select from "@components/select/select.astro";
+import SelectOption from "@components/select/select-option.astro";
+---
+
+<FormGroup inline>
+  <InputLabel for="select-3">Label text goes here</InputLabel>
+  <Select id="select-3" name="select-3" error>
+    <SelectOption value="1">GOV.UK frontend option 1</SelectOption>
+    <SelectOption value="2" selected>GOV.UK frontend option 2</SelectOption>
+    <SelectOption value="3" disabled>GOV.UK frontend option 3</SelectOption>
+  </Select>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="error-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group govuk-form-group--inline">
+  <label class="govuk-label" for="select-3">Label text goes here</label>
+  <select class="govuk-select govuk-select--error" id="select-3" name="select-3">
+    <option value="1">GOV.UK frontend option 1</option>
+    <option value="2" selected>GOV.UK frontend option 2</option>
+    <option value="3" disabled>GOV.UK frontend option 3</option>
+  </select>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>
   <p class="govuk-body">

@@ -3,6 +3,14 @@ import Layout from "@layouts/ComponentsLayout.astro";
 import FormGroup from "@components/form-group/form-group.astro";
 import InputLabel from "@components/input-label/input-label.astro";
 import Textarea from "@components/textarea/textarea.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -12,27 +20,155 @@ import Textarea from "@components/textarea/textarea.astro";
   <p class="govuk-body">
     A default textarea lets users enter multiple lines of text.
   </p>
-  <FormGroup>
-    <InputLabel for="textarea-default">Can you provide more detail?</InputLabel>
-    <Textarea id="textarea-default" name="textarea-default" rows="5" />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <InputLabel for="textarea-default">
+        Can you provide more detail?
+      </InputLabel>
+      <Textarea id="textarea-default" name="textarea-default" rows="5" />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Textarea from "@components/textarea/textarea.astro";
+---
+
+<FormGroup>
+  <InputLabel for="textarea-default">Can you provide more detail?</InputLabel>
+  <Textarea id="textarea-default" name="textarea-default" rows="5" />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <label class="govuk-label" for="textarea-default">
+    Can you provide more detail?
+  </label>
+  <textarea class="govuk-textarea" id="textarea-default" name="textarea-default" rows="5"></textarea>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Subtle</h2>
   <p class="govuk-body">
     Use a subtle textarea to reduce its prominence when it is not the main focus
     of the page.
   </p>
-  <FormGroup>
-    <InputLabel for="textarea-subtle">Can you provide more detail?</InputLabel>
-    <Textarea id="textarea-subtle" name="textarea-subtle" rows="5" subtle />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <InputLabel for="textarea-subtle">Can you provide more detail?</InputLabel>
+      <Textarea id="textarea-subtle" name="textarea-subtle" rows="5" subtle />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#subtle-astro" selected>Astro</Tab>
+          <Tab href="#subtle-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="subtle-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Textarea from "@components/textarea/textarea.astro";
+---
+
+<FormGroup>
+  <InputLabel for="textarea-subtle">Can you provide more detail?</InputLabel>
+  <Textarea id="textarea-subtle" name="textarea-subtle" rows="5" subtle />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="subtle-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <label class="govuk-label" for="textarea-subtle">
+    Can you provide more detail?
+  </label>
+  <textarea class="govuk-textarea govuk-textarea--subtle" id="textarea-subtle" name="textarea-subtle" rows="5"></textarea>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Error</h2>
   <p class="govuk-body">
     An error textarea is used to indicate that the textarea has an error.
   </p>
-  <FormGroup class="govuk-form-group--error">
-    <InputLabel for="textarea-error">Can you provide more detail?</InputLabel>
-    <Textarea id="textarea-error" name="textarea-error" rows="5" error />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup class="govuk-form-group--error">
+      <InputLabel for="textarea-error">Can you provide more detail?</InputLabel>
+      <Textarea id="textarea-error" name="textarea-error" rows="5" error />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#error-astro" selected>Astro</Tab>
+          <Tab href="#error-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="error-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Textarea from "@components/textarea/textarea.astro";
+---
+
+<FormGroup class="govuk-form-group--error">
+  <InputLabel for="textarea-error">Can you provide more detail?</InputLabel>
+  <Textarea id="textarea-error" name="textarea-error" rows="5" error />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="error-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group govuk-form-group--error">
+  <label class="govuk-label" for="textarea-error">
+    Can you provide more detail?
+  </label>
+  <textarea class="govuk-textarea govuk-textarea--error" id="textarea-error" name="textarea-error" rows="5"></textarea>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

@@ -6,6 +6,14 @@ import CookieBannerHeading from "@components/cookie-banner/cookie-banner-heading
 import CookieBannerContent from "@components/cookie-banner/cookie-banner-content.astro";
 import CookieBannerActions from "@components/cookie-banner/cookie-banner-actions.astro";
 import Button from "@components/button/index.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -16,25 +24,104 @@ import Button from "@components/button/index.astro";
     A default cookie banner asks users to accept or reject non-essential
     cookies.
   </p>
-  <CookieBanner>
-    <CookieBannerMessage>
-      <CookieBannerHeading>
-        Cookies on this government service
-      </CookieBannerHeading>
-      <CookieBannerContent>
-        <p class="govuk-body">
-          We use analytics cookies to help understand how users use our service.
-        </p>
-      </CookieBannerContent>
-      <CookieBannerActions>
-        <Button variant="primary">Accept analytics cookies</Button>
-        <Button variant="primary">Reject analytics cookies</Button>
-        <a class="govuk-link" href="/cookie-preferences"
-          >View cookie preferences</a
-        >
-      </CookieBannerActions>
-    </CookieBannerMessage>
-  </CookieBanner>
+  <div class="component-container">
+    <CookieBanner>
+      <CookieBannerMessage>
+        <CookieBannerHeading>
+          Cookies on this government service
+        </CookieBannerHeading>
+        <CookieBannerContent>
+          <p class="govuk-body">
+            We use analytics cookies to help understand how users use our
+            service.
+          </p>
+        </CookieBannerContent>
+        <CookieBannerActions>
+          <Button variant="primary">Accept analytics cookies</Button>
+          <Button variant="primary">Reject analytics cookies</Button>
+          <a class="govuk-link" href="/cookie-preferences"
+            >View cookie preferences</a
+          >
+        </CookieBannerActions>
+      </CookieBannerMessage>
+    </CookieBanner>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import CookieBanner from "@components/cookie-banner/cookie-banner.astro";
+import CookieBannerMessage from "@components/cookie-banner/cookie-banner-message.astro";
+import CookieBannerHeading from "@components/cookie-banner/cookie-banner-heading.astro";
+import CookieBannerContent from "@components/cookie-banner/cookie-banner-content.astro";
+import CookieBannerActions from "@components/cookie-banner/cookie-banner-actions.astro";
+import Button from "@components/button/index.astro";
+---
+
+<CookieBanner>
+  <CookieBannerMessage>
+    <CookieBannerHeading>
+      Cookies on this government service
+    </CookieBannerHeading>
+    <CookieBannerContent>
+      <p class="govuk-body">
+        We use analytics cookies to help understand how users use our service.
+      </p>
+    </CookieBannerContent>
+    <CookieBannerActions>
+      <Button variant="primary">Accept analytics cookies</Button>
+      <Button variant="primary">Reject analytics cookies</Button>
+      <a class="govuk-link" href="/cookie-preferences">View cookie preferences</a>
+    </CookieBannerActions>
+  </CookieBannerMessage>
+</CookieBanner>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div
+  class="govuk-cookie-banner"
+  data-nosnippet
+  role="region"
+  aria-label="Cookie banner"
+>
+  <div class="govuk-cookie-banner__message govuk-width-container">
+    <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+      Cookies on this government service
+    </h2>
+    <div class="govuk-cookie-banner__content">
+      <p class="govuk-body">
+        We use analytics cookies to help understand how users use our service.
+      </p>
+    </div>
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Accept analytics cookies
+      </button>
+      <button class="govuk-button" data-module="govuk-button">
+        Reject analytics cookies
+      </button>
+      <a class="govuk-link" href="/cookie-preferences">View cookie preferences</a>
+    </div>
+  </div>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

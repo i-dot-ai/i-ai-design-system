@@ -5,6 +5,14 @@ import NotificationBannerHeader from "@components/notification-banner/notificati
 import NotificationBannerTitle from "@components/notification-banner/notification-banner-title.astro";
 import NotificationBannerContent from "@components/notification-banner/notification-banner-content.astro";
 import NotificationBannerHeading from "@components/notification-banner/notification-banner-heading.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -15,31 +23,169 @@ import NotificationBannerHeading from "@components/notification-banner/notificat
     A default notification banner tells the user about something they need to
     know about.
   </p>
-  <NotificationBanner>
-    <NotificationBannerHeader>
-      <NotificationBannerTitle>Important</NotificationBannerTitle>
-    </NotificationBannerHeader>
-    <NotificationBannerContent>
-      <NotificationBannerHeading>
-        This publication was withdrawn on 7 March 2014.
-      </NotificationBannerHeading>
-    </NotificationBannerContent>
-  </NotificationBanner>
+  <div class="component-container">
+    <NotificationBanner>
+      <NotificationBannerHeader>
+        <NotificationBannerTitle>Important</NotificationBannerTitle>
+      </NotificationBannerHeader>
+      <NotificationBannerContent>
+        <NotificationBannerHeading>
+          This publication was withdrawn on 7 March 2014.
+        </NotificationBannerHeading>
+      </NotificationBannerContent>
+    </NotificationBanner>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import NotificationBanner from "@components/notification-banner/notification-banner.astro";
+import NotificationBannerHeader from "@components/notification-banner/notification-banner-header.astro";
+import NotificationBannerTitle from "@components/notification-banner/notification-banner-title.astro";
+import NotificationBannerContent from "@components/notification-banner/notification-banner-content.astro";
+import NotificationBannerHeading from "@components/notification-banner/notification-banner-heading.astro";
+---
+
+<NotificationBanner>
+  <NotificationBannerHeader>
+    <NotificationBannerTitle>Important</NotificationBannerTitle>
+  </NotificationBannerHeader>
+  <NotificationBannerContent>
+    <NotificationBannerHeading>
+      This publication was withdrawn on 7 March 2014.
+    </NotificationBannerHeading>
+  </NotificationBannerContent>
+</NotificationBanner>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div
+  class="govuk-notification-banner"
+  role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner"
+>
+  <div class="govuk-notification-banner__header">
+    <h2
+      class="govuk-notification-banner__title"
+      id="govuk-notification-banner-title"
+    >
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      This publication was withdrawn on 7 March 2014.
+    </p>
+  </div>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Success</h2>
   <p class="govuk-body">
     Use the success variant to confirm that something the user has done has been
     successful.
   </p>
-  <NotificationBanner success>
-    <NotificationBannerHeader>
-      <NotificationBannerTitle>Success</NotificationBannerTitle>
-    </NotificationBannerHeader>
-    <NotificationBannerContent>
-      <NotificationBannerHeading>
-        Training outcome recorded and trainee withdrawn
-      </NotificationBannerHeading>
-    </NotificationBannerContent>
-  </NotificationBanner>
+  <div class="component-container">
+    <NotificationBanner
+      success
+      titleId="govuk-notification-banner-title-success"
+    >
+      <NotificationBannerHeader>
+        <NotificationBannerTitle id="govuk-notification-banner-title-success">
+          Success
+        </NotificationBannerTitle>
+      </NotificationBannerHeader>
+      <NotificationBannerContent>
+        <NotificationBannerHeading>
+          Training outcome recorded and trainee withdrawn
+        </NotificationBannerHeading>
+      </NotificationBannerContent>
+    </NotificationBanner>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#success-astro" selected>Astro</Tab>
+          <Tab href="#success-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="success-astro">
+          <Code
+            code={`---
+import NotificationBanner from "@components/notification-banner/notification-banner.astro";
+import NotificationBannerHeader from "@components/notification-banner/notification-banner-header.astro";
+import NotificationBannerTitle from "@components/notification-banner/notification-banner-title.astro";
+import NotificationBannerContent from "@components/notification-banner/notification-banner-content.astro";
+import NotificationBannerHeading from "@components/notification-banner/notification-banner-heading.astro";
+---
+
+<NotificationBanner
+  success
+  titleId="govuk-notification-banner-title-success"
+>
+  <NotificationBannerHeader>
+    <NotificationBannerTitle id="govuk-notification-banner-title-success">
+      Success
+    </NotificationBannerTitle>
+  </NotificationBannerHeader>
+  <NotificationBannerContent>
+    <NotificationBannerHeading>
+      Training outcome recorded and trainee withdrawn
+    </NotificationBannerHeading>
+  </NotificationBannerContent>
+</NotificationBanner>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="success-html" hidden>
+          <Code
+            code={`<div
+  class="govuk-notification-banner govuk-notification-banner--success"
+  role="alert"
+  aria-labelledby="govuk-notification-banner-title-success"
+  data-module="govuk-notification-banner"
+>
+  <div class="govuk-notification-banner__header">
+    <h2
+      class="govuk-notification-banner__title"
+      id="govuk-notification-banner-title-success"
+    >
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Training outcome recorded and trainee withdrawn
+    </p>
+  </div>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

@@ -1,6 +1,14 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
 import SkipLink from "@components/skip-link/skip-link.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -11,7 +19,39 @@ import SkipLink from "@components/skip-link/skip-link.astro";
     Use the default skip link to let keyboard-only users skip to the main
     content on a page.
   </p>
-  <SkipLink href="#content">Skip to main content</SkipLink>
+  <div class="component-container">
+    <SkipLink href="#content">Skip to main content</SkipLink>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import SkipLink from "@components/skip-link/skip-link.astro";
+---
+
+<SkipLink href="#content">Skip to main content</SkipLink>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<a class="govuk-skip-link" data-module="govuk-skip-link" href="#content">Skip to main content</a>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

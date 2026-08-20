@@ -3,6 +3,11 @@ import Layout from "@layouts/ComponentsLayout.astro";
 import Details from "@components/details/details.astro";
 import DetailsSummary from "@components/details/details-summary.astro";
 import DetailsText from "@components/details/details-text.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -13,12 +18,62 @@ import DetailsText from "@components/details/details-text.astro";
     The default details component reveals more detailed information when the
     summary is activated.
   </p>
+  <div class="component-container">
+    <Details>
+      <DetailsSummary>Help with nationality</DetailsSummary>
+      <DetailsText>
+        We need to know your nationality so we can work out which elections
+        you’re entitled to vote in. If you can’t provide your nationality,
+        you’ll have to send copies of identity documents through the post.
+      </DetailsText>
+    </Details>
+  </div>
+  <br />
   <Details>
-    <DetailsSummary>Help with nationality</DetailsSummary>
+    <DetailsSummary>Show code</DetailsSummary>
     <DetailsText>
-      We need to know your nationality so we can work out which elections you’re
-      entitled to vote in. If you can’t provide your nationality, you’ll have to
-      send copies of identity documents through the post.
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+---
+
+<Details>
+  <DetailsSummary>Help with nationality</DetailsSummary>
+  <DetailsText>
+    We need to know your nationality so we can work out which elections you’re
+    entitled to vote in. If you can’t provide your nationality, you’ll have to
+    send copies of identity documents through the post.
+  </DetailsText>
+</Details>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">Help with nationality</span>
+  </summary>
+  <div class="govuk-details__text">
+    We need to know your nationality so we can work out which elections you’re
+    entitled to vote in. If you can’t provide your nationality, you’ll have to
+    send copies of identity documents through the post.
+  </div>
+</details>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
     </DetailsText>
   </Details>
 

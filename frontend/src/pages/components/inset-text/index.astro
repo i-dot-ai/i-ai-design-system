@@ -1,6 +1,14 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
 import InsetText from "@components/inset-text/inset-text.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -11,10 +19,48 @@ import InsetText from "@components/inset-text/inset-text.astro";
     Use the default inset text to differentiate a block of text from the
     content that surrounds it.
   </p>
-  <InsetText>
-    It can take up to 8 weeks to register a lasting power of attorney if there
-    are no mistakes in the application.
-  </InsetText>
+  <div class="component-container">
+    <InsetText>
+      It can take up to 8 weeks to register a lasting power of attorney if there
+      are no mistakes in the application.
+    </InsetText>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import InsetText from "@components/inset-text/inset-text.astro";
+---
+
+<InsetText>
+  It can take up to 8 weeks to register a lasting power of attorney if there
+  are no mistakes in the application.
+</InsetText>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-inset-text">
+  It can take up to 8 weeks to register a lasting power of attorney if there
+  are no mistakes in the application.
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>

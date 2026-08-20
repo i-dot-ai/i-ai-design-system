@@ -8,6 +8,14 @@ import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
 import DateInput from "@components/date-input/date-input.astro";
 import DateInputItem from "@components/date-input/date-input-item.astro";
 import DateInputField from "@components/date-input/date-input-field.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -17,38 +25,145 @@ import DateInputField from "@components/date-input/date-input-field.astro";
   <p class="govuk-body">
     A default date input lets users enter a day, month and year.
   </p>
-  <FormGroup>
-    <Fieldset role="group" aria-describedby="dob-hint">
-      <FieldsetLegend>What is your date of birth?</FieldsetLegend>
-      <Hint id="dob-hint">For example, 31 3 1980</Hint>
-      <DateInput id="dob">
-        <DateInputItem>
-          <FormGroup>
-            <InputLabel for="dob-day" class="govuk-date-input__label"
-              >Day</InputLabel
-            >
-            <DateInputField id="dob-day" name="day" width={2} />
-          </FormGroup>
-        </DateInputItem>
-        <DateInputItem>
-          <FormGroup>
-            <InputLabel for="dob-month" class="govuk-date-input__label"
-              >Month</InputLabel
-            >
-            <DateInputField id="dob-month" name="month" width={2} />
-          </FormGroup>
-        </DateInputItem>
-        <DateInputItem>
-          <FormGroup>
-            <InputLabel for="dob-year" class="govuk-date-input__label"
-              >Year</InputLabel
-            >
-            <DateInputField id="dob-year" name="year" width={4} />
-          </FormGroup>
-        </DateInputItem>
-      </DateInput>
-    </Fieldset>
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <Fieldset role="group" aria-describedby="dob-hint">
+        <FieldsetLegend>What is your date of birth?</FieldsetLegend>
+        <Hint id="dob-hint">For example, 31 3 1980</Hint>
+        <DateInput id="dob">
+          <DateInputItem>
+            <FormGroup>
+              <InputLabel for="dob-day" class="govuk-date-input__label"
+                >Day</InputLabel
+              >
+              <DateInputField id="dob-day" name="day" width={2} />
+            </FormGroup>
+          </DateInputItem>
+          <DateInputItem>
+            <FormGroup>
+              <InputLabel for="dob-month" class="govuk-date-input__label"
+                >Month</InputLabel
+              >
+              <DateInputField id="dob-month" name="month" width={2} />
+            </FormGroup>
+          </DateInputItem>
+          <DateInputItem>
+            <FormGroup>
+              <InputLabel for="dob-year" class="govuk-date-input__label"
+                >Year</InputLabel
+              >
+              <DateInputField id="dob-year" name="year" width={4} />
+            </FormGroup>
+          </DateInputItem>
+        </DateInput>
+      </Fieldset>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Hint from "@components/hint/hint.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import DateInput from "@components/date-input/date-input.astro";
+import DateInputItem from "@components/date-input/date-input-item.astro";
+import DateInputField from "@components/date-input/date-input-field.astro";
+---
+
+<FormGroup>
+  <Fieldset role="group" aria-describedby="dob-hint">
+    <FieldsetLegend>What is your date of birth?</FieldsetLegend>
+    <Hint id="dob-hint">For example, 31 3 1980</Hint>
+    <DateInput id="dob">
+      <DateInputItem>
+        <FormGroup>
+          <InputLabel for="dob-day" class="govuk-date-input__label">Day</InputLabel>
+          <DateInputField id="dob-day" name="day" width={2} />
+        </FormGroup>
+      </DateInputItem>
+      <DateInputItem>
+        <FormGroup>
+          <InputLabel for="dob-month" class="govuk-date-input__label">Month</InputLabel>
+          <DateInputField id="dob-month" name="month" width={2} />
+        </FormGroup>
+      </DateInputItem>
+      <DateInputItem>
+        <FormGroup>
+          <InputLabel for="dob-year" class="govuk-date-input__label">Year</InputLabel>
+          <DateInputField id="dob-year" name="year" width={4} />
+        </FormGroup>
+      </DateInputItem>
+    </DateInput>
+  </Fieldset>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+    <legend class="govuk-fieldset__legend">What is your date of birth?</legend>
+    <div class="govuk-hint" id="dob-hint">For example, 31 3 1980</div>
+    <div class="govuk-date-input" id="dob">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-day">Day</label>
+          <input
+            class="govuk-input govuk-date-input__input govuk-input--width-2"
+            type="text"
+            inputmode="numeric"
+            id="dob-day"
+            name="day"
+          >
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-month">Month</label>
+          <input
+            class="govuk-input govuk-date-input__input govuk-input--width-2"
+            type="text"
+            inputmode="numeric"
+            id="dob-month"
+            name="month"
+          >
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-year">Year</label>
+          <input
+            class="govuk-input govuk-date-input__input govuk-input--width-4"
+            type="text"
+            inputmode="numeric"
+            id="dob-year"
+            name="year"
+          >
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
   <h2 class="govuk-heading-l">When to use this component</h2>
