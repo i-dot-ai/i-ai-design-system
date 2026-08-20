@@ -2,15 +2,11 @@
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"div"> {
-    logoSrc?: string;
-    logoAlt?: string;
     homepageLink?: string;
     backgroundColor?: string;
 }
 
 const {
-    logoSrc = "/header-logo.svg",
-    logoAlt = "i.AI",
     homepageLink = "/",
     backgroundColor,
     class: className,
@@ -26,12 +22,8 @@ const {
     {...rest}
 >
     <div class="govuk-generic-header__container govuk-width-container">
-        <div class="govuk-!-padding-bottom-2">
-            <img
-                src={logoSrc}
-                alt={logoAlt}
-                class="govuk-generic-header__logo"
-            />
+        <div class="govuk-!-padding-bottom-2 govuk-!-padding-top-2">
+            <slot name="logo" />
             <a href={homepageLink} class="govuk-generic-header__homepage-link">
                 <slot />
             </a>
