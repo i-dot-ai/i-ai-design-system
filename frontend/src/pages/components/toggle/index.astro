@@ -23,6 +23,7 @@ import { Code } from "astro:components";
       <Toggle id="toggle" name="toggle" />
     </ToggleItem>
   </div>
+  <br />
   <Details>
     <DetailsSummary>Show code</DetailsSummary>
     <DetailsText>
@@ -87,6 +88,7 @@ import Toggle from "@components/toggle/toggle.astro";
       <Toggle id="toggle-large" size="large" />
     </ToggleItem>
   </div>
+  <br />
   <Details>
     <DetailsSummary>Show code</DetailsSummary>
     <DetailsText>
@@ -181,5 +183,10 @@ import Toggle from "@components/toggle/toggle.astro";
     Do not use the toggle if the change needs a submit button to take effect, if
     there is no sensible default state, or if the choice is a yes/no answer to a
     question — use a checkbox or two radio buttons instead.
+  </p>
+  <h2 class="govuk-heading-l">Accessibility</h2>
+  <h3 class="govuk-heading-m">Progressive enhancement</h3>
+  <p class="govuk-body">
+    The toggle component renders as a checkbox if js is disabled.
   </p>
 </Layout>

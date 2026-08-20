@@ -1,16 +1,64 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
 import Header from "@components/header/header.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
     <h1 class="govuk-heading-xl">Header</h1>
+    <h2 class="govuk-heading-m">Default</h2>
     <p class="govuk-body">
-        The header component is used to display the header of the page.
+        Add the product name and the logo of the product to the header
+        component.
     </p>
+    <div class="component-container">
+        <Header>
+            <svg
+                slot="logo"
+                width="28"
+                class="govuk-generic-header__logo govuk-!-margin-left-2"
+                height="30"
+                viewBox="0 0 28 30"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+                <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+                <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+                <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+                <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+                <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+            </svg>
+            Product name
+        </Header>
+    </div>
+    <br />
+    <Details>
+        <DetailsSummary>Show code</DetailsSummary>
+        <DetailsText>
+            <Tabs>
+                <TabsList>
+                    <Tab href="#default-astro" selected>Astro</Tab>
+                    <Tab href="#default-html">HTML</Tab>
+                </TabsList>
+                <TabPanel id="default-astro">
+                    <Code
+                        code={`
+    ---
+    import Header from "@components/header/header.astro";
+
+    ---
+    
     <Header>
         <svg
-            name="logo"
+            slot="logo"
             width="28"
             class="govuk-generic-header__logo"
             height="30"
@@ -26,5 +74,170 @@ import Header from "@components/header/header.astro";
             <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
         </svg>
         Product name
-    </Header>
+    </Header>`}
+                        lang="astro"
+                        theme="github-light"
+                    />
+                </TabPanel>
+                <TabPanel id="default-html" hidden>
+                    <Code
+                        code={`<div class="govuk-generic-header">
+    <div class="govuk-generic-header__container govuk-width-container">
+        <div class="govuk-!-padding-bottom-2 govuk-!-padding-top-2">
+                <svg
+                    width="28"
+                    class="govuk-generic-header__logo"
+                    height="30"
+                    viewBox="0 0 28 30"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+                    <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+                    <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+                    <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+                    <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+                    <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+                </svg>
+                <a href="/" class="govuk-generic-header__homepage-link">  
+                    Product name
+                </a>
+            </div>
+        </div>
+    </div>`}
+                        lang="html"
+                        theme="github-light"
+                    />
+                </TabPanel>
+            </Tabs>
+        </DetailsText>
+    </Details>
+    <h2 class="govuk-heading-m">Background colour</h2>
+    <p class="govuk-body">
+        The header component can be styled with a background colour to match the
+        service.
+    </p>
+    <p class="govuk-body">
+        Please note that the govuk blue colour ("#1d70b8") is reserved for
+        GOV.UK sites only. Read more about <a
+            href="https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/"
+            class="govuk-link"
+        >
+            using GOV.UK Frontend without GOV.UK branding
+        </a>.
+    </p>
+    <div class="component-container">
+        <Header backgroundColour="#0b0c0c">
+            <svg
+                slot="logo"
+                width="28"
+                class="govuk-generic-header__logo govuk-!-margin-left-2"
+                height="30"
+                viewBox="0 0 28 30"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+                <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+                <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+                <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+                <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+                <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+            </svg>
+            Product name
+        </Header>
+        <br />
+        <Header backgroundColour="#0f7a52">
+            <svg
+                slot="logo"
+                width="28"
+                class="govuk-generic-header__logo govuk-!-margin-left-2"
+                height="30"
+                viewBox="0 0 28 30"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+                <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+                <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+                <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+                <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+                <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+            </svg>
+            Product name
+        </Header>
+    </div>
+    <br />
+    <Details>
+        <DetailsSummary>Show code</DetailsSummary>
+        <DetailsText>
+            <Tabs>
+                <TabsList>
+                    <Tab href="#default-astro" selected>Astro</Tab>
+                    <Tab href="#default-html">HTML</Tab>
+                </TabsList>
+                <TabPanel id="default-astro">
+                    <Code
+                        code={`
+    ---
+    import Header from "@components/header/header.astro";
+
+    ---
+    
+    <Header backgroundColour="<your-background-colour>"
+        <svg
+            slot="logo"
+            width="28"
+            class="govuk-generic-header__logo"
+            height="30"
+            viewBox="0 0 28 30"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+            <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+            <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+            <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+            <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+            <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+        </svg>
+        Product name
+    </Header>`}
+                        lang="astro"
+                        theme="github-light"
+                    />
+                </TabPanel>
+                <TabPanel id="default-html" hidden>
+                    <Code
+                        code={`<div class="govuk-generic-header" style="background-color: <your-background-colour>;">
+    <div class="govuk-generic-header__container govuk-width-container">
+        <div class="govuk-!-padding-bottom-2 govuk-!-padding-top-2">
+                <svg
+                    width="28"
+                    class="govuk-generic-header__logo"
+                    height="30"
+                    viewBox="0 0 28 30"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+                    <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+                    <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+                    <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+                    <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+                    <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+                </svg>
+                <a href="/" class="govuk-generic-header__homepage-link">  
+                    Product name
+                </a>
+            </div>
+        </div>
+    </div>`}
+                        lang="html"
+                        theme="github-light"
+                    />
+                </TabPanel>
+            </Tabs>
+        </DetailsText>
+    </Details>
 </Layout>
