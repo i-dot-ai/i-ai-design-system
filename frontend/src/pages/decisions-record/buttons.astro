@@ -1,4 +1,5 @@
 ---
+import InsetText from "@components/inset-text/inset-text.astro";
 import Tag from "@components/tag/tag.astro";
 import Layout from "@layouts/DecisionsRecordLayout.astro";
 ---
@@ -7,4 +8,78 @@ import Layout from "@layouts/DecisionsRecordLayout.astro";
     <h1 class="govuk-heading-xl">002 - Buttons</h1>
     <p class="govuk-body">Date updated: <strong>19 August 2026</strong></p>
     <Tag color="green">Accepted</Tag>
+    <br />
+    <br />
+    <h2 class="govuk-heading-m">Context</h2>
+    <p class="govuk-body">
+        As mentioned in the <a
+            href="/decisions-record/adapt-govuk-design-system"
+            class="govuk-link">001 - Adapt the GOV.UK Design System</a
+        > decision record, the GOV.UK Design System was not designed for web apps
+        and as a result inputs, including buttons, have been designed to draw the
+        attention of the reader and not be msised when scanning a form to be filled
+        in.
+    </p>
+    <p class="govuk-body">
+        The advice on buttons from GOV.UK Design System is to:
+    </p>
+
+    <InsetText>
+        <i
+            >Before adding lots of secondary buttons, try to simplify the page
+            or break the content down across multiple pages.
+        </i>
+    </InsetText>
+    <p class="govuk-body">
+        However, in the context of web apps which are designed to be used
+        multiple times, splitting content to different pages often leads to a
+        less user-friendly experience.
+    </p>
+    <p class="govuk-body">
+        There are two primary scenarios in which the GOV.UK buttons are not
+        suitable:
+    </p>
+    <ul class="govuk-list govuk-list--number govuk-list--spaced">
+        <li>
+            <p class="govuk-body">
+                <strong>Scenario 1:</strong>
+                When buttons are not the primary action of the page, the attention
+                of the user is drawn to the buttons and they are more likely to be
+                clicked or confused at what they are meant to do.
+            </p>
+            <p class="govuk-body">
+                In the example below, you can see the <strong>Rename</strong> and
+                <strong>Delete</strong> strongly draw the eye whereas the primary
+                action is actually to click on the title and view the item in full.
+            </p>
+            <img
+                src="/images/non-primary-action-buttons.webp"
+                alt="Screenshot an item with link and a rename and delete button."
+                class="govuk-image"
+            />
+        </li>
+        <li>
+            <p class="govuk-body">
+                <strong>Scenario 2:</strong>
+                When there are multiple buttons on the page, the buttons are difficult
+                to distinguish from each other and quickly navigate between actions.
+            </p>
+            <p class="govuk-body">
+                Again the primary action of this page is to read the text
+                content below, your attention to the buttons should only be
+                drawn when needed. E.g. User first decides they want to download
+                the summary, they then look for the download button. As opposed
+                to reading all options first and remembering which one they
+                wanted to click.
+            </p>
+            <img
+                src="/images/multiple-secondary-buttons.webp"
+                alt="Screenshot a page with multiple buttons."
+                class="govuk-image"
+            />
+        </li>
+    </ul>
+
+    <h3>Accessibility concerns</h3>
+    <p class="govuk-body"></p>
 </Layout>
