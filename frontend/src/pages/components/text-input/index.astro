@@ -4,6 +4,14 @@ import FormGroup from "@components/form-group/form-group.astro";
 import InputLabel from "@components/input-label/input-label.astro";
 import Hint from "@components/hint/hint.astro";
 import Input from "@components/input/input.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -13,65 +21,266 @@ import Input from "@components/input/input.astro";
   <p class="govuk-body">
     A default input lets users enter a single line of text.
   </p>
-  <FormGroup>
-    <InputLabel for="input-default">National Insurance number</InputLabel>
-    <Input id="input-default" name="input-default" />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <InputLabel for="input-default">National Insurance number</InputLabel>
+      <Input id="input-default" name="input-default" />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Input from "@components/input/input.astro";
+---
+
+<FormGroup>
+  <InputLabel for="input-default">National Insurance number</InputLabel>
+  <Input id="input-default" name="input-default" />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <label class="govuk-label" for="input-default">National Insurance number</label>
+  <input class="govuk-input" type="text" id="input-default" name="input-default">
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Subtle</h2>
   <p class="govuk-body">
     Use a subtle input to reduce its prominence when it is not the main focus of
     the page.
   </p>
-  <FormGroup>
-    <InputLabel for="input-subtle">National Insurance number</InputLabel>
-    <Input id="input-subtle" name="input-subtle" subtle />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <InputLabel for="input-subtle">National Insurance number</InputLabel>
+      <Input id="input-subtle" name="input-subtle" subtle />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#subtle-astro" selected>Astro</Tab>
+          <Tab href="#subtle-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="subtle-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Input from "@components/input/input.astro";
+---
+
+<FormGroup>
+  <InputLabel for="input-subtle">National Insurance number</InputLabel>
+  <Input id="input-subtle" name="input-subtle" subtle />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="subtle-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <label class="govuk-label" for="input-subtle">National Insurance number</label>
+  <input class="govuk-input govuk-input--subtle" type="text" id="input-subtle" name="input-subtle">
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">With hint</h2>
   <p class="govuk-body">
     Add a hint to give users extra help to answer the question.
   </p>
-  <FormGroup>
-    <InputLabel for="input-hint">National Insurance number</InputLabel>
-    <Hint id="input-hint-hint">
-      It’s on your National Insurance card, benefit letter, payslip or P60.
-    </Hint>
-    <Input
-      id="input-hint"
-      name="input-hint"
-      aria-describedby="input-hint-hint"
-    />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <InputLabel for="input-hint">National Insurance number</InputLabel>
+      <Hint id="input-hint-hint">
+        It’s on your National Insurance card, benefit letter, payslip or P60.
+      </Hint>
+      <Input
+        id="input-hint"
+        name="input-hint"
+        aria-describedby="input-hint-hint"
+      />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#with-hint-astro" selected>Astro</Tab>
+          <Tab href="#with-hint-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="with-hint-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Hint from "@components/hint/hint.astro";
+import Input from "@components/input/input.astro";
+---
+
+<FormGroup>
+  <InputLabel for="input-hint">National Insurance number</InputLabel>
+  <Hint id="input-hint-hint">
+    It’s on your National Insurance card, benefit letter, payslip or P60.
+  </Hint>
+  <Input
+    id="input-hint"
+    name="input-hint"
+    aria-describedby="input-hint-hint"
+  />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="with-hint-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <label class="govuk-label" for="input-hint">National Insurance number</label>
+  <div class="govuk-hint" id="input-hint-hint">
+    It’s on your National Insurance card, benefit letter, payslip or P60.
+  </div>
+  <input class="govuk-input" type="text" id="input-hint" name="input-hint" aria-describedby="input-hint-hint">
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Fixed width</h2>
   <p class="govuk-body">
     Use a fixed width input when the content has a known, fixed length.
   </p>
-  <FormGroup>
-    <InputLabel for="input-width">National Insurance number</InputLabel>
-    <Input id="input-width" name="input-width" width={10} />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <InputLabel for="input-width">National Insurance number</InputLabel>
+      <Input id="input-width" name="input-width" width={10} />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#fixed-width-astro" selected>Astro</Tab>
+          <Tab href="#fixed-width-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="fixed-width-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Input from "@components/input/input.astro";
+---
+
+<FormGroup>
+  <InputLabel for="input-width">National Insurance number</InputLabel>
+  <Input id="input-width" name="input-width" width={10} />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="fixed-width-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <label class="govuk-label" for="input-width">National Insurance number</label>
+  <input class="govuk-input govuk-input--width-10" type="text" id="input-width" name="input-width">
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Error</h2>
   <p class="govuk-body">
     An error input is used to indicate that the input has an error.
   </p>
-  <FormGroup class="govuk-form-group--error">
-    <InputLabel for="input-error">National Insurance number</InputLabel>
-    <Input id="input-error" name="input-error" error />
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup class="govuk-form-group--error">
+      <InputLabel for="input-error">National Insurance number</InputLabel>
+      <Input id="input-error" name="input-error" error />
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#error-astro" selected>Astro</Tab>
+          <Tab href="#error-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="error-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Input from "@components/input/input.astro";
+---
+
+<FormGroup class="govuk-form-group--error">
+  <InputLabel for="input-error">National Insurance number</InputLabel>
+  <Input id="input-error" name="input-error" error />
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="error-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group govuk-form-group--error">
+  <label class="govuk-label" for="input-error">National Insurance number</label>
+  <input class="govuk-input govuk-input--error" type="text" id="input-error" name="input-error">
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
-  <h2 class="govuk-heading-l">When to use this component</h2>
-  <p class="govuk-body">
-    Use the text input component when you need to let users enter text that’s no
-    longer than a single line, such as their name or phone number.
-  </p>
-  <h2 class="govuk-heading-l">When not to use this component</h2>
-  <p class="govuk-body">
-    Do not use the text input component if you need to let users enter longer
-    answers that might span multiple lines. In this case, you should use the <a
-      class="govuk-link"
-      href="https://design-system.service.gov.uk/components/textarea/"
-      >Textarea component</a
-    >.
-  </p>
-  <!-- GOVUK_GUIDANCE:END -->
+        <h2 class="govuk-heading-l">When to use this component</h2>
+          <p class="govuk-body">Use the text input component when you need to let users enter text that’s no longer than a single line, such as their name or phone number.</p>
+        <h2 class="govuk-heading-l">When not to use this component</h2>
+          <p class="govuk-body">Do not use the text input component if you need to let users enter longer answers that might span multiple lines. In this case, you should use the <a class="govuk-link" href="/components/textarea/">Textarea component</a>.</p>
+        <!-- GOVUK_GUIDANCE:END -->
 </Layout>

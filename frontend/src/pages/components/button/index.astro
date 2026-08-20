@@ -1,10 +1,14 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import ButtonGroup from "@components/buttonGroup/index.astro";
 import Button from "@components/button/index.astro";
 import Tabs from "@components/tabs/tabs.astro";
 import TabsList from "@components/tabs/tabs-list.astro";
 import Tab from "@components/tabs/tab.astro";
 import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
 import { Code } from "astro:components";
 ---
 
@@ -13,8 +17,9 @@ import { Code } from "astro:components";
   <p class="govuk-body">
     Buttons have been adapted from the GOV.UK Design System to fit the needs of
     i.AI apps. Jump to
-    <a href="#deviation" class="govuk-link">the deviation section</a> to see what
-    has changed and why.
+    <a href="/decisions-record/buttons" class="govuk-link"
+      >button decision record</a
+    > to see what has changed and why.
   </p>
 
   <h2 class="govuk-heading-m">Default buttons</h2>
@@ -27,41 +32,47 @@ import { Code } from "astro:components";
     designed to work to be duplicated multiple times
   </p>
   <div class="component-container">
-    <div class="govuk-button-group">
+    <ButtonGroup>
       <Button variant="primary" href="#">Primary Button</Button>
       <Button variant="secondary" href="#">Secondary Button</Button>
-    </div>
+    </ButtonGroup>
   </div>
-  <Tabs>
-    <TabsList>
-      <Tab href="#default-astro" selected>Astro</Tab>
-      <Tab href="#default-html">HTML</Tab>
-    </TabsList>
-    <TabPanel id="default-astro">
-      <Code
-        code={`---
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
 import Button from "@components/button/index.astro";
 ---
 
-<div class="govuk-button-group">
+<ButtonGroup>
   <Button variant="primary" href="#">Primary Button</Button>
   <Button variant="secondary" href="#">Secondary Button</Button>
-</div>`}
-        lang="astro"
-        theme="github-light"
-      />
-    </TabPanel>
-    <TabPanel id="default-html" hidden>
-      <Code
-        code={`<div class="govuk-button-group">
+</ButtonGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-button-group">
   <button class="govuk-button" data-module="govuk-button">Primary Button</button>
   <button class="govuk-button govuk-button--secondary" data-module="govuk-button">Secondary Button</button>
 </div>`}
-        lang="html"
-        theme="github-light"
-      />
-    </TabPanel>
-  </Tabs>
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <h2 class="govuk-heading-m">Inverse buttons</h2>
   <p class="govuk-body">
@@ -70,33 +81,34 @@ import Button from "@components/button/index.astro";
   <div class="component-container--inverse">
     <Button variant="inverse" href="#">Inverse Button</Button>
   </div>
-  <Tabs>
-    <TabsList>
-      <Tab href="#inverse-astro" selected>Astro</Tab>
-      <Tab href="#inverse-html">HTML</Tab>
-    </TabsList>
-    <TabPanel id="inverse-astro">
-      <Code
-        code={`---
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#inverse-astro" selected>Astro</Tab>
+          <Tab href="#inverse-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="inverse-astro">
+          <Code
+            code={`---
 import Button from "@components/button/index.astro";
 ---
 
 <Button variant="inverse" href="#">Inverse Button</Button>`}
-        lang="astro"
-        theme="github-light"
-      />
-    </TabPanel>
-    <TabPanel id="inverse-html" hidden>
-      <Code
-        code={`<button class="govuk-button govuk-button--inverse" data-module="govuk-button">Inverse Button</button>`}
-        lang="html"
-        theme="github-light"
-      />
-    </TabPanel>
-  </Tabs>
-
-  <h2 class="govuk-heading-l" id="deviation">
-    Deviation from GOV.UK Design System
-  </h2>
-  <h3 class="govuk-heading-l">Accessibility</h3>
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="inverse-html" hidden>
+          <Code
+            code={`<button class="govuk-button govuk-button--inverse" data-module="govuk-button">Inverse Button</button>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 </Layout>

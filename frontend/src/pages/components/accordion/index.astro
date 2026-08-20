@@ -5,6 +5,14 @@ import AccordionSection from "@components/accordion/accordion-section.astro";
 import AccordionSectionHeader from "@components/accordion/accordion-section-header.astro";
 import AccordionSectionHeading from "@components/accordion/accordion-section-heading.astro";
 import AccordionSectionContent from "@components/accordion/accordion-section-content.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -15,92 +23,144 @@ import AccordionSectionContent from "@components/accordion/accordion-section-con
     A default accordion lets users show and hide sections of related content on
     a page.
   </p>
-  <Accordion>
-    <AccordionSection>
-      <AccordionSectionHeader>
-        <AccordionSectionHeading>Section A</AccordionSectionHeading>
-      </AccordionSectionHeader>
-      <AccordionSectionContent>
-        <p class="govuk-body">
-          We need to know your nationality so we can work out which elections
-          you’re entitled to vote in. If you cannot provide your nationality,
-          you’ll have to send copies of identity documents through the post.
-        </p>
-      </AccordionSectionContent>
-    </AccordionSection>
-    <AccordionSection>
-      <AccordionSectionHeader>
-        <AccordionSectionHeading>Section B</AccordionSectionHeading>
-      </AccordionSectionHeader>
-      <AccordionSectionContent>
-        <p class="govuk-body">
-          You can find your National Insurance number on your payslip, P60, or
-          on letters about tax, pensions and benefits.
-        </p>
-      </AccordionSectionContent>
-    </AccordionSection>
-  </Accordion>
+  <div class="component-container">
+    <Accordion>
+      <AccordionSection>
+        <AccordionSectionHeader>
+          <AccordionSectionHeading>Section A</AccordionSectionHeading>
+        </AccordionSectionHeader>
+        <AccordionSectionContent>
+          <p class="govuk-body">
+            We need to know your nationality so we can work out which elections
+            you’re entitled to vote in. If you cannot provide your nationality,
+            you’ll have to send copies of identity documents through the post.
+          </p>
+        </AccordionSectionContent>
+      </AccordionSection>
+      <AccordionSection>
+        <AccordionSectionHeader>
+          <AccordionSectionHeading>Section B</AccordionSectionHeading>
+        </AccordionSectionHeader>
+        <AccordionSectionContent>
+          <p class="govuk-body">
+            You can find your National Insurance number on your payslip, P60, or
+            on letters about tax, pensions and benefits.
+          </p>
+        </AccordionSectionContent>
+      </AccordionSection>
+    </Accordion>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import Accordion from "@components/accordion/accordion.astro";
+import AccordionSection from "@components/accordion/accordion-section.astro";
+import AccordionSectionHeader from "@components/accordion/accordion-section-header.astro";
+import AccordionSectionHeading from "@components/accordion/accordion-section-heading.astro";
+import AccordionSectionContent from "@components/accordion/accordion-section-content.astro";
+---
+
+<Accordion>
+  <AccordionSection>
+    <AccordionSectionHeader>
+      <AccordionSectionHeading>Section A</AccordionSectionHeading>
+    </AccordionSectionHeader>
+    <AccordionSectionContent>
+      <p class="govuk-body">
+        We need to know your nationality so we can work out which elections
+        you’re entitled to vote in. If you cannot provide your nationality,
+        you’ll have to send copies of identity documents through the post.
+      </p>
+    </AccordionSectionContent>
+  </AccordionSection>
+  <AccordionSection>
+    <AccordionSectionHeader>
+      <AccordionSectionHeading>Section B</AccordionSectionHeading>
+    </AccordionSectionHeader>
+    <AccordionSectionContent>
+      <p class="govuk-body">
+        You can find your National Insurance number on your payslip, P60, or
+        on letters about tax, pensions and benefits.
+      </p>
+    </AccordionSectionContent>
+  </AccordionSection>
+</Accordion>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-accordion" data-module="govuk-accordion">
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button">Section A</span>
+      </h2>
+    </div>
+    <div class="govuk-accordion__section-content">
+      <p class="govuk-body">
+        We need to know your nationality so we can work out which elections
+        you’re entitled to vote in. If you cannot provide your nationality,
+        you’ll have to send copies of identity documents through the post.
+      </p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button">Section B</span>
+      </h2>
+    </div>
+    <div class="govuk-accordion__section-content">
+      <p class="govuk-body">
+        You can find your National Insurance number on your payslip, P60, or
+        on letters about tax, pensions and benefits.
+      </p>
+    </div>
+  </div>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
-  <h2 class="govuk-heading-l">When to use this component</h2>
-  <p class="govuk-body">
-    Only use an accordion if there's evidence it’s helpful for the user to:
-  </p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>see an overview of multiple, related sections of content</li>
-    <li>choose to show and hide sections that are relevant to them</li>
-    <li>look across information that might otherwise be on different pages</li>
-  </ul>
-  <p class="govuk-body">
-    For example, an accordion can work well if the user needs to reveal and
-    compare information that’s relevant to them.
-  </p>
-  <p class="govuk-body">
-    Accordions can also work well for people who use a service regularly. For
-    example, users of caseworking systems who need to do familiar tasks quickly.
-  </p>
-  <p class="govuk-body">
-    Test with users to decide if using an accordion outweighs the potential
-    problems with hiding content.
-  </p>
-  <h2 class="govuk-heading-l">When not to use this component</h2>
-  <p class="govuk-body">
-    Accordions hide content from the user. Not all users will notice them or
-    understand how they work. For this reason, you should only use them in
-    specific situations and if user research supports it.
-  </p>
-  <p class="govuk-body">
-    Do not use an accordion for content that all users need to see.
-  </p>
-  <p class="govuk-body">
-    Test your content without an accordion first. Well-written and structured
-    content, as shown in <a
-      class="govuk-link"
-      href="https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/"
-      >GOV.UK writing standards</a
-    >, can remove the need to use an accordion.
-  </p>
-  <p class="govuk-body">It’s usually better to:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>simplify and reduce the amount of content</li>
-    <li>split the content across multiple pages</li>
-    <li>keep the content on a single page, separated by headings</li>
-    <li>
-      use a list of links at the start of the page (known as 'anchor links') to
-      take the user to particular sections of a page
-    </li>
-  </ul>
-  <p class="govuk-body">
-    Accordions work best for simple content and links. Do not use accordions to
-    split up a series of questions. Use separate pages instead.
-  </p>
-  <p class="govuk-body">
-    Do not put accordions within accordions, as it will make content difficult
-    to find.
-  </p>
-  <p class="govuk-body">
-    Do not use the accordion component if the amount of content inside will make
-    the page slow to load.
-  </p>
-  <!-- GOVUK_GUIDANCE:END -->
+        <h2 class="govuk-heading-l">When to use this component</h2>
+          <p class="govuk-body">Only use an accordion if there's evidence it’s helpful for the user to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>see an overview of multiple, related sections of content</li>
+            <li>choose to show and hide sections that are relevant to them</li>
+            <li>look across information that might otherwise be on different pages</li>
+          </ul>
+          <p class="govuk-body">For example, an accordion can work well if the user needs to reveal and compare information that’s relevant to them.</p>
+          <p class="govuk-body">Accordions can also work well for people who use a service regularly. For example, users of caseworking systems who need to do familiar tasks quickly.</p>
+          <p class="govuk-body">Test with users to decide if using an accordion outweighs the potential problems with hiding content.</p>
+        <h2 class="govuk-heading-l">When not to use this component</h2>
+          <p class="govuk-body">Accordions hide content from the user. Not all users will notice them or understand how they work. For this reason, you should only use them in specific situations and if user research supports it.</p>
+          <p class="govuk-body">Do not use an accordion for content that all users need to see.</p>
+          <p class="govuk-body">Test your content without an accordion first. Well-written and structured content, as shown in <a class="govuk-link" href="https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/">GOV.UK writing standards</a>, can remove the need to use an accordion.</p>
+          <p class="govuk-body">It’s usually better to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>simplify and reduce the amount of content</li>
+            <li>split the content across multiple pages</li>
+            <li>keep the content on a single page, separated by headings</li>
+            <li>use a list of links at the start of the page (known as 'anchor links') to take the user to particular sections of a page</li>
+          </ul>
+          <p class="govuk-body">Accordions work best for simple content and links. Do not use accordions to split up a series of questions. Use separate pages instead.</p>
+          <p class="govuk-body">Do not put accordions within accordions, as it will make content difficult to find.</p>
+          <p class="govuk-body">Do not use the accordion component if the amount of content inside will make the page slow to load.</p>
+        <!-- GOVUK_GUIDANCE:END -->
 </Layout>

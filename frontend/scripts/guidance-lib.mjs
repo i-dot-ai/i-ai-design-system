@@ -4,7 +4,30 @@
 // the prose from the "When to use this component" and "When not to use this
 // component" sections, so we extract those headings and clean the content.
 
-import { GUIDANCE_RAW_BASE, GUIDANCE_SLUG_OVERRIDES } from "./govuk-components.config.mjs";
+import { readdirSync } from "node:fs";
+
+import {
+  GUIDANCE_RAW_BASE,
+  GUIDANCE_SLUG_OVERRIDES,
+  EXCLUDED_COMPONENTS,
+  PAGES_DIR,
+} from "./govuk-components.config.mjs";
+
+// Set of component slugs that have a local page in this repo. Guidance links
+// pointing at "/components/<slug>/" are rewritten to relative repo links when
+// the slug exists here; otherwise they fall back to the absolute GDS URL.
+const LOCAL_COMPONENT_SLUGS = (() => {
+  try {
+    return new Set(
+      readdirSync(PAGES_DIR, { withFileTypes: true })
+        .filter((e) => e.isDirectory())
+        .map((e) => e.name)
+        .filter((name) => !EXCLUDED_COMPONENTS.includes(name)),
+    );
+  } catch {
+    return new Set();
+  }
+})();
 
 // Markers written into each generated page. The update script replaces
 // everything BETWEEN these two markers, leaving the rest of the page (title,
@@ -97,12 +120,16 @@ export function markdownToGovukHtml(markdown) {
   return html.join("\n");
 }
 
-// Inline markdown: links and bold. Also rewrites relative GDS links to absolute.
+// Inline markdown: links and bold.
+//
+// Relative GDS links (starting with "/") are rewritten so that references to a
+// component we host locally point at our own page ("/components/<slug>/"),
+// while everything else falls back to the absolute design-system.service.gov.uk
+// URL. External links are left untouched.
 function inline(text) {
   return text
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, href) => {
-      const abs = href.startsWith("/") ? `https://design-system.service.gov.uk${href}` : href;
-      return `<a class="govuk-link" href="${abs}">${label}</a>`;
+      return `<a class="govuk-link" href="${resolveHref(href)}">${label}</a>`;
     })
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/`([^`]+)`/g, "<code>$1</code>")
@@ -111,4 +138,20 @@ function inline(text) {
 
 function escapeRegExp(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Decide the final href for a link found in the guidance markdown.
+//  - Non-relative links (http/https/etc) are returned unchanged.
+//  - "/components/<slug>/..." links to a component we host locally become a
+//    relative repo link "/components/<slug>/".
+//  - All other relative links fall back to the absolute GDS URL.
+function resolveHref(href) {
+  if (!href.startsWith("/")) return href;
+
+  const match = href.match(/^\/components\/([^/#?]+)/);
+  if (match && LOCAL_COMPONENT_SLUGS.has(match[1])) {
+    return `/components/${match[1]}/`;
+  }
+
+  return `https://design-system.service.gov.uk${href}`;
 }

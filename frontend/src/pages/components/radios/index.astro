@@ -7,6 +7,14 @@ import Radios from "@components/radios/radios.astro";
 import RadioItem from "@components/radios/radio-item.astro";
 import RadioInput from "@components/radios/radio-input.astro";
 import InputLabel from "@components/input-label/input-label.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
 ---
 
 <Layout>
@@ -16,103 +24,332 @@ import InputLabel from "@components/input-label/input-label.astro";
   <p class="govuk-body">
     A default radios group lets users select a single option from a list.
   </p>
-  <FormGroup>
-    <Fieldset>
-      <FieldsetLegend>Have you changed your name?</FieldsetLegend>
-      <Radios>
-        <RadioItem>
-          <RadioInput id="changed-name" name="changed-name" value="yes" />
-          <InputLabel for="changed-name" class="govuk-radios__label">
-            Yes
-          </InputLabel>
-        </RadioItem>
-        <RadioItem>
-          <RadioInput id="changed-name-2" name="changed-name" value="no" />
-          <InputLabel for="changed-name-2" class="govuk-radios__label">
-            No
-          </InputLabel>
-        </RadioItem>
-      </Radios>
-    </Fieldset>
-  </FormGroup>
+  <div class="component-container">
+    <FormGroup>
+      <Fieldset>
+        <FieldsetLegend>Have you changed your name?</FieldsetLegend>
+        <Radios>
+          <RadioItem>
+            <RadioInput id="changed-name" name="changed-name" value="yes" />
+            <InputLabel for="changed-name" class="govuk-radios__label">
+              Yes
+            </InputLabel>
+          </RadioItem>
+          <RadioItem>
+            <RadioInput id="changed-name-2" name="changed-name" value="no" />
+            <InputLabel for="changed-name-2" class="govuk-radios__label">
+              No
+            </InputLabel>
+          </RadioItem>
+        </Radios>
+      </Fieldset>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import Radios from "@components/radios/radios.astro";
+import RadioItem from "@components/radios/radio-item.astro";
+import RadioInput from "@components/radios/radio-input.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+---
+
+<FormGroup>
+  <Fieldset>
+    <FieldsetLegend>Have you changed your name?</FieldsetLegend>
+    <Radios>
+      <RadioItem>
+        <RadioInput id="changed-name" name="changed-name" value="yes" />
+        <InputLabel for="changed-name" class="govuk-radios__label">
+          Yes
+        </InputLabel>
+      </RadioItem>
+      <RadioItem>
+        <RadioInput id="changed-name-2" name="changed-name" value="no" />
+        <InputLabel for="changed-name-2" class="govuk-radios__label">
+          No
+        </InputLabel>
+      </RadioItem>
+    </Radios>
+  </Fieldset>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">Have you changed your name?</legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" type="radio" id="changed-name" name="changed-name" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" type="radio" id="changed-name-2" name="changed-name" value="no">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Inline</h2>
   <p class="govuk-body">
     Use inline radios to display the options on a single line where there is
     enough space and only two options.
   </p>
-  <FormGroup>
-    <Fieldset>
-      <FieldsetLegend>Have you changed your name?</FieldsetLegend>
-      <Radios inline>
-        <RadioItem>
-          <RadioInput
-            id="changed-name-inline"
-            name="changed-name-inline"
-            value="yes"
+  <div class="component-container">
+    <FormGroup>
+      <Fieldset>
+        <FieldsetLegend>Have you changed your name?</FieldsetLegend>
+        <Radios inline>
+          <RadioItem>
+            <RadioInput
+              id="changed-name-inline"
+              name="changed-name-inline"
+              value="yes"
+            />
+            <InputLabel for="changed-name-inline" class="govuk-radios__label">
+              Yes
+            </InputLabel>
+          </RadioItem>
+          <RadioItem>
+            <RadioInput
+              id="changed-name-inline-2"
+              name="changed-name-inline"
+              value="no"
+            />
+            <InputLabel for="changed-name-inline-2" class="govuk-radios__label">
+              No
+            </InputLabel>
+          </RadioItem>
+        </Radios>
+      </Fieldset>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#inline-astro" selected>Astro</Tab>
+          <Tab href="#inline-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="inline-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import Radios from "@components/radios/radios.astro";
+import RadioItem from "@components/radios/radio-item.astro";
+import RadioInput from "@components/radios/radio-input.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+---
+
+<FormGroup>
+  <Fieldset>
+    <FieldsetLegend>Have you changed your name?</FieldsetLegend>
+    <Radios inline>
+      <RadioItem>
+        <RadioInput
+          id="changed-name-inline"
+          name="changed-name-inline"
+          value="yes"
+        />
+        <InputLabel for="changed-name-inline" class="govuk-radios__label">
+          Yes
+        </InputLabel>
+      </RadioItem>
+      <RadioItem>
+        <RadioInput
+          id="changed-name-inline-2"
+          name="changed-name-inline"
+          value="no"
+        />
+        <InputLabel for="changed-name-inline-2" class="govuk-radios__label">
+          No
+        </InputLabel>
+      </RadioItem>
+    </Radios>
+  </Fieldset>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
           />
-          <InputLabel for="changed-name-inline" class="govuk-radios__label">
-            Yes
-          </InputLabel>
-        </RadioItem>
-        <RadioItem>
-          <RadioInput
-            id="changed-name-inline-2"
-            name="changed-name-inline"
-            value="no"
+        </TabPanel>
+        <TabPanel id="inline-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">Have you changed your name?</legend>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" type="radio" id="changed-name-inline" name="changed-name-inline" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changed-name-inline">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" type="radio" id="changed-name-inline-2" name="changed-name-inline" value="no">
+        <label class="govuk-label govuk-radios__label" for="changed-name-inline-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>`}
+            lang="html"
+            theme="github-light"
           />
-          <InputLabel for="changed-name-inline-2" class="govuk-radios__label">
-            No
-          </InputLabel>
-        </RadioItem>
-      </Radios>
-    </Fieldset>
-  </FormGroup>
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
   <h2 class="govuk-heading-m">Small</h2>
   <p class="govuk-body">
     Use small radios when the user is unlikely to want to change their answer,
     or in a densely populated interface.
   </p>
-  <FormGroup>
-    <Fieldset>
-      <FieldsetLegend>Have you changed your name?</FieldsetLegend>
-      <Radios small>
-        <RadioItem>
-          <RadioInput
-            id="changed-name-small"
-            name="changed-name-small"
-            value="yes"
+  <div class="component-container">
+    <FormGroup>
+      <Fieldset>
+        <FieldsetLegend>Have you changed your name?</FieldsetLegend>
+        <Radios small>
+          <RadioItem>
+            <RadioInput
+              id="changed-name-small"
+              name="changed-name-small"
+              value="yes"
+            />
+            <InputLabel for="changed-name-small" class="govuk-radios__label">
+              Yes
+            </InputLabel>
+          </RadioItem>
+          <RadioItem>
+            <RadioInput
+              id="changed-name-small-2"
+              name="changed-name-small"
+              value="no"
+            />
+            <InputLabel for="changed-name-small-2" class="govuk-radios__label">
+              No
+            </InputLabel>
+          </RadioItem>
+        </Radios>
+      </Fieldset>
+    </FormGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#small-astro" selected>Astro</Tab>
+          <Tab href="#small-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="small-astro">
+          <Code
+            code={`---
+import FormGroup from "@components/form-group/form-group.astro";
+import Fieldset from "@components/fieldset/fieldset.astro";
+import FieldsetLegend from "@components/fieldset/fieldset-legend.astro";
+import Radios from "@components/radios/radios.astro";
+import RadioItem from "@components/radios/radio-item.astro";
+import RadioInput from "@components/radios/radio-input.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+---
+
+<FormGroup>
+  <Fieldset>
+    <FieldsetLegend>Have you changed your name?</FieldsetLegend>
+    <Radios small>
+      <RadioItem>
+        <RadioInput
+          id="changed-name-small"
+          name="changed-name-small"
+          value="yes"
+        />
+        <InputLabel for="changed-name-small" class="govuk-radios__label">
+          Yes
+        </InputLabel>
+      </RadioItem>
+      <RadioItem>
+        <RadioInput
+          id="changed-name-small-2"
+          name="changed-name-small"
+          value="no"
+        />
+        <InputLabel for="changed-name-small-2" class="govuk-radios__label">
+          No
+        </InputLabel>
+      </RadioItem>
+    </Radios>
+  </Fieldset>
+</FormGroup>`}
+            lang="astro"
+            theme="github-light"
           />
-          <InputLabel for="changed-name-small" class="govuk-radios__label">
-            Yes
-          </InputLabel>
-        </RadioItem>
-        <RadioItem>
-          <RadioInput
-            id="changed-name-small-2"
-            name="changed-name-small"
-            value="no"
+        </TabPanel>
+        <TabPanel id="small-html" hidden>
+          <Code
+            code={`<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">Have you changed your name?</legend>
+    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" type="radio" id="changed-name-small" name="changed-name-small" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changed-name-small">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" type="radio" id="changed-name-small-2" name="changed-name-small" value="no">
+        <label class="govuk-label govuk-radios__label" for="changed-name-small-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>`}
+            lang="html"
+            theme="github-light"
           />
-          <InputLabel for="changed-name-small-2" class="govuk-radios__label">
-            No
-          </InputLabel>
-        </RadioItem>
-      </Radios>
-    </Fieldset>
-  </FormGroup>
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
 
   <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
-  <h2 class="govuk-heading-l">When to use this component</h2>
-  <p class="govuk-body">
-    Use the radios component when users can only select one option from a list.
-  </p>
-  <h2 class="govuk-heading-l">When not to use this component</h2>
-  <p class="govuk-body">
-    Do not use the radios component if users might need to select more than one
-    option. In this case, you should use the <a
-      class="govuk-link"
-      href="https://design-system.service.gov.uk/components/checkboxes/"
-      >Checkboxes component</a
-    > instead.
-  </p>
-  <!-- GOVUK_GUIDANCE:END -->
+        <h2 class="govuk-heading-l">When to use this component</h2>
+          <p class="govuk-body">Use the radios component when users can only select one option from a list.</p>
+        <h2 class="govuk-heading-l">When not to use this component</h2>
+          <p class="govuk-body">Do not use the radios component if users might need to select more than one option. In this case, you should use the <a class="govuk-link" href="/components/checkboxes/">Checkboxes component</a> instead.</p>
+        <!-- GOVUK_GUIDANCE:END -->
 </Layout>
