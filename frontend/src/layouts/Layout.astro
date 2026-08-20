@@ -28,7 +28,7 @@ const pathName = Astro.url.pathname;
 		<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 		<Header>
 			<svg
-				name="logo"
+				slot="logo"
 				width="28"
 				class="govuk-generic-header__logo"
 				height="30"
@@ -43,8 +43,8 @@ const pathName = Astro.url.pathname;
 				<circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
 				<circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
 			</svg>
-			i.AI Design Kit</Header
-		>
+			i.AI Design Kit
+		</Header>
 		<ServiceNavigation isWebVersion inverse={pathName === "/"}>
 			<ServiceNavigationItem href="/get-started">
 				Get started

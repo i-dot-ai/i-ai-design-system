@@ -16,7 +16,7 @@ html {
 }
 
 .govuk-generic-header__homepage-link {
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 
 .govuk-button:focus:not(:active):not(:hover),
