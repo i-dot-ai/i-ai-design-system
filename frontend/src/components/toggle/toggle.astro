@@ -1,6 +1,5 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import "./toggle.css";
 
 interface Props extends HTMLAttributes<"input"> {}
 
@@ -8,7 +7,11 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <div class="iai-toggle">
-    <input class={`iai-toggle__input${className ? ` ${className}` : ""}`} type="checkbox" {...rest} />
+    <input
+        class={`iai-toggle__input${className ? ` ${className}` : ""}`}
+        type="checkbox"
+        {...rest}
+    />
 </div>
 
 <script>

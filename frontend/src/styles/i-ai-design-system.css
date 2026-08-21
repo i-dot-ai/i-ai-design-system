@@ -22,7 +22,7 @@ html {
 .govuk-button:focus:not(:active):not(:hover),
 .govuk-button:focus,
 .govuk-button {
-    background-color: var(--govuk-brand-colour);
+    background-color: #1d70b8;
     color: #fff;
     box-shadow: none;
     border-radius: 0.25rem;
@@ -31,7 +31,7 @@ html {
 
 .govuk-button[disabled],
 .govuk-button[disabled]:hover {
-    background-color: var(--govuk-brand-colour);
+    background-color: #16548a;
     box-shadow: none;
 }
 
@@ -308,4 +308,229 @@ html {
 
 .side-nav__item--active {
     border-color: var(--govuk-brand-colour);
+}
+
+/* Toggle
+ *
+ * Authored as a self-contained control (no dependency on the GOV.UK checkbox
+ * classes). The developer writes only:
+ *
+ *   <div class="iai-toggle__item" data-module="govuk-toggle">
+ *     <input class="iai-toggle__input" type="checkbox" id="toggle">
+ *     <label class="iai-toggle__label" for="toggle">Toggle label</label>
+ *   </div>
+ *
+ * Progressive enhancement:
+ *   - No JS: the control renders as a GOV.UK-style checkbox (box + tick),
+ *     drawn here in CSS. Fully functional native checkbox.
+ *   - JS (body.govuk-frontend-supported): toggle.js injects the decorative
+ *     track (.iai-toggle__display) and the checkmark/cross icons, and the
+ *     rules below switch the control into a sliding toggle.
+ */
+
+/* Item: lays out the control and its label on one line. */
+.iai-toggle__item {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.iai-toggle__item:last-child {
+    margin-bottom: 0;
+}
+
+/* Label: mirrors GOV.UK checkbox label styling. */
+.iai-toggle__label {
+    align-self: center;
+    margin-bottom: 0;
+    padding: 7px 15px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* No-JS control wrapper: a 40px square that holds the checkbox box + tick. */
+.iai-toggle {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+/* Empty check box (GOV.UK: 40px square, 2px current-colour border). */
+.iai-toggle::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid currentcolor;
+    background: transparent;
+}
+
+/* Check mark (GOV.UK: rotated corner shape), hidden until checked. */
+.iai-toggle::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 11px;
+    left: 8px;
+    width: 23px;
+    height: 12px;
+    transform: rotate(-45deg);
+    border: solid;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+}
+
+/* The real checkbox: an invisible overlay filling the wrapper, so the whole
+   box is clickable and it stays focusable/tabbable. */
+.iai-toggle__input {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Reveal the check mark when the input is checked. */
+.iai-toggle:has(.iai-toggle__input:checked)::after {
+    opacity: 1;
+}
+
+/* Focus ring on the box when the input is focused. */
+.iai-toggle:has(.iai-toggle__input:focus)::before {
+    border-width: 4px;
+    outline: 3px solid transparent;
+    outline-offset: 1px;
+    box-shadow: 0 0 0 3px #ffdd00;
+}
+
+/* Disabled. */
+.iai-toggle:has(.iai-toggle__input:disabled) {
+    cursor: not-allowed;
+}
+
+.iai-toggle__item:has(.iai-toggle__input:disabled) .iai-toggle__label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* The decorative track is not rendered until JS injects it. */
+.iai-toggle__display {
+    display: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * JS enhanced: turn the wrapper into the sliding toggle track.        *
+ * ------------------------------------------------------------------ */
+
+.govuk-frontend-supported .iai-toggle {
+    display: inline-flex;
+    width: auto;
+    height: auto;
+}
+
+/* Hide the no-JS checkbox box + tick. */
+.govuk-frontend-supported .iai-toggle::before,
+.govuk-frontend-supported .iai-toggle::after {
+    content: none;
+}
+
+/* Show the track. */
+.govuk-frontend-supported .iai-toggle__display {
+    display: inline-block;
+}
+
+/* Track (pill). */
+.iai-toggle__display {
+    box-sizing: content-box;
+    position: relative;
+    width: 44px;
+    height: 24px;
+    border-radius: 100px;
+    background-color: #505a5f;
+    color: #fff;
+    transition: 150ms;
+    cursor: pointer;
+    /* Decorative: let clicks fall through to the overlaid real input. */
+    pointer-events: none;
+}
+
+/* Handle (sliding circle). */
+.iai-toggle__handle {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    background-color: #fff;
+    transform: translateY(-50%);
+    transition: inherit;
+}
+
+/* Checked: green track, handle slides right. */
+.iai-toggle__input:checked~.iai-toggle__display {
+    background-color: #00703c;
+}
+
+.iai-toggle__input:checked~.iai-toggle__display .iai-toggle__handle {
+    left: 22px;
+}
+
+/* Focus ring on the track. */
+.iai-toggle__input:focus-visible~.iai-toggle__display {
+    outline: 3px solid transparent;
+    outline-offset: 0;
+    box-shadow: 0 0 0 4px #ffdd00;
+}
+
+/* Disabled track. */
+.iai-toggle__input:disabled~.iai-toggle__display {
+    background-color: #b1b4b6;
+    border-color: #6f7276;
+    cursor: not-allowed;
+}
+
+/* Icons sit at the two handle rest positions. */
+.iai-toggle__icon {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    color: inherit;
+    fill: currentcolor;
+}
+
+.iai-toggle__icon--checkmark {
+    left: 14px;
+}
+
+.iai-toggle__icon--cross {
+    left: 32px;
+    width: 10px;
+    height: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .iai-toggle__display,
+    .iai-toggle__handle {
+        transition-duration: 0ms;
+    }
 }
