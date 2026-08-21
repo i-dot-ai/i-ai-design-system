@@ -1,11 +1,15 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import CheckboxItem from "@components/checkboxes/checkbox-item.astro";
+
 interface Props extends HTMLAttributes<"div"> {}
 
 const { class: className, ...rest } = Astro.props;
 ---
 
-<CheckboxItem class={`iai-toggle__item${className ? ` ${className}` : ""}`} {...rest}>
+<div
+    class={`iai-toggle__item${className ? ` ${className}` : ""}`}
+    data-module="govuk-toggle"
+    {...rest}
+>
     <slot />
-</CheckboxItem>
+</div>

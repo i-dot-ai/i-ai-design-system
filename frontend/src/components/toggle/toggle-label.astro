@@ -1,11 +1,14 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import CheckboxLabel from "@components/checkboxes/checkbox-label.astro";
+
 interface Props extends HTMLAttributes<"label"> {}
 
-const { ...rest } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 ---
 
-<CheckboxLabel {...rest}>
+<label
+    class={`govuk-label iai-toggle__label${className ? ` ${className}` : ""}`}
+    {...rest}
+>
     <slot />
-</CheckboxLabel>
+</label>
