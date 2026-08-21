@@ -313,24 +313,14 @@ html {
 /* Toggle styles */
 
 .iai-toggle {
-    --toggle-diameter: 1.6em;
-    --toggle-offset: 0.25em;
+    --toggle-diameter: 1.2em;
+    --toggle-offset: 0.22em;
     --toggle-icon-size: calc(var(--toggle-diameter) * 0.5);
 
     align-items: center;
     gap: 0.5em;
     position: relative;
     cursor: pointer;
-}
-
-.iai-toggle--small {
-    --toggle-diameter: 1.1em;
-    --toggle-offset: 0.2em;
-}
-
-.iai-toggle--large {
-    --toggle-diameter: 2.1em;
-    --toggle-offset: 0.3em;
 }
 
 /* Progressive enhancement.

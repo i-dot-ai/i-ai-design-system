@@ -2,18 +2,12 @@
 import type { HTMLAttributes } from "astro/types";
 import CheckboxInput from "@components/checkboxes/checkbox-input.astro";
 
-interface Props extends HTMLAttributes<"input"> {
-    size?: "small" | "medium" | "large";
-}
+interface Props extends HTMLAttributes<"input"> {}
 
-const { size, class: className, ...rest } = Astro.props;
-
-const sizeClass = size ? `iai-toggle--${size}` : "";
+const { class: className, ...rest } = Astro.props;
 ---
 
-<div
-    class={`iai-toggle${sizeClass ? ` ${sizeClass}` : ""}${className ? ` ${className}` : ""}`}
->
+<div class={`iai-toggle${className ? ` ${className}` : ""}`}>
     <CheckboxInput class="iai-toggle__input" {...rest} role="switch" />
     <span class="iai-toggle__display" hidden>
         <svg
