@@ -52,7 +52,7 @@ module "frontend" {
 
   health_check = {
     accepted_response   = 200
-    
+    path                = "/"
     interval            = 60
     timeout             = 70
     healthy_threshold   = 2
