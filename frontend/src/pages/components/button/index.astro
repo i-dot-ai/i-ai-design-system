@@ -9,11 +9,15 @@ import TabPanel from "@components/tabs/tab-panel.astro";
 import Details from "@components/details/details.astro";
 import DetailsSummary from "@components/details/details-summary.astro";
 import DetailsText from "@components/details/details-text.astro";
+import Tag from "@components/tag/tag.astro";
 import { Code } from "astro:components";
 ---
 
 <Layout>
   <h1 class="govuk-heading-xl">Button</h1>
+  <ul class="govuk-list govuk-list--spaced">
+    <Tag colour="teal">Adapted</Tag>
+  </ul>
   <p class="govuk-body">
     Buttons have been adapted from the GOV.UK Design System to fit the needs of
     i.AI apps. Jump to
