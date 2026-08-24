@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
-import ButtonGroup from "@components/buttonGroup/index.astro";
-import Button from "@components/button/index.astro";
+import ButtonGroup from "@components/button-group/button-group.astro";
+import Button from "@components/button/button.astro";
 import Tabs from "@components/tabs/tabs.astro";
 import TabsList from "@components/tabs/tabs-list.astro";
 import Tab from "@components/tabs/tab.astro";
@@ -53,7 +53,7 @@ import { Code } from "astro:components";
         <TabPanel id="default-astro">
           <Code
             code={`---
-import Button from "@components/button/index.astro";
+import Button from "@components/button/button.astro";
 ---
 
 <ButtonGroup>
@@ -97,7 +97,7 @@ import Button from "@components/button/index.astro";
         <TabPanel id="inverse-astro">
           <Code
             code={`---
-import Button from "@components/button/index.astro";
+import Button from "@components/button/button.astro";
 ---
 
 <Button variant="inverse" href="#">Inverse Button</Button>`}
