@@ -5,13 +5,14 @@ import Layout from "@layouts/DecisionsRecordLayout.astro";
 
 <Layout>
     <h1 class="govuk-heading-xl">001 - Adapt the GOV.UK Design System</h1>
-    <p class="govuk-body">Date updated: <strong>19 August 2026</strong></p>
-    <Tag color="green" class="govuk-!-margin-bottom-6">Accepted</Tag>
+    <p class="govuk-body">Date proposed: <strong>24 August 2026</strong></p>
+    <ul class="govuk-list">
+        <li><Tag color="blue">Proposal</Tag></li>
+    </ul>
     <h2 class="govuk-heading-m">Context</h2>
     <p class="govuk-body">
         Following a design and frontend workshop it was agreed that the
-        following improvements could be addressed to the design process in
-        i.AI.:
+        following improvements could be addressed to the design process in i.AI:
     </p>
     <ul class="govuk-list govuk-list--bullet">
         <li>Avoid repeatedly designing for problems that have been solved</li>
@@ -63,51 +64,60 @@ import Layout from "@layouts/DecisionsRecordLayout.astro";
         </li>
     </ul>
     <p class="govuk-body">
-        However, it was also decided that the GOVUK Design System was largely
-        designed for informational websites and forms and not for web
-        applications that we are building in i.AI.
+        However, there are some differences in the use case that the GOV.UK
+        Design System was designed for and the use case that we need it for in
+        i.AI:
     </p>
     <p class="govuk-body">
-        The differences in audience and intent of information websites and web
-        applications is noted in the <a
-            href="https://brand.design-system.service.gov.uk/introduction/"
-            class="govuk-link">brand guidelines for GOV.UK Design System</a
-        > where they mention more of a need to "inspire" as well as "inform" in applications.
-        This is clear in their design of the GOV.UK app which uses an adapted version
-        of the GOV.UK Design System components to suit their needs. This is significant
-        as the GOV.UK app is also primarily an informational service but it was still
-        felt that adaptations to the GOV.UK Design System were needed.
+        GOV.UK design system was designed for informational websites and
+        critical forms which were typically used infrequently by all members of
+        the public. The apps built in i.AI are mostly to be used multiple times
+        by the same user to carry out an often complex task.
     </p>
     <p class="govuk-body">
-        The primary difference that we see in our products at i.AI is that they
-        are designed to be used multiple times as opposed to a highly important
-        form which is used infrequently by a member of the public. This
-        ultimately means that we need to optimise for ease of repeated use over
-        optimising for first-time use. Obviously, first time use will always be
-        important but it is not the only concern that we have to address in any
-        design system that we build.
-    </p>
-    <p class="govuk-body">
-        We have identified 3 areas in which our needs differ from GOV.UK Design
-        System and adaptations are required:
+        Following from this use case, we have identified 3 areas in which our
+        needs differ from GOV.UK Design System and adaptations are required:
     </p>
     <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
         <li>
-            <strong>One thing per page</strong> - User flows which move from page
-            to page with one action on each simplify the process for a first time
-            user, however, what you lose is context around where you have come from
-            and what you need to do. Scenarios such as editing or deleting an item
-            become more confusing if you have to leave the page on which that item
-            is in order to delete it.
-            <br />
-            (add pictures)
+            <p class="govuk-body">
+                <strong>One thing per page</strong> - User flows which move from page
+                to page with one action on each simplify the process for a first time
+                user, however, what you lose is context around where you have come
+                from and what you need to do. Scenarios such as editing or deleting
+                an item become more confusing if you have to leave the page on which
+                that item is in order to delete it.
+            </p>
+            <p class="govuk-body">
+                In Extract this was found as an issue when reviewing TPO
+                information. There could be up to 100 TPOs in a single
+                extraction and splitting each one into a single page with a
+                linear edit and review user flow was an unworable user
+                experience.
+            </p>
         </li>
         <li>
-            <strong>Linear vertical layout</strong> - The linear vertical layout with
-            a header, service-navigation, phase banner, and breadcrumbs can mean that
-            the primary action of a page isn't visible above the fold. Navigating
-            between pages becomes more confusing if you have to scroll to workout
-            out where you are.
+            <p class="govuk-body">
+                <strong>Linear vertical layout</strong>
+            </p>
+            <figure class="govuk-!-margin-bottom-6 govuk-!-margin-top-6">
+                <img
+                    src="/images/minute-head-space-screenshot.webp"
+                    alt="a screenshot of Minute with the meeting minutes highlighted in yellow at the bottom of the screen"
+                />
+                <figcaption class="govuk-body-s govuk-!-margin-top-2">
+                    A screenshot of the Minute Head Space app showing the
+                    meeting minutes highlighted in yellow at the bottom of the
+                    screen.
+                </figcaption>
+            </figure>
+            <p class="govuk-body">
+                The linear vertical layout with a header, service-navigation,
+                phase banner, and breadcrumbs can mean that the primary action
+                (in this case, the meeting minutes) of a page isn't visible
+                above the fold. Navigating between pages becomes more confusing
+                if you have to scroll to workout out where you are.
+            </p>
         </li>
         <li>
             <strong>GOV.UK components designed to draw attention</strong> - GOV.UK
@@ -116,11 +126,27 @@ import Layout from "@layouts/DecisionsRecordLayout.astro";
             case, we often have actions that are not the primary focus of a page but
             there if needed. E.g. an export, edit, or delete button or a settings
             option.
+            <figure class="govuk-!-margin-bottom-6 govuk-!-margin-top-6">
+                <img
+                    src="/images/non-primary-action-buttons.webp"
+                    alt="a screenshot showing a page with Saved Transcriptions as a title with a link to one transcription with a rename button and a delete button"
+                />
+                <figcaption class="govuk-body-s govuk-!-margin-top-2">
+                    A screenshot showing the Saved Transcriptions title with a
+                    link to one transcription with a rename button and a delete
+                    button.
+                </figcaption>
+            </figure>
+            <p class="govuk-body">
+                The image above shows how the users initial focus is drawn to
+                the filter, rename or delete buttons rather than the primary
+                action of the page which is to view the saved transcriptions.
+            </p>
         </li>
     </ul>
     <p class="govuk-body">
-        It was agreed to adopt the GOV.UK Design System as a foundation and to
+        It is proposed to adopt the GOV.UK Design System as a foundation and to
         adapt in order to address these three concerns. Where we deviated from
-        the original GOV.UK version we would document that decision here
+        the original GOV.UK version we would document that decision here.
     </p>
 </Layout>

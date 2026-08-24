@@ -1,9 +1,74 @@
 ---
 import Layout from "@layouts/DecisionsRecordLayout.astro";
+import Tag from "@components/tag/tag.astro";
+import Table from "@components/table/table.astro";
+import TableRow from "@components/table/table-row.astro";
+import TableCell from "@components/table/table-cell.astro";
+import TableHead from "@components/table/table-head.astro";
+import TableHeader from "@components/table/table-header.astro";
+import TableBody from "@components/table/table-body.astro";
 ---
 
 <Layout>
     <h1 class="govuk-heading-xl">Design Decisions Record</h1>
 
-    <p class="govuk-body"></p>
+    <p class="govuk-body">
+        This is a record of the design decisions made in i.AI. The <a
+            href="/decisions-record/adapt-govuk-design-system"
+            class="govuk-link">first decision</a
+        > was to use the GOV.UK Design System adapted for web applications. Following
+        on from this, each deviation from the GOV.UK Design System, new component
+        or pattern is recorded here.
+    </p>
+    <p class="govuk-body">
+        This is intended to be a thorough record of the thinking behind to allow
+        for a complete audit trail of the design decisions made, whilst keeping
+        the rest of the documentation focussed on implemntation only.
+    </p>
+    <p class="govuk-body">
+        This is a living document and will be updated as new decisions are made.
+    </p>
+    <h2 class="govuk-heading-m">Status tags</h2>
+    <p class="govuk-body">
+        The following status tags are used to indicate the status of a decision:
+    </p>
+    <Table aria-label="Status tags">
+        <TableHead>
+            <TableRow>
+                <TableHeader>Status</TableHeader>
+                <TableHeader>Description</TableHeader>
+            </TableRow>
+        </TableHead>
+        <TableBody>
+            <TableRow>
+                <TableCell><Tag color="blue">Proposal</Tag></TableCell>
+                <TableCell
+                    >The decision is a proposed solution to a problem, pending
+                    review from the team to be accepted or rejected.</TableCell
+                >
+            </TableRow>
+            <TableRow>
+                <TableCell><Tag color="green">Accepted</Tag></TableCell>
+                <TableCell
+                    >The decision has been accepted and is the recommended
+                    solution to the problem.</TableCell
+                >
+            </TableRow>
+            <TableRow>
+                <TableCell><Tag color="yellow">Overridden</Tag></TableCell>
+                <TableCell
+                    >The decision was previously accepted but has been
+                    overridden by a new decision. The overriding decision should
+                    be linked to in this record.</TableCell
+                >
+            </TableRow>
+            <TableRow>
+                <TableCell><Tag color="red">Rejected</Tag></TableCell>
+                <TableCell
+                    >The decision has been rejected and is not the recommended
+                    solution to the problem.</TableCell
+                >
+            </TableRow>
+        </TableBody>
+    </Table>
 </Layout>
