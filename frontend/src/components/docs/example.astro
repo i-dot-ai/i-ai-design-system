@@ -1,0 +1,85 @@
+---
+/*
+ * Example — renders one component example on a docs page:
+ *   1. a live preview, rendered from the example's .html file, and
+ *   2. the "Show code" Astro/HTML tabs, from the .astro/.html files.
+ *
+ * Example files are referenced by relative path from the component's index.mdx
+ * (e.g. "./examples/default.astro"). The `component` prop is the slug of the
+ * component folder, used to resolve those paths unambiguously.
+ */
+import { Code } from "astro:components";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+
+interface Props {
+    astro?: string;
+    html?: string;
+    /** Component folder slug (from the page), used to resolve example paths. */
+    component: string;
+    variant?: "default" | "inverse";
+}
+
+const { astro, html, component, variant = "default" } = Astro.props;
+
+const files = import.meta.glob(
+    "/src/content/components/**/examples/*.{astro,html}",
+    { query: "?raw", import: "default", eager: true },
+) as Record<string, string>;
+
+function resolve(relPath?: string): string | undefined {
+    if (!relPath) return undefined;
+    const tail = relPath.replace(/^\.\//, "");
+    const suffix = `/components/${component}/${tail}`;
+    const hit = Object.entries(files).find(([key]) => key.endsWith(suffix));
+    return hit?.[1];
+}
+
+const astroCode = resolve(astro);
+const htmlCode = resolve(html);
+
+const containerClass =
+    variant === "inverse"
+        ? "component-container--inverse"
+        : "component-container";
+
+const base = (astro || html || "example")
+    .replace(/^\.\//, "")
+    .replace(/\//g, "-")
+    .replace(/\.(astro|html)$/, "");
+
+const tabs: Array<{ lang: "astro" | "html"; code: string; label: string }> = [];
+if (astroCode) tabs.push({ lang: "astro", code: astroCode, label: "Astro" });
+if (htmlCode) tabs.push({ lang: "html", code: htmlCode, label: "HTML" });
+---
+
+<div class={containerClass} set:html={htmlCode ?? ""} />
+
+{
+    tabs.length > 0 && (
+        <Details>
+            <DetailsSummary>Show code</DetailsSummary>
+            <DetailsText>
+                <Tabs>
+                    <TabsList>
+                        {tabs.map((t, i) => (
+                            <Tab href={`#${base}-${t.lang}`} selected={i === 0}>
+                                {t.label}
+                            </Tab>
+                        ))}
+                    </TabsList>
+                    {tabs.map((t, i) => (
+                        <TabPanel id={`${base}-${t.lang}`} hidden={i !== 0}>
+                            <Code code={t.code} lang={t.lang} theme="github-light" />
+                        </TabPanel>
+                    ))}
+                </Tabs>
+            </DetailsText>
+        </Details>
+    )
+}

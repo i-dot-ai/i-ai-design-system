@@ -15,9 +15,9 @@ import { glob } from "astro/loaders";
 
 const status = z.enum(["standard", "adapted", "new"]);
 
-// A single documented example/variant of a component. `snippets` holds the
-// copy-paste code per language; the docs site renders these in code tabs and a
-// future MCP server serves the same strings to agents (single source of truth).
+// A single documented example/variant of a component (used by the hand-written
+// button/radios entries). Newer folder-per-component entries reference example
+// files by path instead, so `examples` is optional.
 const example = z.object({
     id: z.string(),
     snippets: z.object({
@@ -32,14 +32,13 @@ const components = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/components" }),
     schema: z.object({
         name: z.string(),
-        // One-line intent, used for agent lookup / component listing.
-        description: z.string(),
         // Tells consumers whether to trust generic GOV.UK guidance (`standard`)
         // or use the i.AI adaptation (`adapted`).
         status: status,
         // Optional link to the decision record explaining an adaptation.
         decisionRecord: z.string().optional(),
-        // Code snippets per example, keyed by a stable id.
+        // Legacy inline examples (hand-written button/radios). Folder-per-component
+        // entries reference example files by path instead.
         examples: z.array(example).default([]),
     }),
 });
