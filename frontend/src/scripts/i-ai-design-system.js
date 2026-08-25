@@ -67,4 +67,6 @@ export function initToggles() {
     .forEach(enhanceToggle);
 }
 
-initToggles();
+export function initAllIAIDesignSystem() {
+  initToggles();
+}
