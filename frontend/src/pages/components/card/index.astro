@@ -1,11 +1,25 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Table from "@components/table/table.astro";
+import TableHead from "@components/table/table-head.astro";
+import TableBody from "@components/table/table-body.astro";
+import TableRow from "@components/table/table-row.astro";
+import TableHeader from "@components/table/table-header.astro";
+import TableCell from "@components/table/table-cell.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
 ---
 
 <Layout>
     <h1 class="govuk-heading-xl">Card</h1>
     <h2 class="govuk-heading-m">Default</h2>
-    <p class="govuk-body">Coming soon</p>
+    <p class="govuk-body">Use this when the card contains one destination and no other links.</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>The whole card is clickable.</li>
+        <li>Hit area is stretched from the single heading link.</li>
+        <li>Underline is what marks the card as clickable.</li>
+    </ul>
     <h2 class="govuk-heading-m">Clickable link card</h2>
     <p class="govuk-body">Coming soon</p>
     <h2 class="govuk-heading-m">Secondary Variant</h2>
@@ -130,4 +144,66 @@ import Layout from "@layouts/ComponentsLayout.astro";
         does not need alternative text. If the image carries information the
         user needs, that information probably belongs in the card text.
     </p>
+
+    <h2 class="govuk-heading-l">Tokens</h2>
+    <Details>
+        <DetailsSummary>View token values</DetailsSummary>
+        <DetailsText>
+            <p class="govuk-body">
+                Measured values are contrast ratios against the surface the
+                token sits on.
+            </p>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableHeader>Token</TableHeader>
+                        <TableHeader>Value</TableHeader>
+                        <TableHeader>Measured</TableHeader>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableHeader scope="row"><code>--card-surface</code></TableHeader>
+                        <TableCell><code>#ffffff</code></TableCell>
+                        <TableCell>—</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableHeader scope="row">
+                            <code>--card-surface-secondary</code>
+                        </TableHeader>
+                        <TableCell><code>#f3f2f1</code> light-grey</TableCell>
+                        <TableCell>text 17.52 · link 4.62 · 1.12 vs page</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableHeader scope="row">
+                            <code>--card-surface-hover</code>
+                        </TableHeader>
+                        <TableCell><code>#0b0c0c</code> ink</TableCell>
+                        <TableCell>19.59 on white</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableHeader scope="row">
+                            <code>--card-text-hover</code>
+                        </TableHeader>
+                        <TableCell><code>#ffffff</code></TableCell>
+                        <TableCell>19.59 on ink · focus 14.55</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableHeader scope="row"><code>--card-border</code></TableHeader>
+                        <TableCell>
+                            <code>#b1b4b6</code> <code>$govuk-border-colour</code>
+                        </TableCell>
+                        <TableCell>2.08 — decorative framing</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableHeader scope="row">
+                            <code>--card-border-width</code>
+                        </TableHeader>
+                        <TableCell><code>2px</code></TableCell>
+                        <TableCell>—</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </DetailsText>
+    </Details>
 </Layout>
