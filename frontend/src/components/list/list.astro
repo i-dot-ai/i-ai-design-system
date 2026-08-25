@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"ol" | "ul"> {
+    numbered?: boolean;
+    spaced?: boolean;
+}
+
+const {
+    class: className,
+    numbered = false,
+    spaced = false,
+    ...rest
+} = Astro.props;
+---
+
+{
+    numbered ? (
+        <ol
+            class={`govuk-list govuk-list--number${spaced ? " govuk-list--spaced" : ""}${className ? ` ${className}` : ""}`}
+            {...rest}
+        >
+            <slot />
+        </ol>
+    ) : (
+        <ul
+            class={`govuk-list${spaced ? " govuk-list--spaced" : ""}${className ? ` ${className}` : ""}`}
+            {...rest}
+        >
+            <slot />
+        </ul>
+    )
+}

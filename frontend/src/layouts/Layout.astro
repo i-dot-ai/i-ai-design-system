@@ -45,12 +45,9 @@ const pathName = Astro.url.pathname;
 			</svg>
 			i.AI Design Kit
 		</Header>
-		<ServiceNavigation isWebVersion inverse={pathName === "/"}>
+		<ServiceNavigation inverse={pathName === "/"}>
 			<ServiceNavigationItem href="/get-started">
 				Get started
-			</ServiceNavigationItem>
-			<ServiceNavigationItem href="/styles">
-				Styles
 			</ServiceNavigationItem>
 			<ServiceNavigationItem href="/components">
 				Components
@@ -60,9 +57,6 @@ const pathName = Astro.url.pathname;
 			</ServiceNavigationItem>
 			<ServiceNavigationItem href="/decisions-record">
 				Decisions record
-			</ServiceNavigationItem>
-			<ServiceNavigationItem href="/community">
-				Community
 			</ServiceNavigationItem>
 		</ServiceNavigation>
 		<main id="main-content" role="main">

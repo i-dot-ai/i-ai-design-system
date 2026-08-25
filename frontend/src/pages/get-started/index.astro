@@ -1,0 +1,120 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Breadcrumbs from "@components/breadcrumbs/breadcrumbs.astro";
+import BreadcrumbItem from "@components/breadcrumbs/breadcrumb-item.astro";
+import List from "@components/list/list.astro";
+import ListItem from "@components/list/list-item.astro";
+import Button from "@components/button/button.astro";
+import { Code } from "astro:components";
+---
+
+<Layout>
+    <div class="govuk-width-container govuk-main-wrapper">
+        <Breadcrumbs>
+            <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        </Breadcrumbs>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">Get started</h1>
+                <p class="govuk-body">Get started with the i.AI Design Kit.</p>
+                <p class="govuk-body">
+                    This is still a work in progress. This will show how to
+                    implement the i.AI Design Kit as it currently works. We are
+                    working on making this easier to implement with npm
+                    component packages coming soon.
+                </p>
+                <h2 class="govuk-heading-l">Installation</h2>
+                <p class="govuk-body">
+                    As this system is built on top of GOV.UK Design System, the
+                    first step is to install govuk-frontend. Here is the
+                    recommended way to do that but there are other options. You
+                    can find more information on the <a
+                        href="https://design-system.service.gov.uk/get-started/production/"
+                        class="govuk-link"
+                        >GOV.UK Design System get started guide</a
+                    >.
+                </p>
+                <List numbered spaced>
+                    <ListItem>
+                        <h3 class="govuk-heading-m">
+                            Install the dependencies
+                        </h3>
+                        <p class="govuk-body">
+                            Run the following command to install Sass and
+                            govuk-frontend
+                        </p>
+                        <div class="component-container">
+                            <pre>npm install sass govuk-frontend --save</pre>
+                        </div>
+                    </ListItem>
+                    <ListItem>
+                        <h3 class="govuk-heading-m">
+                            Add GOV.UK SASS to your project
+                        </h3>
+                        <p class="govuk-body">
+                            This is the recommended way to adapt the GOV.UK for
+                            services not on the gov.uk domain. You can read more
+                            about this on the <a
+                                href="https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/#updating-your-sass-to-remove-branded-elements"
+                                class="govuk-link"
+                                >using govuk-frontend without govuk branding
+                                guide</a
+                            >.
+                        </p>
+                        <List numbered>
+                            <ListItem>
+                                <p class="govuk-body">
+                                    Create a govuk.scss file in your project and
+                                    copy the following code into it:
+                                </p>
+                                <div class="component-container">
+                                    <Code
+                                        code={`// GOV.UK Frontend, compiled without GOV.UK branding.
+// See: https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/
+//
+// Change the values below to match your service's branding.
+@use "govuk-frontend" as * with ( // Use a non-GDS Transport font stack (GDS Transport is GOV.UK-branded).
+$govuk-font-family: ("Helvetica Neue", Helvetica, Arial, sans-serif),
+// Set your own brand colour (used e.g. for footer border).
+$govuk-functional-colours: (brand: #16548a));`}
+                                        lang="sass"
+                                        theme="github-light"
+                                    />
+                                </div>
+                            </ListItem>
+                            <ListItem>
+                                <p class="govuk-body">
+                                    If you want to change the brand colour, you
+                                    can do so by updating the
+                                    <strong>$govuk-functional-colours</strong> variable.
+                                </p>
+                                <div class="component-container">
+                                    <Code
+                                        code={`$govuk-functional-colours: (
+  brand: #388E3C
+)`}
+                                        lang="sass"
+                                        theme="github-light"
+                                    />
+                                </div>
+                            </ListItem>
+                        </List>
+                    </ListItem>
+                    <ListItem>
+                        <h3 class="govuk-heading-m">
+                            Add i.AI adapted styles sheet to your project
+                        </h3>
+                        <p class="govuk-body">
+                            Download the stylesheet and add it to your project:
+                        </p>
+                        <Button
+                            href="/i-ai-design-system.css"
+                            download="i-ai-design-system.css"
+                            >Download i.AI stylesheet CSS</Button
+                        >
+                    </ListItem>
+                </List>
+            </div>
+        </div>
+    </div>
+</Layout>

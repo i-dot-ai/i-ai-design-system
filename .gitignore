@@ -54,6 +54,9 @@ frontend/.astro/
 frontend/.
 frontend/dist/
 
+# Generated: copy of the stylesheet served for download (see npm run sync:styles)
+frontend/public/i-ai-design-system.css
+
 
 
 
