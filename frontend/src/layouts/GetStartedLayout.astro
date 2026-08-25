@@ -1,0 +1,59 @@
+---
+import Layout from "@layouts/Layout.astro";
+import SideNav from "@components/side-nav/side-nav.astro";
+import SideNavItem from "@components/side-nav/side-nav-item.astro";
+import SideNavList from "@components/side-nav/side-nav-list.astro";
+import Breadcrumbs from "@components/breadcrumbs/breadcrumbs.astro";
+import BreadcrumbItem from "@components/breadcrumbs/breadcrumb-item.astro";
+
+const currentPath = Astro.url.pathname;
+
+const getStartedCategories = [
+    {
+        text: "Add to an existing project",
+        href: "/get-started/adding-to-an-existing-project",
+    },
+    {
+        text: "Create a new project",
+        href: "/get-started/creating-a-new-project",
+    },
+    {
+        text: "Design with the i.AI Design Kit",
+        href: "/get-started/design-with-the-i-ai-design-kit",
+    },
+];
+---
+
+<Layout>
+    <div class="govuk-main-wrapper govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+                <SideNav>
+                    <SideNavList>
+                        {
+                            getStartedCategories.map((category) => (
+                                <SideNavItem
+                                    text={category.text}
+                                    href={category.href}
+                                />
+                            ))
+                        }
+                    </SideNavList>
+                </SideNav>
+            </div>
+            <div class="govuk-grid-column-two-thirds">
+                <Breadcrumbs>
+                    <BreadcrumbItem href="/">Home</BreadcrumbItem>
+                    {
+                        currentPath !== "/get-started" && (
+                            <BreadcrumbItem href="/get-started">
+                                Get started
+                            </BreadcrumbItem>
+                        )
+                    }
+                </Breadcrumbs>
+                <slot />
+            </div>
+        </div>
+    </div>
+</Layout>

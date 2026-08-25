@@ -54,6 +54,10 @@ frontend/.astro/
 frontend/.
 frontend/dist/
 
+# Generated: minified assets served for download (see npm run sync:assets)
+frontend/public/i-ai-design-system.min.css
+frontend/public/i-ai-design-system.min.js
+
 
 
 

@@ -3,8 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "sync:styles": "esbuild src/styles/i-ai-design-system.css --minify --outfile=public/i-ai-design-system.min.css --allow-overwrite",
+    "sync:scripts": "esbuild src/scripts/i-ai-design-system.js --minify --format=esm --outfile=public/i-ai-design-system.min.js --allow-overwrite",
+    "sync:assets": "npm run sync:styles && npm run sync:scripts",
+    "dev": "npm run sync:assets && astro dev",
+    "build": "npm run sync:assets && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "npx eslint --fix"
