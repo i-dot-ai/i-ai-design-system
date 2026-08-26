@@ -1,0 +1,70 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import Hint from "@components/hint/hint.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Hint</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    Use the default hint to give users helpful information alongside a form
+    field.
+  </p>
+  <div class="component-container">
+    <Hint>
+      It&#39;s on your National Insurance card, benefit letter, payslip or P60.
+      For example, &#39;QQ 12 34 56 C&#39;.
+    </Hint>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import Hint from "@components/hint/hint.astro";
+---
+
+<Hint>
+  It&#39;s on your National Insurance card, benefit letter, payslip or P60.
+  For example, &#39;QQ 12 34 56 C&#39;.
+</Hint>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-hint">
+  It&#39;s on your National Insurance card, benefit letter, payslip or P60.
+  For example, &#39;QQ 12 34 56 C&#39;.
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <p class="govuk-body">
+    No "when to use" guidance was found for this component.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

@@ -1,0 +1,241 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import Tag from "@components/tag/tag.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Tag</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    The default tag has no colour modifier and is used to indicate a status.
+  </p>
+  <div class="component-container">
+    <Tag>Completed</Tag>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import Tag from "@components/tag/tag.astro";
+---
+
+<Tag>Completed</Tag>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<strong class="govuk-tag">Completed</strong>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+  <h2 class="govuk-heading-m">Grey</h2>
+  <p class="govuk-body">Use the grey tag to indicate a status.</p>
+  <div class="component-container">
+    <Tag colour="grey">Inactive</Tag>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#grey-astro" selected>Astro</Tab>
+          <Tab href="#grey-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="grey-astro">
+          <Code
+            code={`---
+import Tag from "@components/tag/tag.astro";
+---
+
+<Tag colour="grey">Inactive</Tag>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="grey-html" hidden>
+          <Code
+            code={`<strong class="govuk-tag govuk-tag--grey">Inactive</strong>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+  <h2 class="govuk-heading-m">Green</h2>
+  <p class="govuk-body">Use the green tag to indicate a status.</p>
+  <div class="component-container">
+    <Tag colour="green">New</Tag>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#green-astro" selected>Astro</Tab>
+          <Tab href="#green-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="green-astro">
+          <Code
+            code={`---
+import Tag from "@components/tag/tag.astro";
+---
+
+<Tag colour="green">New</Tag>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="green-html" hidden>
+          <Code
+            code={`<strong class="govuk-tag govuk-tag--green">New</strong>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+  <h2 class="govuk-heading-m">Blue</h2>
+  <p class="govuk-body">Use the blue tag to indicate a status.</p>
+  <div class="component-container">
+    <Tag colour="blue">Pending</Tag>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#blue-astro" selected>Astro</Tab>
+          <Tab href="#blue-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="blue-astro">
+          <Code
+            code={`---
+import Tag from "@components/tag/tag.astro";
+---
+
+<Tag colour="blue">Pending</Tag>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="blue-html" hidden>
+          <Code
+            code={`<strong class="govuk-tag govuk-tag--blue">Pending</strong>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+  <h2 class="govuk-heading-m">Red</h2>
+  <p class="govuk-body">Use the red tag to indicate a status.</p>
+  <div class="component-container">
+    <Tag colour="red">Rejected</Tag>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#red-astro" selected>Astro</Tab>
+          <Tab href="#red-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="red-astro">
+          <Code
+            code={`---
+import Tag from "@components/tag/tag.astro";
+---
+
+<Tag colour="red">Rejected</Tag>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="red-html" hidden>
+          <Code
+            code={`<strong class="govuk-tag govuk-tag--red">Rejected</strong>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+  <h2 class="govuk-heading-m">Yellow</h2>
+  <p class="govuk-body">Use the yellow tag to indicate a status.</p>
+  <div class="component-container">
+    <Tag colour="yellow">Delayed</Tag>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#yellow-astro" selected>Astro</Tab>
+          <Tab href="#yellow-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="yellow-astro">
+          <Code
+            code={`---
+import Tag from "@components/tag/tag.astro";
+---
+
+<Tag colour="yellow">Delayed</Tag>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="yellow-html" hidden>
+          <Code
+            code={`<strong class="govuk-tag govuk-tag--yellow">Delayed</strong>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+  <h2 class="govuk-heading-l">When to use this component</h2>
+  <p class="govuk-body">
+    Use the Tag component when it’s possible for something to have more than one
+    status and it’s useful for the user to know about that status. For example,
+    you can use a tag to show whether an item in a <a
+      class="govuk-link"
+      href="/components/task-list/">Task list component</a
+    > has been ‘completed’.
+  </p>
+  <!-- GOVUK_GUIDANCE:END -->
+</Layout>

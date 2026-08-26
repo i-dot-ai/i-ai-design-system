@@ -1,0 +1,377 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Service navigation</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    Use the default service navigation to help users navigate around your
+    service.
+  </p>
+  <div class="component-container">
+    <ServiceNavigation navigationId="default-navigation">
+      <ServiceNavigationItem href="#/1">
+        Navigation item 1
+      </ServiceNavigationItem>
+      <ServiceNavigationItem href="#/2">
+        Navigation item 2
+      </ServiceNavigationItem>
+      <ServiceNavigationItem href="#/3">
+        Navigation item 3
+      </ServiceNavigationItem>
+    </ServiceNavigation>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
+---
+
+<ServiceNavigation navigationId="default-navigation">
+  <ServiceNavigationItem href="#/1">
+    Navigation item 1
+  </ServiceNavigationItem>
+  <ServiceNavigationItem href="#/2">
+    Navigation item 2
+  </ServiceNavigationItem>
+  <ServiceNavigationItem href="#/3">
+    Navigation item 3
+  </ServiceNavigationItem>
+</ServiceNavigation>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div
+  class="govuk-service-navigation"
+  data-module="govuk-service-navigation"
+>
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+        <button
+          type="button"
+          class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
+          aria-controls="default-navigation"
+          hidden
+          aria-hidden="true"
+        >
+          Menu
+        </button>
+        <ul class="govuk-service-navigation__list" id="default-navigation">
+          <li class="govuk-service-navigation__item">
+            <a
+              class="govuk-service-navigation__link"
+              href="#/1"
+              aria-current="false"
+            >
+              Navigation item 1
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a
+              class="govuk-service-navigation__link"
+              href="#/2"
+              aria-current="false"
+            >
+              Navigation item 2
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a
+              class="govuk-service-navigation__link"
+              href="#/3"
+              aria-current="false"
+            >
+              Navigation item 3
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <h2 class="govuk-heading-m">Inverse</h2>
+  <p class="govuk-body">
+    Use the inverse service navigation on dark backgrounds.
+  </p>
+  <div class="component-container--inverse">
+    <ServiceNavigation inverse navigationId="inverse-navigation">
+      <ServiceNavigationItem href="#/1">
+        Navigation item 1
+      </ServiceNavigationItem>
+      <ServiceNavigationItem href="#/2">
+        Navigation item 2
+      </ServiceNavigationItem>
+      <ServiceNavigationItem href="#/3">
+        Navigation item 3
+      </ServiceNavigationItem>
+    </ServiceNavigation>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#inverse-astro" selected>Astro</Tab>
+          <Tab href="#inverse-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="inverse-astro">
+          <Code
+            code={`---
+import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
+---
+
+<ServiceNavigation inverse navigationId="inverse-navigation">
+  <ServiceNavigationItem href="#/1">
+    Navigation item 1
+  </ServiceNavigationItem>
+  <ServiceNavigationItem href="#/2">
+    Navigation item 2
+  </ServiceNavigationItem>
+  <ServiceNavigationItem href="#/3">
+    Navigation item 3
+  </ServiceNavigationItem>
+</ServiceNavigation>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="inverse-html" hidden>
+          <Code
+            code={`<div
+  class="govuk-service-navigation govuk-service-navigation--inverse"
+  data-module="govuk-service-navigation"
+>
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+        <button
+          type="button"
+          class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
+          aria-controls="inverse-navigation"
+          hidden
+          aria-hidden="true"
+        >
+          Menu
+        </button>
+        <ul class="govuk-service-navigation__list" id="inverse-navigation">
+          <li class="govuk-service-navigation__item">
+            <a
+              class="govuk-service-navigation__link"
+              href="#/1"
+              aria-current="false"
+            >
+              Navigation item 1
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a
+              class="govuk-service-navigation__link"
+              href="#/2"
+              aria-current="false"
+            >
+              Navigation item 2
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a
+              class="govuk-service-navigation__link"
+              href="#/3"
+              aria-current="false"
+            >
+              Navigation item 3
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <h2 class="govuk-heading-m">Side navigation</h2>
+  <p class="govuk-body">
+    Use the side navigation variant to display navigation vertically alongside
+    page content.
+  </p>
+  <div class="component-container">
+    <div style="display: flex;">
+      <ServiceNavigation sideNav navigationId="side-nav-navigation">
+        <ServiceNavigationItem href="#/1"
+          >Navigation item 1</ServiceNavigationItem
+        >
+        <ServiceNavigationItem href="#/2"
+          >Navigation item 2</ServiceNavigationItem
+        >
+        <ServiceNavigationItem href="#/3"
+          >Navigation item 3</ServiceNavigationItem
+        >
+        <ServiceNavigationItem href="#/4"
+          >Navigation item 4</ServiceNavigationItem
+        >
+      </ServiceNavigation>
+      <div
+        style="flex: 1; border: 1px solid var(--govuk-border-colour);"
+        class="govuk-!-padding-6"
+      >
+        Page content
+      </div>
+    </div>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#side-navigation-astro" selected>Astro</Tab>
+          <Tab href="#side-navigation-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="side-navigation-astro">
+          <Code
+            code={`---
+import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
+---
+
+<div style="display: flex;">
+  <ServiceNavigation sideNav navigationId="side-nav-navigation">
+    <ServiceNavigationItem href="#/1">Navigation item 1</ServiceNavigationItem>
+    <ServiceNavigationItem href="#/2">Navigation item 2</ServiceNavigationItem>
+    <ServiceNavigationItem href="#/3">Navigation item 3</ServiceNavigationItem>
+    <ServiceNavigationItem href="#/4">Navigation item 4</ServiceNavigationItem>
+  </ServiceNavigation>
+  <div
+    style="flex: 1; border: 1px solid var(--govuk-border-colour);"
+    class="govuk-!-padding-6"
+  >
+    Page content
+  </div>
+</div>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="side-navigation-html" hidden>
+          <Code
+            code={`<div style="display: flex;">
+  <div
+    class="govuk-service-navigation govuk-service-navigation--side-nav"
+    data-module="govuk-service-navigation"
+  >
+    <div class="govuk-width-container">
+      <div class="govuk-service-navigation__container">
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button
+            type="button"
+            class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle"
+            aria-controls="side-nav-navigation"
+            hidden
+            aria-hidden="true"
+          >
+            Menu
+          </button>
+          <ul class="govuk-service-navigation__list" id="side-nav-navigation">
+            <li class="govuk-service-navigation__item">
+              <a
+                class="govuk-service-navigation__link"
+                href="#/1"
+                aria-current="false"
+              >
+                Navigation item 1
+              </a>
+            </li>
+            <li class="govuk-service-navigation__item">
+              <a
+                class="govuk-service-navigation__link"
+                href="#/2"
+                aria-current="false"
+              >
+                Navigation item 2
+              </a>
+            </li>
+            <li class="govuk-service-navigation__item">
+              <a
+                class="govuk-service-navigation__link"
+                href="#/3"
+                aria-current="false"
+              >
+                Navigation item 3
+              </a>
+            </li>
+            <li class="govuk-service-navigation__item">
+              <a
+                class="govuk-service-navigation__link"
+                href="#/4"
+                aria-current="false"
+              >
+                Navigation item 4
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div
+    style="flex: 1; border: 1px solid var(--govuk-border-colour);"
+    class="govuk-!-padding-6"
+  >
+    Page content
+  </div>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+        <h2 class="govuk-heading-l">When to use this component</h2>
+          <p class="govuk-body">Use the Service navigation to help users understand that they’re using your service.</p>
+          <p class="govuk-body">To decide when to use navigation links in your service, see the <a class="govuk-link" href="https://design-system.service.gov.uk/patterns/navigate-a-service/">Help users to navigate a service pattern</a>.</p>
+        <!-- GOVUK_GUIDANCE:END -->
+</Layout>

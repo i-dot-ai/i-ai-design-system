@@ -1,0 +1,118 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import ButtonGroup from "@components/button-group/button-group.astro";
+import Button from "@components/button/button.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import Tag from "@components/tag/tag.astro";
+import { Code } from "astro:components";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Button</h1>
+  <ul class="govuk-list govuk-list--spaced">
+    <Tag colour="turquoise">Adapted</Tag>
+  </ul>
+  <p class="govuk-body">
+    Buttons have been adapted from the GOV.UK Design System to fit the needs of
+    i.AI apps. Jump to
+    <a href="/decisions-record/buttons" class="govuk-link"
+      >button decision record</a
+    > to see what has changed and why.
+  </p>
+
+  <h2 class="govuk-heading-m">Default buttons</h2>
+  <p class="govuk-body">
+    Use the primary button when the action is the main action on the page.
+  </p>
+  <p class="govuk-body">
+    Use the secondary button when the action is a secondary action on the page.
+    Where you have multiple buttons on the page, the secondary button has been
+    designed to work to be duplicated multiple times
+  </p>
+  <div class="component-container">
+    <ButtonGroup>
+      <Button variant="primary" href="#">Primary Button</Button>
+      <Button variant="secondary" href="#">Secondary Button</Button>
+    </ButtonGroup>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import Button from "@components/button/button.astro";
+---
+
+<ButtonGroup>
+  <Button variant="primary" href="#">Primary Button</Button>
+  <Button variant="secondary" href="#">Secondary Button</Button>
+</ButtonGroup>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">Primary Button</button>
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">Secondary Button</button>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <h2 class="govuk-heading-m">Inverse buttons</h2>
+  <p class="govuk-body">
+    Use the inverse button when the action is on a dark background.
+  </p>
+  <div class="component-container--inverse">
+    <Button variant="inverse" href="#">Inverse Button</Button>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#inverse-astro" selected>Astro</Tab>
+          <Tab href="#inverse-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="inverse-astro">
+          <Code
+            code={`---
+import Button from "@components/button/button.astro";
+---
+
+<Button variant="inverse" href="#">Inverse Button</Button>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="inverse-html" hidden>
+          <Code
+            code={`<button class="govuk-button govuk-button--inverse" data-module="govuk-button">Inverse Button</button>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+</Layout>
