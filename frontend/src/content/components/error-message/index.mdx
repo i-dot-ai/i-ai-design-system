@@ -1,0 +1,28 @@
+---
+name: Error message
+status: standard
+---
+
+## Default
+
+The default error message uses a visually hidden prefix of "Error:".
+
+<Example component="error-message" astro="./examples/default.astro" html="./examples/default.html" />
+
+## When to use this component
+
+Show an error message next to the field and in the [Error summary component](/components/error-summary/) when there is a validation error.
+
+Use standard messages for different components.
+
+## When not to use this component
+
+Do not use error messages to tell a user that they are not eligible or do not have permission to do something. Or to tell them about a lack of capacity or other problem the user cannot fix - because the problem is with the service rather than with the information the user has provided.
+
+Instead, take the user to a page that explains the problem (for example, telling them why they’re not eligible) and provides useful information about what to do next.
+
+There are separate patterns for:
+
+-   ['There is a problem with the service' pages](https://design-system.service.gov.uk/patterns/problem-with-the-service-pages/)
+-   ['Page not found' pages](https://design-system.service.gov.uk/patterns/page-not-found-pages/)
+-   ['Service unavailable' pages](https://design-system.service.gov.uk/patterns/service-unavailable-pages/)

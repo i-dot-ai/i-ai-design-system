@@ -1,0 +1,18 @@
+---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import Hint from "@components/hint/hint.astro";
+import Input from "@components/input/input.astro";
+---
+
+<FormGroup>
+  <InputLabel for="input-hint">National Insurance number</InputLabel>
+  <Hint id="input-hint-hint">
+    It’s on your National Insurance card, benefit letter, payslip or P60.
+  </Hint>
+  <Input
+    id="input-hint"
+    name="input-hint"
+    aria-describedby="input-hint-hint"
+  />
+</FormGroup>

@@ -1,0 +1,34 @@
+---
+name: Textarea
+status: standard
+---
+
+## Default
+
+A default textarea lets users enter multiple lines of text.
+
+<Example component="textarea" astro="./examples/default.astro" html="./examples/default.html" />
+
+## Subtle
+
+Use a subtle textarea to reduce its prominence when it is not the main focus of the page.
+
+<Example component="textarea" astro="./examples/subtle.astro" html="./examples/subtle.html" />
+
+## Error
+
+An error textarea is used to indicate that the textarea has an error.
+
+<Example component="textarea" astro="./examples/error.astro" html="./examples/error.html" />
+
+## When to use this component
+
+Use the textarea component when you need to let users enter an amount of text that’s longer than a single line.
+
+## When not to use this component
+
+Users can find open-ended questions difficult to answer. It might be better to break up one complex question into a series of simple ones, for example where users can select from options using a [Radios component](/components/radios/).
+
+### If you need to ask an open question
+
+Do not use the textarea component if you need to let users enter shorter answers no longer than a single line, such as a phone number or name. In this case, you should use the [Text input component](/components/text-input/).
