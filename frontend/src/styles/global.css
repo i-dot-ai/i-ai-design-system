@@ -32,7 +32,6 @@
 .component-container {
   padding: 20px;
   border: 1px solid var(--govuk-border-colour);
-  margin-bottom: 20px;
 }
 
 .component-container--inverse {

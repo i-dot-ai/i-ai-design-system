@@ -1,0 +1,151 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import SummaryList from "@components/summary-list/summary-list.astro";
+import SummaryListRow from "@components/summary-list/summary-list-row.astro";
+import SummaryListKey from "@components/summary-list/summary-list-key.astro";
+import SummaryListValue from "@components/summary-list/summary-list-value.astro";
+import SummaryListActions from "@components/summary-list/summary-list-actions.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Summary list</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    A default summary list shows information as a list of key facts.
+  </p>
+  <div class="component-container">
+    <SummaryList>
+      <SummaryListRow>
+        <SummaryListKey>Name</SummaryListKey>
+        <SummaryListValue>Firstname Lastname</SummaryListValue>
+        <SummaryListActions>
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </SummaryListActions>
+      </SummaryListRow>
+      <SummaryListRow noActions>
+        <SummaryListKey>Date of birth</SummaryListKey>
+        <SummaryListValue>13/08/1980</SummaryListValue>
+      </SummaryListRow>
+      <SummaryListRow noActions>
+        <SummaryListKey>Contact information</SummaryListKey>
+        <SummaryListValue>
+          <p class="govuk-body">email@email.com</p>
+          <p class="govuk-body">
+            Address line 1<br />
+            Address line 2<br />
+            Address line 3
+          </p>
+        </SummaryListValue>
+      </SummaryListRow>
+    </SummaryList>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import SummaryList from "@components/summary-list/summary-list.astro";
+import SummaryListRow from "@components/summary-list/summary-list-row.astro";
+import SummaryListKey from "@components/summary-list/summary-list-key.astro";
+import SummaryListValue from "@components/summary-list/summary-list-value.astro";
+import SummaryListActions from "@components/summary-list/summary-list-actions.astro";
+---
+
+<SummaryList>
+  <SummaryListRow>
+    <SummaryListKey>Name</SummaryListKey>
+    <SummaryListValue>Firstname Lastname</SummaryListValue>
+    <SummaryListActions>
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> name</span>
+      </a>
+    </SummaryListActions>
+  </SummaryListRow>
+  <SummaryListRow noActions>
+    <SummaryListKey>Date of birth</SummaryListKey>
+    <SummaryListValue>13/08/1980</SummaryListValue>
+  </SummaryListRow>
+  <SummaryListRow noActions>
+    <SummaryListKey>Contact information</SummaryListKey>
+    <SummaryListValue>
+      <p class="govuk-body">email@email.com</p>
+      <p class="govuk-body">
+        Address line 1<br />
+        Address line 2<br />
+        Address line 3
+      </p>
+    </SummaryListValue>
+  </SummaryListRow>
+</SummaryList>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Name</dt>
+    <dd class="govuk-summary-list__value">Firstname Lastname</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> name</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+    <dt class="govuk-summary-list__key">Date of birth</dt>
+    <dd class="govuk-summary-list__value">13/08/1980</dd>
+  </div>
+  <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+    <dt class="govuk-summary-list__key">Contact information</dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">email@email.com</p>
+      <p class="govuk-body">
+        Address line 1<br />
+        Address line 2<br />
+        Address line 3
+      </p>
+    </dd>
+  </div>
+</dl>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+        <h2 class="govuk-heading-l">When to use this component</h2>
+          <p class="govuk-body">Use a summary list to show information as a list of key facts.</p>
+          <p class="govuk-body">You can use it to display metadata like ‘Last updated’ with a date like ‘22 June 2018’, or to summarise a user’s responses at the end of a form like the <a class="govuk-link" href="https://design-system.service.gov.uk/patterns/check-answers/">Check answers pattern</a>.</p>
+          <p class="govuk-body"><a class="govuk-link" href="#summary-cards">Summary cards are a variant within this component</a>. You can use summary cards to show multiple summary lists that describe the same type of thing, such as people. You can also add card actions that apply to the entire summary list.</p>
+        <h2 class="govuk-heading-l">When not to use this component</h2>
+          <p class="govuk-body">The summary list uses the description list (<code><dl></code>) HTML element, so only use it to present information that has a key and at least one value.</p>
+          <p class="govuk-body">Do not use it for tabular data or a simple list of information or tasks, like a <a class="govuk-link" href="/components/task-list/">Task list component</a>. For those use a <code><table></code>, <code><ul></code> or <code><ol></code>.</p>
+        <!-- GOVUK_GUIDANCE:END -->
+        </code>
+      </code>
+    </p>
+  </p>
+</Layout>

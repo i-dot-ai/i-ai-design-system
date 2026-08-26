@@ -1,0 +1,70 @@
+---
+import Layout from "@layouts/ComponentsLayout.astro";
+import WarningText from "@components/warning-text/warning-text.astro";
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">Warning text</h1>
+
+  <h2 class="govuk-heading-m">Default</h2>
+  <p class="govuk-body">
+    The default warning text uses a visually hidden fallback of "Warning" for
+    the icon.
+  </p>
+  <div class="component-container">
+    <WarningText>
+      You can be fined up to £5,000 if you don’t register.
+    </WarningText>
+  </div>
+  <br />
+  <Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+      <Tabs>
+        <TabsList>
+          <Tab href="#default-astro" selected>Astro</Tab>
+          <Tab href="#default-html">HTML</Tab>
+        </TabsList>
+        <TabPanel id="default-astro">
+          <Code
+            code={`---
+import WarningText from "@components/warning-text/warning-text.astro";
+---
+
+<WarningText>
+  You can be fined up to £5,000 if you don’t register.
+</WarningText>`}
+            lang="astro"
+            theme="github-light"
+          />
+        </TabPanel>
+        <TabPanel id="default-html" hidden>
+          <Code
+            code={`<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    You can be fined up to £5,000 if you don’t register.
+  </strong>
+</div>`}
+            lang="html"
+            theme="github-light"
+          />
+        </TabPanel>
+      </Tabs>
+    </DetailsText>
+  </Details>
+
+  <!-- GOVUK_GUIDANCE:START (auto-generated - edited content will be overwritten by scripts/update-component-guidance.mjs) -->
+        <h2 class="govuk-heading-l">When to use this component</h2>
+          <p class="govuk-body">Use the warning text component when you need to warn users about something important, such as legal consequences of an action, or lack of action, that they might take.</p>
+        <!-- GOVUK_GUIDANCE:END -->
+</Layout>
