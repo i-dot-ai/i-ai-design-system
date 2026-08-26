@@ -37,6 +37,7 @@ export default defineConfig({
   output: 'static',
   markdown: {
     smartypants: false,
+    shikiConfig: { theme: 'github-light' },
     rehypePlugins: [[rehypeAddClasses, govukClasses]],
   },
   integrations: [
