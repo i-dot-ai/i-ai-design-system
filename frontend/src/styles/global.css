@@ -32,12 +32,12 @@
 .component-container {
   padding: 20px;
   border: 1px solid var(--govuk-border-colour);
+  margin-bottom: 20px;
 }
 
 .component-container--inverse {
   background-color: var(--govuk-brand-colour, #16548a);
   padding: 20px;
-  margin-bottom: 20px;
 }
 
 .code-example {

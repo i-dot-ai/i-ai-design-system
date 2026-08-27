@@ -1,0 +1,17 @@
+---
+/*
+ * Demo — the bordered preview area that shows a live, rendered component
+ * example on a component docs page. Wraps slotted i.AI components in the
+ * standard `.component-container` (or the dark `--inverse` variant).
+ */
+interface Props {
+    variant?: "default" | "inverse";
+}
+const { variant = "default" } = Astro.props;
+const containerClass =
+    variant === "inverse" ? "component-container--inverse" : "component-container";
+---
+
+<div class={containerClass}>
+    <slot />
+</div>

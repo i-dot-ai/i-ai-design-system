@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/StylesLayout.astro";
+import Example from "@components/docs/example.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    const entries = await getCollection("styles");
+    return entries.map((entry) => ({
+        params: { slug: entry.id },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout>
+    <h1 class="govuk-heading-xl">{entry.data.title}</h1>
+    <p class="govuk-body-l">{entry.data.description}</p>
+    <Content components={{ Example }} />
+</Layout>

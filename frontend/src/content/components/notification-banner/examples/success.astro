@@ -1,0 +1,23 @@
+---
+import NotificationBanner from "@components/notification-banner/notification-banner.astro";
+import NotificationBannerHeader from "@components/notification-banner/notification-banner-header.astro";
+import NotificationBannerTitle from "@components/notification-banner/notification-banner-title.astro";
+import NotificationBannerContent from "@components/notification-banner/notification-banner-content.astro";
+import NotificationBannerHeading from "@components/notification-banner/notification-banner-heading.astro";
+---
+
+<NotificationBanner
+  success
+  titleId="govuk-notification-banner-title-success"
+>
+  <NotificationBannerHeader>
+    <NotificationBannerTitle id="govuk-notification-banner-title-success">
+      Success
+    </NotificationBannerTitle>
+  </NotificationBannerHeader>
+  <NotificationBannerContent>
+    <NotificationBannerHeading>
+      Training outcome recorded and trainee withdrawn
+    </NotificationBannerHeading>
+  </NotificationBannerContent>
+</NotificationBanner>

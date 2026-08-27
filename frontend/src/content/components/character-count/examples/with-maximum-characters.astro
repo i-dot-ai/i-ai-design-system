@@ -1,0 +1,23 @@
+---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import CharacterCount from "@components/character-count/character-count.astro";
+import CharacterCountMessage from "@components/character-count/character-count-message.astro";
+---
+
+<FormGroup
+  class="govuk-character-count"
+  data-module="govuk-character-count"
+  data-maxlength={10}
+>
+  <InputLabel for="more-detail">Can you provide more detail?</InputLabel>
+  <CharacterCount
+    id="more-detail"
+    name="more-detail"
+    rows="5"
+    aria-describedby="more-detail-info"
+  />
+  <CharacterCountMessage id="more-detail-info">
+    You can enter up to 10 characters
+  </CharacterCountMessage>
+</FormGroup>

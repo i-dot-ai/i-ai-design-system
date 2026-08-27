@@ -1,0 +1,10 @@
+---
+import FormGroup from "@components/form-group/form-group.astro";
+import InputLabel from "@components/input-label/input-label.astro";
+import PasswordInput from "@components/password-input/password-input.astro";
+---
+
+<FormGroup class="govuk-password-input" data-module="govuk-password-input">
+  <InputLabel for="password">Password</InputLabel>
+  <PasswordInput id="password" name="password" />
+</FormGroup>

@@ -9,17 +9,13 @@ import { getCollection } from "astro:content";
 
 const currentPath = Astro.url.pathname;
 
-const entries = await getCollection("decisions");
-const decisionsRecordList = entries
+const entries = await getCollection("styles");
+const stylesCategories = entries
     .map((entry) => ({
-        number: entry.data.number ?? 0,
-        text:
-            typeof entry.data.number === "number"
-                ? `${String(entry.data.number).padStart(3, "0")} - ${entry.data.title}`
-                : entry.data.title,
-        href: `/decisions-record/${entry.id}`,
+        text: entry.data.title,
+        href: `/styles/${entry.id}`,
     }))
-    .sort((a, b) => a.number - b.number);
+    .sort((a, b) => a.text.localeCompare(b.text));
 ---
 
 <Layout>
@@ -29,10 +25,10 @@ const decisionsRecordList = entries
                 <SideNav>
                     <SideNavList>
                         {
-                            decisionsRecordList.map((decision) => (
+                            stylesCategories.map((category) => (
                                 <SideNavItem
-                                    text={decision.text}
-                                    href={decision.href}
+                                    text={category.text}
+                                    href={category.href}
                                 />
                             ))
                         }
@@ -43,9 +39,9 @@ const decisionsRecordList = entries
                 <Breadcrumbs>
                     <BreadcrumbItem href="/">Home</BreadcrumbItem>
                     {
-                        currentPath !== "/decisions-record" && (
-                            <BreadcrumbItem href="/decisions-record">
-                                Decisions record
+                        currentPath !== "/styles" && (
+                            <BreadcrumbItem href="/styles">
+                                Styles
                             </BreadcrumbItem>
                         )
                     }
