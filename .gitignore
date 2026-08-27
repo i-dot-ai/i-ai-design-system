@@ -43,7 +43,7 @@ Brewfile.lock.json
 *_files/
 
 # ...but keep component example HTML tracked
-!frontend/src/content/components/**/examples/*.html
+!frontend/src/content/**/*.html
 
 # Docker cache
 .build-cache
