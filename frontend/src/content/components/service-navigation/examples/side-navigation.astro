@@ -1,0 +1,19 @@
+---
+import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
+---
+
+<div style="display: flex;">
+  <ServiceNavigation sideNav navigationId="side-nav-navigation">
+    <ServiceNavigationItem href="#/1">Navigation item 1</ServiceNavigationItem>
+    <ServiceNavigationItem href="#/2">Navigation item 2</ServiceNavigationItem>
+    <ServiceNavigationItem href="#/3">Navigation item 3</ServiceNavigationItem>
+    <ServiceNavigationItem href="#/4">Navigation item 4</ServiceNavigationItem>
+  </ServiceNavigation>
+  <div
+    style="flex: 1; border: 1px solid var(--govuk-border-colour);"
+    class="govuk-!-padding-6"
+  >
+    Page content
+  </div>
+</div>

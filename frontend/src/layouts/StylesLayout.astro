@@ -1,0 +1,53 @@
+---
+import Layout from "@layouts/Layout.astro";
+import SideNav from "@components/side-nav/side-nav.astro";
+import SideNavItem from "@components/side-nav/side-nav-item.astro";
+import SideNavList from "@components/side-nav/side-nav-list.astro";
+import Breadcrumbs from "@components/breadcrumbs/breadcrumbs.astro";
+import BreadcrumbItem from "@components/breadcrumbs/breadcrumb-item.astro";
+import { getCollection } from "astro:content";
+
+const currentPath = Astro.url.pathname;
+
+const entries = await getCollection("styles");
+const stylesCategories = entries
+    .map((entry) => ({
+        text: entry.data.title,
+        href: `/styles/${entry.id}`,
+    }))
+    .sort((a, b) => a.text.localeCompare(b.text));
+---
+
+<Layout>
+    <div class="govuk-main-wrapper govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+                <SideNav>
+                    <SideNavList>
+                        {
+                            stylesCategories.map((category) => (
+                                <SideNavItem
+                                    text={category.text}
+                                    href={category.href}
+                                />
+                            ))
+                        }
+                    </SideNavList>
+                </SideNav>
+            </div>
+            <div class="govuk-grid-column-two-thirds">
+                <Breadcrumbs>
+                    <BreadcrumbItem href="/">Home</BreadcrumbItem>
+                    {
+                        currentPath !== "/styles" && (
+                            <BreadcrumbItem href="/styles">
+                                Styles
+                            </BreadcrumbItem>
+                        )
+                    }
+                </Breadcrumbs>
+                <slot />
+            </div>
+        </div>
+    </div>
+</Layout>

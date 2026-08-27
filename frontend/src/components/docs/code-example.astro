@@ -1,0 +1,58 @@
+---
+/*
+ * CodeExample — renders the "Show code" disclosure with Astro/HTML tabs for a
+ * single component example. Fed snippet strings from the component's content
+ * entry, so the code shown is the single source of truth (same strings an MCP
+ * server would serve to an agent).
+ */
+import Tabs from "@components/tabs/tabs.astro";
+import TabsList from "@components/tabs/tabs-list.astro";
+import Tab from "@components/tabs/tab.astro";
+import TabPanel from "@components/tabs/tab-panel.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import { Code } from "astro:components";
+
+interface Props {
+    /** Stable id used to build unique tab anchors, e.g. "button-default". */
+    id: string;
+    /** Snippets keyed by language, e.g. { astro: "…", html: "…" }. */
+    snippets: Partial<Record<"astro" | "html", string>>;
+}
+
+const { id, snippets } = Astro.props;
+
+const LABELS: Record<string, string> = { astro: "Astro", html: "HTML" };
+const langs = (Object.keys(snippets) as Array<keyof typeof snippets>).filter(
+    (lang) => snippets[lang],
+);
+---
+
+<Details>
+    <DetailsSummary>Show code</DetailsSummary>
+    <DetailsText>
+        <Tabs>
+            <TabsList>
+                {
+                    langs.map((lang, i) => (
+                        <Tab href={`#${id}-${lang}`} selected={i === 0}>
+                            {LABELS[lang] ?? lang}
+                        </Tab>
+                    ))
+                }
+            </TabsList>
+            {
+                langs.map((lang, i) => (
+                    <TabPanel id={`${id}-${lang}`} hidden={i !== 0}>
+                        <Code
+                            code={snippets[lang]!}
+                            lang={lang}
+                            theme="github-light"
+                        />
+                    </TabPanel>
+                ))
+            }
+        </Tabs>
+    </DetailsText>
+</Details>

@@ -1,0 +1,61 @@
+---
+number: 1
+title: Adapt the GOV.UK Design System
+status: proposal
+dateProposed: 24 August 2026
+---
+
+## Context
+
+Following a design and frontend workshop it was agreed that the following improvements could be addressed to the design process in i.AI:
+
+-   Avoid repeatedly designing for problems that have been solved
+-   Enable designers to prototype directly with the components used in a project
+-   Establish a brand across i.AI products
+-   Prevent significant refactors of original prototypes when scaling
+-   Allow for quick handovers to other government departments
+-   Prevent accessibility improvements needed with thrid party component libraries
+
+It was also important that any solution that was adapted would be sure to:
+
+-   Avoid significant maintenance effort
+-   Be focussed on speeding up ways of working
+-   Enable design work rather than constrain the process
+
+## Decision
+
+It was decided that by starting with the [GOV.UK design system](https://design-system.service.gov.uk/) we would be able to:
+
+-   Build upon a huge volume of thinking that has gone into the GOVUK Design System on usability and accessibility
+-   Allow for quick handovers to other government departments
+-   Take advantage of the maintenance that is already being done by the GOVUK team
+-   Adopt the government feel which provides a sense of trust and legitimacy to products
+
+However, there are some differences in the use case that the GOV.UK Design System was designed for and the use case that we need it for in i.AI:
+
+GOV.UK design system was designed for informational websites and critical forms which were typically used infrequently by all members of the public. The apps built in i.AI are mostly to be used multiple times by the same user to carry out an often complex task.
+
+Following from this use case, we have identified 3 areas in which our needs differ from GOV.UK Design System and adaptations are required:
+
+-   **One thing per page** - User flows which move from page to page with one action on each simplify the process for a first time user, however, what you lose is context around where you have come from and what you need to do. Scenarios such as editing or deleting an item become more confusing if you have to leave the page on which that item is in order to delete it.
+    
+    In Extract this was found as an issue when reviewing TPO information. There could be up to 100 TPOs in a single extraction and splitting each one into a single page with a linear edit and review user flow was an unworable user experience.
+    
+-   **Linear vertical layout**
+    
+    ![a screenshot of Minute with the meeting minutes highlighted in yellow at the bottom of the screen](/images/minute-head-space-screenshot.webp)
+    
+    A screenshot of the Minute Head Space app showing the meeting minutes highlighted in yellow at the bottom of the screen.
+    
+    The linear vertical layout with a header, service-navigation, phase banner, and breadcrumbs can mean that the primary action (in this case, the meeting minutes) of a page isn't visible above the fold. Navigating between pages becomes more confusing if you have to scroll to workout out where you are.
+    
+-   **GOV.UK components designed to draw attention** - GOV.UK components have been designed to draw the attention of the user as an action that must not be missed before moving to the next page. In our case, we often have actions that are not the primary focus of a page but there if needed. E.g. an export, edit, or delete button or a settings option.
+    
+    ![a screenshot showing a page with Saved Transcriptions as a title with a link to one transcription with a rename button and a delete button](/images/non-primary-action-buttons.webp)
+    
+    A screenshot showing the Saved Transcriptions title with a link to one transcription with a rename button and a delete button.
+    
+    The image above shows how the users initial focus is drawn to the filter, rename or delete buttons rather than the primary action of the page which is to view the saved transcriptions.
+    
+
+It is proposed to adopt the GOV.UK Design System as a foundation and to adapt in order to address these three concerns. Where we deviated from the original GOV.UK version we would document that decision here.
