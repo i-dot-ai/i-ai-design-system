@@ -20,7 +20,7 @@ const govukClasses = {
   h4: 'govuk-heading-s',
   a: 'govuk-link',
   blockquote: 'govuk-inset-text',
-  ul: 'govuk-list',
+  ul: 'govuk-list govuk-list--bullet',
   ol: 'govuk-list govuk-list--number',
   table: 'govuk-table',
   thead: 'govuk-table__head',
