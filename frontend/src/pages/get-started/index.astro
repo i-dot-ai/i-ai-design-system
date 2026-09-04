@@ -1,14 +1,237 @@
 ---
 import Layout from "@layouts/GetStartedLayout.astro";
+import Details from "@components/details/details.astro";
+import DetailsSummary from "@components/details/details-summary.astro";
+import DetailsText from "@components/details/details-text.astro";
+import Card from "@components/card/card.astro";
+
+const journeys = [
+    {
+        youAre: "Starting an experimental idea or a product that's still in its early stages",
+        follow: "Starting something new",
+        href: "/get-started/journey-1-start-something-new",
+        icon: "M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z M9.5 18h5 M10.3 21h3.4",
+    },
+    {
+        youAre: "Adding a new component or feature to a product that already exists",
+        follow: "Adding to an existing product",
+        href: "/get-started/journey-2-add-to-an-existing-product",
+        icon: "M12 3 2 8l10 5 10-5-10-5Z M2 13l10 5 10-5 M2 18l10 5 10-5",
+    },
+    {
+        youAre: "Bringing a product onto the kit for the first time",
+        follow: "Applying the kit to an existing product",
+        href: "/get-started/journey-3-apply-the-kit-to-an-existing-product",
+        icon: "M12 2v6 M12 16v6 M2 12h6 M16 12h6 M5.5 5.5l4.2 4.2 M14.3 14.3l4.2 4.2 M18.5 5.5l-4.2 4.2 M9.7 14.3l-4.2 4.2",
+    },
+];
 ---
 
 <Layout>
     <h1 class="govuk-heading-xl">Get started</h1>
-    <p class="govuk-body">
-        This will show how to get started with the i.AI Design Kit. We are
-        planning layout the different entry points for the design system here.
-        The current hypothesis is to have technical jump off guides in terms of
-        adding to an existing project and starting a new project, and more
-        design led guides with using within agents or with Figma etc.
+    <p class="govuk-body-l">
+        How to build an interface at i.AI: what to start from, which path to
+        follow, and what to do when the component you need does not exist.
     </p>
+
+    <hr
+        class="govuk-section-break govuk-section-break--l govuk-section-break--visible"
+    />
+
+    <h2 class="govuk-heading-m">What are you doing?</h2>
+    <p class="govuk-body">
+        Select the task to see the guidance and steps.
+    </p>
+
+    <div class="iai-card-group">
+        {
+            journeys.map((journey) => (
+                <div class="iai-card-group__item">
+                    <Card
+                        heading={journey.follow}
+                        href={journey.href}
+                        description={journey.youAre}
+                    >
+                        <svg
+                            slot="icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="32"
+                            height="32"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            focusable="false"
+                            set:html={`<path d="${journey.icon}"></path>`}
+                        />
+                    </Card>
+                </div>
+            ))
+        }
+    </div>
+
+    <hr
+        class="govuk-section-break govuk-section-break--l govuk-section-break--visible"
+    />
+
+    <Details>
+        <DetailsSummary>What the i.AI kit is</DetailsSummary>
+        <DetailsText>
+            <p class="govuk-body">
+                The <strong>i.AI kit</strong> is a shared set of components, tokens
+                and patterns built on GOV.UK Frontend, then adapted and extended
+                to fit the products i.AI builds.
+            </p>
+            <p class="govuk-body">
+                Adapted means some GOV.UK Frontend components have changed
+                values, such as tighter spacing or a subtler variant, because
+                i.AI builds apps and dashboards rather than the long-form
+                linear services GOV.UK Frontend was designed for.
+            </p>
+            <p class="govuk-body">
+                Extended means the kit adds components GOV.UK Frontend does
+                not have, such as the <a href="/components/card" class="govuk-link">card</a>
+                and the <a href="/components/toggle" class="govuk-link">toggle</a>.
+            </p>
+            <p class="govuk-body">
+                The kit does not replace or fork GOV.UK Frontend. It layers on
+                top of it. Everything below refers to it as the i.AI kit.
+            </p>
+            <p class="govuk-body">
+                This guidance comes from the <a
+                    href="/decisions-record"
+                    class="govuk-link">i.AI decision record</a
+                >. Guidance drawn from a decision still marked Proposed is
+                marked [provisional]. You can use it, but it may change.
+            </p>
+        </DetailsText>
+    </Details>
+
+    <hr
+        class="govuk-section-break govuk-section-break--l govuk-section-break--visible"
+    />
+
+    <h2 class="govuk-heading-m">Add to the Design kit</h2>
+    <p class="govuk-body">
+        Built something the kit doesn't have, or departed from a GOV.UK
+        pattern? Add it to the kit forum so others can use it too.
+    </p>
+    <a
+        href="/get-started/kit-forum"
+        class="govuk-button"
+        data-module="govuk-button">Add to the Design kit</a
+    >
+
+    <hr
+        class="govuk-section-break govuk-section-break--l govuk-section-break--visible"
+    />
+
+    <Details>
+        <DetailsSummary>What brand your product takes</DetailsSummary>
+        <DetailsText>
+            <p class="govuk-body">
+                Every product runs the same kit and the same functionality.
+                What differs is the brand on top of it.
+            </p>
+            <p class="govuk-body">
+                Your brand is decided by who your product is for. Work out
+                your audience, then apply the treatment that matches it.
+            </p>
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="col">
+                            Who your product is for
+                        </th>
+                        <th class="govuk-table__header" scope="col">Brand</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            People using a public service, or public servants
+                            across the public sector
+                        </td>
+                        <td class="govuk-table__cell">GOV.UK</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            People in a single department
+                        </td>
+                        <td class="govuk-table__cell">That department</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            People inside i.AI, including experimental work
+                        </td>
+                        <td class="govuk-table__cell">i.AI</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="govuk-heading-s">GOV.UK</h3>
+            <p class="govuk-body">
+                For products that form part of a public service, and for
+                products used by public servants across the public sector.
+            </p>
+            <p class="govuk-body">
+                These take full GOV.UK Design System branding and, where it
+                fits, the "GOV.UK [Product]" naming convention.
+            </p>
+            <p class="govuk-body">
+                The GOV.UK brand tells users that a service is government and
+                can be trusted as such.
+            </p>
+
+            <h3 class="govuk-heading-s">A single department</h3>
+            <p class="govuk-body">
+                For products built for use in, and built with, one
+                department.
+            </p>
+            <p class="govuk-body">
+                Swap the header elements only: that department's logo and
+                department name in place of the GOV.UK equivalents.
+            </p>
+            <p class="govuk-body">Two things follow from that:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    the product will not match the rest of the department's
+                    brand below the header. Say so at handover rather than
+                    letting the receiving team find out
+                </li>
+                <li>
+                    an incoming brand colour drives several tokens, so check
+                    it against contrast requirements before you use it.
+                    Colours picked for dark backgrounds often fail on white
+                    surfaces
+                </li>
+            </ul>
+
+            <h3 class="govuk-heading-s">i.AI</h3>
+            <p class="govuk-body">
+                For everything that is not GOV.UK-branded or
+                department-branded, including internal tools and experimental
+                work.
+            </p>
+            <p class="govuk-body">
+                The i.AI brand is GOV.UK Frontend without GOV.UK branding: the
+                generic header, styled as i.AI, in place of the crown and
+                GOV.UK logotype. No crown. No GOV.UK logotype, no blue.
+            </p>
+            <p class="govuk-body">
+                Experimental work stays inside the kit, so nothing has to be
+                rebuilt if the product later moves to GOV.UK or departmental
+                branding.
+            </p>
+
+            <h3 class="govuk-heading-s">The i.AI website</h3>
+            <p class="govuk-body">
+                ai.gov.uk uses the i.AI corporate brand. It is not a product
+                and does not follow this record.
+            </p>
+        </DetailsText>
+    </Details>
 </Layout>

@@ -1,0 +1,374 @@
+---
+title: "Apply the kit to an existing product"
+description: For bringing a product onto the kit for the first time.
+---
+
+Use this when you have a product that predates the kit, and you're
+bringing it on.
+
+This is still a work in progress. What follows is how the kit works
+today. We're making it easier to install, with npm component packages
+coming soon.
+
+## 1. Confirm the brand it's moving to
+
+Work out who the product is for, and confirm the brand that follows from
+that. Moving onto the kit does not by itself change a product's audience
+or its brand. Get this confirmed before you start moving components,
+because it decides what the finished product should look like, not just
+how it's built.
+
+## 2. Check what version you're moving from
+
+The kit targets GOV.UK Frontend v6.5.0. If your product is on an earlier
+version of GOV.UK Frontend, expect some refactoring before kit components
+will sit alongside your existing markup cleanly.
+
+## 3. Install GOV.UK Frontend
+
+The kit is built on top of the GOV.UK Design System, so install
+govuk-frontend first. This is the recommended route. There are others,
+covered in the
+[GOV.UK Design System get started guide](https://design-system.service.gov.uk/get-started/production/).
+
+Install Sass and govuk-frontend:
+
+```sh
+npm install sass govuk-frontend --save
+```
+
+Then add the GOV.UK Sass to your project. Create a govuk.scss file and
+copy this into it:
+
+```scss
+// GOV.UK Frontend, compiled without GOV.UK branding.
+// See: https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/
+//
+// Change the values below to match your service's branding.
+@use "govuk-frontend" as * with (
+  // Use a non-GDS Transport font stack (GDS Transport is GOV.UK-branded).
+  $govuk-font-family: ("Helvetica Neue", Helvetica, Arial, sans-serif),
+  // Set your own brand colour (used e.g. for footer border).
+  $govuk-functional-colours: (brand: #16548a)
+);
+```
+
+This is the recommended way to adapt GOV.UK Frontend for services that
+are not on the gov.uk domain. There is more on this in the
+[using GOV.UK Frontend without GOV.UK branding guide](https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/#updating-your-sass-to-remove-branded-elements).
+
+To change the brand colour, update `$govuk-functional-colours`:
+
+```scss
+$govuk-functional-colours: (
+  brand: #388E3C
+)
+```
+
+If your product is department-branded, this is where the department's
+colour goes. Check it passes contrast on white surfaces before you set
+it.
+
+## 4. Add the i.AI stylesheet and JavaScript file
+
+Download both files and add them to your project's styles and scripts
+folders.
+
+<div class="govuk-button-group">
+  <a class="govuk-button" href="/i-ai-design-system.min.css" download="i-ai-design-system.min.css">Download i.AI stylesheet CSS</a>
+  <a class="govuk-button" href="/i-ai-design-system.min.js" download="i-ai-design-system.min.js">Download i.AI JavaScript file</a>
+</div>
+
+## 5. Link to the CSS and JavaScript files
+
+Add links to both files in the head of your HTML file. This is
+Layout.astro if you're using Astro, or frontend/app/layout.tsx if you're
+using Next.js.
+
+Put the govuk-frontend CSS first. Order matters.
+
+```html
+<head>
+    ...
+    <link rel="stylesheet" href="govuk-frontend.min.css" />
+    <link rel="stylesheet" href="i-ai-design-system.min.css" />
+    ...
+</head>
+```
+
+After the closing body tag, import initAll from govuk-frontend and
+initAllIAIDesignSystem from the i.AI JavaScript file:
+
+```html
+<body>
+    ...
+        <script>
+            import { initAll } from "govuk-frontend";
+            import { initAllIAIDesignSystem } from "../scripts/i-ai-design-system.js";
+            initAll();
+            initAllIAIDesignSystem();
+        </script>
+    <body>
+</html>
+```
+
+## 6. Look at what you already have
+
+Go component by component rather than rebuilding the whole interface at
+once. For each one, check whether the kit already covers it:
+
+- if the kit has an as-is or adapted equivalent, replace your version
+  with the kit's
+- if what you have is a genuine deviation from GOV.UK, that's worth
+  recording even if you're keeping it for now
+- if what you have doesn't exist in the kit at all, that's a candidate
+  for the [kit forum](/get-started/kit-forum), not just a local fix
+
+## 7. Route and make
+
+Move components in order of how often they're used, so the biggest
+inconsistencies get resolved first. Treat this as a migration, not a
+rewrite — the aim is to get onto shared components and tokens, not to
+redesign the product while you're at it.
+
+Measure the effort as you go rather than estimating it upfront. Migration
+cost varies a lot by how far a product has already drifted from GOV.UK
+Frontend, and that's only known once you're in the code.
+
+## 8. Check it
+
+Same two gates as any other change:
+
+- **Behavioural check** — keyboard operation, screen reader output, focus
+  visibility
+- **Human review** — someone other than the person who did the migration
+  has looked at it
+
+Check the brand is applied consistently across the whole product once
+you're done, not just on the components you touched first.
+
+## 9. Record
+
+Record the components you moved onto the kit, anything you deviated from
+along the way, and anything the product needed that the kit still doesn't
+have. Take it to the [kit forum](/get-started/kit-forum).
+
+## Getting something added to the kit
+
+The kit forum is the fortnightly group that decides what goes into the
+i.AI kit. It's open to anyone at i.AI. It is not a gatekeeping committee.
+
+Take something to the kit forum when you have:
+
+- built a component the kit doesn't have
+- adapted a kit component so that it no longer matches what the kit ships
+- departed from an established GOV.UK pattern
+- needed something the kit couldn't give you, even if you worked around
+  it
+
+Recording a departure you worked around matters as much as recording one
+you built. A gap is evidence about where the kit falls short.
+
+### Use the mechanism rather than writing it by hand
+
+There is a mechanism, currently a Claude skill, that writes the record
+for you and submits it to the kit forum. [provisional — not yet built]
+
+Point it at what you built and it will:
+
+- draft the decision record entry
+- draft the deviation record against the 4 fixed fields
+- apply a provenance tag
+- raise the issue against the kit repo using the template
+
+Check what it produces before you submit it. You're still the author.
+
+Use it because recording happens at the point of deviation, when you're
+mid-build and least inclined to write anything down. That's the entire
+discipline cost of this, and the mechanism exists to remove it.
+
+### What the kit forum does with it
+
+- **Triage** sorts your submission into: already exists, a variant of
+  something that exists, genuinely new, or out of scope. The default
+  answer is to use what exists, and the burden of proof sits with the
+  new thing.
+- **Decide** happens at the fortnightly session. The group accepts,
+  rejects, or defers with a named reason. Anything undecided after 2
+  sessions is rejected or escalated. It is not left open.
+- **Build** starts once an owner is named at the point of acceptance. No
+  owner means no acceptance.
+- **Review** is the merge gate. It needs an accessibility check, a
+  provenance tag, a decision record entry, and a deviation record if the
+  component departs from a GOV.UK pattern. All 4 are required.
+- **Publish** means released, versioned, announced and added to the
+  site. Nothing lands silently.
+- **Maintain** happens quarterly. The group reviews upstream changes,
+  deprecations and drift. A component with no owner is a candidate for
+  deprecation.
+
+You can see where a submission has got to from its status: raised,
+accepted, in build, in review, in kit, or deprecated.
+
+Rejected submissions are recorded with the reason.
+
+### The 4 fields in a deviation record
+
+1. The GOV.UK pattern you departed from.
+2. What the product needed that the pattern didn't provide.
+3. What you built instead.
+4. What would need to be true to promote it to a general pattern.
+
+The fourth field makes this a forward-looking record rather than a log of
+apologies. Accumulated deviations are the evidence base for defining
+emerging AI design patterns later. Without a consistent shape, that work
+starts from opinion.
+
+### If another department built it first
+
+Copy their styles and JavaScript into the i.AI kit. Don't add their
+design system as a dependency.
+
+## Reference
+
+### Structure your pages
+
+Every project has 2 parts:
+
+- **A public sign-in or landing page.** Use static HTML and a classic
+  GDS look, with the GOV.UK header and footer. Include a description of
+  the app, the privacy policy, user guidance, the accessibility
+  statement and contact details, so that people without access can find
+  out about the product.
+- **The app itself.** This is internal and takes whichever brand follows
+  from who the product is for.
+
+Use a linear layout by default. Keep applications as simple as you can,
+and hold to simplification as the principle.
+
+Switch to the side-navigation variant of the service navigation, or to a
+document or 2-pane layout, when linear navigation pushes the point of
+the page below the fold. Signs that you've reached this point:
+
+- the header, phase banner, service navigation, breadcrumb, title and
+  toolbar stack up above the content
+- users don't realise there are actions below the fold
+- a task needs reference material visible alongside the input
+
+All products tighten spacing and raise information density compared with
+stock GOV.UK Frontend.
+
+### Style your product
+
+- put all visual values in design tokens or CSS variables, so that no
+  component carries a hardcoded visual value
+- don't change the original GOV.UK Frontend component variables, layer
+  on top of them instead
+- keep styles global and components local
+- change tokens and nothing else when you switch brand
+- load the GOV.UK CSS and JavaScript file before the i.AI kit one — see
+  [install GOV.UK Frontend](#3-install-govuk-frontend)
+
+Check the token rule on every build. The guarantee erodes one hardcoded
+hex value at a time.
+
+GOV.UK Frontend uses `$link-colour` for much more than link colours. You
+have to work within that when you theme a product that is not
+GOV.UK-branded.
+
+Departmental branding is a header swap and a set of token values.
+Nothing below the header changes, so it applies and reverses without
+touching component internals. Keep it that way.
+
+The GOV.UK CSS and JavaScript combine into a single file, and so do the
+i.AI kit CSS and JavaScript. This removes import-order failures.
+
+Target GOV.UK Frontend version 6.5.0. Products on an earlier version may
+need refactoring before they can use the kit.
+
+### Use existing components
+
+The default answer is to use what already exists.
+
+Every component carries a provenance tag telling you what you're
+inheriting:
+
+- **as-is** — GOV.UK Frontend defines it and the values are unchanged
+- **adapted** — GOV.UK Frontend defines it and the values have changed,
+  so use the i.AI kit version rather than the stock GOV.UK markup you
+  remember
+- **new** — GOV.UK Frontend does not define it
+
+**Subtle variants.** [Input](/components/text-input) components have a
+subtle variant. Use it for actions users need to find when they want
+them, rather than actions they must not miss. Use the standard variant
+for the primary action on the page.
+
+GOV.UK Frontend's louder components assume infrequent form filling where
+every field matters. i.AI products are used repeatedly and carry
+secondary actions, such as changing data retention on a list of
+transcriptions.
+
+[Buttons](/components/button) have rounded corners and an updated
+background. There are 2 variants, which cover our use cases.
+[provisional]
+
+[Cards](/components/card) have 2 independent axes: prominence, which is
+visual weight, and interactivity, which is whether the whole card is
+clickable. Neither implies the other. [provisional]
+
+- clickable cards are white at rest and fill with ink on hover,
+  reversing the text out, because the whole card is the hit area
+- the heading link keeps its underline
+- visited state is suppressed with `govuk-link--no-visited-state` in the
+  markup
+- the icon is an optional slot you fill with inline SVG in the markup,
+  and you supply your own SVG
+
+Suppressing the visited state means a user can't tell which cards they've
+already been to. This is acceptable where cards are navigation and wrong
+where they are links to content. Decide which case you're in, because
+the component won't tell you.
+
+Inline SVG inherits `currentColor`, so your icon reverses with the text
+on hover.
+
+[Toggles](/components/toggle) have no disabled state. If you need to show
+that an option is unavailable, either leave the toggle out or use static
+text that explains why.
+
+### Use the kit in your code
+
+- components are written as plain HTML first, so you can copy and paste
+  the markup the way you do with GOV.UK Frontend today
+- Web Components are used only where you need functionality, such as
+  wiring a hint to a control with `aria-describedby` [provisional]
+- elements are not wrapped where HTML structure is needed for
+  accessibility, so tables stay as HTML because Safari does not support
+  customised built-in elements [provisional]
+- React is the first framework wrapper and Svelte will follow, so
+  non-React repos either consume the raw custom element or wait
+  [provisional]
+- compose from individual components the way Material UI and shadcn do,
+  rather than passing an items prop to one large component
+
+Check server-rendered and static-site products against custom element
+hydration and progressive enhancement before you adopt the kit. GOV.UK
+Frontend assumes markup that works without JavaScript. A Web Component
+does not.
+
+### Work with agents
+
+The kit is written once, for people and for agents. There is no separate
+agent-facing copy of the components, tokens, guidance or decisions.
+
+The kit site is the single source of truth. It is written in pure
+markup.
+
+Agents are pointed directly at the kit content in GitHub. There is no
+MCP for the kit. Skills describe how to read the site.
+
+The site declares, for each artefact, what is canonical, what is derived
+and where each derived copy came from. Check the provenance before you
+trust a vendored file, a pasted snippet or a prototype. Copy and paste is
+the weakest route, because pasted markup carries no provenance.

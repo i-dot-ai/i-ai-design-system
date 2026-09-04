@@ -7,6 +7,7 @@ import TableCell from "@components/table/table-cell.astro";
 import TableHead from "@components/table/table-head.astro";
 import TableHeader from "@components/table/table-header.astro";
 import TableBody from "@components/table/table-body.astro";
+import { decisionSummaries } from "@data/decision-summaries";
 ---
 
 <Layout>
@@ -28,6 +29,32 @@ import TableBody from "@components/table/table-body.astro";
     <p class="govuk-body">
         This is a living document and will be updated as new decisions are made.
     </p>
+    <h2 class="govuk-heading-m">Summary of decisions</h2>
+    <p class="govuk-body">
+        These are the summary decisions that frame our approach to branding
+        and to the design system. Where a decision below has more detailed
+        reasoning recorded, it links through to that detailed record.
+    </p>
+    <Table aria-label="Summary of decisions">
+        <TableHead>
+            <TableRow>
+                <TableHeader>Number</TableHeader>
+                <TableHeader>Decision</TableHeader>
+            </TableRow>
+        </TableHead>
+        <TableBody>
+            {
+                decisionSummaries.map((decision) => (
+                    <TableRow>
+                        <TableCell>
+                            {String(decision.number).padStart(3, "0")}
+                        </TableCell>
+                        <TableCell>{decision.text}</TableCell>
+                    </TableRow>
+                ))
+            }
+        </TableBody>
+    </Table>
     <h2 class="govuk-heading-m">Status tags</h2>
     <p class="govuk-body">
         The following status tags are used to indicate the status of a decision:

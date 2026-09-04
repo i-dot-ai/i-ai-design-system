@@ -6,6 +6,7 @@ import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@components/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@components/breadcrumbs/breadcrumb-item.astro";
 import { getCollection } from "astro:content";
+import { decisionSummaries } from "@data/decision-summaries";
 
 const currentPath = Astro.url.pathname;
 
@@ -18,8 +19,24 @@ const decisionsRecordList = entries
                 ? `${String(entry.data.number).padStart(3, "0")} - ${entry.data.title}`
                 : entry.data.title,
         href: `/decisions-record/${entry.id}`,
+        parent: entry.data.parent,
     }))
     .sort((a, b) => a.number - b.number);
+
+// Detailed records are grouped under the summary decision they detail.
+// Any summary decision without detailed records yet is left out of the nav.
+const groupedDecisionsRecordList = decisionSummaries
+    .map((summary) => ({
+        summary,
+        records: decisionsRecordList.filter(
+            (record) => record.parent === summary.number,
+        ),
+    }))
+    .filter((group) => group.records.length > 0);
+
+const ungroupedDecisionsRecordList = decisionsRecordList.filter(
+    (record) => record.parent === undefined,
+);
 ---
 
 <Layout>
@@ -29,7 +46,25 @@ const decisionsRecordList = entries
                 <SideNav>
                     <SideNavList>
                         {
-                            decisionsRecordList.map((decision) => (
+                            groupedDecisionsRecordList.map((group) => (
+                                <>
+                                    <li class="side-nav__group-heading govuk-!-font-size-16 govuk-!-font-weight-bold">
+                                        {String(
+                                            group.summary.number,
+                                        ).padStart(3, "0")}{" "}
+                                        - {group.summary.text}
+                                    </li>
+                                    {group.records.map((decision) => (
+                                        <SideNavItem
+                                            text={decision.text}
+                                            href={decision.href}
+                                        />
+                                    ))}
+                                </>
+                            ))
+                        }
+                        {
+                            ungroupedDecisionsRecordList.map((decision) => (
                                 <SideNavItem
                                     text={decision.text}
                                     href={decision.href}

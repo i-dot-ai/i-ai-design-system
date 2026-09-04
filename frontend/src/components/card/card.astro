@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    heading: string;
+    href: string;
+    description?: string;
+    secondary?: boolean;
+}
+
+const {
+    class: className,
+    heading,
+    href,
+    description,
+    secondary = false,
+    ...rest
+} = Astro.props;
+
+const hasIcon = Astro.slots.has("icon");
+---
+
+<div
+    class={`iai-card${secondary ? " iai-card--secondary" : ""}${className ? ` ${className}` : ""}`}
+    {...rest}
+>
+    {
+        hasIcon && (
+            <div class="iai-card__icon" aria-hidden="true">
+                <slot name="icon" />
+            </div>
+        )
+    }
+    <h3 class="iai-card__heading">
+        <a class="iai-card__link" href={href}>{heading}</a>
+    </h3>
+    {description && <p class="iai-card__description">{description}</p>}
+</div>

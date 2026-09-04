@@ -1,0 +1,77 @@
+---
+title: "Add to the Design kit"
+description: How the kit forum decides what goes into the i.AI kit.
+---
+
+The kit forum is the fortnightly group that decides what goes into the
+i.AI kit. It's open to anyone at i.AI. It is not a gatekeeping committee.
+
+Take something to the kit forum when you have:
+
+- built a component the kit doesn't have
+- adapted a kit component so that it no longer matches what the kit ships
+- departed from an established GOV.UK pattern
+- needed something the kit couldn't give you, even if you worked around it
+
+Recording a departure you worked around matters as much as recording one
+you built. A gap is evidence about where the kit falls short.
+
+## Use the mechanism rather than writing it by hand
+
+There is a mechanism, currently a Claude skill, that writes the record for
+you and submits it to the kit forum. [provisional — not yet built]
+
+Point it at what you built and it will:
+
+- draft the decision record entry
+- draft the deviation record against the 4 fixed fields
+- apply a provenance tag
+- raise the issue against the kit repo using the template
+
+Check what it produces before you submit it. You're still the author.
+
+Use it because recording happens at the point of deviation, when you're
+mid-build and least inclined to write anything down. That's the entire
+discipline cost of this, and the mechanism exists to remove it.
+
+## What the kit forum does with it
+
+- **Triage** sorts your submission into: already exists, a variant of
+  something that exists, genuinely new, or out of scope. The default
+  answer is to use what exists, and the burden of proof sits with the new
+  thing.
+- **Decide** happens at the fortnightly session. The group accepts,
+  rejects, or defers with a named reason. Anything undecided after 2
+  sessions is rejected or escalated. It is not left open.
+- **Build** starts once an owner is named at the point of acceptance. No
+  owner means no acceptance.
+- **Review** is the merge gate. It needs an accessibility check, a
+  provenance tag, a decision record entry, and a deviation record if the
+  component departs from a GOV.UK pattern. All 4 are required.
+- **Publish** means released, versioned, announced and added to the site.
+  Nothing lands silently.
+- **Maintain** happens quarterly. The group reviews upstream changes,
+  deprecations and drift. A component with no owner is a candidate for
+  deprecation.
+
+You can see where a submission has got to from its status: raised,
+accepted, in build, in review, in kit, or deprecated.
+
+Rejected submissions are recorded with the reason.
+
+## The 4 fields in a deviation record
+
+1. The GOV.UK pattern you departed from.
+2. What the product needed that the pattern didn't provide.
+3. What you built instead.
+4. What would need to be true to promote it to a general pattern.
+
+The fourth field makes this a forward-looking record rather than a log of
+apologies. Accumulated deviations are the evidence base for defining
+emerging AI design patterns later. Without a consistent shape, that work
+starts from opinion.
+
+## If another department built it first
+
+Copy their styles and JavaScript into the i.AI kit. Don't add their design
+system as a dependency.
