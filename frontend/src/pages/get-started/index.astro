@@ -9,21 +9,22 @@ import CardHeading from "@components/card/card-heading.astro";
 import CardLink from "@components/card/card-link.astro";
 import CardContent from "@components/card/card-content.astro";
 import CardGroup from "@components/card/card-group.astro";
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("get-started", "index");
+if (!entry) throw new Error("Missing get-started/index.mdx");
+const { Content } = await render(entry);
 ---
 
 <Layout>
-    <h1 class="govuk-heading-xl">Get started</h1>
-    <p class="govuk-body-l">
-        How to build an interface at i.AI: what to start from, which path to
-        follow, and what to do when the component you need does not exist.
-    </p>
+    <h1 class="govuk-heading-xl">{entry.data.title}</h1>
+    <p class="govuk-body-l">{entry.data.description}</p>
 
     <hr
         class="govuk-section-break govuk-section-break--l govuk-section-break--visible"
     />
 
-    <h2 class="govuk-heading-m">What are you doing?</h2>
-    <p class="govuk-body">Select the task to see the guidance and steps.</p>
+    <Content />
 
     <CardGroup>
         <Card>

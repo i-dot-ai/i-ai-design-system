@@ -4,7 +4,10 @@ import Example from "@components/docs/example.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-    const entries = await getCollection("get-started");
+    const entries = await getCollection(
+        "get-started",
+        ({ id }) => id !== "index",
+    );
     return entries.map((entry) => ({
         params: { slug: entry.id },
         props: { entry },

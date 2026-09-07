@@ -4,7 +4,9 @@ import Example from "@components/docs/example.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-    const entries = await getCollection("styles");
+    // The in-folder landing page (styles/index.mdx) is rendered by
+    // styles/index.astro, not as a style slug.
+    const entries = await getCollection("styles", ({ id }) => id !== "index");
     return entries.map((entry) => ({
         params: { slug: entry.id },
         props: { entry },
