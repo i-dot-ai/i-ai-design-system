@@ -5,7 +5,12 @@ import Example from "@components/docs/example.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-    const entries = await getCollection("components");
+    // The in-folder landing page (components/index.mdx) is rendered by
+    // components/index.astro, not as a component slug.
+    const entries = await getCollection(
+        "components",
+        ({ id }) => id !== "index",
+    );
     return entries.map((entry) => ({
         params: { slug: entry.id },
         props: { entry },
@@ -20,15 +25,21 @@ const STATUS_TAG: Record<string, { colour: string; label: string }> = {
     standard: { colour: "blue", label: "Standard" },
     new: { colour: "green", label: "New" },
 };
-const tag = STATUS_TAG[entry.data.status];
+// status is optional on the schema (shared with the landing page); fall back
+// gracefully if a component omits it.
+const tag = entry.data.status ? STATUS_TAG[entry.data.status] : undefined;
 ---
 
 <Layout>
     <h1 class="govuk-heading-xl">{entry.data.name}</h1>
-    <ul class="govuk-list govuk-list--spaced">
-        <Tag colour={tag.colour as "turquoise" | "blue" | "green"}>
-            {tag.label}
-        </Tag>
-    </ul>
+    {
+        tag && (
+            <ul class="govuk-list govuk-list--spaced">
+                <Tag colour={tag.colour as "turquoise" | "blue" | "green"}>
+                    {tag.label}
+                </Tag>
+            </ul>
+        )
+    }
     <Content components={{ Example }} />
 </Layout>
