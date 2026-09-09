@@ -12,10 +12,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
+const onThisPage = headings.filter((heading) => heading.depth === 2);
 ---
 
-<Layout>
+<Layout onThisPage={onThisPage}>
     <h1 class="govuk-heading-xl">{entry.data.title}</h1>
     <Content components={{ Example }} />
 </Layout>

@@ -14,7 +14,7 @@ const journeys = [
     },
     {
         youAre: "Adding a new component or feature to a product that already exists",
-        follow: "Adding to an existing product",
+        follow: "Use a component in a product",
         href: "/get-started/journey-2-add-to-an-existing-product",
         icon: "M12 3 2 8l10 5 10-5-10-5Z M2 13l10 5 10-5 M2 18l10 5 10-5",
     },
@@ -29,9 +29,41 @@ const journeys = [
 
 <Layout>
     <h1 class="govuk-heading-xl">Get started</h1>
-    <p class="govuk-body-l">
-        How to build an interface at i.AI: what to start from, which path to
-        follow, and what to do when the component you need does not exist.
+
+    <h2 class="govuk-heading-m">Why use the i.AI Design Kit?</h2>
+
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Move faster</h3>
+    <p class="govuk-body">
+        Use ready-made components, tokens and patterns instead of building
+        buttons, inputs and checkboxes from scratch with every new feature.
+    </p>
+
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Stay consistent</h3>
+    <p class="govuk-body">
+        Shared tokens, type scale and spacing keep i.AI products recognisable
+        as one estate, whether they are GOV.UK-branded, department-branded or
+        neutral.
+    </p>
+
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Accessibility first</h3>
+    <p class="govuk-body">
+        Every component is checked against WCAG 2.2 AA before it enters the
+        kit, so you inherit the testing rather than repeat it.
+    </p>
+
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Built on GOV.UK Frontend, and reversible</h3>
+    <p class="govuk-body">
+        The kit extends GOV.UK Frontend rather than replacing it. Remove the
+        i.AI layer and you are left with valid stock GOV.UK markup &mdash; so
+        a product can be handed to another department without a migration
+        project.
+    </p>
+
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Written once, for people and agents</h3>
+    <p class="govuk-body">
+        The kit site is the single source of truth. There is no separate
+        agent-facing copy to fall out of date, so a coding agent and a
+        designer are working from the same guidance.
     </p>
 
     <hr
@@ -113,15 +145,16 @@ const journeys = [
         class="govuk-section-break govuk-section-break--l govuk-section-break--visible"
     />
 
-    <h2 class="govuk-heading-m">Add to the Design kit</h2>
+    <h2 class="govuk-heading-m">Contribute to the Design kit</h2>
     <p class="govuk-body">
         Built something the kit doesn't have, or departed from a GOV.UK
-        pattern? Add it to the kit forum so others can use it too.
+        pattern? Anyone in i.AI can contribute it so others can use it
+        too.
     </p>
     <a
         href="/get-started/kit-forum"
         class="govuk-button"
-        data-module="govuk-button">Add to the Design kit</a
+        data-module="govuk-button">Contribute to the Design kit</a
     >
 
     <hr
