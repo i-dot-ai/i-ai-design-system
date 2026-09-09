@@ -4,22 +4,28 @@ status: adapted
 decisionRecord: /decisions-record/buttons
 ---
 
-Buttons have been adapted from the GOV.UK Design System to fit the needs of
-i.AI apps. Jump to [button decision record](/decisions-record/buttons) to see
-what has changed and why.
+## Button Variants
 
-## Default buttons
+### Primary
 
-Use the primary button when the action is the main action on the page.
+The primary button is the default button variant. It is to be used when there is one primary action on a page.
 
-Use the secondary button when the action is a secondary action on the page.
-Where you have multiple buttons on the page, the secondary button has been
-designed to work to be duplicated multiple times
+If there are multiple primary actions on a page, use the inverse button variant.
 
-<Example component="button" astro="./examples/default.astro" html="./examples/default.html" />
+<Example component="button" astro="./examples/primary.astro" html="./examples/primary.html" />
+
+### Secondary
+
+The secondary button is to be used when there are two actions, one primary and one secondary. The secondary button should be used alongside the primary button. If there are any more than two actions, use the inverse button variant.
+
+<Example component="button" astro="./examples/secondary.astro" html="./examples/secondary.html" />
 
 ## Inverse buttons
 
-Use the inverse button when the action is on a dark background.
+We have updated the inverse button from the GOV.UK Design System to be suitable for all backgrounds. Due to it's white background it does not draw as much attention as the primary button. It should there be used for cases of multiple actions on a page.
 
-<Example component="button" astro="./examples/inverse.astro" html="./examples/inverse.html" variant="inverse" />
+<Example component="button" astro="./examples/inverse.astro" html="./examples/inverse.html" />
+
+It should also be used for primary actions on a dark background.
+
+<Example component="button" astro="./examples/inverse-primary.astro" html="./examples/inverse-primary.html" variant="inverse" />
