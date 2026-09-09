@@ -6,15 +6,28 @@ import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@components/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@components/breadcrumbs/breadcrumb-item.astro";
 
+interface Heading {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+interface Props {
+    onThisPage?: Heading[];
+}
+
+const { onThisPage = [] } = Astro.props;
+const hasOnThisPage = onThisPage.length > 0;
+
 const currentPath = Astro.url.pathname;
 
 const getStartedCategories = [
     {
-        text: "Start something new",
+        text: "Start a new product or experiment",
         href: "/get-started/journey-1-start-something-new",
     },
     {
-        text: "Add to an existing product",
+        text: "Use a component in a product",
         href: "/get-started/journey-2-add-to-an-existing-product",
     },
     {
@@ -22,16 +35,16 @@ const getStartedCategories = [
         href: "/get-started/journey-3-apply-the-kit-to-an-existing-product",
     },
     {
-        text: "Add to the Design kit",
+        text: "Contribute to the Design kit",
         href: "/get-started/kit-forum",
     },
 ];
 ---
 
 <Layout>
-    <div class="govuk-main-wrapper govuk-width-container">
+    <div class="govuk-main-wrapper govuk-width-container--wide">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
+            <div class={hasOnThisPage ? "govuk-grid-column-one-quarter" : "govuk-grid-column-one-third"}>
                 <SideNav>
                     <SideNavList>
                         {
@@ -45,7 +58,7 @@ const getStartedCategories = [
                     </SideNavList>
                 </SideNav>
             </div>
-            <div class="govuk-grid-column-two-thirds">
+            <div class={hasOnThisPage ? "govuk-grid-column-one-half" : "govuk-grid-column-two-thirds"}>
                 <Breadcrumbs>
                     <BreadcrumbItem href="/">Home</BreadcrumbItem>
                     {
@@ -58,6 +71,27 @@ const getStartedCategories = [
                 </Breadcrumbs>
                 <slot />
             </div>
+            {
+                hasOnThisPage && (
+                    <div class="govuk-grid-column-one-quarter">
+                        <nav class="on-this-page" aria-label="On this page">
+                            <p class="on-this-page__title">On this page</p>
+                            <ul class="on-this-page__list">
+                                {onThisPage.map((heading) => (
+                                    <li class="on-this-page__item">
+                                        <a
+                                            class="on-this-page__link"
+                                            href={`#${heading.slug}`}
+                                        >
+                                            {heading.text}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </div>
+                )
+            }
         </div>
     </div>
 </Layout>
