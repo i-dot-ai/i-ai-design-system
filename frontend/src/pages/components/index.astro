@@ -1,25 +1,14 @@
 ---
 import Layout from "@layouts/ComponentsLayout.astro";
+import Example from "@components/docs/example.astro";
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("components", "index");
+if (!entry) throw new Error("Missing components/index.mdx");
+const { Content } = await render(entry);
 ---
 
 <Layout>
-  <h1 class="govuk-heading-xl">Components</h1>
-  <p class="govuk-body">
-    This is a collection of components that have been used across i.AI that can
-    be used to avoid having to design bespoke components for each project.
-  </p>
-  <p class="govuk-body">
-    It has been built using the <a
-      href="https://design-system.service.gov.uk/components/"
-      class="govuk-link">GOV.UK Design System</a
-    > as a starting point. Only when the initial design didn't meet the needs of an
-    app we have built have we adapted them or added new ones.
-  </p>
-  <p class="govuk-body">
-    Every decision about when components have diverged from GOV.UK has been
-    documented in the <a href="/decisions-record" class="govuk-link"
-      >design decisions section</a
-    > or can be found in each component's documentation.
-  </p>
-  <p class="govuk-body">Maybe some key here about the tabs we want to add?</p>
+  <h1 class="govuk-heading-xl">{entry.data.title}</h1>
+  <Content components={{ Example }} />
 </Layout>

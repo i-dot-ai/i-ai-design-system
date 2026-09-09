@@ -5,10 +5,4 @@
 @use "govuk-frontend" as * with ( // Use a non-GDS Transport font stack (GDS Transport is GOV.UK-branded).
   $govuk-font-family: ("Helvetica Neue", Helvetica, Arial, sans-serif),
   // Set your own brand colour (used e.g. for footer border).
-  $govuk-functional-colours: (brand: #16548a));
-
-// Wider variant of .govuk-width-container, used where a page needs more
-// horizontal space than the default 960px (e.g. Get started's 3-column layout).
-.govuk-width-container--wide {
-  @include govuk-width-container(1400px);
-}
+  $govuk-functional-colours: (brand: #1d70b8));
