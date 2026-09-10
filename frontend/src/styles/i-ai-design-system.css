@@ -8,8 +8,8 @@ html {
 
 .govuk-button--inverse {
     border: 1px solid var(--govuk-border-colour);
-    border-bottom: 2px solid transparent;
-    box-shadow: 0 2px 0 #858686;
+    border-bottom: 3px solid transparent;
+    box-shadow: 0 1px 0 #858686;
 }
 
 .govuk-link--warning {
