@@ -6,10 +6,34 @@ html {
     display: inline-block;
 }
 
-.govuk-button--inverse {
+.govuk-button--tertiary {
+    background-color: #ffffff;;
     border: 1px solid var(--govuk-border-colour);
     border-bottom: 3px solid transparent;
+    box-shadow: 0 2px 0 #858686;
+    color: var(--govuk-link-colour);
+}
+
+.govuk-button--tertiary:hover {
+    background-color: #f4f8fb;
+    color: var(--govuk-link-colour);
+}
+
+.govuk-button--small {
+    padding: 6px 8px 4px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     box-shadow: 0 1px 0 #858686;
+}
+
+.govuk-button-group:has(.govuk-button--small) {
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.govuk-button-group .govuk-button--small {
+    margin-bottom: 0;
+    margin-right: 2px;
 }
 
 .govuk-link--warning {

@@ -20,12 +20,20 @@ The secondary button is to be used when there are two actions, one primary and o
 
 <Example component="button" astro="./examples/secondary.astro" html="./examples/secondary.html" />
 
+## Tertiary
+
+The tertiary button is to be used when there are multiple actions on a page, or the action does not satisfy the above criteria for a primary or secondary action.
+
+<Example component="button" astro="./examples/tertiary.astro" html="./examples/tertiary.html" variant="tertiary" />
+
 ## Inverse buttons
 
-We have updated the inverse button from the GOV.UK Design System to be suitable for all backgrounds. Due to it's white background it does not draw as much attention as the primary button. It should there be used for cases of multiple actions on a page.
+Iverse buttons are to replace the primary buttons when on a dark background. The secondary and tertiary buttons are designed to work as usual on a dark background.
 
-<Example component="button" astro="./examples/inverse.astro" html="./examples/inverse.html" />
+<Example component="button" astro="./examples/inverse.astro" html="./examples/inverse.html" variant="inverse" />
 
-It should also be used for primary actions on a dark background.
+## Small buttons
 
-<Example component="button" astro="./examples/inverse-primary.astro" html="./examples/inverse-primary.html" variant="inverse" />
+Small buttons are to be used when there is a need for a smaller button, such as in a toolbar or when space is limited. Small buttons can be used with any of the button variants.
+
+<Example component="button" astro="./examples/small.astro" html="./examples/small.html" />
