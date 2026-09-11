@@ -4,22 +4,36 @@ status: adapted
 decisionRecord: /decisions-record/buttons
 ---
 
-Buttons have been adapted from the GOV.UK Design System to fit the needs of
-i.AI apps. Jump to [button decision record](/decisions-record/buttons) to see
-what has changed and why.
+## Button Variants
 
-## Default buttons
+### Primary
 
-Use the primary button when the action is the main action on the page.
+The primary button is the default button variant. It is to be used when there is one primary action on a page.
 
-Use the secondary button when the action is a secondary action on the page.
-Where you have multiple buttons on the page, the secondary button has been
-designed to work to be duplicated multiple times
+If there are multiple primary actions on a page, use the inverse button variant.
 
-<Example component="button" astro="./examples/default.astro" html="./examples/default.html" />
+<Example component="button" astro="./examples/primary.astro" html="./examples/primary.html" />
+
+### Secondary
+
+The secondary button is to be used when there are two actions, one primary and one secondary. The secondary button should be used alongside the primary button. If there are any more than two actions, use the inverse button variant.
+
+<Example component="button" astro="./examples/secondary.astro" html="./examples/secondary.html" />
+
+## Tertiary
+
+The tertiary button is to be used when there are multiple actions on a page, or the action does not satisfy the above criteria for a primary or secondary action.
+
+<Example component="button" astro="./examples/tertiary.astro" html="./examples/tertiary.html" variant="tertiary" />
 
 ## Inverse buttons
 
-Use the inverse button when the action is on a dark background.
+Iverse buttons are to replace the primary buttons when on a dark background. The secondary and tertiary buttons are designed to work as usual on a dark background.
 
 <Example component="button" astro="./examples/inverse.astro" html="./examples/inverse.html" variant="inverse" />
+
+## Small buttons
+
+Small buttons are to be used when there is a need for a smaller button, such as in a toolbar or when space is limited. Small buttons can be used with any of the button variants.
+
+<Example component="button" astro="./examples/small.astro" html="./examples/small.html" />

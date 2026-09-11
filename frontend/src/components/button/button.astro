@@ -5,17 +5,20 @@ interface Props extends HTMLAttributes<"button"> {
     variant?:
         | "primary"
         | "secondary"
+        | "tertiary"
         | "warning"
         | "inverse"
         | "link"
         | "warning-link";
     href?: string;
     underline?: boolean;
+    small?: boolean;
 }
 
 const {
     variant = "primary",
     href,
+    small = false,
     class: className,
     underline = true,
     ...rest
@@ -29,6 +32,8 @@ switch (variant) {
     case "secondary":
         buttonClass = "govuk-button govuk-button--secondary";
         break;
+    case "tertiary":
+        buttonClass = "govuk-button govuk-button--tertiary";
     case "warning":
         buttonClass = "govuk-button govuk-button--warning";
         break;
@@ -50,6 +55,10 @@ switch (variant) {
     default:
         buttonClass = "govuk-button";
         break;
+}
+
+if (small) {
+    buttonClass += " govuk-button--small";
 }
 
 if (className) {
