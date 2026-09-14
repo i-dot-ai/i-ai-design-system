@@ -10,17 +10,20 @@
  * `components` and `styles` collections via the `collection` prop.
  */
 import { Code } from "astro:components";
-import Tabs from "@components/tabs/tabs.astro";
-import TabsList from "@components/tabs/tabs-list.astro";
-import Tab from "@components/tabs/tab.astro";
-import TabPanel from "@components/tabs/tab-panel.astro";
-import Details from "@components/details/details.astro";
-import DetailsSummary from "@components/details/details-summary.astro";
-import DetailsText from "@components/details/details-text.astro";
+import Tabs from "@i-dot-ai-npm/component-library-astro/tabs/tabs.astro";
+import TabsList from "@i-dot-ai-npm/component-library-astro/tabs/tabs-list.astro";
+import Tab from "@i-dot-ai-npm/component-library-astro/tabs/tab.astro";
+import TabPanel from "@i-dot-ai-npm/component-library-astro/tabs/tab-panel.astro";
+import Details from "@i-dot-ai-npm/component-library-astro/details/details.astro";
+import DetailsSummary from "@i-dot-ai-npm/component-library-astro/details/details-summary.astro";
+import DetailsText from "@i-dot-ai-npm/component-library-astro/details/details-text.astro";
 
 interface Props {
     astro?: string;
     html?: string;
+    react?: string;
+    svelte?: string;
+    solid?: string;
     /** Entry folder slug (from the page), used to resolve example paths. */
     component: string;
     /** Content collection the entry lives in. Defaults to "components". */
@@ -31,13 +34,16 @@ interface Props {
 const {
     astro,
     html,
+    react,
+    svelte,
+    solid,
     component,
     collection = "components",
     variant = "default",
 } = Astro.props;
 
 const files = import.meta.glob(
-    "/src/content/{components,styles,decisions}/**/examples/*.{astro,html}",
+    "/src/content/{components,styles,decisions}/**/examples/*.{astro,html,svelte,tsx}",
     { query: "?raw", import: "default", eager: true },
 ) as Record<string, string>;
 
@@ -51,20 +57,30 @@ function resolve(relPath?: string): string | undefined {
 
 const astroCode = resolve(astro);
 const htmlCode = resolve(html);
+const reactCode = resolve(react);
+const svelteCode = resolve(svelte);
+const solidCode = resolve(solid);
 
 const containerClass =
     variant === "inverse"
         ? "component-container--inverse"
         : "component-container";
 
-const base = (astro || html || "example")
+const base = (astro || html || react || svelte || solid || "example")
     .replace(/^\.\//, "")
     .replace(/\//g, "-")
-    .replace(/\.(astro|html)$/, "");
+    .replace(/\.(astro|html|svelte|tsx)$/, "")
+    .replace(/\.(react|solid)$/, "");
 
-const tabs: Array<{ lang: "astro" | "html"; code: string; label: string }> = [];
-if (astroCode) tabs.push({ lang: "astro", code: astroCode, label: "Astro" });
-if (htmlCode) tabs.push({ lang: "html", code: htmlCode, label: "HTML" });
+type TabLang = "html" | "astro" | "react" | "svelte" | "solid";
+const tabs: Array<{ lang: TabLang; code: string; label: string; shiki: string }> =
+    [];
+// Order: HTML, Astro, React, Svelte, Solid
+if (htmlCode) tabs.push({ lang: "html", code: htmlCode, label: "HTML", shiki: "html" });
+if (astroCode) tabs.push({ lang: "astro", code: astroCode, label: "Astro", shiki: "astro" });
+if (reactCode) tabs.push({ lang: "react", code: reactCode, label: "React", shiki: "tsx" });
+if (svelteCode) tabs.push({ lang: "svelte", code: svelteCode, label: "Svelte", shiki: "svelte" });
+if (solidCode) tabs.push({ lang: "solid", code: solidCode, label: "Solid", shiki: "tsx" });
 ---
 
 <div class={containerClass} set:html={htmlCode ?? ""} />
@@ -84,7 +100,7 @@ if (htmlCode) tabs.push({ lang: "html", code: htmlCode, label: "HTML" });
                     </TabsList>
                     {tabs.map((t, i) => (
                         <TabPanel id={`${base}-${t.lang}`} hidden={i !== 0}>
-                            <Code code={t.code} lang={t.lang} theme="github-light" />
+                            <Code code={t.code} lang={t.shiki} theme="github-light" />
                         </TabPanel>
                     ))}
                 </Tabs>

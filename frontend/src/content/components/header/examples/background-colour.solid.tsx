@@ -1,0 +1,25 @@
+import Header from "@i-dot-ai-npm/component-library-solid/header/Header";
+
+export default function Example() {
+  return (
+    <Header backgroundColour="<your-background-colour>">
+        <svg
+            slot="logo"
+            width="28"
+            class="govuk-generic-header__logo"
+            height="30"
+            viewBox="0 0 28 30"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle cx="13.5549" cy="4.21349" r="4.21349"></circle>
+            <circle cx="13.5549" cy="25.7865" r="4.21349"></circle>
+            <circle cx="22.8963" cy="9.6068" r="4.21349"></circle>
+            <circle cx="4.2135" cy="20.3932" r="4.21349"></circle>
+            <circle cx="22.8963" cy="20.3932" r="4.21349"></circle>
+            <circle cx="4.21351" cy="9.60674" r="4.21349"></circle>
+        </svg>
+        Product name
+    </Header>
+  );
+}
