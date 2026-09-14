@@ -26,7 +26,7 @@ const pathName = Astro.url.pathname;
 					: "");
 		</script>
 		<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
-		<Header href="/" style="background-color: var(--govuk-brand-colour, #16548a);">
+		<Header href="/">
 			<svg
 				width="28"
 				height="30"
@@ -43,7 +43,7 @@ const pathName = Astro.url.pathname;
 			</svg>
 			i.AI Design Kit
 		</Header>
-		<ServiceNavigation inverse={pathName === "/"}>
+		<ServiceNavigation>
 			<ServiceNavigationItem href="/get-started">
 				Get started
 			</ServiceNavigationItem>

@@ -20,13 +20,13 @@
 @custom-variant aria-current (&[aria-current="page"]);
 
 .app-masthead {
-  background-color: var(--govuk-brand-colour, #16548a);
+  background-color: #d2e2f1;
 }
 
-.app-masthead__body,
+/* .app-masthead__body,
 .app-masthead__title {
   color: #fff;
-}
+} */
 
 .component-render-options-container,
 .component-container {

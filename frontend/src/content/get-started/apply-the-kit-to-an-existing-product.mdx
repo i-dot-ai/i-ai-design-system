@@ -61,8 +61,8 @@ To change the brand colour, update `$govuk-functional-colours`:
 
 ```scss
 $govuk-functional-colours: (
-  brand: #388E3C
-)
+  brand: #388e3c,
+);
 ```
 
 If your product is department-branded, this is where the department's
@@ -75,8 +75,16 @@ Download both files and add them to your project's styles and scripts
 folders.
 
 <div class="govuk-button-group">
-  <a class="govuk-button" href="/i-ai-design-system.min.css" download="i-ai-design-system.min.css">Download i.AI stylesheet CSS</a>
-  <a class="govuk-button" href="/i-ai-design-system.min.js" download="i-ai-design-system.min.js">Download i.AI JavaScript file</a>
+  <a
+    class="govuk-button"
+    href="/i-ai-design-system.min.css"
+    download="i-ai-design-system.min.css"
+  >Download i.AI stylesheet CSS</a>
+  <a
+    class="govuk-button"
+    href="/i-ai-design-system.min.js"
+    download="i-ai-design-system.min.js"
+  >Download i.AI JavaScript file</a>
 </div>
 
 ## 5. Link to the CSS and JavaScript files
@@ -89,10 +97,10 @@ Put the govuk-frontend CSS first. Order matters.
 
 ```html
 <head>
-    ...
-    <link rel="stylesheet" href="govuk-frontend.min.css" />
-    <link rel="stylesheet" href="i-ai-design-system.min.css" />
-    ...
+  ...
+  <link rel="stylesheet" href="govuk-frontend.min.css" />
+  <link rel="stylesheet" href="i-ai-design-system.min.css" />
+  ...
 </head>
 ```
 
