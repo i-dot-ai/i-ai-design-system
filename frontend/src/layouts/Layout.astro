@@ -3,9 +3,9 @@ import "../styles/govuk.scss";
 import "../styles/i-ai-design-system.css";
 import "../styles/global.css";
 
-import ServiceNavigation from "@components/service-navigation/service-navigation.astro";
-import ServiceNavigationItem from "@components/service-navigation/service-navigation-item.astro";
-import Header from "@components/header/header.astro";
+import ServiceNavigation from "@i-dot-ai-npm/component-library-astro/service-navigation/service-navigation.astro";
+import ServiceNavigationItem from "@i-dot-ai-npm/component-library-astro/service-navigation/service-navigation-item.astro";
+import Header from "@i-dot-ai-npm/component-library-astro/header/header.astro";
 const pathName = Astro.url.pathname;
 ---
 
@@ -26,7 +26,7 @@ const pathName = Astro.url.pathname;
 					: "");
 		</script>
 		<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
-		<Header backgroundColour="var(--govuk-brand-colour)">
+		<Header href="/" style="background-color: var(--govuk-brand-colour, #16548a);">
 			<svg
 				width="28"
 				height="30"
