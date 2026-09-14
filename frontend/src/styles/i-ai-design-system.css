@@ -7,7 +7,8 @@ html {
 }
 
 .govuk-button--tertiary {
-    background-color: #ffffff;;
+    background-color: #ffffff;
+    ;
     border: 1px solid var(--govuk-border-colour);
     border-bottom: 3px solid transparent;
     box-shadow: 0 2px 0 #858686;
@@ -247,7 +248,7 @@ html {
 }
 
 .side-nav__item--active {
-    border-color: var(--govuk-brand-colour);
+    border-color: var(--govuk-link-colour);
 }
 
 /* Toggle
