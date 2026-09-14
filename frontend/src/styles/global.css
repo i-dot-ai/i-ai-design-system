@@ -23,10 +23,10 @@
   background-color: var(--govuk-brand-colour, #16548a);
 }
 
-.app-masthead__body,
+/* .app-masthead__body,
 .app-masthead__title {
   color: #fff;
-}
+} */
 
 .component-render-options-container,
 .component-container {
