@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Button from "@components/button/button.astro";
+import Button from "@i-dot-ai-npm/component-library-astro/button/button.astro";
 import { getEntry, render } from "astro:content";
 
 const entry = await getEntry("home", "index");
@@ -22,7 +22,7 @@ const { Content } = await render(entry);
                     <Button
                         variant="inverse"
                         href="/get-started"
-                        class="govuk-button--start"
+                        class="govuk-button--start govuk-button--inverse"
                     >
                         Get started
                         <svg
