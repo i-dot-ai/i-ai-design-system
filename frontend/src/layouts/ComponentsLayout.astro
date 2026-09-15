@@ -5,157 +5,28 @@ import SideNavItem from "@components/side-nav/side-nav-item.astro";
 import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumb-item.astro";
+import { getCollection } from "astro:content";
 
 const currentPath = Astro.url.pathname;
 
-const componentList = [
-    {
-        text: "Accordion",
-        href: "/components/accordion",
-    },
-    {
-        text: "Back link",
-        href: "/components/back-link",
-    },
-    {
-        text: "Breadcrumbs",
-        href: "/components/breadcrumbs",
-    },
-    {
-        text: "Button",
-        href: "/components/button",
-    },
-    {
-        text: "Card",
-        href: "/components/card",
-    },
-    {
-        text: "Character count",
-        href: "/components/character-count",
-    },
-    {
-        text: "Checkboxes",
-        href: "/components/checkboxes",
-    },
-    {
-        text: "Cookie banner",
-        href: "/components/cookie-banner",
-    },
-    {
-        text: "Date input",
-        href: "/components/date-input",
-    },
-    {
-        text: "Details",
-        href: "/components/details",
-    },
-    {
-        text: "Error message",
-        href: "/components/error-message",
-    },
-    {
-        text: "Error summary",
-        href: "/components/error-summary",
-    },
-    {
-        text: "Fieldset",
-        href: "/components/fieldset",
-    },
-    {
-        text: "File upload",
-        href: "/components/file-upload",
-    },
-    {
-        text: "Header",
-        href: "/components/header",
-    },
-    {
-        text: "Hint",
-        href: "/components/hint",
-    },
-    {
-        text: "Inset text",
-        href: "/components/inset-text",
-    },
-    {
-        text: "Label",
-        href: "/components/label",
-    },
-    {
-        text: "Notification banner",
-        href: "/components/notification-banner",
-    },
-    {
-        text: "Pagination",
-        href: "/components/pagination",
-    },
-    {
-        text: "Password input",
-        href: "/components/password-input",
-    },
-    {
-        text: "Phase banner",
-        href: "/components/phase-banner",
-    },
-    {
-        text: "Radios",
-        href: "/components/radios",
-    },
-    {
-        text: "Select",
-        href: "/components/select",
-    },
-    {
-        text: "Service navigation",
-        href: "/components/service-navigation",
-    },
-    {
-        text: "Skip link",
-        href: "/components/skip-link",
-    },
-    {
-        text: "Summary list",
-        href: "/components/summary-list",
-    },
-    {
-        text: "Table",
-        href: "/components/table",
-    },
-    {
-        text: "Tabs",
-        href: "/components/tabs",
-    },
-    {
-        text: "Tag",
-        href: "/components/tag",
-    },
-    {
-        text: "Task list",
-        href: "/components/task-list",
-    },
-    {
-        text: "Text input",
-        href: "/components/text-input",
-    },
-    {
-        text: "Textarea",
-        href: "/components/textarea",
-    },
-    {
-        text: "Toggle",
-        href: "/components/toggle",
-    },
-    {
-        text: "Warning text",
-        href: "/components/warning-text",
-    },
-];
+// The in-folder landing page (components/index.mdx) is rendered by
+// components/index.astro, not as a component in the side nav.
+const entries = await getCollection(
+    "components",
+    ({ id }) => id !== "index",
+);
+const componentList = entries
+    .map((entry) => ({
+        text: entry.data.name ?? entry.id,
+        href: `/components/${entry.id}`,
+    }))
+    .sort((a, b) => a.text.localeCompare(b.text));
 ---
 
 <Layout>
     <div class="govuk-main-wrapper govuk-width-container">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
+            <div class="govuk-grid-column-one-quarter">
                 <SideNav>
                     <SideNavList>
                         {
@@ -169,7 +40,7 @@ const componentList = [
                     </SideNavList>
                 </SideNav>
             </div>
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-three-quarters">
                 <Breadcrumbs>
                     <BreadcrumbItem href="/">Home</BreadcrumbItem>
                     {

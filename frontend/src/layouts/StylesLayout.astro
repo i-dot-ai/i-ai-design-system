@@ -6,6 +6,7 @@ import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumb-item.astro";
 import { getCollection } from "astro:content";
+import SideNavTitle from "@components/side-nav/side-nav-title.astro";
 
 const currentPath = Astro.url.pathname;
 
@@ -18,14 +19,14 @@ const stylesCategories = entries
         text: entry.data.title,
         href: `/styles/${entry.id}`,
     }))
-    .sort((a, b) => a.text.localeCompare(b.text));
 ---
 
 <Layout>
     <div class="govuk-main-wrapper govuk-width-container">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
+            <div class="govuk-grid-column-one-quarter">
                 <SideNav>
+                    <SideNavTitle>Structure</SideNavTitle>
                     <SideNavList>
                         {
                             stylesCategories.map((category) => (
@@ -38,7 +39,7 @@ const stylesCategories = entries
                     </SideNavList>
                 </SideNav>
             </div>
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-three-quarters">
                 <Breadcrumbs>
                     <BreadcrumbItem href="/">Home</BreadcrumbItem>
                     {

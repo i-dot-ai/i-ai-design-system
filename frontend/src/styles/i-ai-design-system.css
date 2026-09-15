@@ -1,3 +1,21 @@
+/* .govuk-width-container {
+  max-width: 1200px !important;
+}
+
+@media (min-width: 1020px) {
+  .govuk-width-container {
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+  }
+}
+
+@media (min-width: 1260px) {
+  .govuk-width-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+} */
+
 html {
     scrollbar-gutter: stable;
 }
