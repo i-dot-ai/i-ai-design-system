@@ -44,3 +44,12 @@
   overflow-x: scroll;
   padding: 20px;
 }
+
+.app-swatch {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--govuk-border-colour);
+  vertical-align: middle;
+}

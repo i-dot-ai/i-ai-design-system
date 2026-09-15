@@ -1,6 +1,8 @@
 ---
 import Layout from "@layouts/StylesLayout.astro";
 import Example from "@components/docs/example.astro";
+import Swatch from "@components/docs/swatch.astro";
+import CodeSnippet from "@components/docs/code-snippet.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -19,5 +21,5 @@ const { Content } = await render(entry);
 
 <Layout>
     <h1 class="govuk-heading-xl">{entry.data.title}</h1>
-    <Content components={{ Example }} />
+    <Content components={{ Example, Swatch, CodeSnippet }} />
 </Layout>

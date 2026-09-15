@@ -30,8 +30,12 @@ const brandingPages = [
 
 const visualPages = [
     {
-        text: "colour",
-        href: "/styles/colour",
+        text: "Colour palette",
+        href: "/styles/colour-palette",
+    },
+    {
+        text: "Chart colours",
+        href: "/styles/chart-colours",
     },
 ];
 ---
@@ -56,6 +60,17 @@ const visualPages = [
                     <SideNavList>
                         {
                             structurePages.map((page) => (
+                                <SideNavItem
+                                    text={page.text}
+                                    href={page.href}
+                                />
+                            ))
+                        }
+                    </SideNavList>
+                    <SideNavTitle>Colour</SideNavTitle>
+                    <SideNavList>
+                        {
+                            visualPages.map((page) => (
                                 <SideNavItem
                                     text={page.text}
                                     href={page.href}

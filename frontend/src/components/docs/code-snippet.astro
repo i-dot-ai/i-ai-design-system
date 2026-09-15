@@ -1,0 +1,19 @@
+---
+/*
+ * CodeSnippet — renders a standalone, syntax-highlighted code block using the
+ * same Astro <Code> component (Shiki, github-light) as the component examples,
+ * so Sass/other snippets in docs match the look of component code.
+ */
+import { Code } from "astro:components";
+
+interface Props {
+    code: string;
+    lang?: string;
+}
+
+const { code, lang = "scss" } = Astro.props;
+---
+
+<div class="code-example">
+    <Code code={code} lang={lang as any} theme="github-light" />
+</div>
