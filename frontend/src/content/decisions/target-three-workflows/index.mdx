@@ -5,3 +5,23 @@ status: accepted
 dateProposed: 4 September 2026
 group: Approach
 ---
+
+## Context
+
+For the design kit to be used, it has to fit the ways people actually work in
+i.AI. Research showed three main ways of working, and that people were not using
+Figma or the GOV.UK Prototype Kit to prototype. We want to support the ways
+people already work rather than impose new tools.
+
+## Decision
+
+We will target three workflows:
+
+- a designer prototyping in code, using a Claude skill that reads the design
+  kit
+- an engineer starting a new project from the cookie cutter, using a Claude
+  setup that points to the design kit
+- an engineer working alone on an existing project
+
+We are not supporting Figma or the GOV.UK Prototype Kit.
+
