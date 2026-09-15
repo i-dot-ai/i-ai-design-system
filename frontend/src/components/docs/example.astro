@@ -27,7 +27,7 @@ interface Props {
     /** Entry folder slug (from the page), used to resolve example paths. */
     component: string;
     /** Content collection the entry lives in. Defaults to "components". */
-    collection?: "components" | "styles" | "decisions";
+    collection?: "components" | "styles" | "decisions" | "get-started";
     variant?: "default" | "inverse";
 }
 
@@ -43,7 +43,7 @@ const {
 } = Astro.props;
 
 const files = import.meta.glob(
-    "/src/content/{components,styles,decisions}/**/examples/*.{astro,html,svelte,tsx}",
+    "/src/content/{components,styles,decisions,get-started}/**/examples/*.{astro,html,svelte,tsx}",
     { query: "?raw", import: "default", eager: true },
 ) as Record<string, string>;
 

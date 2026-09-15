@@ -6,3 +6,6 @@
   $govuk-font-family: ("Helvetica Neue", Helvetica, Arial, sans-serif),
   // Set your own brand colour (used e.g. for footer border).
   $govuk-functional-colours: (brand: #1a65a6));
+
+// i.AI override layer — must come after govuk-frontend's base styles.
+@use "@i-dot-ai-npm/component-library-frontend/scss";
