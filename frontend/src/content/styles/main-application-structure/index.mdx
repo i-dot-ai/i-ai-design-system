@@ -3,14 +3,28 @@ title: Main application structure
 description: How to structure applications in i.AI
 ---
 
-Use this template to keep your pages consistent with the rest of the design kit.
+Use this template for your main application. 
 
-This page template combines the boilerplate markup and components needed for a basic GOV.UK page. It includes:
+This template is based off the [GOV.UK page template guidance](https://design-system.service.gov.uk/styles/page-template/). 
+The Footer component has been removed.
 
-JavaScript that adds a .govuk-frontend-supported class, which is required by components with JavaScript behaviour
-the Skip link component, Header component and Footer component
-the favicon, and other related theme icons
-In the examples provided, we show both HTML and Nunjucks.
+It includes:
+
+- Design kit javascript and CSS import and initialisation
+- The [skip link component](/components/skip-link), [Header component](/components/header)
+
 
 <Example collection="styles" component="main-application-structure" astro="./examples/default.astro" html="./examples/default.html" />
 
+## Dealing with "crampt" applications
+
+in accordance with the approach of using the GOV.UK styles and only deviating where needed. It is best to start with this basic template where possible.
+You should therefore start with the above basic GOV.UK page template.
+
+However, previous products using this template hasve often seen an issue where content feels "squeezed" or "crampt". 
+If you are finding this you can use the following solutions, in order of severity:
+
+1. [Expand the max width of the page](/patterns/expand-the-max-width-of-the-page)
+2. Use the [side navigation variant of the service navigation](/patterns/side-navigation)
+
+If these solutions do not meet your needs, then feel free to create a bespoke solution and [contribute your findings back to the Design Kit](/get-started/kit-forum) 
