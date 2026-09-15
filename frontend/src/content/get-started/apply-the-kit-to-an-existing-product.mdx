@@ -10,21 +10,9 @@ This is still a work in progress. What follows is how the kit works
 today. We're making it easier to install, with npm component packages
 coming soon.
 
-## 1. Confirm the brand it's moving to
+## 1. Install GOV.UK Frontend
 
-Work out who the product is for, and confirm the brand that follows from
-that. Moving onto the kit does not by itself change a product's audience
-or its brand. Get this confirmed before you start moving components,
-because it decides what the finished product should look like, not just
-how it's built.
-
-## 2. Check what version you're moving from
-
-The kit targets GOV.UK Frontend v6.5.0. If your product is on an earlier
-version of GOV.UK Frontend, expect some refactoring before kit components
-will sit alongside your existing markup cleanly.
-
-## 3. Install GOV.UK Frontend
+If you already have GOV.UK Frontend installed, go straight to step 2.
 
 The kit is built on top of the GOV.UK Design System, so install
 govuk-frontend first. This is the recommended route. There are others,
@@ -61,7 +49,7 @@ To change the brand colour, update `$govuk-functional-colours`:
 
 ```scss
 $govuk-functional-colours: (
-  brand: #388e3c,
+  brand: #1a65a6,
 );
 ```
 
@@ -69,7 +57,7 @@ If your product is department-branded, this is where the department's
 colour goes. Check it passes contrast on white surfaces before you set
 it.
 
-## 4. Add the i.AI stylesheet and JavaScript file
+## 2. Add the i.AI stylesheet and JavaScript file
 
 Download both files and add them to your project's styles and scripts
 folders.
@@ -87,7 +75,7 @@ folders.
   >Download i.AI JavaScript file</a>
 </div>
 
-## 5. Link to the CSS and JavaScript files
+## 3. Link to the CSS and JavaScript files
 
 Add links to both files in the head of your HTML file. This is
 Layout.astro if you're using Astro, or frontend/app/layout.tsx if you're
@@ -120,7 +108,7 @@ initAllIAIDesignSystem from the i.AI JavaScript file:
 </html>
 ```
 
-## 6. Look at what you already have
+## 4. Look at what you already have
 
 Go component by component rather than rebuilding the whole interface at
 once. For each one, check whether the kit already covers it:
@@ -132,30 +120,7 @@ once. For each one, check whether the kit already covers it:
 - if what you have doesn't exist in the kit at all, that's a candidate
   for the [kit forum](/get-started/kit-forum), not just a local fix
 
-## 7. Route and make
-
-Move components in order of how often they're used, so the biggest
-inconsistencies get resolved first. Treat this as a migration, not a
-rewrite — the aim is to get onto shared components and tokens, not to
-redesign the product while you're at it.
-
-Measure the effort as you go rather than estimating it upfront. Migration
-cost varies a lot by how far a product has already drifted from GOV.UK
-Frontend, and that's only known once you're in the code.
-
-## 8. Check it
-
-Same two gates as any other change:
-
-- **Behavioural check** — keyboard operation, screen reader output, focus
-  visibility
-- **Human review** — someone other than the person who did the migration
-  has looked at it
-
-Check the brand is applied consistently across the whole product once
-you're done, not just on the components you touched first.
-
-## 9. Record
+## 5. Record
 
 Record the components you moved onto the kit, anything you deviated from
 along the way, and anything the product needed that the kit still doesn't

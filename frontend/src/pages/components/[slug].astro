@@ -21,7 +21,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const STATUS_TAG: Record<string, { colour: string; label: string }> = {
-    adapted: { colour: "turquoise", label: "Adapted" },
+    adapted: { colour: "purple", label: "Adapted" },
     standard: { colour: "blue", label: "Standard" },
     new: { colour: "green", label: "New" },
 };
@@ -35,7 +35,7 @@ const tag = entry.data.status ? STATUS_TAG[entry.data.status] : undefined;
     {
         tag && (
             <ul class="govuk-list govuk-list--spaced">
-                <Tag colour={tag.colour as "turquoise" | "blue" | "green"}>
+                <Tag colour={tag.colour as "purple" | "blue" | "green"}>
                     {tag.label}
                 </Tag>
             </ul>
