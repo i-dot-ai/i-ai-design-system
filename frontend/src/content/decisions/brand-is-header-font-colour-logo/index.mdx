@@ -1,6 +1,6 @@
 ---
 number: 3
-title: Brand is the header, font, brand colour and logo
+title: Brand is the product name, header, font, brand colour and logo
 status: proposal
 dateProposed: 4 September 2026
 group: Branding
@@ -8,13 +8,33 @@ group: Branding
 
 ## Context
 
-This follows how GOV.UK itself separates brand from the rest of an interface.
-Keeping brand to these few things means we can use GOV.UK Frontend across all
-our products and switch a product's brand easily.
+[Decision 002](/decisions-record/branding-determined-by-audience) states that 
+we will need products that are branded either full GOV.UK or as a government 
+department.
+
+We therefore need to know how to switch between the different brands in a way 
+that enables us to use the same functionality to avoid having two design 
+systems.
+
+The [Service Manual guidance on when your product is not in 
+GOV.UK](https://www.gov.uk/service-manual/design/making-your-service-look-like-govuk) 
+states that to use the GOV.UK Frontend when you are not GOV.UK your 
+product must **not**:
+
+- identify itself as being part of GOV.UK
+- use the crown or GOV.UK logotype in the header
+- use the GDS Transport typeface
+- suggest that it’s an official UK government website if it’s not
+- use the GOV.UK brand colours
 
 ## Decision
 
-Brand is the header, the font, the brand colour and the logo. Nothing else
-counts as brand.
+Brand is the prodcut name, header, font, brand colour and the logo. Changing 
+these is enough to shift the two brands set out in [decision 
+002](/decisions-record/branding-determined-by-audience)
+
+## Consequences
+
+This also allows us to use the GOV.UK Frontend for all our products.
 
 

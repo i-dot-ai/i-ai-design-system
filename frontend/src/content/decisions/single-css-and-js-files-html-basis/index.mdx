@@ -1,6 +1,6 @@
 ---
 number: 9
-title: We will hold single CSS and JS files that work with HTML as a basis
+title: We will hold single CSS and JS files that work with HTML as a basis of the component library
 status: proposal
 dateProposed: 4 September 2026
 group: Technical
@@ -8,12 +8,19 @@ group: Technical
 
 ## Context
 
-This follows the way GOV.UK Frontend works, with plain HTML, CSS and
-JavaScript. Any product can use the styles and behaviour whatever it is built
-with, there is one place to update, and it keeps maintenance light.
+The current GOV.UK Frontend works as a single CSS and JS file which can easily be 
+added to any project. The means that, as long as the right html is rendered, 
+the component library can be used in any framework.
+
+A brief discussion with the engineers in i.AI also suggested this approach was 
+preffered as a means of using a component library.
 
 ## Decision
 
 We will hold single CSS and JavaScript files that work with plain HTML as the
 basis for the design system.
 
+## Consequences
+
+Allows for very lightweight framework wrappers, see [decision 
+010](/decisions-record/lightweight-framework-wrappers)
