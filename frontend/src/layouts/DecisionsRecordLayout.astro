@@ -6,53 +6,51 @@ import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumb-item.astro";
 import { getCollection } from "astro:content";
-import { decisionSummaries } from "@data/decision-summaries";
 
 const currentPath = Astro.url.pathname;
+
+// Fixed order the groups are shown in.
+const GROUP_ORDER = [
+    "Branding",
+    "Design",
+    "Technical",
+    "Approach",
+] as const;
 
 const entries = await getCollection("decisions");
 const decisionsRecordList = entries
     .map((entry) => ({
         number: entry.data.number ?? 0,
-        text:
-            typeof entry.data.number === "number"
-                ? `${String(entry.data.number).padStart(3, "0")} - ${entry.data.title}`
-                : entry.data.title,
+        text: `${String(entry.data.number).padStart(3, "0")} - ${entry.data.title}`,
         href: `/decisions-record/${entry.id}`,
-        parent: entry.data.parent,
+        group: entry.data.group,
     }))
     .sort((a, b) => a.number - b.number);
 
-// Detailed records are grouped under the summary decision they detail.
-// Any summary decision without detailed records yet is left out of the nav.
-const groupedDecisionsRecordList = decisionSummaries
-    .map((summary) => ({
-        summary,
-        records: decisionsRecordList.filter(
-            (record) => record.parent === summary.number,
-        ),
-    }))
-    .filter((group) => group.records.length > 0);
+// Records grouped under their `group` heading, in the fixed group order.
+const groupedDecisionsRecordList = GROUP_ORDER.map((group) => ({
+    group,
+    records: decisionsRecordList.filter((record) => record.group === group),
+})).filter((g) => g.records.length > 0);
 
+// Any record without a group (e.g. the further-context record) is listed
+// after the grouped ones.
 const ungroupedDecisionsRecordList = decisionsRecordList.filter(
-    (record) => record.parent === undefined,
+    (record) => record.group === undefined,
 );
 ---
 
 <Layout>
     <div class="govuk-main-wrapper govuk-width-container">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-quarter">
+            <div class="govuk-grid-column-one-third">
                 <SideNav>
                     <SideNavList>
                         {
                             groupedDecisionsRecordList.map((group) => (
                                 <>
                                     <li class="side-nav__group-heading govuk-!-font-size-16 govuk-!-font-weight-bold">
-                                        {String(
-                                            group.summary.number,
-                                        ).padStart(3, "0")}{" "}
-                                        - {group.summary.text}
+                                        {group.group}
                                     </li>
                                     {group.records.map((decision) => (
                                         <SideNavItem
@@ -74,7 +72,7 @@ const ungroupedDecisionsRecordList = decisionsRecordList.filter(
                     </SideNavList>
                 </SideNav>
             </div>
-            <div class="govuk-grid-column-three-quarters">
+            <div class="govuk-grid-column-two-thirds">
                 <Breadcrumbs>
                     <BreadcrumbItem href="/">Home</BreadcrumbItem>
                     {
