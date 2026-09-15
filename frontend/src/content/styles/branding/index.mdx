@@ -1,0 +1,76 @@
+---
+title: Branding guidelines
+description: Branding guidance in i.AI
+---
+
+## Product brands in i.AI
+
+Products in i.AI will be branded as one of two options:
+
+- **A government department product**
+- **A GOV.UK product**
+
+The guidance here is on how to choose which brand to apply to your product, what constitues a "brand", and how to switch between them.
+
+## Context
+
+The context and reasoning of decisions behind these branding guidelines are recorded in the [Decisions record](/decisions-record).
+
+Most relevant here are the following:
+
+- [We will build off of GOV.UK Frontend](#)
+- [Branding is distinct from functionality](#)
+- [Branding is understood as limited to header, typography and brand colours](#)
+
+The implication of these decisions is that it is easy to switch between the brands as the user base of the product evolves or changes.
+
+## Government department brand
+
+This is the default brand choice of our i.AI products. If you are in an experimental 
+stage of development or unsure of which brand to choose you should go with this one 
+and switch later to the GOV.UK branding
+
+### What is my department?
+
+If you are working with a specific government department then that that is the department 
+branding you should use. E.g. your product should be called "DWP Minute" and have the DWP Header.
+
+If you are not working with a specific department, then your department is "i.AI". You use the 
+[generic header component](/components/header).
+
+
+### Implementation
+
+The Design Kit has been written with this default in mind, therefore you can read 
+the [getting started guides](/get-started) to implement this brand to your product.
+
+Overall this involves:
+
+- Use the [generic header component](/components/header)
+- Use the i.AI css stylesheets to override the brand colour and fonts
+
+## GOV.UK brand
+
+This should be adopted if:
+
+- it's for use by the general public 
+- it's for use across the public sector
+
+This will likely happen in the later stages of a products development as they get rolled out 
+to wider government departments or to the public. It is assumed therefore that most products will 
+have to be moved to the GOV.UK brand rather than start there.
+
+The Design Kit has been written with the departmental branding default in mind to avoid confusion. 
+The rest of the Design Kit is still relevant to a product branded as GOV.UK apart from in the ways 
+set out below which constitute moving to the GOV.UK brand
+
+### Moving to the GOV.UK brand
+
+We plan to add more detail to these instructions soon. For now, this is the list of things that you 
+have to do to brand as a GOV.UK product.
+
+- Name your product "GOV.UK Product Name"
+- Use the [GOV.UK header component](https://design-system.service.gov.uk/components/header/). This has 
+not been included in this site to avoid confusion but it is available with the i.AI styles
+- Revert the brand colour to the GOV.UK blue
+- Use GDS transport font
