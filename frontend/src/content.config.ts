@@ -73,10 +73,11 @@ const decisions = defineCollection({
         title: z.string(),
         status: z.enum(["proposal", "accepted", "overridden", "rejected"]),
         dateProposed: z.string().optional(),
-        // Number of the summary decision (see
-        // `src/data/decision-summaries.ts`) that this detailed record
-        // sits under.
-        parent: z.number().optional(),
+        // Grouping used to organise the records on the landing page and in
+        // the side nav.
+        group: z
+            .enum(["Branding", "Design", "Technical", "Approach"])
+            .optional(),
     }),
 });
 
