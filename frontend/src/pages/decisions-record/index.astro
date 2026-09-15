@@ -3,12 +3,7 @@ import Layout from "@layouts/DecisionsRecordLayout.astro";
 import { getCollection } from "astro:content";
 
 // Fixed order the groups are shown in.
-const GROUP_ORDER = [
-    "Branding",
-    "Design",
-    "Technical",
-    "Approach",
-] as const;
+const GROUP_ORDER = ["Branding", "Design", "Technical", "Approach"] as const;
 
 // The numbered decisions, ordered by their `number`. The
 // `adapt-govuk-design-system` record is kept as further context and is not
@@ -29,25 +24,4 @@ const grouped = GROUP_ORDER.map((group) => ({
     <p class="govuk-body">
         This is a record of the design decisions made in i.AI.
     </p>
-
-    {
-        grouped.map((group) => (
-            <>
-                <h2 class="govuk-heading-m">{group.group}</h2>
-                <ul class="govuk-list">
-                    {group.records.map((decision) => (
-                        <li>
-                            {String(decision.data.number).padStart(3, "0")} -{" "}
-                            <a
-                                class="govuk-link"
-                                href={`/decisions-record/${decision.id}`}
-                            >
-                                {decision.data.title}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </>
-        ))
-    }
 </Layout>
