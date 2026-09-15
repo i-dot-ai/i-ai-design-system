@@ -1,0 +1,15 @@
+---
+/*
+ * Swatch — renders a small circle filled with the given colour, for use in
+ * colour documentation tables. Mirrors the <Example> pattern: authored inline
+ * in MDX (<Swatch colour="#b39477" />) and registered on the styles page.
+ */
+interface Props {
+    /** Any valid CSS colour value, e.g. "#b39477". */
+    colour: string;
+}
+
+const { colour } = Astro.props;
+---
+
+<span class="app-swatch" style={`background-color:${colour}`}></span>

@@ -30,6 +30,10 @@
   margin-bottom: 20px;
 }
 
+.component-container .govuk-width-container {
+  padding: 0 15px;
+}
+
 .component-container--inverse {
   background-color: #16548a;
   padding: 20px;
@@ -39,4 +43,13 @@
 .code-example {
   overflow-x: scroll;
   padding: 20px;
+}
+
+.app-swatch {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--govuk-border-colour);
+  vertical-align: middle;
 }

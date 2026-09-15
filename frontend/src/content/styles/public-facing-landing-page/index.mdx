@@ -1,0 +1,70 @@
+---
+title: Public facing landing page
+description: How to structure internal and public facing applications in i.AI
+---
+
+Products in i.AI tend to be built for internal Civil Service users. Due to platform setup internally, this means that the main application 
+will be behind the Single Sign-On (SSO) and our own internal app specific authentication.
+
+We therefore have a need for a public facing landing page that is accessible to the general public.
+
+If you are currently in the experimental stage, you may not need to worry about this public page for now. It is easy to add later.
+
+## Technical implementation
+
+This page should be a static html page which imports the same components and styles as the main application.
+
+### Coming soon
+
+The full technical implementation of the public page pattern will be added to the cookie cutter and written up here.
+
+Until then you can see implementations of this from our other projects:
+
+- [Minute public site folder](https://github.com/i-dot-ai/minute/tree/main/frontend/public-site)
+- [Extract public pages folder](https://github.com/i-dot-ai/extract-app/tree/main/frontend/src/views/pages/public)
+
+## Structure
+
+Use the folowing template to structure this page:
+
+<Example collection="styles" component="public-facing-landing-page" html="./examples/default.html" />
+
+## Recommended Content
+
+You can put whatever you believe will be useful to the public on this page. In general, the following can be useful. These are meant as recommendations rather than rules
+
+### Header
+
+Use the same header as your main application
+
+### Title
+
+It is good to have the action that your application does as a title to the page. E.g. "Transcribe meetings" or "Extract planning data"
+
+### Description
+
+Have a quick description of who can use the tool and who to contact if users are experiencing access issues.
+
+### Sign in button
+
+Use the primary start variant of the button to link to the internal main application.
+
+### Product logo
+
+You can then show the main product logo in the right hand side to that panel to space out the content.
+
+### What's new sectoin
+
+Under the main app banner, it can be useful to have a "what's new section." This enables you to inform users of new features and also point to things coming in the future.
+
+### Footer
+
+Use the GOV.UK Footer here, where you probably won't have included this in the main application.
+
+### Informational content
+
+You can also add content such as data privacy policy, cookie policies or anything that might be useful for external teams looking to use the product if they do not currently have access.
+
+### Extra content
+
+Include anything else that you want everyone to have access to such as user guides.

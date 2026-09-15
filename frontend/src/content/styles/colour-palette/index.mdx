@@ -1,0 +1,226 @@
+---
+title: Colour palette
+description: The colours used across i.AI and how to use them.
+---
+
+Always use the i.AI colour palette. Reference colours through Sass functions
+rather than copying hex values, so your service always uses the latest palette.
+
+## Functional colours
+
+The i.AI Design System has a set of functional colours for essential page
+elements. These help apply colours in a way that makes interactions predictable
+and consistent to users.
+
+To access these colours, use the `govuk-functional-colour` Sass function. Do not
+copy the hex values. For example, use `govuk-functional-colour("brand")` rather
+than `#1d70b8`. This means your service always uses the most recent colour
+palette whenever you update.
+
+Only use these colours in the context they are designed for. In all other cases,
+reference the [web palette](#web-palette) directly.
+
+<CodeSnippet code={`color: govuk-functional-colour("brand"); // not #1d70b8
+color: govuk-functional-colour("error"); // error messages`} />
+
+### Text
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#0b0c0c" /> | text | #0b0c0c |
+| <Swatch colour="#484949" /> | secondary-text | #484949 |
+| <Swatch colour="#ffffff" /> | inverse-text | #ffffff |
+
+### Link
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#1a65a6" /> | link | #1a65a6 |
+| <Swatch colour="#0f385c" /> | link-hover | #0f385c |
+| <Swatch colour="#54319f" /> | link-visited | #54319f |
+| <Swatch colour="#0b0c0c" /> | link-active | #0b0c0c |
+
+### Border
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#cecece" /> | border | #cecece |
+| <Swatch colour="#0b0c0c" /> | input-border | #0b0c0c |
+
+### Background
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#f4f8fb" /> | template-background | #f4f8fb |
+| <Swatch colour="#ffffff" /> | body-background | #ffffff |
+
+### Focus state
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#ffdd00" /> | focus | #ffdd00 |
+| <Swatch colour="#0b0c0c" /> | focus-text | #0b0c0c |
+
+### Error state
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#ca3535" /> | error | #ca3535 |
+
+### Success state
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#0f7a52" /> | success | #0f7a52 |
+
+### Hover state
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#cecece" /> | hover | #cecece |
+
+### Brand colour
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#1d70b8" /> | brand | #1d70b8 |
+
+### Surface
+
+| Colour | Name | Hex |
+| --- | --- | --- |
+| <Swatch colour="#f4f8fb" /> | surface-background | #f4f8fb |
+| <Swatch colour="#0b0c0c" /> | surface-text | #0b0c0c |
+| <Swatch colour="#8eb8dc" /> | surface-border | #8eb8dc |
+
+## Web palette
+
+Use the web palette for supporting elements, or in custom components where
+appropriate. Access it with the `govuk-colour` function. By default the function
+returns the primary variant; use the `$variant` option for tints and shades.
+
+<CodeSnippet code={`color: govuk-colour("blue"); // Primary blue #1d70b8
+color: govuk-colour("red", $variant: "tint-25");  // Red tint 25%
+color: govuk-colour("blue", $variant: "shade-50"); // Blue shade 50%`} />
+
+### Blue
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#1d70b8" /> | primary | #1d70b8 |
+| <Swatch colour="#5694ca" /> | tint-25 | #5694ca |
+| <Swatch colour="#8eb8dc" /> | tint-50 | #8eb8dc |
+| <Swatch colour="#d2e2f1" /> | tint-80 | #d2e2f1 |
+| <Swatch colour="#f4f8fb" /> | tint-95 | #f4f8fb |
+| <Swatch colour="#1a65a6" /> | shade-10 | #1a65a6 |
+| <Swatch colour="#16548a" /> | shade-25 | #16548a |
+| <Swatch colour="#0f385c" /> | shade-50 | #0f385c |
+
+### Green
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#0f7a52" /> | primary | #0f7a52 |
+| <Swatch colour="#4b9b7d" /> | tint-25 | #4b9b7d |
+| <Swatch colour="#87bca8" /> | tint-50 | #87bca8 |
+| <Swatch colour="#cfe4dc" /> | tint-80 | #cfe4dc |
+| <Swatch colour="#f3f8f6" /> | tint-95 | #f3f8f6 |
+| <Swatch colour="#0b5c3e" /> | shade-25 | #0b5c3e |
+| <Swatch colour="#083d29" /> | shade-50 | #083d29 |
+
+### Teal
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#158187" /> | primary | #158187 |
+| <Swatch colour="#50a1a5" /> | tint-25 | #50a1a5 |
+| <Swatch colour="#8ac0c3" /> | tint-50 | #8ac0c3 |
+| <Swatch colour="#d0e6e7" /> | tint-80 | #d0e6e7 |
+| <Swatch colour="#f3f9f9" /> | tint-95 | #f3f9f9 |
+| <Swatch colour="#106165" /> | shade-25 | #106165 |
+| <Swatch colour="#0b4144" /> | shade-50 | #0b4144 |
+
+### Purple
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#54319f" /> | primary | #54319f |
+| <Swatch colour="#7f65b7" /> | tint-25 | #7f65b7 |
+| <Swatch colour="#aa98cf" /> | tint-50 | #aa98cf |
+| <Swatch colour="#ddd6ec" /> | tint-80 | #ddd6ec |
+| <Swatch colour="#f6f5fa" /> | tint-95 | #f6f5fa |
+| <Swatch colour="#3f2577" /> | shade-25 | #3f2577 |
+| <Swatch colour="#2a1950" /> | shade-50 | #2a1950 |
+
+### Magenta
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#ca357c" /> | primary | #ca357c |
+| <Swatch colour="#d7689d" /> | tint-25 | #d7689d |
+| <Swatch colour="#e59abe" /> | tint-50 | #e59abe |
+| <Swatch colour="#f4d7e5" /> | tint-80 | #f4d7e5 |
+| <Swatch colour="#fcf5f8" /> | tint-95 | #fcf5f8 |
+| <Swatch colour="#98285d" /> | shade-25 | #98285d |
+| <Swatch colour="#651b3e" /> | shade-50 | #651b3e |
+
+### Red
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#ca3535" /> | primary | #ca3535 |
+| <Swatch colour="#d76868" /> | tint-25 | #d76868 |
+| <Swatch colour="#e59a9a" /> | tint-50 | #e59a9a |
+| <Swatch colour="#f4d7d7" /> | tint-80 | #f4d7d7 |
+| <Swatch colour="#fcf5f5" /> | tint-95 | #fcf5f5 |
+| <Swatch colour="#982828" /> | shade-25 | #982828 |
+| <Swatch colour="#651b1b" /> | shade-50 | #651b1b |
+
+### Orange
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#f47738" /> | primary | #f47738 |
+| <Swatch colour="#f7996a" /> | tint-25 | #f7996a |
+| <Swatch colour="#fabb9c" /> | tint-50 | #fabb9c |
+| <Swatch colour="#fde4d7" /> | tint-80 | #fde4d7 |
+| <Swatch colour="#fef8f5" /> | tint-95 | #fef8f5 |
+| <Swatch colour="#b7592a" /> | shade-25 | #b7592a |
+| <Swatch colour="#7a3c1c" /> | shade-50 | #7a3c1c |
+
+### Yellow
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#ffdd00" /> | primary | #ffdd00 |
+| <Swatch colour="#ffe640" /> | tint-25 | #ffe640 |
+| <Swatch colour="#ffee80" /> | tint-50 | #ffee80 |
+| <Swatch colour="#fff8cc" /> | tint-80 | #fff8cc |
+| <Swatch colour="#fffdf2" /> | tint-95 | #fffdf2 |
+| <Swatch colour="#bfa600" /> | shade-25 | #bfa600 |
+| <Swatch colour="#806f00" /> | shade-50 | #806f00 |
+
+### Brown
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#99704a" /> | primary | #99704a |
+| <Swatch colour="#b39477" /> | tint-25 | #b39477 |
+| <Swatch colour="#ccb8a5" /> | tint-50 | #ccb8a5 |
+| <Swatch colour="#faf8f6" /> | tint-95 | #faf8f6 |
+
+### Black
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#0b0c0c" /> | primary | #0b0c0c |
+| <Swatch colour="#484949" /> | tint-25 | #484949 |
+| <Swatch colour="#858686" /> | tint-50 | #858686 |
+| <Swatch colour="#cecece" /> | tint-80 | #cecece |
+| <Swatch colour="#f3f3f3" /> | tint-95 | #f3f3f3 |
+
+### White
+
+| Colour | Variant | Hex |
+| --- | --- | --- |
+| <Swatch colour="#ffffff" /> | primary | #ffffff |

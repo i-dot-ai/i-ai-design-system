@@ -5,40 +5,82 @@ import SideNavItem from "@components/side-nav/side-nav-item.astro";
 import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumb-item.astro";
-import { getCollection } from "astro:content";
+
+import SideNavTitle from "@components/side-nav/side-nav-title.astro";
 
 const currentPath = Astro.url.pathname;
 
-const entries = await getCollection(
-    "styles",
-    ({ id }) => id !== "index",
-);
-const stylesCategories = entries
-    .map((entry) => ({
-        text: entry.data.title,
-        href: `/styles/${entry.id}`,
-    }))
-    .sort((a, b) => a.text.localeCompare(b.text));
+const structurePages = [
+    {
+        text: "Public facing landing page",
+        href: "/styles/public-facing-landing-page",
+    },
+    {
+        text: "Main application structure",
+        href: "/styles/main-application-structure",
+    },
+];
+
+const brandingPages = [
+    {
+        text: "Branding guidelines",
+        href: "/styles/branding",
+    },
+];
+
+const visualPages = [
+    {
+        text: "Colour palette",
+        href: "/styles/colour-palette",
+    },
+    {
+        text: "Chart colours",
+        href: "/styles/chart-colours",
+    },
+];
 ---
 
 <Layout>
     <div class="govuk-main-wrapper govuk-width-container">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-third">
+            <div class="govuk-grid-column-one-quarter">
                 <SideNav>
+                    <SideNavTitle>Branding</SideNavTitle>
                     <SideNavList>
                         {
-                            stylesCategories.map((category) => (
+                            brandingPages.map((page) => (
                                 <SideNavItem
-                                    text={category.text}
-                                    href={category.href}
+                                    text={page.text}
+                                    href={page.href}
+                                />
+                            ))
+                        }
+                    </SideNavList>
+                    <SideNavTitle>Structure</SideNavTitle>
+                    <SideNavList>
+                        {
+                            structurePages.map((page) => (
+                                <SideNavItem
+                                    text={page.text}
+                                    href={page.href}
+                                />
+                            ))
+                        }
+                    </SideNavList>
+                    <SideNavTitle>Colour</SideNavTitle>
+                    <SideNavList>
+                        {
+                            visualPages.map((page) => (
+                                <SideNavItem
+                                    text={page.text}
+                                    href={page.href}
                                 />
                             ))
                         }
                     </SideNavList>
                 </SideNav>
             </div>
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-three-quarters">
                 <Breadcrumbs>
                     <BreadcrumbItem href="/">Home</BreadcrumbItem>
                     {
