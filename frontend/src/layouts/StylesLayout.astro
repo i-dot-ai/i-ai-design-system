@@ -5,20 +5,21 @@ import SideNavItem from "@components/side-nav/side-nav-item.astro";
 import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumb-item.astro";
-import { getCollection } from "astro:content";
+
 import SideNavTitle from "@components/side-nav/side-nav-title.astro";
 
 const currentPath = Astro.url.pathname;
 
-const entries = await getCollection(
-    "styles",
-    ({ id }) => id !== "index",
-);
-const stylesCategories = entries
-    .map((entry) => ({
-        text: entry.data.title,
-        href: `/styles/${entry.id}`,
-    }))
+const structurePages = [
+    {
+        text: "Public facing landing page",
+        href: "/styles/public-facing-landing-page",
+    },
+    {
+        text: "Main application structure",
+        href: "/styles/main-application-structure",
+    },
+];
 ---
 
 <Layout>
@@ -29,10 +30,10 @@ const stylesCategories = entries
                     <SideNavTitle>Structure</SideNavTitle>
                     <SideNavList>
                         {
-                            stylesCategories.map((category) => (
+                            structurePages.map((page) => (
                                 <SideNavItem
-                                    text={category.text}
-                                    href={category.href}
+                                    text={page.text}
+                                    href={page.href}
                                 />
                             ))
                         }

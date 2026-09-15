@@ -30,6 +30,10 @@
   margin-bottom: 20px;
 }
 
+.component-container .govuk-width-container {
+  padding: 0 15px;
+}
+
 .component-container--inverse {
   background-color: #16548a;
   padding: 20px;
