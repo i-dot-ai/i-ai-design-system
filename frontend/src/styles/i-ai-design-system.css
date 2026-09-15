@@ -251,6 +251,16 @@ html {
     border-color: var(--govuk-link-colour);
 }
 
+.side-nav__title {
+    font-weight: 400;
+    margin: 0;
+    padding: 10px 15px 10px 0;
+    color: #484949;
+    margin-left: 15px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+}
+
 /* Toggle
  *
  * Authored as a self-contained control (no dependency on the GOV.UK checkbox

@@ -5,10 +5,11 @@ import SideNavItem from "@components/side-nav/side-nav-item.astro";
 import SideNavList from "@components/side-nav/side-nav-list.astro";
 import Breadcrumbs from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumbs.astro";
 import BreadcrumbItem from "@i-dot-ai-npm/component-library-astro/breadcrumbs/breadcrumb-item.astro";
+import SideNavTitle from "@components/side-nav/side-nav-title.astro";
 
 const currentPath = Astro.url.pathname;
 
-const getStartedCategories = [
+const useTheKitPages = [
     {
         text: "Prototype with the Design Kit",
         href: "/get-started/prototype-with-the-kit",
@@ -21,11 +22,14 @@ const getStartedCategories = [
         text: "Apply the Design Kit to an existing product",
         href: "/get-started/apply-the-kit-to-an-existing-product",
     },
+
+];
+const collaboratePages = [
     {
         text: "Add to the Design kit",
         href: "/get-started/kit-forum",
     },
-];
+]
 ---
 
 <Layout>
@@ -33,12 +37,24 @@ const getStartedCategories = [
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-third">
                 <SideNav>
+                    <SideNavTitle>Set up guides</SideNavTitle>
                     <SideNavList>
                         {
-                            getStartedCategories.map((category) => (
+                            useTheKitPages.map((category) => (
                                 <SideNavItem
-                                    text={category.text}
-                                    href={category.href}
+                                text={category.text}
+                                href={category.href}
+                                />
+                            ))
+                        }
+                    </SideNavList>
+                    <SideNavTitle>Contribution guides</SideNavTitle>
+                    <SideNavList>
+                        {
+                            collaboratePages.map((category) => (
+                                <SideNavItem
+                                text={category.text}
+                                href={category.href}
                                 />
                             ))
                         }

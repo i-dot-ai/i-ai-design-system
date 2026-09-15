@@ -23,11 +23,6 @@
   background-color: #d2e2f1;
 }
 
-/* .app-masthead__body,
-.app-masthead__title {
-  color: #fff;
-} */
-
 .component-render-options-container,
 .component-container {
   padding: 20px;
@@ -36,8 +31,9 @@
 }
 
 .component-container--inverse {
-  background-color: var(--govuk-brand-colour, #16548a);
+  background-color: #16548a;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .code-example {
