@@ -8,12 +8,15 @@ group: Technical
 
 ## Context
 
-Teams work in different frameworks, such as React. Thin wrappers around the
-shared components let each team use them in their own framework, while the plain
-HTML, CSS and JavaScript stay the single source of truth.
+Products in i.AI at the time of writing are primarily written in React. A 
+few use Web components and one product is written in Svelte.
+
+The i.AI frontend team prefer lightweight frameworks to React, so have 
+recommended Solid.js as something which has a very similar syntax to React 
+but in a much slimmer format.
 
 ## Decision
 
 We will provide lightweight, framework-specific wrappers on top of the shared
-components.
-
+which i.AI engineers use or are recommended to use. At the time of writing this 
+includes: React, Svelte, Solid.js and Web Components

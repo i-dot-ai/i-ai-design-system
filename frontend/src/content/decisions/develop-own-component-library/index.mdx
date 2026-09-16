@@ -8,12 +8,26 @@ group: Technical
 
 ## Context
 
-We need a shared set of components so teams do not spend time rebuilding the
-same basic ones. Existing third-party libraries would still need accessibility
-work and would be hard to hand to another department.
+The branding and design decisions previously state many reasons for using 
+GOV.UK Frontend as a basis. This should include the component library.
+
+However, as [decision 005](/decisions-record/adapt-govuk-frontend-to-our-needs)
+mentions, we will need to extend GOV.UK frontend. This includes adding extra 
+components. Research into the components currently used across i.AI identified 
+components already not covered.
+
+One barrier to using GOV.UK components previously has been complexity in using
+components in frontend languages other than nunjucks or plain html.
 
 ## Decision
 
 We will develop our own component library, based on GOV.UK Frontend and
-published as an npm package.
+published as an npm package for the languages used in i.AI and recommended 
+by i.AI frontend engineers.
+
+## Consequences
+
+We need to establish the technical approach to our component library. See 
+[decision 009](/decions-record/single-css-and-js-files-html-basis) and 
+[decision 010](/decisions-record/lightweight-framework-wrappers)
 
