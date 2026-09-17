@@ -2,15 +2,25 @@
 name: Summary table
 description: List items in a table with per-row selection and actions.
 painPoint: Listing items with actions
+order: 1
 ---
 
-When users need to work through a list of items — reviewing, selecting or
-acting on each one — a summary table presents them compactly with a select
-checkbox, a title link, supporting detail and per-row actions.
+## Pain point
+
+This pattern was developed in both the [extract planning 
+app](https://github.com/i-dot-ai/extract-app/) and 
+[Minute](https://github.com/i-dot-ai/minute/). In both cases was a need to 
+display a long list of "jobs" each with a link to further details page, 
+quick actions both on individual jobs and for bulk actions.
+
+## Solution
+
+The arrived at pattern was to develop a "summary" variant of the table component
+with checkboxes, full width item link and a action column.
 
 <Example collection="patterns" component="summary-table" html="./examples/default.html" astro="./examples/default.astro" react="./examples/default.react.tsx" svelte="./examples/default.svelte" solid="./examples/default.solid.tsx" />
 
-## When to use this pattern
+### When to use this pattern
 
 Use a summary table when:
 
@@ -19,7 +29,8 @@ Use a summary table when:
     export)
 -   users may need to select one or more items to act on them together
 
-## How it works
+
+### How it works
 
 -   The table uses the `summary` and `subtle` variants for a lighter,
     denser layout suited to internal tools.
@@ -30,7 +41,7 @@ Use a summary table when:
 -   Row actions use a `ButtonGroup` of small, tertiary buttons to keep them
     unobtrusive.
 
-## When not to use this pattern
+### When not to use this pattern
 
 Do not use a summary table for presenting a single record's details — use a
 [summary list](/components/summary-list) instead. For simple tabular data with

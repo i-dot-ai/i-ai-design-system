@@ -94,6 +94,10 @@ const patterns = defineCollection({
         // The pain point this pattern solves. Used to group patterns under a
         // heading in the side nav and on the landing page.
         painPoint: z.string().optional(),
+        // Order within the pain point group (lower comes first). Ordering is
+        // pain-point-specific; patterns without an order sort after those with
+        // one, then alphabetically.
+        order: z.number().optional(),
         // Landing page (patterns/index.mdx) fields.
         title: z.string().optional(),
     }),
