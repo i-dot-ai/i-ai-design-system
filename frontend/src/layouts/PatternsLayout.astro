@@ -16,21 +16,37 @@ const entries = await getCollection("patterns", ({ id }) => id !== "index");
 // Patterns are grouped under the pain point they solve. Each pain point becomes
 // a SideNavTitle heading, with its patterns listed beneath.
 const UNGROUPED = "Other";
-const groupsMap = new Map<string, { text: string; href: string }[]>();
+const groupsMap = new Map<
+    string,
+    { text: string; href: string; order?: number }[]
+>();
 for (const entry of entries) {
     const painPoint = entry.data.painPoint ?? UNGROUPED;
     const list = groupsMap.get(painPoint) ?? [];
     list.push({
         text: entry.data.name ?? entry.id,
         href: `/patterns/${entry.id}`,
+        order: entry.data.order,
     });
     groupsMap.set(painPoint, list);
+}
+
+// Within a pain point, sort by `order` (lower first). Patterns without an
+// order fall to the end, then sort alphabetically by name.
+function byOrderThenName(
+    a: { text: string; order?: number },
+    b: { text: string; order?: number },
+) {
+    const ao = a.order ?? Infinity;
+    const bo = b.order ?? Infinity;
+    if (ao !== bo) return ao - bo;
+    return a.text.localeCompare(b.text);
 }
 
 const groups = [...groupsMap.entries()]
     .map(([painPoint, patterns]) => ({
         painPoint,
-        patterns: patterns.sort((a, b) => a.text.localeCompare(b.text)),
+        patterns: patterns.sort(byOrderThenName),
     }))
     .sort((a, b) => a.painPoint.localeCompare(b.painPoint));
 ---

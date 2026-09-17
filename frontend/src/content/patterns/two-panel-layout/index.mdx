@@ -1,0 +1,32 @@
+---
+name: Two panel layout
+description: Split the view into 2 panels; a context panel and a task panel
+painPoint: Congested content
+order: 2
+---
+
+## Pain point
+
+The solution was developed as part of the [education annotation 
+tool](https://github.com/i-dot-ai/annotation). The users neededto complete 
+a long list of tasks and needed quick access to a large amount of 
+contextual information to do this accurately.
+
+Having everything in one long linear flow or separate pages created a confusing
+workflow.
+
+## Solution
+
+The solution went for here was to split the task view into 2 pane layout with 
+context available in tabs on the left and the task required to be filled out 
+on the right:
+
+![screenshot of a two pane layout](/images/screenshot-education.webp)
+
+## Implementation
+
+This can be achieved using the GOV.UK grid system, splitting a row into two
+`govuk-grid-column-one-half` columns for the context and task panels:
+
+<Example collection="patterns" component="two-panel-layout" html="./examples/default.html" astro="./examples/default.astro" react="./examples/default.react.tsx" svelte="./examples/default.svelte" solid="./examples/default.solid.tsx" />
+

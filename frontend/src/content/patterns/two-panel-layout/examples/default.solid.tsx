@@ -1,0 +1,36 @@
+import {
+  Tabs,
+  TabsTitle,
+  TabsList,
+  Tab,
+  TabPanel,
+  Button,
+} from "@i-dot-ai-npm/component-library-solid";
+
+export default function Example() {
+  return (
+    <div class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <Tabs>
+            <TabsTitle>Contents</TabsTitle>
+            <TabsList>
+              <Tab href="#context-1" selected>Context 1</Tab>
+              <Tab href="#context-2">Context 2</Tab>
+            </TabsList>
+            <TabPanel id="context-1">
+              <p class="govuk-body">Context 1</p>
+            </TabPanel>
+            <TabPanel id="context-2" hidden>
+              <p class="govuk-body">Context 2</p>
+            </TabPanel>
+          </Tabs>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <p class="govuk-body">Action content</p>
+          <Button>Click here</Button>
+        </div>
+      </div>
+    </div>
+  );
+}
