@@ -1,5 +1,5 @@
 <script>
-  import InsetText from "@i-dot-ai-npm/component-library-svelte/inset-text/InsetText.svelte";
+  import { InsetText } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <InsetText>

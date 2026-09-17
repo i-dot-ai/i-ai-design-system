@@ -1,11 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-react/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-react/input-label/InputLabel";
-import Hint from "@i-dot-ai-npm/component-library-react/hint/Hint";
-import Fieldset from "@i-dot-ai-npm/component-library-react/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-react/fieldset/FieldsetLegend";
-import DateInput from "@i-dot-ai-npm/component-library-react/date-input/DateInput";
-import DateInputItem from "@i-dot-ai-npm/component-library-react/date-input/DateInputItem";
-import DateInputField from "@i-dot-ai-npm/component-library-react/date-input/DateInputField";
+import { FormGroup, InputLabel, Hint, Fieldset, FieldsetLegend, DateInput, DateInputItem, DateInputField } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

@@ -1,5 +1,5 @@
 <script>
-  import Tag from "@i-dot-ai-npm/component-library-svelte/tag/Tag.svelte";
+  import { Tag } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Tag colour="green">New</Tag>

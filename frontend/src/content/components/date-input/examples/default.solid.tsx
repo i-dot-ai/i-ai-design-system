@@ -1,11 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-solid/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-solid/input-label/InputLabel";
-import Hint from "@i-dot-ai-npm/component-library-solid/hint/Hint";
-import Fieldset from "@i-dot-ai-npm/component-library-solid/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-solid/fieldset/FieldsetLegend";
-import DateInput from "@i-dot-ai-npm/component-library-solid/date-input/DateInput";
-import DateInputItem from "@i-dot-ai-npm/component-library-solid/date-input/DateInputItem";
-import DateInputField from "@i-dot-ai-npm/component-library-solid/date-input/DateInputField";
+import { FormGroup, InputLabel, Hint, Fieldset, FieldsetLegend, DateInput, DateInputItem, DateInputField } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

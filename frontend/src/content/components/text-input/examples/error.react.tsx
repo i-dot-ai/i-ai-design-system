@@ -1,6 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-react/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-react/input-label/InputLabel";
-import Input from "@i-dot-ai-npm/component-library-react/input/Input";
+import { FormGroup, InputLabel, Input } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

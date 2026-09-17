@@ -1,8 +1,4 @@
-import Pagination from "@i-dot-ai-npm/component-library-react/pagination/Pagination";
-import PaginationList from "@i-dot-ai-npm/component-library-react/pagination/PaginationList";
-import PaginationItem from "@i-dot-ai-npm/component-library-react/pagination/PaginationItem";
-import PaginationPrev from "@i-dot-ai-npm/component-library-react/pagination/PaginationPrev";
-import PaginationNext from "@i-dot-ai-npm/component-library-react/pagination/PaginationNext";
+import { Pagination, PaginationList, PaginationItem, PaginationPrev, PaginationNext } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

@@ -1,9 +1,4 @@
-import CookieBanner from "@i-dot-ai-npm/component-library-react/cookie-banner/CookieBanner";
-import CookieBannerMessage from "@i-dot-ai-npm/component-library-react/cookie-banner/CookieBannerMessage";
-import CookieBannerHeading from "@i-dot-ai-npm/component-library-react/cookie-banner/CookieBannerHeading";
-import CookieBannerContent from "@i-dot-ai-npm/component-library-react/cookie-banner/CookieBannerContent";
-import CookieBannerActions from "@i-dot-ai-npm/component-library-react/cookie-banner/CookieBannerActions";
-import Button from "@i-dot-ai-npm/component-library-react/button/Button";
+import { CookieBanner, CookieBannerMessage, CookieBannerHeading, CookieBannerContent, CookieBannerActions, Button } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

@@ -1,8 +1,4 @@
-import Accordion from "@i-dot-ai-npm/component-library-solid/accordion/Accordion";
-import AccordionSection from "@i-dot-ai-npm/component-library-solid/accordion/AccordionSection";
-import AccordionSectionHeader from "@i-dot-ai-npm/component-library-solid/accordion/AccordionSectionHeader";
-import AccordionSectionHeading from "@i-dot-ai-npm/component-library-solid/accordion/AccordionSectionHeading";
-import AccordionSectionContent from "@i-dot-ai-npm/component-library-solid/accordion/AccordionSectionContent";
+import { Accordion, AccordionSection, AccordionSectionHeader, AccordionSectionHeading, AccordionSectionContent } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

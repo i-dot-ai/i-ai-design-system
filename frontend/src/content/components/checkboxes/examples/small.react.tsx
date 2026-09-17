@@ -1,10 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-react/form-group/FormGroup";
-import Fieldset from "@i-dot-ai-npm/component-library-react/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-react/fieldset/FieldsetLegend";
-import Checkboxes from "@i-dot-ai-npm/component-library-react/checkboxes/Checkboxes";
-import CheckboxItem from "@i-dot-ai-npm/component-library-react/checkboxes/CheckboxItem";
-import CheckboxInput from "@i-dot-ai-npm/component-library-react/checkboxes/CheckboxInput";
-import CheckboxLabel from "@i-dot-ai-npm/component-library-react/input-label/InputLabel";
+import { FormGroup, Fieldset, FieldsetLegend, Checkboxes, CheckboxItem, CheckboxInput, CheckboxLabel } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (
@@ -17,25 +11,24 @@ export default function Example() {
               id="nationality-small"
               name="nationality-small"
               value="british"
-            />>
-              British
-            </CheckboxLabel>
+            />
+            <CheckboxLabel htmlFor="nationality-small"> British </CheckboxLabel>
           </CheckboxItem>
           <CheckboxItem>
             <CheckboxInput
               id="nationality-small-2"
               name="nationality-small"
               value="irish"
-            />>
-              Irish
-            </CheckboxLabel>
+            />
+            <CheckboxLabel htmlFor="nationality-small-2"> Irish </CheckboxLabel>
           </CheckboxItem>
           <CheckboxItem>
             <CheckboxInput
               id="nationality-small-3"
               name="nationality-small"
               value="other"
-            />>
+            />
+            <CheckboxLabel htmlFor="nationality-small-3">
               Citizen of another country
             </CheckboxLabel>
           </CheckboxItem>

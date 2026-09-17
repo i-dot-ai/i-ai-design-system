@@ -1,10 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-solid/form-group/FormGroup";
-import Fieldset from "@i-dot-ai-npm/component-library-solid/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-solid/fieldset/FieldsetLegend";
-import Checkboxes from "@i-dot-ai-npm/component-library-solid/checkboxes/Checkboxes";
-import CheckboxItem from "@i-dot-ai-npm/component-library-solid/checkboxes/CheckboxItem";
-import CheckboxInput from "@i-dot-ai-npm/component-library-solid/checkboxes/CheckboxInput";
-import CheckboxLabel from "@i-dot-ai-npm/component-library-solid/checkboxes/CheckboxLabel";
+import { FormGroup, Fieldset, FieldsetLegend, Checkboxes, CheckboxItem, CheckboxInput, CheckboxLabel } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

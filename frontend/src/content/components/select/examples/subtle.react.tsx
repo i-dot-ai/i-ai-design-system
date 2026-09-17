@@ -1,7 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-react/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-react/input-label/InputLabel";
-import Select from "@i-dot-ai-npm/component-library-react/select/Select";
-import SelectOption from "@i-dot-ai-npm/component-library-react/select/SelectOption";
+import { FormGroup, InputLabel, Select, SelectOption } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

@@ -1,8 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import InputLabel from "@i-dot-ai-npm/component-library-svelte/input-label/InputLabel.svelte";
-  import Hint from "@i-dot-ai-npm/component-library-svelte/hint/Hint.svelte";
-  import Input from "@i-dot-ai-npm/component-library-svelte/input/Input.svelte";
+  import { FormGroup, InputLabel, Hint, Input } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup>

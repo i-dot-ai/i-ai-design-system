@@ -1,4 +1,4 @@
-import Hint from "@i-dot-ai-npm/component-library-solid/hint/Hint";
+import { Hint } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

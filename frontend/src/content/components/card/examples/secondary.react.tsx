@@ -1,8 +1,4 @@
-import CardGroup from "@i-dot-ai-npm/component-library-react/card/CardGroup";
-import Card from "@i-dot-ai-npm/component-library-react/card/Card";
-import CardHeading from "@i-dot-ai-npm/component-library-react/card/CardHeading";
-import CardLink from "@i-dot-ai-npm/component-library-react/card/CardLink";
-import CardContent from "@i-dot-ai-npm/component-library-react/card/CardContent";
+import { CardGroup, Card, CardHeading, CardLink, CardContent } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

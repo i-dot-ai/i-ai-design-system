@@ -16,43 +16,31 @@ const REACT_PKG = "@i-dot-ai-npm/component-library-react";
 const SVELTE_PKG = "@i-dot-ai-npm/component-library-svelte";
 const SOLID_PKG = "@i-dot-ai-npm/component-library-solid";
 
-// kebab-case -> PascalCase, e.g. "select-option" -> "SelectOption"
-function pascal(kebab) {
-  return kebab
-    .split("-")
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-    .join("");
-}
-
-// Parse the astro file into { imports: [{local, dir, file}], body }
+// Parse the astro file into { imports: [local], body }
 function parseAstro(src) {
   const fm = src.match(/^---\n([\s\S]*?)\n---\n?/);
   const frontmatter = fm ? fm[1] : "";
   const body = (fm ? src.slice(fm[0].length) : src).trim();
 
   const imports = [];
-  const importRe =
-    /import\s+(\w+)\s+from\s+["']@i-dot-ai-npm\/component-library-astro\/([^"']+?)\.astro["'];?/g;
+  // Barrel named imports, e.g.
+  //   import { Accordion, AccordionSection } from "@i-dot-ai-npm/component-library-astro";
+  const barrelRe =
+    /import\s+\{([^}]+)\}\s+from\s+["']@i-dot-ai-npm\/component-library-astro["'];?/g;
   let m;
-  while ((m = importRe.exec(frontmatter)) !== null) {
-    const local = m[1];
-    const path = m[2]; // e.g. "select/select-option"
-    const parts = path.split("/");
-    const dir = parts.slice(0, -1).join("/");
-    const file = parts[parts.length - 1];
-    imports.push({ local, dir, file });
+  while ((m = barrelRe.exec(frontmatter)) !== null) {
+    for (const raw of m[1].split(",")) {
+      const local = raw.trim();
+      if (local) imports.push(local);
+    }
   }
   return { imports, body };
 }
 
-function buildImports(imports, pkg, ext, casing) {
-  return imports
-    .map(({ local, dir, file }) => {
-      const name = casing === "pascal" ? pascal(file) : file;
-      const suffix = ext ? `.${ext}` : "";
-      return `import ${local} from "${pkg}/${dir}/${name}${suffix}";`;
-    })
-    .join("\n");
+function buildImports(imports, pkg) {
+  if (imports.length === 0) return "";
+  const names = imports.join(", ");
+  return `import { ${names} } from "${pkg}";`;
 }
 
 // React: class-> className, for-> htmlFor. Drop inert slot="..." attributes.
@@ -73,20 +61,20 @@ function indent(text, n) {
 }
 
 function makeReact(parsed) {
-  const imports = buildImports(parsed.imports, REACT_PKG, "", "pascal");
+  const imports = buildImports(parsed.imports, REACT_PKG);
   const body = toReactBody(parsed.body);
   return `${imports}\n\nexport default function Example() {\n  return (\n${indent(body, 4)}\n  );\n}\n`;
 }
 
 function makeSolid(parsed) {
-  const imports = buildImports(parsed.imports, SOLID_PKG, "", "pascal");
+  const imports = buildImports(parsed.imports, SOLID_PKG);
   // Solid uses HTML-style attributes (class/for), same as the astro body.
   const body = parsed.body;
   return `${imports}\n\nexport default function Example() {\n  return (\n${indent(body, 4)}\n  );\n}\n`;
 }
 
 function makeSvelte(parsed) {
-  const imports = buildImports(parsed.imports, SVELTE_PKG, "svelte", "pascal");
+  const imports = buildImports(parsed.imports, SVELTE_PKG);
   const body = parsed.body;
   return `<script>\n${indent(imports, 2)}\n</script>\n\n${body}\n`;
 }

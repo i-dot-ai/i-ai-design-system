@@ -1,5 +1,4 @@
-import Breadcrumbs from "@i-dot-ai-npm/component-library-react/breadcrumbs/Breadcrumbs";
-import BreadcrumbItem from "@i-dot-ai-npm/component-library-react/breadcrumbs/BreadcrumbItem";
+import { Breadcrumbs, BreadcrumbItem } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

@@ -1,5 +1,5 @@
 <script>
-  import WarningText from "@i-dot-ai-npm/component-library-svelte/warning-text/WarningText.svelte";
+  import { WarningText } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <WarningText>

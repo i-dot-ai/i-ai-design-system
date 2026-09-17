@@ -1,9 +1,4 @@
-import CookieBanner from "@i-dot-ai-npm/component-library-solid/cookie-banner/CookieBanner";
-import CookieBannerMessage from "@i-dot-ai-npm/component-library-solid/cookie-banner/CookieBannerMessage";
-import CookieBannerHeading from "@i-dot-ai-npm/component-library-solid/cookie-banner/CookieBannerHeading";
-import CookieBannerContent from "@i-dot-ai-npm/component-library-solid/cookie-banner/CookieBannerContent";
-import CookieBannerActions from "@i-dot-ai-npm/component-library-solid/cookie-banner/CookieBannerActions";
-import Button from "@i-dot-ai-npm/component-library-solid/button/Button";
+import { CookieBanner, CookieBannerMessage, CookieBannerHeading, CookieBannerContent, CookieBannerActions, Button } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

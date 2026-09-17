@@ -1,8 +1,4 @@
-import Pagination from "@i-dot-ai-npm/component-library-solid/pagination/Pagination";
-import PaginationList from "@i-dot-ai-npm/component-library-solid/pagination/PaginationList";
-import PaginationItem from "@i-dot-ai-npm/component-library-solid/pagination/PaginationItem";
-import PaginationPrev from "@i-dot-ai-npm/component-library-solid/pagination/PaginationPrev";
-import PaginationNext from "@i-dot-ai-npm/component-library-solid/pagination/PaginationNext";
+import { Pagination, PaginationList, PaginationItem, PaginationPrev, PaginationNext } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

@@ -1,5 +1,5 @@
 <script>
-  import Hint from "@i-dot-ai-npm/component-library-svelte/hint/Hint.svelte";
+  import { Hint } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Hint>

@@ -1,9 +1,5 @@
 <script>
-  import Pagination from "@i-dot-ai-npm/component-library-svelte/pagination/Pagination.svelte";
-  import PaginationList from "@i-dot-ai-npm/component-library-svelte/pagination/PaginationList.svelte";
-  import PaginationItem from "@i-dot-ai-npm/component-library-svelte/pagination/PaginationItem.svelte";
-  import PaginationPrev from "@i-dot-ai-npm/component-library-svelte/pagination/PaginationPrev.svelte";
-  import PaginationNext from "@i-dot-ai-npm/component-library-svelte/pagination/PaginationNext.svelte";
+  import { Pagination, PaginationList, PaginationItem, PaginationPrev, PaginationNext } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Pagination>

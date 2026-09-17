@@ -1,5 +1,4 @@
-import ServiceNavigation from "@i-dot-ai-npm/component-library-solid/service-navigation/ServiceNavigation";
-import ServiceNavigationItem from "@i-dot-ai-npm/component-library-solid/service-navigation/ServiceNavigationItem";
+import { ServiceNavigation, ServiceNavigationItem } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

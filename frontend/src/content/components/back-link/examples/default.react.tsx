@@ -1,4 +1,4 @@
-import BackLink from "@i-dot-ai-npm/component-library-react/back-link/BackLink";
+import { BackLink } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

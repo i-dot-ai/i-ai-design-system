@@ -1,6 +1,5 @@
 <script>
-  import ServiceNavigation from "@i-dot-ai-npm/component-library-svelte/service-navigation/ServiceNavigation.svelte";
-  import ServiceNavigationItem from "@i-dot-ai-npm/component-library-svelte/service-navigation/ServiceNavigationItem.svelte";
+  import { ServiceNavigation, ServiceNavigationItem } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <ServiceNavigation inverse navigationId="inverse-navigation">

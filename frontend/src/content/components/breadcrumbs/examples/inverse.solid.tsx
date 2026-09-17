@@ -1,5 +1,4 @@
-import Breadcrumbs from "@i-dot-ai-npm/component-library-solid/breadcrumbs/Breadcrumbs";
-import BreadcrumbItem from "@i-dot-ai-npm/component-library-solid/breadcrumbs/BreadcrumbItem";
+import { Breadcrumbs, BreadcrumbItem } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

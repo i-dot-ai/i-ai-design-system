@@ -1,5 +1,4 @@
-import Button from "@i-dot-ai-npm/component-library-react/button/Button";
-import ButtonGroup from "@i-dot-ai-npm/component-library-react/button-group/ButtonGroup";
+import { Button, ButtonGroup } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

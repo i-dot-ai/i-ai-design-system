@@ -1,6 +1,4 @@
-import ToggleItem from "@i-dot-ai-npm/component-library-react/toggle/ToggleItem";
-import ToggleLabel from "@i-dot-ai-npm/component-library-react/toggle/ToggleLabel";
-import Toggle from "@i-dot-ai-npm/component-library-react/toggle/Toggle";
+import { ToggleItem, ToggleLabel, Toggle } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

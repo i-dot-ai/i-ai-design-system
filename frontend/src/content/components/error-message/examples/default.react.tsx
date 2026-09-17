@@ -1,4 +1,4 @@
-import ErrorMessage from "@i-dot-ai-npm/component-library-react/error-message/ErrorMessage";
+import { ErrorMessage } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

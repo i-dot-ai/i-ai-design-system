@@ -1,10 +1,5 @@
 <script>
-  import TaskList from "@i-dot-ai-npm/component-library-svelte/task-list/TaskList.svelte";
-  import TaskListItem from "@i-dot-ai-npm/component-library-svelte/task-list/TaskListItem.svelte";
-  import TaskListNameAndHint from "@i-dot-ai-npm/component-library-svelte/task-list/TaskListNameAndHint.svelte";
-  import TaskListLink from "@i-dot-ai-npm/component-library-svelte/task-list/TaskListLink.svelte";
-  import TaskListStatus from "@i-dot-ai-npm/component-library-svelte/task-list/TaskListStatus.svelte";
-  import Tag from "@i-dot-ai-npm/component-library-svelte/tag/Tag.svelte";
+  import { TaskList, TaskListItem, TaskListNameAndHint, TaskListLink, TaskListStatus, Tag } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <TaskList>

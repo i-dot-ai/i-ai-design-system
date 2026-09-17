@@ -1,9 +1,5 @@
 <script>
-  import ErrorSummary from "@i-dot-ai-npm/component-library-svelte/error-summary/ErrorSummary.svelte";
-  import ErrorSummaryTitle from "@i-dot-ai-npm/component-library-svelte/error-summary/ErrorSummaryTitle.svelte";
-  import ErrorSummaryBody from "@i-dot-ai-npm/component-library-svelte/error-summary/ErrorSummaryBody.svelte";
-  import ErrorSummaryList from "@i-dot-ai-npm/component-library-svelte/error-summary/ErrorSummaryList.svelte";
-  import ErrorSummaryItem from "@i-dot-ai-npm/component-library-svelte/error-summary/ErrorSummaryItem.svelte";
+  import { ErrorSummary, ErrorSummaryTitle, ErrorSummaryBody, ErrorSummaryList, ErrorSummaryItem } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <ErrorSummary>

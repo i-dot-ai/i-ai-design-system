@@ -1,7 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-solid/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-solid/input-label/InputLabel";
-import Select from "@i-dot-ai-npm/component-library-solid/select/Select";
-import SelectOption from "@i-dot-ai-npm/component-library-solid/select/SelectOption";
+import { FormGroup, InputLabel, Select, SelectOption } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

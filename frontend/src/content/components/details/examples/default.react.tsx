@@ -1,6 +1,4 @@
-import Details from "@i-dot-ai-npm/component-library-react/details/Details";
-import DetailsSummary from "@i-dot-ai-npm/component-library-react/details/DetailsSummary";
-import DetailsText from "@i-dot-ai-npm/component-library-react/details/DetailsText";
+import { Details, DetailsSummary, DetailsText } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

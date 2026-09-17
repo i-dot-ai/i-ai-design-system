@@ -1,4 +1,4 @@
-import Hint from "@i-dot-ai-npm/component-library-react/hint/Hint";
+import { Hint } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

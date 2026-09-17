@@ -1,10 +1,4 @@
-import Table from "@i-dot-ai-npm/component-library-solid/table/Table";
-import TableCaption from "@i-dot-ai-npm/component-library-solid/table/TableCaption";
-import TableHead from "@i-dot-ai-npm/component-library-solid/table/TableHead";
-import TableBody from "@i-dot-ai-npm/component-library-solid/table/TableBody";
-import TableRow from "@i-dot-ai-npm/component-library-solid/table/TableRow";
-import TableHeader from "@i-dot-ai-npm/component-library-solid/table/TableHeader";
-import TableCell from "@i-dot-ai-npm/component-library-solid/table/TableCell";
+import { Table, TableCaption, TableHead, TableBody, TableRow, TableHeader, TableCell } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

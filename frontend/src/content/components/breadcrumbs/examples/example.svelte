@@ -1,6 +1,5 @@
 <script>
-  import Breadcrumbs from "@i-dot-ai-npm/component-library-svelte/breadcrumbs/Breadcrumbs.svelte";
-  import BreadcrumbItem from "@i-dot-ai-npm/component-library-svelte/breadcrumbs/BreadcrumbItem.svelte";
+  import { Breadcrumbs, BreadcrumbItem } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Breadcrumbs>

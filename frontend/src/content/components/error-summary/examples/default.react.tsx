@@ -1,8 +1,4 @@
-import ErrorSummary from "@i-dot-ai-npm/component-library-react/error-summary/ErrorSummary";
-import ErrorSummaryTitle from "@i-dot-ai-npm/component-library-react/error-summary/ErrorSummaryTitle";
-import ErrorSummaryBody from "@i-dot-ai-npm/component-library-react/error-summary/ErrorSummaryBody";
-import ErrorSummaryList from "@i-dot-ai-npm/component-library-react/error-summary/ErrorSummaryList";
-import ErrorSummaryItem from "@i-dot-ai-npm/component-library-react/error-summary/ErrorSummaryItem";
+import { ErrorSummary, ErrorSummaryTitle, ErrorSummaryBody, ErrorSummaryList, ErrorSummaryItem } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

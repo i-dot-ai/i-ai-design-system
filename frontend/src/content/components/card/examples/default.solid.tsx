@@ -1,8 +1,4 @@
-import CardGroup from "@i-dot-ai-npm/component-library-solid/card/CardGroup";
-import Card from "@i-dot-ai-npm/component-library-solid/card/Card";
-import CardHeading from "@i-dot-ai-npm/component-library-solid/card/CardHeading";
-import CardLink from "@i-dot-ai-npm/component-library-solid/card/CardLink";
-import CardContent from "@i-dot-ai-npm/component-library-solid/card/CardContent";
+import { CardGroup, Card, CardHeading, CardLink, CardContent } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

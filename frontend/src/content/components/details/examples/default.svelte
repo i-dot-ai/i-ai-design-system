@@ -1,7 +1,5 @@
 <script>
-  import Details from "@i-dot-ai-npm/component-library-svelte/details/Details.svelte";
-  import DetailsSummary from "@i-dot-ai-npm/component-library-svelte/details/DetailsSummary.svelte";
-  import DetailsText from "@i-dot-ai-npm/component-library-svelte/details/DetailsText.svelte";
+  import { Details, DetailsSummary, DetailsText } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Details>

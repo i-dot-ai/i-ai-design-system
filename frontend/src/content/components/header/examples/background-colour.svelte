@@ -1,5 +1,5 @@
 <script>
-  import Header from "@i-dot-ai-npm/component-library-svelte/header/Header.svelte";
+  import { Header } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Header backgroundColour="<your-background-colour>">

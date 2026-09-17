@@ -1,9 +1,4 @@
-import TaskList from "@i-dot-ai-npm/component-library-react/task-list/TaskList";
-import TaskListItem from "@i-dot-ai-npm/component-library-react/task-list/TaskListItem";
-import TaskListNameAndHint from "@i-dot-ai-npm/component-library-react/task-list/TaskListNameAndHint";
-import TaskListLink from "@i-dot-ai-npm/component-library-react/task-list/TaskListLink";
-import TaskListStatus from "@i-dot-ai-npm/component-library-react/task-list/TaskListStatus";
-import Tag from "@i-dot-ai-npm/component-library-react/tag/Tag";
+import { TaskList, TaskListItem, TaskListNameAndHint, TaskListLink, TaskListStatus, Tag } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (
