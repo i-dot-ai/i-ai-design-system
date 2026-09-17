@@ -1,0 +1,24 @@
+---
+import Layout from "@layouts/PatternsLayout.astro";
+import Example from "@components/docs/example.astro";
+import CodeBlock from "@components/docs/code-block.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    // The in-folder landing page (patterns/index.mdx) is rendered by
+    // patterns/index.astro, not as a pattern slug.
+    const entries = await getCollection("patterns", ({ id }) => id !== "index");
+    return entries.map((entry) => ({
+        params: { slug: entry.id },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout>
+    <h1 class="govuk-heading-xl">{entry.data.name}</h1>
+    <Content components={{ Example, CodeBlock }} />
+</Layout>

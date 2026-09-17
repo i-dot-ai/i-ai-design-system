@@ -1,10 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-react/form-group/FormGroup";
-import Fieldset from "@i-dot-ai-npm/component-library-react/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-react/fieldset/FieldsetLegend";
-import Radios from "@i-dot-ai-npm/component-library-react/radios/Radios";
-import RadioItem from "@i-dot-ai-npm/component-library-react/radios/RadioItem";
-import RadioInput from "@i-dot-ai-npm/component-library-react/radios/RadioInput";
-import InputLabel from "@i-dot-ai-npm/component-library-react/input-label/InputLabel";
+import { FormGroup, Fieldset, FieldsetLegend, Radios, RadioItem, RadioInput, InputLabel } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

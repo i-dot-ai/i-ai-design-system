@@ -1,8 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import InputLabel from "@i-dot-ai-npm/component-library-svelte/input-label/InputLabel.svelte";
-  import Select from "@i-dot-ai-npm/component-library-svelte/select/Select.svelte";
-  import SelectOption from "@i-dot-ai-npm/component-library-svelte/select/SelectOption.svelte";
+  import { FormGroup, InputLabel, Select, SelectOption } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup inline>

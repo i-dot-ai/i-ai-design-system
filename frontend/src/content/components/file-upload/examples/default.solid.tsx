@@ -1,6 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-solid/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-solid/input-label/InputLabel";
-import FileUpload from "@i-dot-ai-npm/component-library-solid/file-upload/FileUpload";
+import { FormGroup, InputLabel, FileUpload } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

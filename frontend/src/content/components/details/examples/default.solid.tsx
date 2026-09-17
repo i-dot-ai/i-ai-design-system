@@ -1,6 +1,4 @@
-import Details from "@i-dot-ai-npm/component-library-solid/details/Details";
-import DetailsSummary from "@i-dot-ai-npm/component-library-solid/details/DetailsSummary";
-import DetailsText from "@i-dot-ai-npm/component-library-solid/details/DetailsText";
+import { Details, DetailsSummary, DetailsText } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

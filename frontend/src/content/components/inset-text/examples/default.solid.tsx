@@ -1,4 +1,4 @@
-import InsetText from "@i-dot-ai-npm/component-library-solid/inset-text/InsetText";
+import { InsetText } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

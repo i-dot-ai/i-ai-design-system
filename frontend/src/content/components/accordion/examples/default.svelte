@@ -1,9 +1,5 @@
 <script>
-  import Accordion from "@i-dot-ai-npm/component-library-svelte/accordion/Accordion.svelte";
-  import AccordionSection from "@i-dot-ai-npm/component-library-svelte/accordion/AccordionSection.svelte";
-  import AccordionSectionHeader from "@i-dot-ai-npm/component-library-svelte/accordion/AccordionSectionHeader.svelte";
-  import AccordionSectionHeading from "@i-dot-ai-npm/component-library-svelte/accordion/AccordionSectionHeading.svelte";
-  import AccordionSectionContent from "@i-dot-ai-npm/component-library-svelte/accordion/AccordionSectionContent.svelte";
+  import { Accordion, AccordionSection, AccordionSectionHeader, AccordionSectionHeading, AccordionSectionContent } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Accordion>

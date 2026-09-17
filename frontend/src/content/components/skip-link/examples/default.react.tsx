@@ -1,4 +1,4 @@
-import SkipLink from "@i-dot-ai-npm/component-library-react/skip-link/SkipLink";
+import { SkipLink } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

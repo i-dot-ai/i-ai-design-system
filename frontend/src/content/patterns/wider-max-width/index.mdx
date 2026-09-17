@@ -1,0 +1,21 @@
+---
+name: Wide content max-width
+description: Increase the maximum width of the page to give content more room.
+painPoint: Congested content
+---
+
+Products using the standard GOV.UK page template sometimes find that content
+feels "squeezed" or "crampt", particularly on content-heavy application pages.
+
+One solution is to increase the maximum width of the page so that content has
+more room to breathe.
+
+
+## Implementation
+
+To increase the max-width of the screen you can add the following CSS to your 
+project. This example uses a max-width of 1600px but you can choose one that 
+suits your needs. You will have to update the margins to accomodate this new 
+width. You should move to `margin: auto` 60px after the max width you have set.
+
+<CodeBlock collection="patterns" component="wider-max-width" code="./examples/max-width.css" />

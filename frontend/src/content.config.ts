@@ -81,12 +81,21 @@ const decisions = defineCollection({
     }),
 });
 
-// Multi-component patterns — deferred content, schema ready.
+// Multi-component patterns — reusable combinations of components (e.g. a
+// question page, a start page). Structured like `components`/`styles`:
+// folder-per-entry MDX bodies with live <Example> demos referenced by path.
+// The /patterns landing page (patterns/index.mdx) shares this shape; it is told
+// apart by its `index` id, not a discriminant, so the entry fields are optional.
 const patterns = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/patterns" }),
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/patterns" }),
     schema: z.object({
-        name: z.string(),
-        description: z.string(),
+        name: z.string().optional(),
+        description: z.string().optional(),
+        // The pain point this pattern solves. Used to group patterns under a
+        // heading in the side nav and on the landing page.
+        painPoint: z.string().optional(),
+        // Landing page (patterns/index.mdx) fields.
+        title: z.string().optional(),
     }),
 });
 

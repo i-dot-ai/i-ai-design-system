@@ -1,11 +1,5 @@
 ---
-import FormGroup from "@i-dot-ai-npm/component-library-astro/form-group/form-group.astro";
-import Fieldset from "@i-dot-ai-npm/component-library-astro/fieldset/fieldset.astro";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-astro/fieldset/fieldset-legend.astro";
-import Checkboxes from "@i-dot-ai-npm/component-library-astro/checkboxes/checkboxes.astro";
-import CheckboxItem from "@i-dot-ai-npm/component-library-astro/checkboxes/checkbox-item.astro";
-import CheckboxInput from "@i-dot-ai-npm/component-library-astro/checkboxes/checkbox-input.astro";
-import CheckboxLabel from "@i-dot-ai-npm/component-library-astro/input-label/input-label.astro";
+import { FormGroup, Fieldset, FieldsetLegend, Checkboxes, CheckboxItem, CheckboxInput, CheckboxLabel } from "@i-dot-ai-npm/component-library-astro";
 ---
 
 <FormGroup>
@@ -17,25 +11,24 @@ import CheckboxLabel from "@i-dot-ai-npm/component-library-astro/input-label/inp
           id="nationality-subtle"
           name="nationality-subtle"
           value="british"
-        />>
-          British
-        </CheckboxLabel>
+        />
+        <CheckboxLabel for="nationality-subtle"> British </CheckboxLabel>
       </CheckboxItem>
       <CheckboxItem>
         <CheckboxInput
           id="nationality-subtle-2"
           name="nationality-subtle"
           value="irish"
-        />>
-          Irish
-        </CheckboxLabel>
+        />
+        <CheckboxLabel for="nationality-subtle-2"> Irish </CheckboxLabel>
       </CheckboxItem>
       <CheckboxItem>
         <CheckboxInput
           id="nationality-subtle-3"
           name="nationality-subtle"
           value="other"
-        />>
+        />
+        <CheckboxLabel for="nationality-subtle-3">
           Citizen of another country
         </CheckboxLabel>
       </CheckboxItem>

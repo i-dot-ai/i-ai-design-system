@@ -1,4 +1,4 @@
-import Header from "@i-dot-ai-npm/component-library-solid/header/Header";
+import { Header } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

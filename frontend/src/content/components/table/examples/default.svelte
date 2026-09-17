@@ -1,11 +1,5 @@
 <script>
-  import Table from "@i-dot-ai-npm/component-library-svelte/table/Table.svelte";
-  import TableCaption from "@i-dot-ai-npm/component-library-svelte/table/TableCaption.svelte";
-  import TableHead from "@i-dot-ai-npm/component-library-svelte/table/TableHead.svelte";
-  import TableBody from "@i-dot-ai-npm/component-library-svelte/table/TableBody.svelte";
-  import TableRow from "@i-dot-ai-npm/component-library-svelte/table/TableRow.svelte";
-  import TableHeader from "@i-dot-ai-npm/component-library-svelte/table/TableHeader.svelte";
-  import TableCell from "@i-dot-ai-npm/component-library-svelte/table/TableCell.svelte";
+  import { Table, TableCaption, TableHead, TableBody, TableRow, TableHeader, TableCell } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Table>

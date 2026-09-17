@@ -1,5 +1,4 @@
-import Fieldset from "@i-dot-ai-npm/component-library-react/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-react/fieldset/FieldsetLegend";
+import { Fieldset, FieldsetLegend } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

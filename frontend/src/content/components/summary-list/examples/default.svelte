@@ -1,9 +1,5 @@
 <script>
-  import SummaryList from "@i-dot-ai-npm/component-library-svelte/summary-list/SummaryList.svelte";
-  import SummaryListRow from "@i-dot-ai-npm/component-library-svelte/summary-list/SummaryListRow.svelte";
-  import SummaryListKey from "@i-dot-ai-npm/component-library-svelte/summary-list/SummaryListKey.svelte";
-  import SummaryListValue from "@i-dot-ai-npm/component-library-svelte/summary-list/SummaryListValue.svelte";
-  import SummaryListActions from "@i-dot-ai-npm/component-library-svelte/summary-list/SummaryListActions.svelte";
+  import { SummaryList, SummaryListRow, SummaryListKey, SummaryListValue, SummaryListActions } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <SummaryList>

@@ -1,10 +1,5 @@
 <script>
-  import CookieBanner from "@i-dot-ai-npm/component-library-svelte/cookie-banner/CookieBanner.svelte";
-  import CookieBannerMessage from "@i-dot-ai-npm/component-library-svelte/cookie-banner/CookieBannerMessage.svelte";
-  import CookieBannerHeading from "@i-dot-ai-npm/component-library-svelte/cookie-banner/CookieBannerHeading.svelte";
-  import CookieBannerContent from "@i-dot-ai-npm/component-library-svelte/cookie-banner/CookieBannerContent.svelte";
-  import CookieBannerActions from "@i-dot-ai-npm/component-library-svelte/cookie-banner/CookieBannerActions.svelte";
-  import Button from "@i-dot-ai-npm/component-library-svelte/button/Button.svelte";
+  import { CookieBanner, CookieBannerMessage, CookieBannerHeading, CookieBannerContent, CookieBannerActions, Button } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <CookieBanner>

@@ -1,5 +1,4 @@
-import Fieldset from "@i-dot-ai-npm/component-library-solid/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-solid/fieldset/FieldsetLegend";
+import { Fieldset, FieldsetLegend } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

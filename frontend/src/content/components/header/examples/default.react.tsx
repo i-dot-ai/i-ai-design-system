@@ -1,4 +1,4 @@
-import Header from "@i-dot-ai-npm/component-library-react/header/Header";
+import { Header } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

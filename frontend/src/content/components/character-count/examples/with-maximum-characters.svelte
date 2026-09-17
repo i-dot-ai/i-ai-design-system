@@ -1,8 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import InputLabel from "@i-dot-ai-npm/component-library-svelte/input-label/InputLabel.svelte";
-  import CharacterCount from "@i-dot-ai-npm/component-library-svelte/character-count/CharacterCount.svelte";
-  import CharacterCountMessage from "@i-dot-ai-npm/component-library-svelte/character-count/CharacterCountMessage.svelte";
+  import { FormGroup, InputLabel, CharacterCount, CharacterCountMessage } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup

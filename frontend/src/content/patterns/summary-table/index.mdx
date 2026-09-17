@@ -1,0 +1,37 @@
+---
+name: Summary table
+description: List items in a table with per-row selection and actions.
+painPoint: Listing items with actions
+---
+
+When users need to work through a list of items — reviewing, selecting or
+acting on each one — a summary table presents them compactly with a select
+checkbox, a title link, supporting detail and per-row actions.
+
+<Example collection="patterns" component="summary-table" html="./examples/default.html" astro="./examples/default.astro" react="./examples/default.react.tsx" svelte="./examples/default.svelte" solid="./examples/default.solid.tsx" />
+
+## When to use this pattern
+
+Use a summary table when:
+
+-   users need to scan a list of items and act on individual rows
+-   each item has a small, consistent set of actions (for example rename or
+    export)
+-   users may need to select one or more items to act on them together
+
+## How it works
+
+-   The table uses the `summary` and `subtle` variants for a lighter,
+    denser layout suited to internal tools.
+-   Each row starts with a small, subtle checkbox for selection. The label is
+    visually hidden but still read out to screen readers.
+-   The title column uses `stretch` so it takes the remaining width, while the
+    date and actions columns use `noWrap` so they stay on one line.
+-   Row actions use a `ButtonGroup` of small, tertiary buttons to keep them
+    unobtrusive.
+
+## When not to use this pattern
+
+Do not use a summary table for presenting a single record's details — use a
+[summary list](/components/summary-list) instead. For simple tabular data with
+no actions, use the standard [table](/components/table).

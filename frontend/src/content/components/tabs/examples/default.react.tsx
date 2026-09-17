@@ -1,8 +1,4 @@
-import Tabs from "@i-dot-ai-npm/component-library-react/tabs/Tabs";
-import TabsTitle from "@i-dot-ai-npm/component-library-react/tabs/TabsTitle";
-import TabsList from "@i-dot-ai-npm/component-library-react/tabs/TabsList";
-import Tab from "@i-dot-ai-npm/component-library-react/tabs/Tab";
-import TabPanel from "@i-dot-ai-npm/component-library-react/tabs/TabPanel";
+import { Tabs, TabsTitle, TabsList, Tab, TabPanel } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

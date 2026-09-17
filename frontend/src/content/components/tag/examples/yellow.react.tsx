@@ -1,4 +1,4 @@
-import Tag from "@i-dot-ai-npm/component-library-react/tag/Tag";
+import { Tag } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

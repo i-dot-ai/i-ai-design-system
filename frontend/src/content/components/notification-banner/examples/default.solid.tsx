@@ -1,8 +1,4 @@
-import NotificationBanner from "@i-dot-ai-npm/component-library-solid/notification-banner/NotificationBanner";
-import NotificationBannerHeader from "@i-dot-ai-npm/component-library-solid/notification-banner/NotificationBannerHeader";
-import NotificationBannerTitle from "@i-dot-ai-npm/component-library-solid/notification-banner/NotificationBannerTitle";
-import NotificationBannerContent from "@i-dot-ai-npm/component-library-solid/notification-banner/NotificationBannerContent";
-import NotificationBannerHeading from "@i-dot-ai-npm/component-library-solid/notification-banner/NotificationBannerHeading";
+import { NotificationBanner, NotificationBannerHeader, NotificationBannerTitle, NotificationBannerContent, NotificationBannerHeading } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

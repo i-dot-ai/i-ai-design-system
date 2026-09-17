@@ -1,8 +1,4 @@
-import SummaryList from "@i-dot-ai-npm/component-library-react/summary-list/SummaryList";
-import SummaryListRow from "@i-dot-ai-npm/component-library-react/summary-list/SummaryListRow";
-import SummaryListKey from "@i-dot-ai-npm/component-library-react/summary-list/SummaryListKey";
-import SummaryListValue from "@i-dot-ai-npm/component-library-react/summary-list/SummaryListValue";
-import SummaryListActions from "@i-dot-ai-npm/component-library-react/summary-list/SummaryListActions";
+import { SummaryList, SummaryListRow, SummaryListKey, SummaryListValue, SummaryListActions } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

@@ -1,10 +1,4 @@
-import Table from "@i-dot-ai-npm/component-library-react/table/Table";
-import TableCaption from "@i-dot-ai-npm/component-library-react/table/TableCaption";
-import TableHead from "@i-dot-ai-npm/component-library-react/table/TableHead";
-import TableBody from "@i-dot-ai-npm/component-library-react/table/TableBody";
-import TableRow from "@i-dot-ai-npm/component-library-react/table/TableRow";
-import TableHeader from "@i-dot-ai-npm/component-library-react/table/TableHeader";
-import TableCell from "@i-dot-ai-npm/component-library-react/table/TableCell";
+import { Table, TableCaption, TableHead, TableBody, TableRow, TableHeader, TableCell } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

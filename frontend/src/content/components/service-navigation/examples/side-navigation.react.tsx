@@ -1,5 +1,4 @@
-import ServiceNavigation from "@i-dot-ai-npm/component-library-react/service-navigation/ServiceNavigation";
-import ServiceNavigationItem from "@i-dot-ai-npm/component-library-react/service-navigation/ServiceNavigationItem";
+import { ServiceNavigation, ServiceNavigationItem } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

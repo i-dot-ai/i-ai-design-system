@@ -1,9 +1,5 @@
 <script>
-  import Tabs from "@i-dot-ai-npm/component-library-svelte/tabs/Tabs.svelte";
-  import TabsTitle from "@i-dot-ai-npm/component-library-svelte/tabs/TabsTitle.svelte";
-  import TabsList from "@i-dot-ai-npm/component-library-svelte/tabs/TabsList.svelte";
-  import Tab from "@i-dot-ai-npm/component-library-svelte/tabs/Tab.svelte";
-  import TabPanel from "@i-dot-ai-npm/component-library-svelte/tabs/TabPanel.svelte";
+  import { Tabs, TabsTitle, TabsList, Tab, TabPanel } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <Tabs>

@@ -1,7 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import InputLabel from "@i-dot-ai-npm/component-library-svelte/input-label/InputLabel.svelte";
-  import FileUpload from "@i-dot-ai-npm/component-library-svelte/file-upload/FileUpload.svelte";
+  import { FormGroup, InputLabel, FileUpload } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup>

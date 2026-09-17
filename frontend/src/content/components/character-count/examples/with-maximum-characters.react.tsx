@@ -1,7 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-react/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-react/input-label/InputLabel";
-import CharacterCount from "@i-dot-ai-npm/component-library-react/character-count/CharacterCount";
-import CharacterCountMessage from "@i-dot-ai-npm/component-library-react/character-count/CharacterCountMessage";
+import { FormGroup, InputLabel, CharacterCount, CharacterCountMessage } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

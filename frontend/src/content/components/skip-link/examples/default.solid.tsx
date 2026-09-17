@@ -1,4 +1,4 @@
-import SkipLink from "@i-dot-ai-npm/component-library-solid/skip-link/SkipLink";
+import { SkipLink } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

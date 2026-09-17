@@ -1,4 +1,4 @@
-import WarningText from "@i-dot-ai-npm/component-library-react/warning-text/WarningText";
+import { WarningText } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

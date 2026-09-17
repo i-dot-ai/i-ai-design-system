@@ -1,12 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import InputLabel from "@i-dot-ai-npm/component-library-svelte/input-label/InputLabel.svelte";
-  import Hint from "@i-dot-ai-npm/component-library-svelte/hint/Hint.svelte";
-  import Fieldset from "@i-dot-ai-npm/component-library-svelte/fieldset/Fieldset.svelte";
-  import FieldsetLegend from "@i-dot-ai-npm/component-library-svelte/fieldset/FieldsetLegend.svelte";
-  import DateInput from "@i-dot-ai-npm/component-library-svelte/date-input/DateInput.svelte";
-  import DateInputItem from "@i-dot-ai-npm/component-library-svelte/date-input/DateInputItem.svelte";
-  import DateInputField from "@i-dot-ai-npm/component-library-svelte/date-input/DateInputField.svelte";
+  import { FormGroup, InputLabel, Hint, Fieldset, FieldsetLegend, DateInput, DateInputItem, DateInputField } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup>

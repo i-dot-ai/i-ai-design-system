@@ -1,11 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import Fieldset from "@i-dot-ai-npm/component-library-svelte/fieldset/Fieldset.svelte";
-  import FieldsetLegend from "@i-dot-ai-npm/component-library-svelte/fieldset/FieldsetLegend.svelte";
-  import Radios from "@i-dot-ai-npm/component-library-svelte/radios/Radios.svelte";
-  import RadioItem from "@i-dot-ai-npm/component-library-svelte/radios/RadioItem.svelte";
-  import RadioInput from "@i-dot-ai-npm/component-library-svelte/radios/RadioInput.svelte";
-  import InputLabel from "@i-dot-ai-npm/component-library-svelte/input-label/InputLabel.svelte";
+  import { FormGroup, Fieldset, FieldsetLegend, Radios, RadioItem, RadioInput, InputLabel } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup>

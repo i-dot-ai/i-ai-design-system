@@ -1,4 +1,4 @@
-import ErrorMessage from "@i-dot-ai-npm/component-library-solid/error-message/ErrorMessage";
+import { ErrorMessage } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

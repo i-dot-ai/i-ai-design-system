@@ -1,4 +1,4 @@
-import InsetText from "@i-dot-ai-npm/component-library-react/inset-text/InsetText";
+import { InsetText } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

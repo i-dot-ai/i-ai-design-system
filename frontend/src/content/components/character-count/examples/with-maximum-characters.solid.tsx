@@ -1,7 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-solid/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-solid/input-label/InputLabel";
-import CharacterCount from "@i-dot-ai-npm/component-library-solid/character-count/CharacterCount";
-import CharacterCountMessage from "@i-dot-ai-npm/component-library-solid/character-count/CharacterCountMessage";
+import { FormGroup, InputLabel, CharacterCount, CharacterCountMessage } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

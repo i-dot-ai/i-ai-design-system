@@ -1,10 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-react/form-group/FormGroup";
-import Fieldset from "@i-dot-ai-npm/component-library-react/fieldset/Fieldset";
-import FieldsetLegend from "@i-dot-ai-npm/component-library-react/fieldset/FieldsetLegend";
-import Checkboxes from "@i-dot-ai-npm/component-library-react/checkboxes/Checkboxes";
-import CheckboxItem from "@i-dot-ai-npm/component-library-react/checkboxes/CheckboxItem";
-import CheckboxInput from "@i-dot-ai-npm/component-library-react/checkboxes/CheckboxInput";
-import CheckboxLabel from "@i-dot-ai-npm/component-library-react/checkboxes/CheckboxLabel";
+import { FormGroup, Fieldset, FieldsetLegend, Checkboxes, CheckboxItem, CheckboxInput, CheckboxLabel } from "@i-dot-ai-npm/component-library-react";
 
 export default function Example() {
   return (

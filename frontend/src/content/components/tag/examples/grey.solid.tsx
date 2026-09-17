@@ -1,4 +1,4 @@
-import Tag from "@i-dot-ai-npm/component-library-solid/tag/Tag";
+import { Tag } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

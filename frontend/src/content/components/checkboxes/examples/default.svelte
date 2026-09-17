@@ -1,11 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import Fieldset from "@i-dot-ai-npm/component-library-svelte/fieldset/Fieldset.svelte";
-  import FieldsetLegend from "@i-dot-ai-npm/component-library-svelte/fieldset/FieldsetLegend.svelte";
-  import Checkboxes from "@i-dot-ai-npm/component-library-svelte/checkboxes/Checkboxes.svelte";
-  import CheckboxItem from "@i-dot-ai-npm/component-library-svelte/checkboxes/CheckboxItem.svelte";
-  import CheckboxInput from "@i-dot-ai-npm/component-library-svelte/checkboxes/CheckboxInput.svelte";
-  import CheckboxLabel from "@i-dot-ai-npm/component-library-svelte/checkboxes/CheckboxLabel.svelte";
+  import { FormGroup, Fieldset, FieldsetLegend, Checkboxes, CheckboxItem, CheckboxInput, CheckboxLabel } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup>

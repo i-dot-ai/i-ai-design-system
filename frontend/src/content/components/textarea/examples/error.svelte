@@ -1,7 +1,5 @@
 <script>
-  import FormGroup from "@i-dot-ai-npm/component-library-svelte/form-group/FormGroup.svelte";
-  import InputLabel from "@i-dot-ai-npm/component-library-svelte/input-label/InputLabel.svelte";
-  import Textarea from "@i-dot-ai-npm/component-library-svelte/textarea/Textarea.svelte";
+  import { FormGroup, InputLabel, Textarea } from "@i-dot-ai-npm/component-library-svelte";
 </script>
 
 <FormGroup class="govuk-form-group--error">

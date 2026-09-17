@@ -1,6 +1,4 @@
-import FormGroup from "@i-dot-ai-npm/component-library-solid/form-group/FormGroup";
-import InputLabel from "@i-dot-ai-npm/component-library-solid/input-label/InputLabel";
-import Textarea from "@i-dot-ai-npm/component-library-solid/textarea/Textarea";
+import { FormGroup, InputLabel, Textarea } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (

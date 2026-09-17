@@ -1,8 +1,4 @@
-import Tabs from "@i-dot-ai-npm/component-library-solid/tabs/Tabs";
-import TabsTitle from "@i-dot-ai-npm/component-library-solid/tabs/TabsTitle";
-import TabsList from "@i-dot-ai-npm/component-library-solid/tabs/TabsList";
-import Tab from "@i-dot-ai-npm/component-library-solid/tabs/Tab";
-import TabPanel from "@i-dot-ai-npm/component-library-solid/tabs/TabPanel";
+import { Tabs, TabsTitle, TabsList, Tab, TabPanel } from "@i-dot-ai-npm/component-library-solid";
 
 export default function Example() {
   return (
