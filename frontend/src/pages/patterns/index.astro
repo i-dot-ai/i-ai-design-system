@@ -1,0 +1,15 @@
+---
+import Layout from "@layouts/PatternsLayout.astro";
+import Example from "@components/docs/example.astro";
+import CodeBlock from "@components/docs/code-block.astro";
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("patterns", "index");
+if (!entry) throw new Error("Missing patterns/index.mdx");
+const { Content } = await render(entry);
+---
+
+<Layout>
+  <h1 class="govuk-heading-xl">{entry.data.title}</h1>
+  <Content components={{ Example, CodeBlock }} />
+</Layout>

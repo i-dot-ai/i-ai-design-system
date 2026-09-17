@@ -1,0 +1,51 @@
+---
+/*
+ * CopyButton — a small tertiary GOV.UK button that copies a code string to the
+ * clipboard. Used by the docs CodeBlock and Example components.
+ *
+ * The code is passed as a prop and stored on a data attribute; a single
+ * delegated client script handles the copy + "Copied" feedback for every
+ * instance on the page.
+ */
+import { Button } from "@i-dot-ai-npm/component-library-astro";
+
+interface Props {
+    /** The exact text to copy to the clipboard. */
+    code: string;
+}
+
+const { code } = Astro.props;
+---
+
+<Button
+    type="button"
+    tertiary
+    small
+    class="app-copy-button"
+    data-copy={code}
+    data-copy-label="Copy code"
+>
+    Copy code
+</Button>
+
+<script>
+    document.addEventListener("click", async (event) => {
+        const target = event.target as HTMLElement;
+        const button = target.closest<HTMLElement>(".app-copy-button");
+        if (!button) return;
+
+        const code = button.dataset.copy ?? "";
+        const original = button.dataset.copyLabel ?? button.textContent ?? "";
+
+        try {
+            await navigator.clipboard.writeText(code);
+            button.textContent = "Copied";
+        } catch {
+            button.textContent = "Press Ctrl+C to copy";
+        }
+
+        window.setTimeout(() => {
+            button.textContent = original;
+        }, 2000);
+    });
+</script>

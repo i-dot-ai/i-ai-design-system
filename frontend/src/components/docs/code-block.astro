@@ -1,0 +1,55 @@
+---
+/*
+ * CodeBlock — renders a single example file as a syntax-highlighted code box,
+ * using the same Astro <Code> formatter (Shiki, github-light) as the component
+ * examples. Unlike <Example> it shows no live preview and no framework tabs —
+ * just the one file's code.
+ *
+ * The file is referenced by relative path from the entry's index.mdx
+ * (e.g. code="./examples/default.astro"). The `component` prop is the slug of
+ * the entry folder, used with `collection` to resolve the path unambiguously.
+ */
+import { Code } from "astro:components";
+import CopyButton from "@components/docs/copy-button.astro";
+
+interface Props {
+    /** Relative path to the example file, e.g. "./examples/default.astro". */
+    code: string;
+    /** Entry folder slug (from the page), used to resolve the path. */
+    component: string;
+    /** Content collection the entry lives in. Defaults to "components". */
+    collection?: "components" | "styles" | "decisions" | "get-started" | "patterns";
+}
+
+const { code, component, collection = "components" } = Astro.props;
+
+const files = import.meta.glob(
+    "/src/content/{components,styles,decisions,get-started,patterns}/**/examples/*.{astro,html,svelte,tsx,scss,css,sh}",
+    { query: "?raw", import: "default", eager: true },
+) as Record<string, string>;
+
+const tail = code.replace(/^\.\//, "");
+const suffix = `/${collection}/${component}/${tail}`;
+const hit = Object.entries(files).find(([key]) => key.endsWith(suffix));
+const source = hit?.[1] ?? "";
+
+// Map file extension to a Shiki language.
+const SHIKI: Record<string, string> = {
+    astro: "astro",
+    html: "html",
+    svelte: "svelte",
+    tsx: "tsx",
+    scss: "scss",
+    css: "css",
+    sh: "sh",
+};
+const ext = tail.split(".").pop() ?? "";
+const lang = SHIKI[ext] ?? "html";
+---
+
+<div class="app-code-example">
+    <CopyButton code={source} />
+    <div class="code-example">
+        <Code code={source} lang={lang as any} theme="github-light" />
+    </div>
+</div>

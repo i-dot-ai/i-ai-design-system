@@ -45,6 +45,25 @@
   padding: 20px;
 }
 
+.app-code-example {
+  position: relative;
+  border: 1px solid var(--govuk-border-colour);
+  padding-top: 2rem;
+  margin-bottom: 20px;
+}
+
+.component-container+.govuk-details .app-code-example {
+  border: none;
+}
+
+.app-code-example .app-copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
 .app-swatch {
   display: inline-block;
   width: 24px;
