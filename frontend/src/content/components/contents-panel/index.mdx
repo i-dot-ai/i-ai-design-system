@@ -1,0 +1,37 @@
+---
+name: Contents panel
+status: new
+---
+
+## Default
+
+<Example component="contents-panel" html="./examples/default.html" astro="./examples/default.astro" react="./examples/default.react.tsx" />
+
+## When to use this component
+
+Use the contents panel on content-heavy pages that are split across many pages,
+such as a multi-page user guide, so users can see the pages in a section and
+move between them.
+
+It works best as a persistent side navigation on public-facing content pages
+where readers need to orient themselves within a longer body of content and
+jump directly to the page they need.
+
+## When not to use this component
+
+Do not use the contents panel for short content that fits comfortably on a
+single page — the extra navigation adds noise without helping the user.
+
+Do not use it to navigate between the top-level sections of a service. Use the
+[Service navigation component](/components/service-navigation/) for that
+instead.
+
+## How it works
+
+The contents panel is a `<nav>` landmark with a visually hidden heading, so
+assistive technology announces it as a navigation region.
+
+Inside it, list the pages as links. Optionally group them under one or more
+list headings. Mark the page the user is currently on with the current
+modifier, which draws a left-hand indicator and sets `aria-current="page"` on
+the link so it is announced to screen readers.
