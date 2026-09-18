@@ -19,10 +19,6 @@
 
 @custom-variant aria-current (&[aria-current="page"]);
 
-.app-masthead {
-  background-color: #d2e2f1;
-}
-
 .component-render-options-container,
 .component-container {
   padding: 20px;

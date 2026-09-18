@@ -2,12 +2,10 @@
 // See: https://frontend.design-system.service.gov.uk/using-govuk-frontend-without-govuk-branding/
 //
 // Change the values below to match your service's branding.
-@use "govuk-frontend" as * with (
-  // Use a non-GDS Transport font stack (GDS Transport is GOV.UK-branded).
+@use "govuk-frontend" as * with ( // Use a non-GDS Transport font stack (GDS Transport is GOV.UK-branded).
   $govuk-font-family: ("Helvetica Neue", Helvetica, Arial, sans-serif),
   // Set your own brand colour (used e.g. for footer border).
-  $govuk-functional-colours: (brand: #16548a)
-);
+  $govuk-functional-colours: (brand: #16548a));
 
 // i.AI override layer — must come after govuk-frontend's base styles.
-@use "@i-dot-ai-npm/component-library-frontend/scss";
+@use "@i-dot-ai-npm/component-library-frontend/css";
