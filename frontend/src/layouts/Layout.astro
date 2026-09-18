@@ -2,7 +2,11 @@
 import "../styles/govuk.scss";
 import "../styles/global.css";
 
-import { ServiceNavigation, ServiceNavigationItem, Header } from "@i-dot-ai-npm/component-library-astro";
+import {
+	ServiceNavigation,
+	ServiceNavigationItem,
+	Header,
+} from "@i-dot-ai-npm/component-library-astro";
 const pathName = Astro.url.pathname;
 ---
 
@@ -41,19 +45,34 @@ const pathName = Astro.url.pathname;
 			i.AI Design Kit
 		</Header>
 		<ServiceNavigation>
-			<ServiceNavigationItem href="/get-started">
+			<ServiceNavigationItem
+				href="/get-started"
+				active={pathName.includes("/get-started")}
+			>
 				Get started
 			</ServiceNavigationItem>
-			<ServiceNavigationItem href="/styles">
+			<ServiceNavigationItem
+				href="/styles"
+				active={pathName.includes("/styles")}
+			>
 				Styles
 			</ServiceNavigationItem>
-			<ServiceNavigationItem href="/components">
+			<ServiceNavigationItem
+				href="/components"
+				active={pathName.includes("/components")}
+			>
 				Components
 			</ServiceNavigationItem>
-			<ServiceNavigationItem href="/patterns">
+			<ServiceNavigationItem
+				href="/patterns"
+				active={pathName.includes("/patterns")}
+			>
 				Patterns
 			</ServiceNavigationItem>
-			<ServiceNavigationItem href="/decisions-record">
+			<ServiceNavigationItem
+				href="/decisions-record"
+				active={pathName.includes("/decisions-record")}
+			>
 				Decisions record
 			</ServiceNavigationItem>
 		</ServiceNavigation>

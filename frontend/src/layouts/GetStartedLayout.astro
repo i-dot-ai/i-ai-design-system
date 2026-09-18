@@ -1,10 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import SideNav from "@components/side-nav/side-nav.astro";
-import SideNavItem from "@components/side-nav/side-nav-item.astro";
-import SideNavList from "@components/side-nav/side-nav-list.astro";
-import { Breadcrumbs, BreadcrumbItem } from "@i-dot-ai-npm/component-library-astro";
-import SideNavTitle from "@components/side-nav/side-nav-title.astro";
+import {
+    Breadcrumbs,
+    BreadcrumbItem,
+    ContentsPanel,
+    ContentsPanelList,
+    ContentsPanelItem,
+    ContentsPanelListHeading,
+} from "@i-dot-ai-npm/component-library-astro";
 
 const currentPath = Astro.url.pathname;
 
@@ -21,44 +24,55 @@ const useTheKitPages = [
         text: "Apply the Design Kit to an existing product",
         href: "/get-started/apply-the-kit-to-an-existing-product",
     },
-
 ];
 const collaboratePages = [
     {
         text: "Add to the Design kit",
         href: "/get-started/kit-forum",
     },
-]
+];
 ---
 
 <Layout>
     <div class="govuk-main-wrapper govuk-width-container">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-one-quarter">
-                <SideNav>
-                    <SideNavTitle>Set up guides</SideNavTitle>
-                    <SideNavList>
+                <ContentsPanel>
+                    <ContentsPanelListHeading
+                        >Set up guides</ContentsPanelListHeading
+                    >
+                    <ContentsPanelList>
                         {
                             useTheKitPages.map((category) => (
-                                <SideNavItem
-                                text={category.text}
-                                href={category.href}
-                                />
+                                <ContentsPanelItem
+                                    href={category.href}
+                                    current={currentPath.includes(
+                                        category.href,
+                                    )}
+                                >
+                                    {category.text}
+                                </ContentsPanelItem>
                             ))
                         }
-                    </SideNavList>
-                    <SideNavTitle>Contribution guides</SideNavTitle>
-                    <SideNavList>
+                    </ContentsPanelList>
+                    <ContentsPanelListHeading
+                        >Contribution guides</ContentsPanelListHeading
+                    >
+                    <ContentsPanelList>
                         {
                             collaboratePages.map((category) => (
-                                <SideNavItem
-                                text={category.text}
-                                href={category.href}
-                                />
+                                <ContentsPanelItem
+                                    href={category.href}
+                                    current={currentPath.includes(
+                                        category.href,
+                                    )}
+                                >
+                                    {category.text}
+                                </ContentsPanelItem>
                             ))
                         }
-                    </SideNavList>
-                </SideNav>
+                    </ContentsPanelList>
+                </ContentsPanel>
             </div>
             <div class="govuk-grid-column-three-quarters">
                 <Breadcrumbs>
