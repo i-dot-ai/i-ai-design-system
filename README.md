@@ -86,9 +86,9 @@ When you cut and deploy your application, it will initially be available at the 
 - Prod - `https://i-ai-design-system.internal.i.ai.gov.uk`
 
 Applications can also be added to the i.AI Edge Network, which will provide a public-facing (i.e. non-whitelisted) URL for production:
-- Dev - `https://i-ai-design-system.dev.i.ai.gov.uk`
-- Preprod - `https://i-ai-design-system.preprod.i.ai.gov.uk`
-- Prod - `https://i-ai-design-system.i.ai.gov.uk`
+- Dev - `https://i-ai-design-system.dev.ai.gov.uk`
+- Preprod - `https://i-ai-design-system.preprod.ai.gov.uk`
+- Prod - `https://i-ai-design-system.ai.gov.uk`
 
 > Note: All three "Edge" URLs will be created, but only the production URL will have the whitelist removed.
 
